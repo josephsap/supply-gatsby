@@ -14,13 +14,17 @@ module.exports = {
     author: `JOE SAP`,
   },
   plugins: [
+    'gatsby-plugin-top-layout',
+    'gatsby-plugin-react-helmet',
     {
-      resolve: `gatsby-plugin-typography`,
+      resolve: `gatsby-plugin-material-ui`,
       options: {
-        pathToConfigModule: `src/utils/typography`,
+        stylesProvider: {
+          injectFirst: true,
+        },
       },
     },
-    `gatsby-plugin-sass`,
+    `gatsby-plugin-emotion`,
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

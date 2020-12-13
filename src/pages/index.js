@@ -1,6 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import { Typography, Button } from '@material-ui/core';
 import Container from '../components/container';
 
 
@@ -31,12 +32,13 @@ const Home = () => {
 
   return (
     <Container>
-      <div style={{ color: `purple` }}>
+      <Button variant="contained" color="primary">CLICK TEST</Button>
+      <div>
         {allContentfulHomepage35.nodes.map(item => {
           return (
             <div key={item.id}>
-              <h1>{item.title}</h1>
-              <p>{item.bodyTextRegular.bodyTextRegular}</p>
+              <Typography variant="h1" gutterBottom>{item.title}</Typography>
+              <Typography variant="body1">{item.bodyTextRegular.bodyTextRegular}</Typography>
               <Img 
                 alt={item.image.title}
                 fluid={item.image.fluid}

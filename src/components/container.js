@@ -1,5 +1,5 @@
 import React from "react"
-import containerStyles from "./container.module.scss"
+import styles from "./container.styles"
 import { Link } from "gatsby"
 
 const ListLink = props => (
@@ -10,7 +10,7 @@ const ListLink = props => (
 
 export default function Container({ children }) {
   return (
-    <div className={containerStyles.container}>
+    <div css={styles}>
       <header style={{ marginBottom: `1.5rem` }}>
         <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
           <h3 style={{ display: `inline` }}>website</h3>
