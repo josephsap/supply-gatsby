@@ -7,4 +7,10 @@ const styles = theme => css`
   max-width: 600px;
 `;
 
+export const bgStyles = css`
+  .bgChange {
+    background-color: aqua;
+  }
+`;
+
 export default styles;
