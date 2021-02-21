@@ -2,9 +2,9 @@ import React, { useState, useRef } from "react"
 import styles from "./navigation.styles"
 import { Link, animateScroll as scroll } from "react-scroll";
 
-const Navigation = ({ handleSetActive }) => {
+const Navigation = ({ handleSetActive, handleSetInactive }) => {
 
-
+  console.log(handleSetInactive, '************')
   return (
     <div css={styles} id="navbar">
       <div className="nav-wrapper">
@@ -13,9 +13,9 @@ const Navigation = ({ handleSetActive }) => {
           to="section0"
           spy={true}
           smooth={true}
-          offset={-10}
-          duration={300}
-          onSetActive={(to) => handleSetActive(to)}
+          offset={-50}
+          duration={40}
+          // onSetActive={(to) => handleSetActive(to)}
           className="nav-item"><span>A</span>
         </Link>
         <Link
@@ -23,9 +23,9 @@ const Navigation = ({ handleSetActive }) => {
           to="section1"
           spy={true}
           smooth={true}
-          offset={-10}
-          duration={300}
-          onSetActive={(to) => handleSetActive(to)}
+          offset={-50}
+          duration={40}
+          // onSetActive={(to) => handleSetActive(to)}
           className="nav-item"><span>B</span>
         </Link>
         <Link
@@ -33,9 +33,10 @@ const Navigation = ({ handleSetActive }) => {
           to="section2"
           spy={true}
           smooth={true}
-          offset={-10}
-          duration={300}
+          offset={-50}
+          duration={40}
           onSetActive={(to) => handleSetActive(to)}
+          // onSetInactive={(to) => handleSetInactive(to)}
           className="nav-item"><span>C</span>
         </Link>
         <Link
@@ -43,9 +44,9 @@ const Navigation = ({ handleSetActive }) => {
           to="section3"
           spy={true}
           smooth={true}
-          offset={-10}
-          duration={300}
-          onSetActive={(to) => handleSetActive(to)}
+          offset={-50}
+          duration={40}
+          // onSetActive={(to) => handleSetActive(to)}
           className="nav-item"><span>D</span>
         </Link>
         <Link
@@ -53,9 +54,9 @@ const Navigation = ({ handleSetActive }) => {
           to="section4"
           spy={true}
           smooth={true}
-          offset={-10}
-          duration={300}
-          onSetActive={(to) => handleSetActive(to)}
+          offset={-50}
+          duration={40}
+          // onSetActive={(to) => handleSetActive(to)}
           className="nav-item"><span>E</span>
         </Link>
         <Link
@@ -63,9 +64,9 @@ const Navigation = ({ handleSetActive }) => {
           to="section5"
           spy={true}
           smooth={true}
-          offset={-10}
-          duration={300}
-          onSetActive={(to) => handleSetActive(to)}
+          offset={-50}
+          duration={40}
+          // onSetActive={(to) => handleSetActive(to)}
           className="nav-item"><span>E</span>
         </Link>
         <Link
@@ -73,9 +74,9 @@ const Navigation = ({ handleSetActive }) => {
           to="section6"
           spy={true}
           smooth={true}
-          offset={-10}
-          duration={300}
-          onSetActive={(to) => handleSetActive(to)}
+          offset={-50}
+          duration={40}
+          // onSetActive={(to) => handleSetActive(to)}
           className="nav-item"><span>E</span>
         </Link>
       </div>

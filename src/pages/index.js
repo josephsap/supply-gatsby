@@ -4,7 +4,7 @@ import Img from "gatsby-image"
 import { Typography, Button } from '@material-ui/core';
 import Container from '../components/container';
 import Navigation from '../components/navigation';
-import { bgStyles } from '../components/container.styles';
+import styles from '../components/index.styles';
 
 
 // query getHeroAndClientsSections {
@@ -131,35 +131,33 @@ const Home = () => {
 
   const [activeSection, setActiveSection] = useState(null);
   const itemsRef = useRef([]);
-  console.log(itemsRef.current)
+
   const handleSetActive = (to) => {
     setActiveSection(to);
-    console.log(activeSection, 'activv')
-    // itemsRef.current = itemsRef.current.slice(0, 7);
-    // console.log(itemsRef.current.id, 'reffff')
-    // console.log(itemsRef.current.slice(0, 7), 'PPP')
+  };
+
+  const handleSetInactive = (to) => {
+    setActiveSection(to)
   };
 
   useEffect(() => {
     itemsRef.current = itemsRef.current.slice(0, items.length);
-    console.log(itemsRef.current)
   }, [items]);
 
   return (
     <Container>
-      <Navigation handleSetActive={handleSetActive} />
+      <Navigation handleSetActive={handleSetActive} handleSetInactive={handleSetInactive} />
       <Button variant="contained" color="primary">CLICK TEST</Button>
-      <div css={bgStyles}>
+      <div css={styles}>
         {items.map((section, index) => {
-          console.log(index)
           return (
             <div
               key={index}
               id={`section${[index]}`}
               style={{ border: '1px solid', height: '700px', }}
               ref={el => itemsRef.current[index] = el}
-              className={
-                itemsRef.current.length > 0 ? (activeSection === itemsRef.current[index].id ? 'bgChange' : '') : null
+              css={
+                itemsRef.current.length > 0 ? (activeSection === itemsRef.current[index].id ? styles({activeSection, index: itemsRef.current[index].id}) : '') : null
               }
             >
               {`section${[index]}`}
