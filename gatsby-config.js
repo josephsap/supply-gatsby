@@ -33,6 +33,7 @@ module.exports = {
       options: {
         spaceId: `1wmnm7ky08ew`,
         accessToken: `0q8Z9KA6Pt7YSIONnZj23fxci18TIWjk4iVjkZQxOC4`,
+        useNameForId: false,
       },
     },
   ],
