@@ -103,6 +103,12 @@ const theme = createMuiTheme({
           transition: '0.25s ease',
         },
       }
+    },
+    MuiContainer: {
+      root: {
+        paddingLeft: '4rem',
+        paddingRight: '4rem',
+      },
     }
   }
 });
