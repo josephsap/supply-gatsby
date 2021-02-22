@@ -17,7 +17,7 @@ const Navigation = () => {
           to="section1"
           spy={true}
           smooth={true}
-          offset={-30}
+          offset={-60}
           duration={300}
           className="nav-item"><span>A</span>
         </Link>
@@ -26,7 +26,7 @@ const Navigation = () => {
           to="section2"
           spy={true}
           smooth={true}
-          offset={-30}
+          // offset={-30}
           duration={300}
           className="nav-item"><span>B</span>
         </Link>
@@ -35,7 +35,7 @@ const Navigation = () => {
           to="section3"
           spy={true}
           smooth={true}
-          offset={-30}
+          // offset={-30}
           duration={300}
           className="nav-item"><span>C</span>
         </Link>
@@ -44,7 +44,7 @@ const Navigation = () => {
           to="section4"
           spy={true}
           smooth={true}
-          offset={-30}
+          // offset={-30}
           duration={300}
           className="nav-item"><span>D</span>
         </Link>
@@ -53,7 +53,7 @@ const Navigation = () => {
           to="section5"
           spy={true}
           smooth={true}
-          offset={-30}
+          // offset={-30}
           duration={300}
           className="nav-item"><span>E</span>
         </Link>
@@ -62,7 +62,7 @@ const Navigation = () => {
           to="section6"
           spy={true}
           smooth={true}
-          offset={-30}
+          // offset={-30}
           duration={300}
           className="nav-item"><span>E</span>
         </Link>
@@ -71,7 +71,7 @@ const Navigation = () => {
           to="section7"
           spy={true}
           smooth={true}
-          offset={-30}
+          // offset={-30}
           duration={300}
           className="nav-item"><span>E</span>
         </Link>

@@ -11,7 +11,7 @@ const ListLink = props => (
 export default function Container({ children }) {
   return (
     <div css={styles}>
-      <header style={{ marginBottom: `1.5rem` }}>
+      {/* <header style={{ marginBottom: `1.5rem` }}>
         <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
           <h3 style={{ display: `inline` }}>website</h3>
         </Link>
@@ -20,7 +20,7 @@ export default function Container({ children }) {
           <ListLink to="/about/">About</ListLink>
           <ListLink to="/about-css-modules/">Contact</ListLink>
         </ul>
-      </header>
+      </header> */}
       {children}
     </div>
   )

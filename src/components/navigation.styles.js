@@ -16,7 +16,7 @@ const styles = css`
     cursor: pointer;
     align-items: center;
     justify-content: center;
-    transition: width 500ms cubic-bezier(0.4, 0.0, 0.2, 1);
+    transition: width 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
     
     &:nth-child(1){
       background-color: #FF8B8B;

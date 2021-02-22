@@ -4,14 +4,25 @@ import Img from "gatsby-image"
 import { Typography, Button } from '@material-ui/core';
 import Container from '../components/container';
 import Navigation from '../components/navigation';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 export const PAGE_DATA_QUERY = graphql`
   query pageDataQuery {
+    allContentfulHeroSection {
+      nodes {
+        heroCopyRtTest {
+          raw
+        }
+      }
+    }
     contentfulHeroSection {
       heroCopy {
         childMarkdownRemark {
           html
         }
+      }
+      heroCopyRtTest {
+        raw
       }
       introCopy {
         childMarkdownRemark {
@@ -92,18 +103,21 @@ export const PAGE_DATA_QUERY = graphql`
 
 const Home = ({ data }) => {
   //http://localhost:8000/___graphql
-
+  // console.log(JSON.stringify(data.allContentfulHeroSection, null, 4))
+  // console.log('hihihihi', JSON.parse(data.contentfulHeroSection.heroCopyRtTest.raw))
   return (
     <Container>
       <Navigation />
-      <Button variant="contained" color="primary">CLICK TEST</Button>
       <div>
         <div id="section1" style={{ border: '1px solid', height: '700px', }}>
-          <h1 dangerouslySetInnerHTML={{
+          <div className="richTextSection">
+            {documentToReactComponents(JSON.parse(data.contentfulHeroSection.heroCopyRtTest.raw))}
+          </div>
+          <Typography variant="h1" dangerouslySetInnerHTML={{
               __html: data.contentfulHeroSection.heroCopy.childMarkdownRemark.html
             }}
           />
-          <p dangerouslySetInnerHTML={{
+          <Typography variant="body1" dangerouslySetInnerHTML={{
               __html: data.contentfulHeroSection.introCopy.childMarkdownRemark.html
             }}
           />
