@@ -5,39 +5,109 @@ import { Typography, Button } from '@material-ui/core';
 import Container from '../components/container';
 import Navigation from '../components/navigation';
 
-const Home = () => {
-  // const { allContentfulHomepage35 } = useStaticQuery(
-  //   graphql`
-  //   query {
-  //     allContentfulHomepage35 {
-  //       nodes {
-  //         image {
-  //           id
-  //           title
-  //           fluid(maxWidth: 1200) {
-  //             ...GatsbyContentfulFluid
-  //           }
-  //         }
-  //         title
-  //         id
-  //         bodyTextRegular {
-  //           id
-  //           bodyTextRegular
-  //         }
-  //       }
-  //     }
-  //   }
-  // `
-  // );
+export const PAGE_DATA_QUERY = graphql`
+  query pageDataQuery {
+    contentfulHeroSection {
+      heroCopy {
+        childMarkdownRemark {
+          html
+        }
+      }
+      introCopy {
+        childMarkdownRemark {
+          html
+        }
+      }
+    }
+    contentfulWhoWeWorkWithSection {
+      whoWeWorkWithTitle
+      talentItem {
+        jobCategory
+        jobTitle
+      }
+      clientItem {
+        specialty
+        specialtyItem
+      }
+    }
+    contentfulServicesSection {
+      title
+      description {
+        description
+      }
+      serviceItem {
+        title
+        description {
+          description
+        }
+      }
+    }
+    contentfulWhyUsSection {
+      title
+      description {
+        description
+      }
+    }
+    contentfulGivingBackSection {
+      rightSideTitle
+      rightSideCopy {
+        rightSideCopy
+      }
+      leftSideCopy {
+        leftSideCopy
+      }
+      leftSideTitle
+      orgsModalCopy {
+        orgsModalCopy
+      }
+    }
+    contentfulNetworkSection {
+      title
+      description {
+        description
+      }
+      networkAttributeItem {
+        title
+        description {
+          description
+        }
+      }
+    }
+    contentfulTools {
+      title
+      description {
+        description
+      }
+      toolLinkItem {
+        title
+        description {
+          description
+        }
+        link
+        linkText
+      }
+    }
+  }
+`;
 
-  const sectionRef = useRef();
+const Home = ({ data }) => {
+  //http://localhost:8000/___graphql
 
   return (
     <Container>
       <Navigation />
       <Button variant="contained" color="primary">CLICK TEST</Button>
       <div>
-        <div id="section1" style={{ border: '1px solid', height: '700px', }}>one</div>
+        <div id="section1" style={{ border: '1px solid', height: '700px', }}>
+          <h1 dangerouslySetInnerHTML={{
+              __html: data.contentfulHeroSection.heroCopy.childMarkdownRemark.html
+            }}
+          />
+          <p dangerouslySetInnerHTML={{
+              __html: data.contentfulHeroSection.introCopy.childMarkdownRemark.html
+            }}
+          />
+        </div>
         <div id="section2" style={{ border: '1px solid', height: '700px', }}>two</div>
         <div id="section3" style={{ border: '1px solid', height: '700px', }}>three</div>
         <div id="section4" style={{ border: '1px solid', height: '700px', }}>four</div>
