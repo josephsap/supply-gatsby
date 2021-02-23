@@ -107,7 +107,7 @@ const Home = ({ data }) => {
         <HeroSection contentfulHeroSection={contentfulHeroSection} />
         <WhoWeWorkWith contentfulWhoWeWorkWithSection={contentfulWhoWeWorkWithSection} />
         <Services contentfulServicesSection={contentfulServicesSection} />
-        <Grid container id="section3" style={{ border: '1px solid', height: '700px', }}>three</Grid>
+        
         <Grid container id="section4" style={{ border: '1px solid', height: '700px', }}>four</Grid>
         <Grid container id="section5" style={{ border: '1px solid', height: '700px', }}>five</Grid>
         <Grid container id="section6" style={{ border: '1px solid', height: '700px', }}>six</Grid>

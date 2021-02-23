@@ -81,7 +81,18 @@ const theme = createMuiTheme({
     },
     text: {
       primary: '#162C29',
-    }
+    },
+    supply: {
+      cream,
+      pink,
+      lightPeach,
+      salmon,
+      orange,
+      goldLeather,
+      lilac,
+      cobalt,
+      seaGreen,
+    },
   },
   overrides: {
     MuiButton: {
