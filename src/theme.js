@@ -1,4 +1,3 @@
-import { red } from '@material-ui/core/colors';
 import { createMuiTheme } from '@material-ui/core/styles';
 
 const cream = { main: '#F8F7F2' };
@@ -77,11 +76,22 @@ const theme = createMuiTheme({
       ...lightPeach
     },
     background: {
-      default: '#fff0f5',
+      default: lightPeach.main,
     },
     text: {
       primary: '#162C29',
-    }
+    },
+    supply: {
+      cream,
+      pink,
+      lightPeach,
+      salmon,
+      orange,
+      goldLeather,
+      lilac,
+      cobalt,
+      seaGreen,
+    },
   },
   overrides: {
     MuiButton: {
@@ -105,10 +115,10 @@ const theme = createMuiTheme({
       }
     },
     MuiContainer: {
-      root: {
-        paddingLeft: '4rem',
-        paddingRight: '4rem',
-      },
+      // root: {
+      //   paddingLeft: '4rem',
+      //   paddingRight: '4rem',
+      // },
     }
   }
 });

@@ -1,10 +1,13 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Container, Grid } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import Navigation from '../components/navigation';
 import HeroSection from '../components/heroSection';
-import WhoWeWorkWith from "../components/whoWeWorkWith";
+import WhoWePartnerWith from "../components/whoWePartnerWith";
 import Services from '../components/services';
+import WhyUsSection from '../components/whyUs';
+import GivingBackSection from '../components/givingBack';
+import NetworkSection from '../components/network';
 
 export const PAGE_DATA_QUERY = graphql`
   query pageDataQuery {
@@ -20,54 +23,74 @@ export const PAGE_DATA_QUERY = graphql`
     }
     contentfulWhoWeWorkWithSection {
       whoWeWorkWithTitle
+      talentclientToggle
       talentItem {
+        id
         jobCategory
         jobTitle
       }
       clientItem {
+        id
         specialty
         specialtyItem
       }
     }
     contentfulServicesSection {
       title
-      description {
-        description
-      }
       serviceItem {
         title
+        id
+        iconImage {
+          file {
+            url
+          }
+        }
         description {
           description
         }
+      }
+      description {
+        description
       }
     }
     contentfulWhyUsSection {
       title
       description {
-        description
+        childMarkdownRemark {
+          html
+        }
       }
     }
     contentfulGivingBackSection {
       rightSideTitle
-      rightSideCopy {
-        rightSideCopy
-      }
-      leftSideCopy {
-        leftSideCopy
-      }
       leftSideTitle
+      leftSideCopy {
+        childMarkdownRemark {
+          html
+        }
+      }
+      rightSideCopy {
+        childMarkdownRemark {
+          html
+        }
+      }
+      orgsModalLinkText
       orgsModalCopy {
-        orgsModalCopy
+        childMarkdownRemark {
+          html
+        }
       }
     }
     contentfulNetworkSection {
       title
       description {
-        description
+        childMarkdownRemark {
+          html
+        }
       }
       networkAttributeItem {
         title
-        description {
+        childContentfulNetworkAttributeItemDescriptionTextNode {
           description
         }
       }
@@ -101,18 +124,16 @@ const Home = ({ data }) => {
   } = data;
   console.log(data)
   return (
-      <>
+    <>
       <Navigation />
-      <Container maxWidth="lg">
-        <HeroSection contentfulHeroSection={contentfulHeroSection} />
-        <WhoWeWorkWith contentfulWhoWeWorkWithSection={contentfulWhoWeWorkWithSection} />
-        <Services contentfulServicesSection={contentfulServicesSection} />
-        <Grid container id="section3" style={{ border: '1px solid', height: '700px', }}>three</Grid>
-        <Grid container id="section4" style={{ border: '1px solid', height: '700px', }}>four</Grid>
-        <Grid container id="section5" style={{ border: '1px solid', height: '700px', }}>five</Grid>
-        <Grid container id="section6" style={{ border: '1px solid', height: '700px', }}>six</Grid>
+        <HeroSection heroSection={contentfulHeroSection} />
+        <WhoWePartnerWith whoWeWorkWithSection={contentfulWhoWeWorkWithSection} />
+        <Services servicesSection={contentfulServicesSection} />
+        <WhyUsSection whyUsSection={contentfulWhyUsSection} />
+        <GivingBackSection givingBackSection={contentfulGivingBackSection} />
+        <NetworkSection networkSection={contentfulNetworkSection} />
         <Grid container id="section7" style={{ border: '1px solid', height: '700px', }}>seven</Grid>
-      </Container>
+      
     </>
   )
 };

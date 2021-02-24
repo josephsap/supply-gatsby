@@ -1,19 +1,27 @@
 import React from "react"
-import { Typography, Grid, Box } from '@material-ui/core';
+import { Container, Typography, Grid, Box } from '@material-ui/core';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import styles, { backgroundStyles, backgroundDotStyles } from './heroSection.styles';
 
-const HeroSection = ({ contentfulHeroSection }) => (
-  <Grid container id="section1" style={{ border: '1px solid', height: '700px', }}>
-    <Grid item xs={12} className="richTextSection">
-      {documentToReactComponents(JSON.parse(contentfulHeroSection.heroCopyRichText.raw))}
-    </Grid>
-    <Box>
-      <Typography variant="body1" dangerouslySetInnerHTML={{
-          __html: contentfulHeroSection.introCopy.childMarkdownRemark.html
-        }}
-      />
-    </Box>
-  </Grid>
+const HeroSection = ({ heroSection }) => (
+  <Container maxWidth={false} css={styles}>
+    <Container maxWidth="lg">
+      <Grid container id="section1" css={backgroundStyles}>
+        <div css={backgroundDotStyles}></div>
+        <Box className="content">
+          <Grid item xs={12} className="richTextSection">
+            {documentToReactComponents(JSON.parse(heroSection.heroCopyRichText.raw))}
+          </Grid>
+          <Box>
+            <Typography variant="body1" dangerouslySetInnerHTML={{
+                __html: heroSection.introCopy.childMarkdownRemark.html
+              }}
+            />
+          </Box>
+        </Box>
+      </Grid>
+    </Container>
+  </Container>
 );
 
 export default HeroSection;
