@@ -33,9 +33,21 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
         <Grid container id="section2">
           <Grid item xs={12}>
             <Typography variant="h2" component="h2">{whoWeWorkWithSection.whoWeWorkWithTitle}</Typography>
-            <Tabs value={value} onChange={handleChange} aria-label="talent tabs">
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              aria-label="talent tabs"
+              textColor="secondary"
+              className="partner-tabs"
+              TabIndicatorProps={{ className: 'tab-indicator-override' }}
+            >
               {whoWeWorkWithSection.talentclientToggle.map((item, index) => (
-                <Tab label={item} key={index} />
+                <Tab
+                  key={index}
+                  label={item}
+                  className="single-tab-item"
+                  css={{index}}
+                />
               ))}
             </Tabs>
             <TabPanel value={value} index={0}>

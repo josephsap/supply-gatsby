@@ -75,6 +75,9 @@ const theme = createMuiTheme({
     primary: {
       ...lightPeach
     },
+    secondary: {
+      main: '#FFFFFF',
+    },
     background: {
       default: lightPeach.main,
     },
