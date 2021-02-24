@@ -64,6 +64,9 @@ export const PAGE_DATA_QUERY = graphql`
           html
         }
       }
+      descriptionTwo {
+        descriptionTwo
+      }
     }
     contentfulGivingBackSection {
       rightSideTitle

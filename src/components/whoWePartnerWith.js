@@ -26,9 +26,9 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  console.log(value, 'hlahiohjklj')
+
   return (
-    <Container maxWidth={false} css={styles}>
+    <Container maxWidth={false} css={styles} className="section-padding">
       <Container maxWidth="lg">
         <Grid container id="section2">
           <Grid item xs={12}>

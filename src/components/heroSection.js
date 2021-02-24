@@ -4,7 +4,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import styles, { backgroundStyles, backgroundDotStyles } from './heroSection.styles';
 
 const HeroSection = ({ heroSection }) => (
-  <Container maxWidth={false} css={styles}>
+  <Container maxWidth={false} css={styles} className="section-padding">
     <Container maxWidth="lg">
       <Grid container id="section1" css={backgroundStyles}>
         <div css={backgroundDotStyles}></div>

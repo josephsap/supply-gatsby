@@ -3,9 +3,9 @@ import { Container, Typography, Grid, Box } from '@material-ui/core';
 import styles from './services.styles';
 
 const Services = ({ servicesSection }) => (
-  <Container maxWidth={false} css={styles}>
+  <Container maxWidth={false} css={styles} className="section-padding">
     <Container maxWidth="lg">
-      <Grid container id="section3" className="services-container">
+      <Grid container id="section3" className="border-container">
         <Grid item xs={12}>
           <Typography variant="h3" dangerouslySetInnerHTML={{
               __html: servicesSection.title.childMarkdownRemark.html

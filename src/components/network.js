@@ -2,9 +2,9 @@ import React from "react"
 import { Container, Typography, Grid, Box } from '@material-ui/core';
 
 const NetworkSection = ({ networkSection }) => (
-  <Container maxWidth={false}>
+  <Container maxWidth={false} className="section-padding">
     <Container maxWidth="lg">
-      <Grid container id="section6">
+      <Grid container id="section6" className="border-container">
         <Grid item xs={12}>
           <Typography variant="h3">{networkSection.title}</Typography>
           <Typography variant="body1" dangerouslySetInnerHTML={{

@@ -2,9 +2,9 @@ import React from "react"
 import { Container, Typography, Grid, Box } from '@material-ui/core';
 
 const GivingBackSection = ({ givingBackSection }) => (
-  <Container maxWidth={false}>
+  <Container maxWidth={false} className="section-padding">
     <Container maxWidth="lg">
-      <Grid container id="section5">
+      <Grid container id="section5" className="border-container">
         <Grid item xs={12}>
           <Typography variant="h3">{givingBackSection.leftSideTitle}</Typography>
           <Typography variant="body1" dangerouslySetInnerHTML={{
