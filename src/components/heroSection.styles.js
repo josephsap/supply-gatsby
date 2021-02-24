@@ -1,8 +1,11 @@
 import { css } from "@emotion/react";
 
-const styles = css`
-  position: relative;
-  z-index: 2;
+const styles = theme => css`
+  background-color: ${theme.palette.supply.cream.main};
+  .content {
+    position: relative;
+    z-index: 2;
+  }
 `;
 export const backgroundDotStyles = theme => css`
   background-image: radial-gradient(#e8e8e8 10%, ${theme.palette.supply.cream.main} 10%);
