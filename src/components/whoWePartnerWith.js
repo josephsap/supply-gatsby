@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Container, Typography, Grid, Tab, Tabs, Box } from '@material-ui/core';
-import styles from './whoWePartnerWith.styles';
+import styles, { tabStyles } from './whoWePartnerWith.styles';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -26,7 +26,7 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  console.log(value, 'hlahiohjklj')
   return (
     <Container maxWidth={false} css={styles}>
       <Container maxWidth="lg">
@@ -40,13 +40,13 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
               textColor="secondary"
               className="partner-tabs"
               TabIndicatorProps={{ className: 'tab-indicator-override' }}
+              css={tabStyles(value)}
             >
               {whoWeWorkWithSection.talentclientToggle.map((item, index) => (
                 <Tab
                   key={index}
                   label={item}
                   className="single-tab-item"
-                  css={{index}}
                 />
               ))}
             </Tabs>

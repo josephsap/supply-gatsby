@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 
-const styles = (theme, props) => css`
+const styles = theme => css`
   background-color: ${theme.palette.supply.pink.main};
 
   .tab-indicator-override {
@@ -22,6 +22,21 @@ const styles = (theme, props) => css`
   .Mui-selected {
     background-color: ${theme.palette.text.primary};
   }
+`;
+
+export const tabStyles = (value) => css`
+  ${value === 0 ? (`
+    .Mui-selected {
+      border-top-right-radius: 32px;
+      border-bottom-right-radius: 32px;
+    }
+  `) : (`
+    .Mui-selected {
+      border-top-left-radius: 32px;
+      border-bottom-left-radius: 32px;
+    }
+  `)
+  } 
 `;
 
 export default styles;
