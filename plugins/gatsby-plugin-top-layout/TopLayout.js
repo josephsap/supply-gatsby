@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { DndProvider } from 'react-dnd'
+import { HTML5Backend } from 'react-dnd-html5-backend'
 import { Global, ThemeProvider } from "@emotion/react"
 import { ThemeProvider as MaterialUiThemeProvider } from '@material-ui/core/styles';
 import theme from '../../src/theme';
@@ -21,7 +23,9 @@ const TopLayout = (props) => {
         <ThemeProvider theme={theme}>
           <Global styles={styles} />
           <CssBaseline />
-          {props.children}
+          <DndProvider backend={HTML5Backend}>
+            {props.children}
+          </DndProvider>
         </ThemeProvider>
       </MaterialUiThemeProvider>
     </React.Fragment>

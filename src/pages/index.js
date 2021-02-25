@@ -9,6 +9,7 @@ import WhyUsSection from '../components/whyUs';
 import GivingBackSection from '../components/givingBack';
 import NetworkSection from '../components/network';
 
+
 export const PAGE_DATA_QUERY = graphql`
   query pageDataQuery {
     contentfulHeroSection {
@@ -133,14 +134,13 @@ const Home = ({ data }) => {
   return (
     <>
       <Navigation />
-        <HeroSection heroSection={contentfulHeroSection} />
-        <WhoWePartnerWith whoWeWorkWithSection={contentfulWhoWeWorkWithSection} />
-        <Services servicesSection={contentfulServicesSection} />
-        <WhyUsSection whyUsSection={contentfulWhyUsSection} />
-        <GivingBackSection givingBackSection={contentfulGivingBackSection} />
-        <NetworkSection networkSection={contentfulNetworkSection} />
-        <Grid container id="section7" style={{ border: '1px solid', height: '700px', }}>seven</Grid>
-      
+      <HeroSection heroSection={contentfulHeroSection} />
+      <WhoWePartnerWith whoWeWorkWithSection={contentfulWhoWeWorkWithSection} />
+      <Services servicesSection={contentfulServicesSection} />
+      <WhyUsSection whyUsSection={contentfulWhyUsSection} />
+      <GivingBackSection givingBackSection={contentfulGivingBackSection} />
+      <NetworkSection networkSection={contentfulNetworkSection} />
+      <Grid container id="section7" style={{ border: '1px solid', height: '700px', }}>seven</Grid>
     </>
   )
 };

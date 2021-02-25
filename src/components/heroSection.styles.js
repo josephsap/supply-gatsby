@@ -7,6 +7,7 @@ const styles = theme => css`
     z-index: 2;
   }
 `;
+
 export const backgroundDotStyles = theme => css`
   background-image: radial-gradient(#e8e8e8 10%, ${theme.palette.supply.cream.main} 10%);
   background-position: 0 0;
