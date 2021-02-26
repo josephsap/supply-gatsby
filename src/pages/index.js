@@ -37,11 +37,7 @@ export const PAGE_DATA_QUERY = graphql`
       }
     }
     contentfulServicesSection {
-      title {
-        childMarkdownRemark {
-          html
-        }
-      }
+      title
       serviceItem {
         title
         id

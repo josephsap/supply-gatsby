@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Container, Typography, Grid, Tab, Tabs, Box } from '@material-ui/core';
+import { Container, Popover, Typography, Grid, Tab, Tabs, Box } from '@material-ui/core';
 import styles, { tabStyles } from './whoWePartnerWith.styles';
 
 function TabPanel(props) {
@@ -30,7 +30,7 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
   return (
     <Container maxWidth={false} css={styles} className="section-padding">
       <Container maxWidth="lg">
-        <Grid container id="section2">
+        <Grid container id="section2" className="partner-section-container">
           <Grid item xs={12}>
             <Typography variant="h2" component="h2">{whoWeWorkWithSection.whoWeWorkWithTitle}</Typography>
             <Tabs
@@ -66,6 +66,7 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
                 </div>
               ))}
             </TabPanel>
+            <img src={`info-icon.svg`} alt="hover for more info" className="info-tooltip" />
           </Grid>
         </Grid>
       </Container>

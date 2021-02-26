@@ -51,6 +51,7 @@ const theme = createMuiTheme({
       fontFamily: '"Whyte", Helvetica, sans-serif',
       fontSize: '3.2rem',
       lineHeight: '4.2rem',
+      color: lightPeach.main,
     },
     caption: {
       fontFamily: '"Whyte", Helvetica, sans-serif',

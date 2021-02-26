@@ -7,6 +7,10 @@ const styles = theme => css`
     background: none;
   }
 
+  .partner-section-container {
+    text-align: center;
+  }
+
   .partner-tabs {
     border: 3px solid;
     text-align: center;
@@ -21,6 +25,10 @@ const styles = theme => css`
   }
   .Mui-selected {
     background-color: ${theme.palette.text.primary};
+  }
+  .info-tooltip {
+    cursor: pointer;
+    height: 35px;
   }
 `;
 

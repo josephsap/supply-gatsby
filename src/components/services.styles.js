@@ -5,6 +5,7 @@ const styles = theme => css`
 
   .items-container {
     border-top: 3px solid;
+    padding: 4rem;
   }
 
   .service-item {
@@ -13,6 +14,11 @@ const styles = theme => css`
 
   .service-item-copy {
     max-width: 43.5rem;
+  }
+
+  .services-section-top {
+    text-align: center;
+    margin: 4rem 0 6rem;
   }
 `;
 
