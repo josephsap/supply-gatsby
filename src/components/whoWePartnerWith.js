@@ -23,9 +23,21 @@ function TabPanel(props) {
 
 const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
   const [value, setValue] = useState(0);
+  const [anchorEl, setAnchorEl] = useState(null);
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  const handlePopoverOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handlePopoverClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
 
   return (
     <Container maxWidth={false} css={styles} className="section-padding">
@@ -54,7 +66,7 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
               {whoWeWorkWithSection.talentItem.map((talentItem, index)=> (
                 <div key={index}>
                   <Typography variant="h1" component="h3">{talentItem.jobCategory}</Typography>
-                  <Typography>{talentItem.jobTitle}</Typography>
+                  <Typography variant="body1">{talentItem.jobTitle}</Typography>
                 </div>
               ))}
             </TabPanel>
@@ -62,11 +74,42 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
               {whoWeWorkWithSection.clientItem.map((clientItem, index) => (
                 <div key={index}>
                   <Typography variant="h1" component="h3">{clientItem.specialty}</Typography>
-                  <Typography>{clientItem.specialtyItem}</Typography>
+                  <Typography variant="body1">{clientItem.specialtyItem}</Typography>
                 </div>
               ))}
             </TabPanel>
-            <img src={`info-icon.svg`} alt="hover for more info" className="info-tooltip" />
+            <Box mt={6}>
+              <Box
+                className="tooltip-container"
+                pt={3}
+                aria-owns={open ? 'mouse-over-popover' : undefined}
+                aria-haspopup="true"
+                onMouseEnter={handlePopoverOpen}
+                onMouseLeave={handlePopoverClose}
+              >
+                <img src={`info-icon.svg`} alt="hover for more info" className="info-tooltip" /> 
+              </Box>
+              <Popover
+                id="mouse-over-popover"
+                style={{ pointerEvents: 'none' }}
+                open={open}
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'center',
+                }}
+                transformOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'center',
+                }}
+                onClose={handlePopoverClose}
+                disableRestoreFocus
+              >
+                <Box p={3}>
+                  <Typography>{whoWeWorkWithSection.questionTooltipCopy.questionTooltipCopy}</Typography>
+                </Box>
+              </Popover>
+            </Box>
           </Grid>
         </Grid>
       </Container>

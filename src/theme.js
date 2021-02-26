@@ -118,11 +118,13 @@ const theme = createMuiTheme({
         },
       }
     },
-    MuiContainer: {
-      // root: {
-      //   paddingLeft: '4rem',
-      //   paddingRight: '4rem',
-      // },
+    MuiPopover: {
+      paper: {
+        maxWidth: '400px',
+        transform: 'rotate(-15deg)',
+        borderRadius: '8px',
+        backgroundColor: cream.main,
+      }
     }
   }
 });

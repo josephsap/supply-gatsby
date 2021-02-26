@@ -15,7 +15,7 @@ const styles = theme => css`
     border: 3px solid;
     text-align: center;
     display: table;
-    margin: 0 auto;
+    margin: 3rem auto 4rem;
     border-radius: 32px;
     line-height: 0;
   }
@@ -23,12 +23,20 @@ const styles = theme => css`
   .single-tab-item {
     text-transform: capitalize;
   }
+
   .Mui-selected {
     background-color: ${theme.palette.text.primary};
   }
+
   .info-tooltip {
-    cursor: pointer;
     height: 35px;
+    display: block;
+  }
+
+  .tooltip-container {
+    display: table;
+    margin: 0 auto;
+    cursor: pointer;
   }
 `;
 

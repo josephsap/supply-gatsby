@@ -35,6 +35,9 @@ export const PAGE_DATA_QUERY = graphql`
         specialty
         specialtyItem
       }
+      questionTooltipCopy {
+        questionTooltipCopy
+      }
     }
     contentfulServicesSection {
       title
