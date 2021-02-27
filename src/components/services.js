@@ -10,7 +10,7 @@ const Services = ({ servicesSection }) => {
       <Container maxWidth="lg">
         <Grid
           container
-          id="section3"
+          id="section2"
           className="border-container"
           direction="row"
           justify="center"

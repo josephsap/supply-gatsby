@@ -2,9 +2,18 @@ import { css } from "@emotion/react";
 
 const styles = theme => css`
   background-color: ${theme.palette.supply.cream.main};
+  
   .content {
     position: relative;
     z-index: 2;
+  }
+
+  .hero-logo {
+    position: absolute;
+    right: 40px;
+    top: 20px;
+    z-index: 2;
+    width: 215px;
   }
 `;
 

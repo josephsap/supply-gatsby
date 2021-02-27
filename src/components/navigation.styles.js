@@ -1,62 +1,74 @@
 import { css } from "@emotion/react";
 
-const styles = css`
+const styles = theme => css`
   .nav-wrapper {
     display: flex;
-    width: 100%;
+    height: 100%;
+    flex-direction: column;
     position: fixed;
     top: 0;
     left: 0;
+    bottom: 0;
+    z-index: 6;
   }
 
   .nav-item {
     position: relative;
     display: flex;
-    width: 10%;
+    height: calc(100vh / 8);
+    width: 25px;
     cursor: pointer;
     align-items: center;
     justify-content: center;
-    transition: width 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
+    transition: height 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
     
-    &:nth-child(1){
-      background-color: #FF8B8B;
+    &:nth-of-type(1){
+      background-color: ${theme.palette.supply.cream.main};
     }	
     
-    &:nth-child(2){
-      background-color: #0BBCD6;
+    &:nth-of-type(2){
+      background-color: ${theme.palette.supply.pink.main};
     }
       
-    &:nth-child(3){
-      background-color: #B18AE0;
+    &:nth-of-type(3){
+      background-color: ${theme.palette.supply.goldLeather.main};
     }
         
-    &:nth-child(4){
-      background-color: #EED974;
+    &:nth-of-type(4){
+      background-color: ${theme.palette.supply.lightPeach.main};
     }
           
-    &:nth-child(5){
-      background-color: #005397;
+    &:nth-of-type(5){
+      background-color: ${theme.palette.supply.lightPeach.main};
     }
 
-    &:nth-child(6){
-      background-color: #003497;
+    &:nth-of-type(6){
+      background-color: ${theme.palette.supply.lightPeach.main};
     }
     
-    &:nth-child(7){
-      background-color: #0b8397;
+    &:nth-of-type(7){
+      background-color: ${theme.palette.supply.seaGreen.main};
+    }
+
+    &:nth-of-type(8){
+      background-color: ${theme.palette.supply.cream.main};
     }
     
     &.active, &:hover {
-      width: 40%;
+      height: 45%;
     }
     
     span {
       opacity: 0;
+      white-space: nowrap;
+      line-height: 1;
+      font-size: 12px;
+      transform: rotate(-90deg);
       transition: opacity 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
       transition-delay: 0;
     }
     
-    &:hover span {
+    &:hover span, &.active span {
       opacity: 1;
       transition-delay: 300ms;
     }

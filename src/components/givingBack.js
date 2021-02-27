@@ -4,7 +4,7 @@ import { Container, Typography, Grid, Box } from '@material-ui/core';
 const GivingBackSection = ({ givingBackSection }) => (
   <Container maxWidth={false} className="section-padding">
     <Container maxWidth="lg">
-      <Grid container id="section5" className="border-container">
+      <Grid container id="section4" className="border-container">
         <Grid item xs={12}>
           <Typography variant="h3">{givingBackSection.leftSideTitle}</Typography>
           <Typography variant="body1" dangerouslySetInnerHTML={{

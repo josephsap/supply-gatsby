@@ -8,8 +8,9 @@ const HeroSection = ({ heroSection }) => (
   <>
     <DraggableContainer content={heroSection.introCopy.childMarkdownRemark.html} />
     <Container maxWidth={false} css={styles} className="section-padding app">
+      <img src={`supply-badge-logo.svg`} alt="The Supply" className="hero-logo" />
       <Container maxWidth="lg">
-        <Grid container id="section1" css={backgroundStyles}>
+        <Grid container id="section0" css={backgroundStyles}>
           <div css={backgroundDotStyles}></div>
             <Box className="content">
               <Grid item xs={12} className="richTextSection">

@@ -42,7 +42,7 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
   return (
     <Container maxWidth={false} css={styles} className="section-padding">
       <Container maxWidth="lg">
-        <Grid container id="section2" className="partner-section-container">
+        <Grid container id="section1" className="partner-section-container">
           <Grid item xs={12}>
             <Typography variant="h2" component="h2">{whoWeWorkWithSection.whoWeWorkWithTitle}</Typography>
             <Tabs

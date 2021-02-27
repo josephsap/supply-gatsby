@@ -6,7 +6,7 @@ const WhyUsSection = ({ whyUsSection }) => (
   <Container maxWidth={false} css={styles} className="section-padding">
     <Container maxWidth="lg">
       <Typography variant="h3">{whyUsSection.title}</Typography>
-      <Grid container id="section4" className="border-container">
+      <Grid container id="section3" className="border-container">
         <Grid item xs={12}>
           <div dangerouslySetInnerHTML={{
               __html: whyUsSection.description.childMarkdownRemark.html

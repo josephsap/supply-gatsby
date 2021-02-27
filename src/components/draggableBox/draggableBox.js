@@ -19,7 +19,7 @@ const DraggableBox = ({ id, left, top, hideSourceOnDrag, children, }) => {
   }), [id, left, top]);
 
   if (isDragging && hideSourceOnDrag) {
-    return <div ref={drag} style={{opacity: '1 !important;'}}/>;
+    return <div ref={drag} />;
   }
   
   return (

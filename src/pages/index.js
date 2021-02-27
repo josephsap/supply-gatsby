@@ -8,6 +8,7 @@ import Services from '../components/services';
 import WhyUsSection from '../components/whyUs';
 import GivingBackSection from '../components/givingBack';
 import NetworkSection from '../components/network';
+import ToolsSection from '../components/tools';
 
 
 export const PAGE_DATA_QUERY = graphql`
@@ -21,6 +22,7 @@ export const PAGE_DATA_QUERY = graphql`
           html
         }
       }
+      navTitle
     }
     contentfulWhoWeWorkWithSection {
       whoWeWorkWithTitle
@@ -108,6 +110,7 @@ export const PAGE_DATA_QUERY = graphql`
         description
       }
       toolLinkItem {
+        id
         title
         description {
           description
@@ -130,16 +133,27 @@ const Home = ({ data }) => {
     contentfulWhyUsSection,
   } = data;
   console.log(data)
+  const pageTitles = [
+    { navTitle: contentfulHeroSection.navTitle },
+    { navTitle: contentfulWhoWeWorkWithSection.whoWeWorkWithTitle },
+    { navTitle: contentfulServicesSection.title },
+    { navTitle: contentfulWhyUsSection.title },
+    { navTitle: contentfulServicesSection.title },
+    { navTitle: contentfulGivingBackSection.title },
+    { navTitle: contentfulNetworkSection.title },
+    { navTitle: contentfulTools.title },
+  ];
+
   return (
     <>
-      <Navigation />
+      <Navigation pageTitles={pageTitles} />
       <HeroSection heroSection={contentfulHeroSection} />
       <WhoWePartnerWith whoWeWorkWithSection={contentfulWhoWeWorkWithSection} />
       <Services servicesSection={contentfulServicesSection} />
       <WhyUsSection whyUsSection={contentfulWhyUsSection} />
       <GivingBackSection givingBackSection={contentfulGivingBackSection} />
       <NetworkSection networkSection={contentfulNetworkSection} />
-      <Grid container id="section7" style={{ border: '1px solid', height: '700px', }}>seven</Grid>
+      <ToolsSection toolsSection={contentfulTools} />
     </>
   )
 };
