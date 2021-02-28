@@ -9,7 +9,11 @@ const styles = theme => css`
   }
 
   .service-item {
-    padding: 4rem 6rem;
+    padding: 4rem 0;
+    ${theme.breakpoints.up('md')} {
+      padding-left: 6rem;
+      padding-right: 6rem;
+    };
   }
 
   .service-item-copy {

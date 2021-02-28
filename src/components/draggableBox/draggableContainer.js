@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDrop } from 'react-dnd';
 import DraggableBox from './draggableBox';
-import { Typography } from '@material-ui/core';
 import update from 'immutability-helper';
 
 const styles = {
@@ -9,11 +8,12 @@ const styles = {
   height: '600px',
   position: 'absolute',
   zIndex: 3,
+  overflow: 'hidden',
 };
 
 const DraggableContainer = ({ content }) => {
   const [boxes, setBoxes] = useState({
-    a: { top: 20, left: 80 },
+    a: { top: 160, left: 113 },
   });
 
 const [, drop] = useDrop(() => ({
@@ -48,7 +48,7 @@ return (
           top={top} 
           hideSourceOnDrag={true}
         >
-          <div>{content}</div>
+          <div className="rich-text-body-copy">{content}</div>
         </DraggableBox>
       );
     })}

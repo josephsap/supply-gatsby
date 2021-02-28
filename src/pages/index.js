@@ -115,6 +115,11 @@ export const PAGE_DATA_QUERY = graphql`
         }
         link
         linkText
+        icon {
+          file {
+            url
+          }
+        }
       }
     }
   }
