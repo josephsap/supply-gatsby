@@ -6,7 +6,7 @@ import styles, { backgroundStyles, backgroundDotStyles } from './heroSection.sty
 
 const HeroSection = ({ heroSection }) => (
   <>
-    <DraggableContainer content={heroSection.introCopy.childMarkdownRemark.html} />
+    <DraggableContainer content={documentToReactComponents(JSON.parse(heroSection.introCopy.raw))} />
     <Container maxWidth={false} css={styles} className="section-padding app">
       <img src={`supply-badge-logo.svg`} alt="The Supply" className="hero-logo" />
       <Container maxWidth="lg">

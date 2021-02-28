@@ -9,12 +9,11 @@ const path = require('path');
 // })
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Blog Site`,
-    description: `Write your site description here!`,
+    title: `The Supply`,
+    description: `Talent sourcing`,
     author: `JOE SAP`,
   },
   plugins: [
-    'gatsby-plugin-top-layout',
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-material-ui`,

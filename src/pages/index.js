@@ -1,7 +1,7 @@
-import React from "react"
-import { graphql } from "gatsby"
-import { Grid } from '@material-ui/core';
-import Navigation from '../components/navigation';
+import React from "react";
+import { graphql } from "gatsby";
+import Layout from '../components/layout/layout';
+import Navigation from '../components/layout/navigation';
 import HeroSection from '../components/heroSection';
 import WhoWePartnerWith from "../components/whoWePartnerWith";
 import Services from '../components/services';
@@ -18,9 +18,7 @@ export const PAGE_DATA_QUERY = graphql`
         raw
       }
       introCopy {
-        childMarkdownRemark {
-          html
-        }
+        raw
       }
       navTitle
     }
@@ -145,7 +143,7 @@ const Home = ({ data }) => {
   ];
 
   return (
-    <>
+    <Layout>
       <Navigation pageTitles={pageTitles} />
       <HeroSection heroSection={contentfulHeroSection} />
       <WhoWePartnerWith whoWeWorkWithSection={contentfulWhoWeWorkWithSection} />
@@ -154,7 +152,7 @@ const Home = ({ data }) => {
       <GivingBackSection givingBackSection={contentfulGivingBackSection} />
       <NetworkSection networkSection={contentfulNetworkSection} />
       <ToolsSection toolsSection={contentfulTools} />
-    </>
+    </Layout>
   )
 };
 

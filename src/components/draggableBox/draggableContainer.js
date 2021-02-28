@@ -48,7 +48,7 @@ return (
           top={top} 
           hideSourceOnDrag={true}
         >
-          <Typography variant="body1" dangerouslySetInnerHTML={{__html: content}} />
+          <div>{content}</div>
         </DraggableBox>
       );
     })}
