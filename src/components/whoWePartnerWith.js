@@ -1,5 +1,13 @@
-import React, { useState } from "react"
-import { Container, Popover, Typography, Grid, Tab, Tabs, Box } from '@material-ui/core';
+import React, { useState } from 'react';
+import {
+  Container,
+  Popover,
+  Typography,
+  Grid,
+  Tab,
+  Tabs,
+  Box,
+} from '@material-ui/core';
 import styles, { tabStyles } from './whoWePartnerWith.styles';
 
 function TabPanel(props) {
@@ -44,7 +52,9 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
       <Container maxWidth="lg">
         <Grid container id="section1" className="partner-section-container">
           <Grid item xs={12}>
-            <Typography variant="h2" component="h2">{whoWeWorkWithSection.whoWeWorkWithTitle}</Typography>
+            <Typography variant="h2" component="h2">
+              {whoWeWorkWithSection.whoWeWorkWithTitle}
+            </Typography>
             <Tabs
               value={value}
               onChange={handleChange}
@@ -55,17 +65,15 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
               css={tabStyles(value)}
             >
               {whoWeWorkWithSection.talentclientToggle.map((item, index) => (
-                <Tab
-                  key={index}
-                  label={item}
-                  className="single-tab-item"
-                />
+                <Tab key={index} label={item} className="single-tab-item" />
               ))}
             </Tabs>
             <TabPanel value={value} index={0}>
-              {whoWeWorkWithSection.talentItem.map((talentItem, index)=> (
+              {whoWeWorkWithSection.talentItem.map((talentItem, index) => (
                 <div key={index}>
-                  <Typography variant="h1" component="h3">{talentItem.jobCategory}</Typography>
+                  <Typography variant="h1" component="h3">
+                    {talentItem.jobCategory}
+                  </Typography>
                   <Typography variant="body1">{talentItem.jobTitle}</Typography>
                 </div>
               ))}
@@ -73,8 +81,12 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
             <TabPanel value={value} index={1}>
               {whoWeWorkWithSection.clientItem.map((clientItem, index) => (
                 <div key={index}>
-                  <Typography variant="h1" component="h3">{clientItem.specialty}</Typography>
-                  <Typography variant="body1">{clientItem.specialtyItem}</Typography>
+                  <Typography variant="h1" component="h3">
+                    {clientItem.specialty}
+                  </Typography>
+                  <Typography variant="body1">
+                    {clientItem.specialtyItem}
+                  </Typography>
                 </div>
               ))}
             </TabPanel>
@@ -87,7 +99,11 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
                 onMouseEnter={handlePopoverOpen}
                 onMouseLeave={handlePopoverClose}
               >
-                <img src={`info-icon.svg`} alt="hover for more info" className="info-tooltip" /> 
+                <img
+                  src={`images/info-icon.svg`}
+                  alt="hover for more info"
+                  className="info-tooltip"
+                />
               </Box>
               <Popover
                 id="mouse-over-popover"
@@ -106,7 +122,12 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
                 disableRestoreFocus
               >
                 <Box p={3}>
-                  <Typography>{whoWeWorkWithSection.questionTooltipCopy.questionTooltipCopy}</Typography>
+                  <Typography>
+                    {
+                      whoWeWorkWithSection.questionTooltipCopy
+                        .questionTooltipCopy
+                    }
+                  </Typography>
                 </Box>
               </Popover>
             </Box>
@@ -118,4 +139,3 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
 };
 
 export default WhoWePartnerWith;
-

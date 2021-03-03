@@ -1,0 +1,11 @@
+/* body copy font */
+@font-face {
+  font-family: 'Whyte';
+  src: url('whyte/Whyte-Book.otf');
+}
+
+/* H1 font*/
+@font-face {
+  font-family: 'Bogue-Extrabold';
+  src: url('bogue/BogueExtrabold/font.woff');
+}

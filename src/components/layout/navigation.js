@@ -4,7 +4,6 @@ import styles from './navigation.styles';
 import { Link, animateScroll as scroll } from 'react-scroll';
 
 const Navigation = ({ pageTitles }) => {
-
   return (
     <div css={styles} id="navbar">
       <div className="nav-wrapper">

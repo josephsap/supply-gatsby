@@ -2,3 +2,10 @@
 package.json
 package-lock.json
 public
+build
+coverage
+*.html
+node_modules
+static
+static.json
+README.md

@@ -35,5 +35,14 @@ module.exports = {
         useNameForId: false,
       },
     },
+    {
+      resolve: `gatsby-plugin-web-font-loader`,
+      options: {
+        custom: {
+          families: [`Whyte`, `Bogue`],
+          urls: [`/fonts/fonts.css`],
+        },
+      },
+    },
   ],
-}
+};

@@ -16,43 +16,45 @@ const DraggableContainer = ({ content }) => {
     a: { top: 160, left: 113 },
   });
 
-const [, drop] = useDrop(() => ({
-  accept: 'box',
-  drop(item, monitor) {
-    const delta = monitor.getDifferenceFromInitialOffset();
-    const left = Math.round(item.left + delta.x);
-    const top = Math.round(item.top + delta.y);
-    moveBox(item.id, left, top);
-    return undefined;
-  },
-}));
-
-const moveBox = (id, left, top) => {
-  setBoxes(update(boxes, {
-  [id]: {
-    $merge: { left, top },
-  },
+  const [, drop] = useDrop(() => ({
+    accept: 'box',
+    drop(item, monitor) {
+      const delta = monitor.getDifferenceFromInitialOffset();
+      const left = Math.round(item.left + delta.x);
+      const top = Math.round(item.top + delta.y);
+      moveBox(item.id, left, top);
+      return undefined;
+    },
   }));
-};
 
-return (
-  <div ref={drop} style={styles}>
-    {Object.keys(boxes).map((key) => {
-      const { left, top } = boxes[key];
+  const moveBox = (id, left, top) => {
+    setBoxes(
+      update(boxes, {
+        [id]: {
+          $merge: { left, top },
+        },
+      })
+    );
+  };
 
-      return (
-        <DraggableBox
-          key={key}
-          id={key}
-          left={left}
-          top={top} 
-          hideSourceOnDrag={true}
-        >
-          <div className="rich-text-body-copy">{content}</div>
-        </DraggableBox>
-      );
-    })}
-  </div>
+  return (
+    <div ref={drop} style={styles}>
+      {Object.keys(boxes).map((key) => {
+        const { left, top } = boxes[key];
+
+        return (
+          <DraggableBox
+            key={key}
+            id={key}
+            left={left}
+            top={top}
+            hideSourceOnDrag={true}
+          >
+            <div className="rich-text-body-copy">{content}</div>
+          </DraggableBox>
+        );
+      })}
+    </div>
   );
 };
 

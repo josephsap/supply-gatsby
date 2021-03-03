@@ -1,6 +1,6 @@
-import { css } from "@emotion/react";
+import { css } from '@emotion/react';
 
-const styles = theme => css`
+const styles = (theme) => css`
   .why-us-title {
     text-align: center;
     background-image: url('why-us-ellipse.svg');

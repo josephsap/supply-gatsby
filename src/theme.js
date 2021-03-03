@@ -10,10 +10,9 @@ const lilac = { main: '#BB9CFE' };
 const cobalt = { main: '#356AD2', contrastText: pink };
 const seaGreen = { main: '#5F8B86', contrastText: pink };
 
-
 // A custom theme for this app
 const theme = createMuiTheme({
-  spacing: factor => `${0.8 * factor}rem`,
+  spacing: (factor) => `${0.8 * factor}rem`,
   typography: {
     htmlFontSize: 10, // Paired with the html 62.5% font-size specified in withMaterialUI
     h1: {
@@ -66,15 +65,15 @@ const theme = createMuiTheme({
     a: {
       color: '#8357DF',
       transition: '0.25s ease',
-      "&:hover": {
+      '&:hover': {
         color: '#356AD2',
         transition: '0.25s ease',
-      }
-    }
+      },
+    },
   },
   palette: {
     primary: {
-      ...lightPeach
+      ...lightPeach,
     },
     secondary: {
       ...pink,
@@ -116,7 +115,7 @@ const theme = createMuiTheme({
           backgroundColor: '#162C29',
           transition: '0.25s ease',
         },
-      }
+      },
     },
     MuiPopover: {
       paper: {
@@ -124,9 +123,9 @@ const theme = createMuiTheme({
         transform: 'rotate(-15deg)',
         borderRadius: '8px',
         backgroundColor: cream.main,
-      }
-    }
-  }
+      },
+    },
+  },
 });
 
 export default theme;

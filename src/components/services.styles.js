@@ -1,6 +1,6 @@
-import { css } from "@emotion/react";
+import { css } from '@emotion/react';
 
-const styles = theme => css`
+const styles = (theme) => css`
   background-color: ${theme.palette.supply.goldLeather.main};
 
   .items-container {
@@ -13,7 +13,7 @@ const styles = theme => css`
     ${theme.breakpoints.up('md')} {
       padding-left: 6rem;
       padding-right: 6rem;
-    };
+    }
   }
 
   .service-item-copy {

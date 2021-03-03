@@ -1,15 +1,14 @@
-import React from "react";
-import { graphql } from "gatsby";
+import React from 'react';
+import { graphql } from 'gatsby';
 import Layout from '../components/layout/layout';
 import Navigation from '../components/layout/navigation';
 import HeroSection from '../components/heroSection';
-import WhoWePartnerWith from "../components/whoWePartnerWith";
+import WhoWePartnerWith from '../components/whoWePartnerWith';
 import Services from '../components/services';
 import WhyUsSection from '../components/whyUs';
 import GivingBackSection from '../components/givingBack';
 import NetworkSection from '../components/network';
 import ToolsSection from '../components/tools';
-
 
 export const PAGE_DATA_QUERY = graphql`
   query pageDataQuery {
@@ -135,7 +134,7 @@ const Home = ({ data }) => {
     contentfulWhoWeWorkWithSection,
     contentfulWhyUsSection,
   } = data;
-  console.log(data)
+  console.log(data);
   const pageTitles = [
     { navTitle: contentfulHeroSection.navTitle },
     { navTitle: contentfulWhoWeWorkWithSection.whoWeWorkWithTitle },
@@ -158,7 +157,7 @@ const Home = ({ data }) => {
       <NetworkSection networkSection={contentfulNetworkSection} />
       <ToolsSection toolsSection={contentfulTools} />
     </Layout>
-  )
+  );
 };
 
 export default Home;

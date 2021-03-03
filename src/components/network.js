@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react';
 import { Container, Typography, Grid, Box } from '@material-ui/core';
 
 const NetworkSection = ({ networkSection }) => (
@@ -7,14 +7,16 @@ const NetworkSection = ({ networkSection }) => (
       <Grid container id="section5" className="border-container">
         <Grid item xs={12}>
           <Typography variant="h3">{networkSection.title}</Typography>
-          <Typography variant="body1" dangerouslySetInnerHTML={{
-              __html: networkSection.description.childMarkdownRemark.html
+          <Typography
+            variant="body1"
+            dangerouslySetInnerHTML={{
+              __html: networkSection.description.childMarkdownRemark.html,
             }}
           />
         </Grid>
       </Grid>
     </Container>
   </Container>
-)
+);
 
 export default NetworkSection;
