@@ -3,6 +3,23 @@ import { css } from '@emotion/react';
 const styles = (theme) => css`
   background-color: ${theme.palette.supply.cream.main};
 
+  .rich-text-section {
+    h1 {
+      font-family: Whyte-Inktrap, Helvetica, sans-serif, sans-serif;
+      font-size: 10rem;
+      font-weight: normal;
+    }
+
+    h5 {
+      font-family: Bogue-Bold, Garamond, Baskerville, sans-serif;
+      font-size: 10rem;
+      line-height: 8rem;
+      letter-spacing: -2px;
+      font-weight: normal;
+      margin: 0;
+    }
+  }
+
   .content {
     position: relative;
     z-index: 2;

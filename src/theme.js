@@ -16,22 +16,35 @@ const theme = createMuiTheme({
   typography: {
     htmlFontSize: 10, // Paired with the html 62.5% font-size specified in withMaterialUI
     h1: {
-      fontFamily: '"Bogue-Extrabold", Garamond, Baskerville, sans-serif',
+      fontFamily: '"Bogue-Bold", Garamond, Baskerville, sans-serif',
       fontSize: '10rem',
       lineHeight: '11rem',
-      letterSpacing: '-2px',
     },
     h2: {
       fontFamily: '"Bogue-Black", Garamond, Baskerville, sans-serif',
       fontSize: '7.2rem',
       lineHeight: '8.6rem',
+    },
+    // Who we work with text
+    h3: {
+      fontFamily: '"Bogue-Black", Garamond, Baskerville, sans-serif',
+      fontSize: '15rem',
+      // lineHeight: '24.6rem',
       letterSpacing: '-1px',
     },
-    h3: {
+    h4: {
       fontFamily: '"Bogue-Regular", Garamond, Baskerville, sans-serif',
       fontSize: '3.2rem',
-      lineHeight: '8.6rem',
+      // lineHeight: '8.6rem',
       letterSpacing: '-1px',
+    },
+    // H5 is used as an H1 alternate
+    h5: {
+      fontFamily: '"Whyte-Inktrap", Helvetica, sans-serif, sans-serif',
+      fontSize: '10rem',
+      lineHeight: '11rem',
+      letterSpacing: '-2px',
+      fontWeight: 'normal',
     },
     // body regular
     body1: {
@@ -43,7 +56,7 @@ const theme = createMuiTheme({
     body2: {
       fontFamily: '"Whyte", Helvetica, sans-serif',
       fontSize: '2.2rem',
-      lineHeight: '3.4rem',
+      lineHeight: '3.2rem',
     },
     // body XL
     subtitle1: {

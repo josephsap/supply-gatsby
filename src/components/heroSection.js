@@ -22,7 +22,7 @@ const HeroSection = ({ heroSection }) => (
         <Grid container id="section0" css={backgroundStyles}>
           <div css={backgroundDotStyles}></div>
           <Box className="content">
-            <Grid item xs={12} className="richTextSection">
+            <Grid item xs={12} className="rich-text-section">
               {documentToReactComponents(
                 JSON.parse(heroSection.heroCopyRichText.raw)
               )}

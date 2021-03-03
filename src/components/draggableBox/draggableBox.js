@@ -8,6 +8,8 @@ const style = {
   width: '500px',
   borderRadius: '8px',
   transform: 'rotate(4.5deg)',
+  cursor: '-webkit-grab',
+  cursor: 'grab',
 };
 
 const DraggableBox = ({ id, left, top, hideSourceOnDrag, children }) => {

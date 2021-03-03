@@ -3,6 +3,7 @@ import { css } from '@emotion/react';
 const styles = css`
   html {
     font-size: 62.5%;
+    ${'' /* cursor: url('images/cursor.png'), auto; */}
   }
   body {
     font-size: 1.4rem;
@@ -17,8 +18,8 @@ const styles = css`
   }
   .rich-text-body-copy {
     font-family: Whyte, Helvetica, sans-serif;
-    font-size: 1.8rem;
-    line-height: 2.8rem;
+    font-size: 2.2rem;
+    line-height: 3.2rem;
   }
   .rich-text-header {
     h1 {

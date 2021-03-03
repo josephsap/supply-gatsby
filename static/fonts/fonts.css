@@ -1,11 +1,41 @@
 /* body copy font */
 @font-face {
   font-family: 'Whyte';
-  src: url('whyte/Whyte-Book.otf');
+  src: url('whyte/Whyte-Book.woff');
+}
+
+/* H1 font*/
+@font-face {
+  font-family: 'Bogue-Bold';
+  src: url('bogue/BogueBold/font.woff');
+}
+
+/* H1 alternate font, used as an H5 */
+@font-face {
+  font-family: 'Whyte-Inktrap';
+  src: url('whyte/WhyteInktrap-Book.woff');
 }
 
 /* H1 font*/
 @font-face {
   font-family: 'Bogue-Extrabold';
   src: url('bogue/BogueExtrabold/font.woff');
+}
+
+/* H3 font*/
+@font-face {
+  font-family: 'Bogue-Black';
+  src: url('bogue/BogueBlack/font.woff');
+}
+
+/* H4 */
+@font-face {
+  font-family: 'Bogue-Regular';
+  src: url('bogue/BogueRegular/font.woff');
+}
+
+/* Italic header */
+@font-face {
+  font-family: 'Bogue-LightItalic';
+  src: url('bogue/BogueLightItalic/font.woff');
 }
