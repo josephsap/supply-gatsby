@@ -8,7 +8,7 @@ const WhyUsSection = ({ whyUsSection }) => (
     <Container maxWidth="lg">
       <Grid container justify="center" alignItems="center">
         <Grid item xs={12} md={4}>
-          <Typography variant="h3" className="why-us-title">
+          <Typography variant="h2" className="why-us-title">
             {whyUsSection.title}
           </Typography>
         </Grid>
