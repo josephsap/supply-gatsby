@@ -1,13 +1,13 @@
 import React from 'react';
-import { Container, Typography, Grid, Box } from '@material-ui/core';
+import { Container, Typography, Grid } from '@material-ui/core';
 import styles from './whyUs.styles';
-import { pl4, pr4, pt4, pb4 } from './layout/margin-padding-utils.styles';
+import { pl4, pt4, pb4 } from './layout/margin-padding-utils.styles';
 
 const WhyUsSection = ({ whyUsSection }) => (
-  <Container maxWidth={false} css={styles} className="section-padding">
+  <Container maxWidth={false} css={styles} className="section-padding-bottom">
     <Container maxWidth="lg">
       <Grid container justify="center" alignItems="center">
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} className="title-container">
           <Typography variant="h2" className="why-us-title">
             {whyUsSection.title}
           </Typography>
@@ -22,19 +22,13 @@ const WhyUsSection = ({ whyUsSection }) => (
             }}
           />
         </Grid>
-        <Grid
-          item
-          xs={12}
-          md={6}
-          className="intro-copy"
-          css={[pl4, pr4, pt4, pb4]}
-        >
+        <Grid item xs={12} md={6} className="intro-copy" css={[pt4, pb4]}>
           <Typography variant="body1">
             {whyUsSection.descriptionTwo.descriptionTwo}
           </Typography>
         </Grid>
         <Grid item xs={12} className="second-section">
-          What goes here?
+          <img src={whyUsSection.mainImage.file.url} />
         </Grid>
       </Grid>
     </Container>

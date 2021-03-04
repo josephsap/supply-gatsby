@@ -6,7 +6,7 @@ const NetworkSection = ({ networkSection }) => (
     <Container maxWidth="lg">
       <Grid container id="section5" className="border-container">
         <Grid item xs={12}>
-          <Typography variant="h3">{networkSection.title}</Typography>
+          <Typography variant="h2">{networkSection.title}</Typography>
           <Typography
             variant="body1"
             dangerouslySetInnerHTML={{

@@ -8,9 +8,12 @@ const styles = (theme) => css`
   }
 
   .line-separator {
-    letter-spacing: -10px;
-    margin: 0 2.5rem;
-    font-family: helvetica;
+    display: inline-block;
+    span {
+      letter-spacing: -10px;
+      margin: 0 2.5rem;
+      font-family: helvetica, sans-serif;
+    }
   }
 
   .items-container {

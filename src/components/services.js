@@ -10,20 +10,20 @@ const Services = ({ servicesSection }) => {
     return (
       <>
         {parts.map((part, index) => {
-          if (index === 0) return part;
+          if (index === 0) return <div key={index}>{part}</div>;
           if (index === 1)
             return (
-              <>
-                <span className="line-separator">{` \u2014\u2014\u2014 `}</span>
+              <div key={index} className="line-separator">
+                <span>{` \u2014\u2014\u2014 `}</span>
                 {part}
-              </>
+              </div>
             );
           if (index === 2)
             return (
-              <>
-                <span className="line-separator">{` \u2014\u2014\u2014 `}</span>
+              <div key={index} className="line-separator">
+                <span>{` \u2014\u2014\u2014 `}</span>
                 {part}
-              </>
+              </div>
             );
         })}
       </>

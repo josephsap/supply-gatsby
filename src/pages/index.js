@@ -66,6 +66,11 @@ export const PAGE_DATA_QUERY = graphql`
       descriptionTwo {
         descriptionTwo
       }
+      mainImage {
+        file {
+          url
+        }
+      }
     }
     contentfulGivingBackSection {
       rightSideTitle
@@ -84,6 +89,12 @@ export const PAGE_DATA_QUERY = graphql`
       orgsModalCopy {
         childMarkdownRemark {
           html
+        }
+      }
+      badges {
+        id
+        file {
+          url
         }
       }
     }

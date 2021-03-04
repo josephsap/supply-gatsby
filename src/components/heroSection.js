@@ -13,7 +13,6 @@ const HeroSection = ({ heroSection }) => {
 
   useEffect(() => {
     const { left, bottom } = heroCopyRef.current.getBoundingClientRect();
-    console.log(heroCopyRef.current.getBoundingClientRect());
     setBoxPos({ top: bottom * 1.49, left: left + 10 });
   }, [heroCopyRef]);
 

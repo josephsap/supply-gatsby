@@ -13,7 +13,7 @@ const ToolsSection = ({ toolsSection }) => (
           className="tools-header-border"
         >
           <Grid item xs={12}>
-            <Typography variant="h3">{toolsSection.title}</Typography>
+            <Typography variant="h2">{toolsSection.title}</Typography>
           </Grid>
           <Grid item xs={12} md={7}>
             <Typography variant="body1">

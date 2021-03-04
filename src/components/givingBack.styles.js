@@ -5,6 +5,10 @@ const styles = css`
     margin-left: auto;
   }
 
+  .badges-container {
+    display: flex;
+  }
+
   .diversity-header-section {
     h3 {
       display: inline-block;

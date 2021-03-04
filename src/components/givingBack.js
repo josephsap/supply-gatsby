@@ -13,7 +13,7 @@ const GivingBackSection = ({ givingBackSection }) => (
         css={[styles, p4]}
       >
         <Grid item xs={12} md={5}>
-          <Typography variant="h3">
+          <Typography variant="h2">
             {givingBackSection.leftSideTitle}
           </Typography>
           <Typography
@@ -27,9 +27,14 @@ const GivingBackSection = ({ givingBackSection }) => (
           </Typography>
         </Grid>
         <Grid item xs={12} md={5} css={pl4} className="pushing-diversity">
+          <Box className="badges-container">
+            {givingBackSection.badges.map((badge) => (
+              <img key={badge.id} src={badge.file.url} />
+            ))}
+          </Box>
           <Box className="diversity-header-section">
             <img src={`images/arrow.svg`} />
-            <Typography variant="h3">
+            <Typography variant="h2">
               {givingBackSection.rightSideTitle}
             </Typography>
           </Box>
