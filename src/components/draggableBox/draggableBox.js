@@ -5,7 +5,7 @@ const style = {
   backgroundColor: '#FFE8E1',
   padding: '2rem',
   cursor: 'move',
-  width: '500px',
+  width: '630px',
   borderRadius: '8px',
   transform: 'rotate(4.5deg)',
   cursor: '-webkit-grab',

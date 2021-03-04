@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import DraggableContainer from './draggableBox/draggableContainer';
 import { Container, Grid, Box } from '@material-ui/core';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
@@ -7,31 +7,65 @@ import styles, {
   backgroundDotStyles,
 } from './heroSection.styles';
 
-const HeroSection = ({ heroSection }) => (
-  <>
-    <DraggableContainer
-      content={documentToReactComponents(JSON.parse(heroSection.introCopy.raw))}
-    />
-    <Container maxWidth={false} css={styles} className="section-padding app">
-      <img
-        src={`images/supply-badge-logo.svg`}
-        alt="The Supply"
-        className="hero-logo"
-      />
-      <Container maxWidth="lg">
-        <Grid container id="section0" css={backgroundStyles}>
-          <div css={backgroundDotStyles}></div>
-          <Box className="content">
-            <Grid item xs={12} className="rich-text-section">
-              {documentToReactComponents(
-                JSON.parse(heroSection.heroCopyRichText.raw)
-              )}
+const HeroSection = ({ heroSection }) => {
+  const heroCopyRef = useRef();
+  const [boxPos, setBoxPos] = useState(null);
+
+  useEffect(() => {
+    const { left, bottom } = heroCopyRef.current.getBoundingClientRect();
+    console.log(heroCopyRef.current.getBoundingClientRect());
+    setBoxPos({ top: bottom * 1.49, left: left + 10 });
+  }, [heroCopyRef]);
+
+  return (
+    <div style={{ position: 'relative' }}>
+      {boxPos && (
+        <DraggableContainer
+          content={documentToReactComponents(
+            JSON.parse(heroSection.introCopy.raw)
+          )}
+          boxPos={boxPos}
+        />
+      )}
+      <Container maxWidth={false} css={styles}>
+        <Container maxWidth="lg">
+          <Grid container id="section0" css={backgroundStyles}>
+            <Grid
+              container
+              direction="row"
+              justify="flex-start"
+              alignItems="flex-start"
+              className="top-images"
+            >
+              <Grid item xs={12}>
+                <img src={`images/rectangle-badge-top.svg`} />
+                <img src={`images/ellipse-top-peach.svg`} className="peach" />
+                <img src={`images/star-purple.svg`} className="star" />
+                <img
+                  src={`images/supply-badge-logo.svg`}
+                  alt="The Supply"
+                  className="hero-logo"
+                />
+              </Grid>
             </Grid>
-          </Box>
-        </Grid>
+            <Box className="content">
+              <Grid
+                item
+                xs={12}
+                className="rich-text-section"
+                ref={heroCopyRef}
+              >
+                {documentToReactComponents(
+                  JSON.parse(heroSection.heroCopyRichText.raw)
+                )}
+              </Grid>
+            </Box>
+          </Grid>
+        </Container>
       </Container>
-    </Container>
-  </>
-);
+      <div css={backgroundDotStyles}></div>
+    </div>
+  );
+};
 
 export default HeroSection;

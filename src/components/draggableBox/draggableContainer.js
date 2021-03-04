@@ -5,15 +5,15 @@ import update from 'immutability-helper';
 
 const styles = {
   width: '100%',
-  height: '600px',
+  height: '100%',
   position: 'absolute',
   zIndex: 3,
   overflow: 'hidden',
 };
 
-const DraggableContainer = ({ content }) => {
+const DraggableContainer = ({ content, boxPos }) => {
   const [boxes, setBoxes] = useState({
-    a: { top: 160, left: 113 },
+    a: { top: boxPos.top, left: boxPos.left },
   });
 
   const [, drop] = useDrop(() => ({
