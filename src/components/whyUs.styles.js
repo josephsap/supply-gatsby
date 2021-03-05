@@ -33,7 +33,15 @@ const styles = (theme) => css`
     }
   }
 
+  .upper-container {
+    display: flex;
+  }
+
   .why-us-intro-title {
+    line-height: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     ${'' /* ${theme.breakpoints.down('md')} {
       display: flex;
       flex-direction: column;
@@ -45,6 +53,7 @@ const styles = (theme) => css`
       font-family: 'Bogue-Black';
       font-weight: 900;
       font-size: 7.2rem;
+      margin: 1rem 0;
       ${'' /* ${theme.breakpoints.down('md')} {
         margin-bottom: 0;
         line-height: 1;

@@ -14,7 +14,7 @@ const WhyUsSection = ({ whyUsSection }) => (
         </Grid>
       </Grid>
       <Grid container id="section3" className="border-container top-section">
-        <Grid item xs={12} md={6} css={pl4}>
+        <Grid item xs={12} md={6} css={pl4} className="upper-container">
           <div
             className="why-us-intro-title"
             dangerouslySetInnerHTML={{

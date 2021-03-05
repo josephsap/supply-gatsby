@@ -60,7 +60,7 @@ const theme = createMuiTheme({
     },
     // body XL
     subtitle1: {
-      fontFamily: '"Whyte", Helvetica, sans-serif',
+      fontFamily: '"Bogue-Regular", Garamond, Baskerville, sans-serif',
       fontSize: '3.2rem',
       lineHeight: '4.2rem',
       color: lightPeach.main,

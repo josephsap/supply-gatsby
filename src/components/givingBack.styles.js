@@ -6,12 +6,19 @@ const styles = css`
   }
 
   .badges-container {
-    display: flex;
+    text-align: right;
   }
 
   .diversity-header-section {
-    h3 {
-      display: inline-block;
+    position: relative;
+  }
+
+  .title-right {
+    text-align: right;
+
+    img {
+      margin-bottom: -1rem;
+      margin-right: 45px;
     }
   }
 `;

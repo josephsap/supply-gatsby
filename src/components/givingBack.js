@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Typography, Grid, Box } from '@material-ui/core';
 import styles from './givingBack.styles';
-import { pl4, p4 } from './layout/margin-padding-utils.styles';
 
 const GivingBackSection = ({ givingBackSection }) => (
   <Container maxWidth={false} className="section-padding">
@@ -10,9 +9,10 @@ const GivingBackSection = ({ givingBackSection }) => (
         container
         id="section4"
         className="border-container"
-        css={[styles, p4]}
+        css={styles}
+        spacing={10}
       >
-        <Grid item xs={12} md={5}>
+        <Grid item xs={12} md={6}>
           <Typography variant="h2">
             {givingBackSection.leftSideTitle}
           </Typography>
@@ -26,15 +26,15 @@ const GivingBackSection = ({ givingBackSection }) => (
             {givingBackSection.orgsModalLinkText}
           </Typography>
         </Grid>
-        <Grid item xs={12} md={5} css={pl4} className="pushing-diversity">
+        <Grid item xs={12} md={6} className="pushing-diversity">
           <Box className="badges-container">
             {givingBackSection.badges.map((badge) => (
               <img key={badge.id} src={badge.file.url} />
             ))}
           </Box>
           <Box className="diversity-header-section">
-            <img src={`images/arrow.svg`} />
-            <Typography variant="h2">
+            <Typography variant="h2" className="title-right">
+              <img src={`images/arrow.svg`} />
               {givingBackSection.rightSideTitle}
             </Typography>
           </Box>

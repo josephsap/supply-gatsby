@@ -5,14 +5,20 @@ const styles = (theme) => css`
 
   .hww-title {
     margin-bottom: 4rem;
+    div {
+      display: inline-block;
+    }
   }
 
   .line-separator {
-    display: inline-block;
     span {
       letter-spacing: -10px;
       margin: 0 2.5rem;
       font-family: helvetica, sans-serif;
+      ${theme.breakpoints.down(theme.breakpoints.values.lg - 14)} {
+        font-size: 0;
+        margin: 0 1.5rem;
+      }
     }
   }
 

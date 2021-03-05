@@ -9,6 +9,7 @@ import WhyUsSection from '../components/whyUs';
 import GivingBackSection from '../components/givingBack';
 import NetworkSection from '../components/network';
 import ToolsSection from '../components/tools';
+import MeetTheTeamSection from '../components/meetTheTeam';
 
 export const PAGE_DATA_QUERY = graphql`
   query pageDataQuery {
@@ -112,6 +113,27 @@ export const PAGE_DATA_QUERY = graphql`
         }
       }
     }
+    contentfulMeetTheTeam {
+      title
+      teamMember {
+        id
+        name
+        bio {
+          bio
+        }
+        linkedinLink
+        profileImage {
+          file {
+            url
+          }
+        }
+      }
+      wereHiringImage {
+        file {
+          url
+        }
+      }
+    }
     contentfulTools {
       title
       description {
@@ -144,6 +166,7 @@ const Home = ({ data }) => {
     contentfulTools,
     contentfulWhoWeWorkWithSection,
     contentfulWhyUsSection,
+    contentfulMeetTheTeam,
   } = data;
   console.log(data);
   const pageTitles = [
@@ -166,6 +189,7 @@ const Home = ({ data }) => {
       <WhyUsSection whyUsSection={contentfulWhyUsSection} />
       <GivingBackSection givingBackSection={contentfulGivingBackSection} />
       <NetworkSection networkSection={contentfulNetworkSection} />
+      <MeetTheTeamSection meetTheTeamSection={contentfulMeetTheTeam} />
       <ToolsSection toolsSection={contentfulTools} />
     </Layout>
   );
