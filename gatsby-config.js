@@ -4,9 +4,11 @@
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
 const path = require('path');
-// require("dotenv").config({
-//   path: `.env.${process.env.NODE_ENV}`,
-// })
+
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: `The Supply`,
@@ -31,7 +33,7 @@ module.exports = {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: `1wmnm7ky08ew`,
-        accessToken: `0q8Z9KA6Pt7YSIONnZj23fxci18TIWjk4iVjkZQxOC4`,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
         useNameForId: false,
       },
     },

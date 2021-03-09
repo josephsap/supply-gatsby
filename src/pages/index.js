@@ -10,6 +10,7 @@ import GivingBackSection from '../components/givingBack';
 import NetworkSection from '../components/network';
 import ToolsSection from '../components/tools';
 import MeetTheTeamSection from '../components/meetTheTeam';
+import ChatButton from '../components/chat/chatButton';
 
 export const PAGE_DATA_QUERY = graphql`
   query pageDataQuery {
@@ -182,6 +183,7 @@ const Home = ({ data }) => {
 
   return (
     <Layout>
+      <ChatButton />
       <Navigation pageTitles={pageTitles} />
       <HeroSection heroSection={contentfulHeroSection} />
       <WhoWePartnerWith whoWeWorkWithSection={contentfulWhoWeWorkWithSection} />
