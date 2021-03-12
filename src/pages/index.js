@@ -77,14 +77,10 @@ export const PAGE_DATA_QUERY = graphql`
       rightSideTitle
       leftSideTitle
       leftSideCopy {
-        childMarkdownRemark {
-          html
-        }
+        leftSideCopy
       }
       rightSideCopy {
-        childMarkdownRemark {
-          html
-        }
+        rightSideCopy
       }
       orgsModalLinkText
       orgsModalCopy {

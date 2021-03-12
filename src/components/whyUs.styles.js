@@ -10,7 +10,7 @@ const styles = (theme) => css`
   }
   .why-us-title {
     text-align: center;
-    background-image: url('why-us-ellipse.svg');
+    background-image: url('images/why-us-ellipse.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

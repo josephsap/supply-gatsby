@@ -20,6 +20,7 @@ const styles = (theme) => css`
     cursor: pointer;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
     transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1);
 
     &:nth-of-type(1) {
@@ -60,7 +61,7 @@ const styles = (theme) => css`
     }
 
     span {
-      opacity: 0;
+      ${'' /* opacity: 0; */}
       white-space: nowrap;
       line-height: 1;
       font-size: 12px;
