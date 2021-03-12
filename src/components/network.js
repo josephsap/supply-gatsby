@@ -4,9 +4,18 @@ import { Container, Typography, Grid, Box } from '@material-ui/core';
 const NetworkSection = ({ networkSection }) => (
   <Container maxWidth={false} className="section-padding">
     <Container maxWidth="lg">
-      <Grid container id="section5" className="border-container">
-        <Grid item xs={12}>
+      <Grid
+        container
+        id="section5"
+        className="border-container"
+        justify="center"
+        alignItems="center"
+        spacing={8}
+      >
+        <Grid item xs={12} md={6}>
           <Typography variant="h2">{networkSection.title}</Typography>
+        </Grid>
+        <Grid item xs={12} md={5}>
           <Typography
             variant="body1"
             dangerouslySetInnerHTML={{

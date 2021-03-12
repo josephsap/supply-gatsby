@@ -115,6 +115,7 @@ export const PAGE_DATA_QUERY = graphql`
     }
     contentfulMeetTheTeam {
       title
+      wereHiringText
       teamMember {
         id
         name
@@ -122,6 +123,11 @@ export const PAGE_DATA_QUERY = graphql`
           bio
         }
         linkedinLink
+        linkedinIcon {
+          file {
+            url
+          }
+        }
         profileImage {
           file {
             url

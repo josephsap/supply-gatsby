@@ -15,8 +15,8 @@ const ToolsSection = ({ toolsSection }) => (
           <Grid item xs={12}>
             <Typography variant="h2">{toolsSection.title}</Typography>
           </Grid>
-          <Grid item xs={12} md={7}>
-            <Typography variant="body1">
+          <Grid item xs={12} md={10}>
+            <Typography variant="body2" className="tools-description">
               {toolsSection.description.description}
             </Typography>
           </Grid>
