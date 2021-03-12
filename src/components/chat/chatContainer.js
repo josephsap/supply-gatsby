@@ -20,6 +20,8 @@ const config = {
   // baseUrl: 'baseUrl: http://127.0.0.1:8000',
 };
 
+// https://codepen.io/ig_design/pen/BajVZre
+
 const ChatContainer = ({ setShowChatModal }) => {
   return (
     <div css={styles}>
