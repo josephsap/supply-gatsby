@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
-import DraggableContainer from './draggableBox/draggableContainer';
+import { useEffect, useRef, useState } from 'react';
+import { DragContainer } from '../draggable-box/DragContainer';
+import { CustomDragLayer } from '../draggable-box/CustomDragLayer';
 import { Container, Grid, Box } from '@material-ui/core';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styles, {
@@ -19,12 +20,15 @@ const HeroSection = ({ heroSection }) => {
   return (
     <div style={{ position: 'relative' }}>
       {boxPos && (
-        <DraggableContainer
-          content={documentToReactComponents(
-            JSON.parse(heroSection.introCopy.raw)
-          )}
-          boxPos={boxPos}
-        />
+        <div>
+          <DragContainer
+            content={documentToReactComponents(
+              JSON.parse(heroSection.introCopy.raw)
+            )}
+            boxPos={boxPos}
+          />
+          <CustomDragLayer />
+        </div>
       )}
       <Container maxWidth={false} css={styles}>
         <Container maxWidth="lg">
@@ -38,7 +42,7 @@ const HeroSection = ({ heroSection }) => {
             >
               <Grid item xs={12}>
                 <img src={`images/rectangle-badge-top.svg`} />
-                <img src={`images/ellipse-top-peach.svg`} className="peach" />
+                <img src={`images/top-peach-rectangle.svg`} className="peach" />
                 <img src={`images/star-purple.svg`} className="star" />
                 <img
                   src={`images/supply-badge-logo.svg`}

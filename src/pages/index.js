@@ -2,14 +2,14 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout/layout';
 import Navigation from '../components/layout/navigation';
-import HeroSection from '../components/heroSection';
-import WhoWePartnerWith from '../components/whoWePartnerWith';
+import HeroSection from '../components/hero';
+import WhoWePartnerWith from '../components/partner-with';
 import Services from '../components/services';
-import WhyUsSection from '../components/whyUs';
-import GivingBackSection from '../components/givingBack';
+import WhyUsSection from '../components/why-us';
+import GivingBackSection from '../components/giving-back';
 import NetworkSection from '../components/network';
 import ToolsSection from '../components/tools';
-import MeetTheTeamSection from '../components/meetTheTeam';
+import MeetTheTeamSection from '../components/team';
 
 export const PAGE_DATA_QUERY = graphql`
   query pageDataQuery {

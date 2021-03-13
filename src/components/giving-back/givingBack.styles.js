@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { pr4, pl4 } from './layout/margin-padding-utils.styles';
+import { pr4, pl4 } from '../layout/margin-padding-utils.styles';
 
 const styles = css`
   padding: 6rem;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Grid, Typography } from '@material-ui/core';
 import styles from './tools.styles';
-import { pb25, pt45, pb4, mt6 } from './layout/margin-padding-utils.styles';
+import { pb25, pt45, pb4, mt6 } from '../layout/margin-padding-utils.styles';
 
 const ToolsSection = ({ toolsSection }) => {
   const reg = new RegExp(/\s/g, '');

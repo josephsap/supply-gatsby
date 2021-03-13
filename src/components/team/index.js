@@ -20,7 +20,7 @@ const MeetTheTeamSection = ({ meetTheTeamSection }) => (
           </div>
         </Grid>
         {meetTheTeamSection.teamMember.map((teamMember) => (
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} key={teamMember.id}>
             <div className="profile-img">
               <img src={teamMember.profileImage.file.url} />
             </div>
