@@ -31,3 +31,7 @@ export const p4 = css`
 export const mt6 = css`
   margin-top: 6rem;
 `;
+
+export const mb6 = css`
+  margin-bottom: 6rem;
+`;
