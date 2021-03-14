@@ -16,11 +16,13 @@ const styles = (theme) => css`
     position: relative;
     display: flex;
     height: calc(100vh / 8);
-    width: 25px;
     cursor: pointer;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    font-family: '"Whyte", Helvetica, sans-serif';
+    font-size: 1.6rem;
+    width: 60px;
     transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1);
 
     &:nth-of-type(1) {
@@ -58,10 +60,12 @@ const styles = (theme) => css`
     &.active,
     &:hover {
       height: 45%;
+      padding-top: 2rem;
     }
 
     span {
-      ${'' /* opacity: 0; */}
+      padding-left: 2rem;
+      overflow: hidden;
       white-space: nowrap;
       line-height: 1;
       font-size: 12px;
@@ -73,7 +77,8 @@ const styles = (theme) => css`
     &:hover span,
     &.active span {
       opacity: 1;
-      transition-delay: 300ms;
+      transition-delay: 100ms;
+      overflow: visible;
     }
   }
 `;

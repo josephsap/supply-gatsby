@@ -196,9 +196,9 @@ const Home = ({ data }) => {
     { navTitle: contentfulWhoWeWorkWithSection.whoWeWorkWithTitle },
     { navTitle: contentfulServicesSection.title },
     { navTitle: contentfulWhyUsSection.title },
-    { navTitle: contentfulServicesSection.title },
     { navTitle: contentfulGivingBackSection.title },
     { navTitle: contentfulNetworkSection.title },
+    { navTitle: contentfulMeetTheTeam.title },
     { navTitle: contentfulTools.title },
   ];
 
