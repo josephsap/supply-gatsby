@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Typography, Grid } from '@material-ui/core';
+import { Container, Typography, Grid, Box } from '@material-ui/core';
+import { networkItemStyles } from './network.styles';
 
 const NetworkSection = ({ networkSection }) => (
   <Container maxWidth={false} className="section-padding">
@@ -21,6 +22,18 @@ const NetworkSection = ({ networkSection }) => (
               __html: networkSection.description.childMarkdownRemark.html,
             }}
           />
+        </Grid>
+        <Grid item xs={12}>
+          {networkSection.networkAttributeItem.map((item) => (
+            <Box mt={3} key={item.id}>
+              <div css={networkItemStyles(item.backgroundRectangle.file.url)}>
+                <Typography variant="h6">{item.title}</Typography>
+              </div>
+              <Typography variant="caption">
+                {item.description.description}
+              </Typography>
+            </Box>
+          ))}
         </Grid>
       </Grid>
     </Container>

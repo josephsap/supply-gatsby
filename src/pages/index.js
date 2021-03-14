@@ -103,9 +103,15 @@ export const PAGE_DATA_QUERY = graphql`
         }
       }
       networkAttributeItem {
+        id
         title
-        childContentfulNetworkAttributeItemDescriptionTextNode {
+        description {
           description
+        }
+        backgroundRectangle {
+          file {
+            url
+          }
         }
       }
     }

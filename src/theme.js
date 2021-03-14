@@ -46,6 +46,12 @@ const theme = createMuiTheme({
       letterSpacing: '-2px',
       fontWeight: 'normal',
     },
+    h6: {
+      fontFamily: '"Bogue-Regular", Garamond, Baskerville, sans-serif',
+      fontSize: '2.4rem',
+      lineHeight: '2.8rem',
+      letterSpacing: '-1px',
+    },
     // body regular
     body1: {
       fontFamily: '"Whyte", Helvetica, sans-serif',

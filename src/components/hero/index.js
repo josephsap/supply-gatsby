@@ -8,13 +8,20 @@ import styles, {
   backgroundDotStyles,
 } from './heroSection.styles';
 
+// TODO: adjust cache values once we are
+// in production https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/deploying-to-heroku/
+
 const HeroSection = ({ heroSection }) => {
   const heroCopyRef = useRef();
   const [boxPos, setBoxPos] = useState(null);
 
   useEffect(() => {
-    const { left, bottom } = heroCopyRef.current.getBoundingClientRect();
-    setBoxPos({ top: bottom * 1.49, left: left + 10 });
+    let timer = setTimeout(() => {
+      const { left, bottom } = heroCopyRef.current.getBoundingClientRect();
+      setBoxPos({ top: bottom * 1.49, left: left + 10 });
+    }, 5);
+
+    return () => clearTimeout(timer);
   }, [heroCopyRef]);
 
   return (

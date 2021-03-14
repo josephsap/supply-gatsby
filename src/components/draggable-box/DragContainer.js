@@ -12,6 +12,7 @@ const styles = {
 };
 
 export const DragContainer = ({ content, boxPos }) => {
+  console.log(boxPos);
   const [boxes, setBoxes] = useState({
     a: { top: boxPos.top, left: boxPos.left, content },
   });

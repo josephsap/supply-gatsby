@@ -14,7 +14,7 @@ const Navigation = ({ pageTitles }) => {
               to={`section${[index]}`}
               spy={true}
               smooth={true}
-              offset={-25}
+              offset={0}
               duration={200}
               className="nav-item"
               key={index}
