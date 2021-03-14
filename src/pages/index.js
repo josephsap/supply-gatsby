@@ -10,6 +10,7 @@ import GivingBackSection from '../components/giving-back';
 import NetworkSection from '../components/network';
 import ToolsSection from '../components/tools';
 import MeetTheTeamSection from '../components/team';
+import Footer from '../components/footer';
 
 export const PAGE_DATA_QUERY = graphql`
   query pageDataQuery {
@@ -162,6 +163,18 @@ export const PAGE_DATA_QUERY = graphql`
         }
       }
     }
+    contentfulFooter {
+      logo {
+        file {
+          url
+        }
+      }
+      logoCaption
+      footerLinks {
+        id
+        linkText
+      }
+    }
   }
 `;
 
@@ -175,6 +188,7 @@ const Home = ({ data }) => {
     contentfulWhoWeWorkWithSection,
     contentfulWhyUsSection,
     contentfulMeetTheTeam,
+    contentfulFooter,
   } = data;
   console.log(data);
   const pageTitles = [
@@ -199,6 +213,7 @@ const Home = ({ data }) => {
       <NetworkSection networkSection={contentfulNetworkSection} />
       <MeetTheTeamSection meetTheTeamSection={contentfulMeetTheTeam} />
       <ToolsSection toolsSection={contentfulTools} />
+      <Footer footer={contentfulFooter} />
     </Layout>
   );
 };

@@ -71,6 +71,12 @@ const theme = createMuiTheme({
       lineHeight: '4.2rem',
       color: lightPeach.main,
     },
+    // footer link text
+    subtitle2: {
+      fontFamily: '"Whyte", Helvetica, sans-serif',
+      fontSize: '1.6rem',
+      lineHeight: '2rem',
+    },
     caption: {
       fontFamily: '"Whyte", Helvetica, sans-serif',
       fontSize: '1.4rem',
