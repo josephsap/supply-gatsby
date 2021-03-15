@@ -6,6 +6,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import styles, {
   backgroundStyles,
   backgroundDotStyles,
+  dragStyles,
 } from './heroSection.styles';
 
 // TODO: adjust cache values once we are
@@ -27,7 +28,7 @@ const HeroSection = ({ heroSection }) => {
   return (
     <div style={{ position: 'relative' }}>
       {boxPos && (
-        <div>
+        <div css={dragStyles}>
           <DragContainer
             content={documentToReactComponents(
               JSON.parse(heroSection.introCopy.raw)
@@ -38,7 +39,7 @@ const HeroSection = ({ heroSection }) => {
         </div>
       )}
       <Container maxWidth={false} css={styles}>
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" className="side-padding">
           <Grid container id="section0" css={backgroundStyles}>
             <Grid
               container

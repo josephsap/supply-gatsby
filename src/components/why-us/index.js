@@ -7,7 +7,7 @@ import { pl4, pt4, pb4 } from '../layout/margin-padding-utils.styles';
 const WhyUsSection = ({ whyUsSection }) => (
   <>
     <Container maxWidth={false} css={styles} id="section3">
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" className="side-padding">
         <Grid container justify="center" alignItems="center">
           <Grid item xs={12} className="title-container">
             <Typography variant="h2" className="why-us-title">

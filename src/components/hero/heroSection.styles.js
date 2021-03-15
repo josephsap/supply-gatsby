@@ -80,4 +80,10 @@ export const backgroundStyles = (theme) => css`
   position: relative;
 `;
 
+export const dragStyles = (theme) => css`
+  ${theme.breakpoints.down(theme.breakpoints.values.tablet)} {
+    display: none;
+  }
+`;
+
 export default styles;

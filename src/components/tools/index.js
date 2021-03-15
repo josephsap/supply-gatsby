@@ -26,7 +26,7 @@ const ToolsSection = ({ toolsSection }) => {
 
   return (
     <Container maxWidth={false} className="section-padding app">
-      <Container maxWidth="lg" css={styles}>
+      <Container maxWidth="lg" css={styles} className="side-padding">
         <Grid container id="section7">
           <Grid
             container
@@ -58,7 +58,13 @@ const ToolsSection = ({ toolsSection }) => {
             alignItems="center"
           >
             {toolsSection.toolLinkItem.map((toolItem) => (
-              <Grid item xs={12} md={5} key={toolItem.id}>
+              <Grid
+                item
+                xs={12}
+                md={5}
+                key={toolItem.id}
+                className="tool-item-container"
+              >
                 <img src={toolItem.icon.file.url} />
                 <Typography variant="h4" className="tool-name">
                   {toolItem.title}

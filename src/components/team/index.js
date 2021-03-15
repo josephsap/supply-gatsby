@@ -4,7 +4,7 @@ import styles, { hiringImageStyles } from './meetTheTeam.styles';
 
 const MeetTheTeamSection = ({ meetTheTeamSection }) => (
   <Container maxWidth={false} className="section-padding" css={styles}>
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" className="side-padding">
       <Grid container id="section6">
         <Grid item xs={12}>
           <div>

@@ -32,7 +32,7 @@ const Services = ({ servicesSection }) => {
 
   return (
     <Container maxWidth={false} css={styles} className="section-padding">
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" className="side-padding">
         <Grid
           container
           id="section2"

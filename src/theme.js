@@ -121,6 +121,16 @@ const theme = createMuiTheme({
       seaGreen,
     },
   },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1280,
+      xl: 1920,
+      tablet: 800,
+    },
+  },
   overrides: {
     MuiButton: {
       root: {

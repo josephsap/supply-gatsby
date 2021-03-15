@@ -29,9 +29,11 @@ const styles = (theme) => css`
 
   .service-item {
     padding: 4rem 0;
+    text-align: center;
     ${theme.breakpoints.up('md')} {
       padding-left: 6rem;
       padding-right: 6rem;
+      text-align: left;
     }
     h4 {
       margin: 1rem 0 1.5rem;
@@ -41,11 +43,15 @@ const styles = (theme) => css`
   .service-item-copy {
     max-width: 43.5rem;
     color: ${theme.palette.supply.cream.main};
+    ${theme.breakpoints.down('md')} {
+      max-width: 100%;
+    }
   }
 
   .services-section-top {
     text-align: center;
     margin: 7rem 0 6rem;
+    padding: 0 2.4rem;
   }
 `;
 

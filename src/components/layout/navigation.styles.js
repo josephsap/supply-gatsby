@@ -1,6 +1,9 @@
 import { css } from '@emotion/react';
 
 const styles = (theme) => css`
+  ${theme.breakpoints.down(theme.breakpoints.values.tablet)} {
+    display: none;
+  }
   .nav-wrapper {
     display: flex;
     height: 100%;
@@ -22,7 +25,7 @@ const styles = (theme) => css`
     overflow: hidden;
     font-family: '"Whyte", Helvetica, sans-serif';
     font-size: 1.6rem;
-    width: 60px;
+    width: 54px;
     transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1);
 
     &:nth-of-type(1) {
@@ -42,7 +45,7 @@ const styles = (theme) => css`
     }
 
     &:nth-of-type(5) {
-      background-color: ${theme.palette.supply.lightPeach.main};
+      background-color: ${theme.palette.supply.pink.main};
     }
 
     &:nth-of-type(6) {

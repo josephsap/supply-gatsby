@@ -4,7 +4,7 @@ import styles from './footer.styles';
 
 const Footer = ({ footer }) => (
   <Container maxWidth={false} css={[styles, pb4, pt4]}>
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" className="side-padding">
       <Grid
         container
         direction="column"
@@ -15,7 +15,7 @@ const Footer = ({ footer }) => (
           <img src={footer.logo.file.url} />
         </Grid>
         <Grid item xs={12} md={6} css={mb6}>
-          <Typography variant="">{footer.logoCaption}</Typography>
+          <Typography>{footer.logoCaption}</Typography>
         </Grid>
         <Grid item xs={12} md={8}>
           <ul className="footer-container">

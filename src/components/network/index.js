@@ -1,10 +1,10 @@
 import React from 'react';
 import { Container, Typography, Grid, Box } from '@material-ui/core';
-import { networkItemStyles } from './network.styles';
+import styles, { networkItemStyles } from './network.styles';
 
 const NetworkSection = ({ networkSection }) => (
-  <Container maxWidth={false} className="section-padding">
-    <Container maxWidth="lg">
+  <Container maxWidth={false} className="section-padding" css={styles}>
+    <Container maxWidth="lg" className="side-padding">
       <Grid
         container
         id="section5"
@@ -12,10 +12,10 @@ const NetworkSection = ({ networkSection }) => (
         justify="center"
         alignItems="center"
       >
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={6} className="network-title">
           <Typography variant="h2">{networkSection.title}</Typography>
         </Grid>
-        <Grid item xs={12} md={5}>
+        <Grid item xs={12} md={5} className="network-desc">
           <Typography
             variant="body1"
             dangerouslySetInnerHTML={{
