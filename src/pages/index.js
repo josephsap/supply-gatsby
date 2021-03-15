@@ -15,12 +15,10 @@ import Footer from '../components/footer';
 export const PAGE_DATA_QUERY = graphql`
   query pageDataQuery {
     contentfulHeroSection {
-      heroCopyRichText {
-        raw
-      }
       introCopy {
         raw
       }
+      headline
       navTitle
     }
     contentfulWhoWeWorkWithSection {

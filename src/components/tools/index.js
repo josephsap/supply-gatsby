@@ -25,9 +25,9 @@ const ToolsSection = ({ toolsSection }) => {
   };
 
   return (
-    <Container maxWidth={false} className="section-padding app">
+    <Container maxWidth={false} className="section-padding" id="section7">
       <Container maxWidth="lg" css={styles} className="side-padding">
-        <Grid container id="section7">
+        <Grid container>
           <Grid
             container
             justify="center"

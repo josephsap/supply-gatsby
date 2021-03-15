@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { Fragment, useEffect, useRef, useState } from 'react';
 import { DragContainer } from '../draggable-box/DragContainer';
 import { CustomDragLayer } from '../draggable-box/CustomDragLayer';
-import { Container, Grid, Box } from '@material-ui/core';
+import { Container, Grid, Typography } from '@material-ui/core';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styles, {
   backgroundStyles,
@@ -16,13 +16,41 @@ const HeroSection = ({ heroSection }) => {
   const heroCopyRef = useRef();
   const [boxPos, setBoxPos] = useState(null);
 
-  useEffect(() => {
-    let timer = setTimeout(() => {
-      const { left, bottom } = heroCopyRef.current.getBoundingClientRect();
-      setBoxPos({ top: bottom * 1.49, left: left + 10 });
-    }, 5);
+  const titleTransform = () => {
+    const reg = new RegExp(/\s/g, '');
+    const parts = heroSection.headline.split(reg);
+    return (
+      <Typography variant="h1">
+        {parts.map((part, index) => {
+          if (
+            part.includes('talent') ||
+            part.includes('maker') ||
+            part.includes('mindset')
+          ) {
+            return (
+              <span className="bogue-font" key={index}>
+                {part}{' '}
+              </span>
+            );
+          }
+          if (part.includes('curation')) {
+            return (
+              <Fragment key={index}>
+                <span className="bogue-font">{part}</span>
+                <br />
+              </Fragment>
+            );
+          }
+          return <Fragment key={index}>{part} </Fragment>;
+        })}
+      </Typography>
+    );
+  };
 
-    return () => clearTimeout(timer);
+  useEffect(() => {
+    const { left } = heroCopyRef.current.getBoundingClientRect();
+    const { offsetHeight } = heroCopyRef.current;
+    setBoxPos({ top: offsetHeight * 1.75, left: left + 10 });
   }, [heroCopyRef]);
 
   return (
@@ -38,9 +66,9 @@ const HeroSection = ({ heroSection }) => {
           <CustomDragLayer />
         </div>
       )}
-      <Container maxWidth={false} css={styles}>
+      <Container maxWidth={false} css={styles} id="section0">
         <Container maxWidth="lg" className="side-padding">
-          <Grid container id="section0" css={backgroundStyles}>
+          <Grid container css={backgroundStyles}>
             <Grid
               container
               direction="row"
@@ -59,18 +87,9 @@ const HeroSection = ({ heroSection }) => {
                 />
               </Grid>
             </Grid>
-            <Box className="content">
-              <Grid
-                item
-                xs={12}
-                className="rich-text-section"
-                ref={heroCopyRef}
-              >
-                {documentToReactComponents(
-                  JSON.parse(heroSection.heroCopyRichText.raw)
-                )}
-              </Grid>
-            </Box>
+            <Grid item xs={12} className="rich-text-section" ref={heroCopyRef}>
+              {titleTransform()}
+            </Grid>
           </Grid>
         </Container>
       </Container>

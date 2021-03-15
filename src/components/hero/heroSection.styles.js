@@ -26,27 +26,24 @@ const styles = (theme) => css`
   }
 
   .rich-text-section {
+    position: relative;
+    z-index: 2;
     h1 {
       font-family: Whyte-Inktrap, Helvetica, sans-serif, sans-serif;
       font-size: 10rem;
       font-weight: normal;
-      line-height: 1;
+      line-height: 11rem;
       margin-bottom: 2.5rem;
     }
 
-    h1:nth-of-type(2) {
-      margin-top: 4px;
-    }
-
-    h5,
-    code {
+    span {
       font-family: Bogue-Bold, Garamond, Baskerville, sans-serif;
       font-size: 10rem;
       line-height: 8rem;
       letter-spacing: -2px;
       font-weight: normal;
-      margin: 0;
-      line-height: 1;
+      display: inline-block;
+      padding: 0 2.4rem 0 0;
     }
   }
 

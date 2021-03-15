@@ -3,11 +3,15 @@ import { Container, Typography, Grid, Box } from '@material-ui/core';
 import styles, { networkItemStyles } from './network.styles';
 
 const NetworkSection = ({ networkSection }) => (
-  <Container maxWidth={false} className="section-padding" css={styles}>
+  <Container
+    maxWidth={false}
+    className="section-padding"
+    css={styles}
+    id="section5"
+  >
     <Container maxWidth="lg" className="side-padding">
       <Grid
         container
-        id="section5"
         className="border-container"
         justify="center"
         alignItems="center"

@@ -3,9 +3,14 @@ import { Container, Typography, Grid } from '@material-ui/core';
 import styles, { hiringImageStyles } from './meetTheTeam.styles';
 
 const MeetTheTeamSection = ({ meetTheTeamSection }) => (
-  <Container maxWidth={false} className="section-padding" css={styles}>
+  <Container
+    maxWidth={false}
+    className="section-padding"
+    css={styles}
+    id="section6"
+  >
     <Container maxWidth="lg" className="side-padding">
-      <Grid container id="section6">
+      <Grid container>
         <Grid item xs={12}>
           <div>
             <Typography
