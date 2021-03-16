@@ -38,13 +38,13 @@ const theme = createMuiTheme({
       // lineHeight: '8.6rem',
       letterSpacing: '-1px',
     },
-    // H5 is used as an H1 alternate
+
     h5: {
-      fontFamily: '"Whyte-Inktrap", Helvetica, sans-serif, sans-serif',
-      fontSize: '10rem',
-      lineHeight: '11rem',
-      letterSpacing: '-2px',
-      fontWeight: 'normal',
+      fontFamily: '"Bogue-Black", Garamond, Baskerville, sans-serif',
+      fontSize: '6rem',
+      lineHeight: '6.4rem',
+      letterSpacing: '-1px',
+      fontWeight: 'bold',
     },
     h6: {
       fontFamily: '"Bogue-Regular", Garamond, Baskerville, sans-serif',
@@ -136,6 +136,7 @@ const theme = createMuiTheme({
       root: {
         padding: '1.3rem 2.6rem',
         borderRadius: '25px',
+        textTransform: 'none',
       },
       containedPrimary: {
         backgroundColor: lightPeach.main,

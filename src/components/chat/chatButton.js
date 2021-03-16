@@ -13,7 +13,7 @@ const ChatButton = () => {
   return (
     <div css={styles}>
       <Button variant="contained" onClick={handleClick} className="chat-button">
-        Talk to a real person
+        Talk to&nbsp;<span className="btn-italic-text">A real person</span>
       </Button>
       {showChatModal && <ChatContainer setShowChatModal={setShowChatModal} />}
     </div>

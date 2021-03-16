@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { Grid, Typography } from '@material-ui/core';
 import { CustomerMessage, AgentMessage } from './chatUtils';
 
 const ChatMessages = ({ messages = [], customerId, scrollToRef }) => {
@@ -39,44 +40,52 @@ const Chat = ({ state, onSendMessage, scrollToRef }) => {
   };
 
   return (
-    <div
-      style={{
-        height: 640,
-        width: 480,
-      }}
-    >
-      <div>
-        <div
-          style={{
-            flex: 1,
-            height: '100%',
-            overflow: 'scroll',
-          }}
-        >
-          <ChatMessages
-            messages={messages}
-            customerId={customerId}
-            scrollToRef={scrollToRef}
-          />
+    <>
+      <Grid item xs={12} md={6} style={{ border: '3px solid aqua' }}>
+        <div>
+          <div
+            style={{
+              flex: 1,
+              height: '100%',
+              overflow: 'scroll',
+            }}
+          >
+            <ChatMessages
+              messages={messages}
+              customerId={customerId}
+              scrollToRef={scrollToRef}
+            />
+          </div>
+
+          <div>
+            <div>
+              <form onSubmit={handleSubmit}>
+                <input
+                  value={message}
+                  placeholder="Start typing..."
+                  onChange={handleChangeMessage}
+                />
+              </form>
+            </div>
+          </div>
         </div>
 
         <div>
-          <div>
-            <form onSubmit={handleSubmit}>
-              <input
-                value={message}
-                placeholder="Start typing..."
-                onChange={handleChangeMessage}
-              />
-            </form>
-          </div>
+          <button onClick={(e) => handleSendMessage(e)}>Send</button>
         </div>
-      </div>
+      </Grid>
 
-      <div>
-        <button onClick={(e) => handleSendMessage(e)}>Send</button>
-      </div>
-    </div>
+      {/* TODO: put this copy in the cms */}
+      <Grid item xs={12} md={6} style={{ border: '3px solid green' }}>
+        <Typography variant="h5">Talk to a real person.</Typography>
+        <Typography variant="body1">
+          No, really. We are probably sitting at our computers right now,
+          waiting to talk to you. We’re the kind of folks that understand how
+          important time is when it comes to hiring the right talent. Let’s
+          chat!
+        </Typography>
+      </Grid>
+    </>
   );
 };
 

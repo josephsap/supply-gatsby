@@ -39,3 +39,9 @@
   font-family: 'Bogue-LightItalic';
   src: url('bogue/BogueLightItalic/font.woff');
 }
+
+/* Chat Button Italic */
+@font-face {
+  font-family: 'Bogue-Italic';
+  src: url('bogue/BogueItalic/font.woff');
+}

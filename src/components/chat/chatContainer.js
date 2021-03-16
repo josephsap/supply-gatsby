@@ -1,4 +1,5 @@
 import { ChatBuilder } from '@papercups-io/chat-builder';
+import { Grid } from '@material-ui/core';
 import Chat from './chat';
 import styles from './chatContainer.styles';
 
@@ -24,7 +25,7 @@ const config = {
 
 const ChatContainer = ({ setShowChatModal }) => {
   return (
-    <div css={styles}>
+    <Grid container css={styles}>
       <p onClick={() => setShowChatModal(false)}>CLOSE CHAT</p>
       <ChatBuilder
         config={config}
@@ -56,7 +57,7 @@ const ChatContainer = ({ setShowChatModal }) => {
           );
         }}
       </ChatBuilder>
-    </div>
+    </Grid>
   );
 };
 
