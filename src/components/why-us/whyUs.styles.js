@@ -10,7 +10,7 @@ const styles = (theme) => css`
   }
   .why-us-title {
     text-align: center;
-    background-image: url('why-us-ellipse.svg');
+    background-image: url('images/why-us-ellipse.svg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -42,22 +42,16 @@ const styles = (theme) => css`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    ${'' /* ${theme.breakpoints.down('md')} {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-left: 0;
-    } */}
+    ${theme.breakpoints.down('md')} {
+      margin-top: 5rem;
+      text-align: center;
+    }
 
     h2 {
       font-family: 'Bogue-Black';
       font-weight: 900;
       font-size: 7.2rem;
       margin: 1rem 0;
-      ${'' /* ${theme.breakpoints.down('md')} {
-        margin-bottom: 0;
-        line-height: 1;
-      } */}
       em {
         font-weight: 300;
         font-family: 'Bogue-LightItalic';
@@ -67,20 +61,28 @@ const styles = (theme) => css`
 
   .second-section {
     border-top: 2px solid;
-    padding: 7rem 5rem 0;
     line-height: 1;
     font-size: 0;
+    ${theme.breakpoints.up('md')} {
+      padding: 7rem 5rem 0;
+    }
 
     img {
       width: 100%;
+      ${theme.breakpoints.down('md')} {
+        border-bottom-right-radius: 16px;
+        border-bottom-left-radius: 16px;
+      }
     }
   }
 
   .intro-copy {
     padding: 4rem;
+    text-align: center;
     ${theme.breakpoints.up('md')} {
       padding-right: 9rem;
       padding-left: 6.4rem;
+      text-align: left;
     }
   }
 `;

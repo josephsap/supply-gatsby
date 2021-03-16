@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-const styles = css`
+const styles = (theme) => css`
   html {
     font-size: 62.5%;
     ${'' /* cursor: url('images/cursor.png'), auto; */}
@@ -27,6 +27,15 @@ const styles = css`
   .rich-text-header {
     h1 {
       border: 1px solid;
+    }
+  }
+  .side-padding {
+    ${theme.breakpoints.between(
+      theme.breakpoints.values.tablet,
+      theme.breakpoints.values.lg + 70
+    )} {
+      padding-left: 6rem;
+      padding-right: 6rem;
     }
   }
 `;

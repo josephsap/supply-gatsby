@@ -3,25 +3,16 @@ import { Container, Typography, Grid, Box } from '@material-ui/core';
 import styles from './givingBack.styles';
 
 const GivingBackSection = ({ givingBackSection }) => (
-  <Container maxWidth={false} className="section-padding">
-    <Container maxWidth="lg">
-      <Grid
-        container
-        id="section4"
-        className="border-container"
-        css={styles}
-        spacing={10}
-      >
-        <Grid item xs={12} md={6}>
+  <Container maxWidth={false} className="section-padding" id="section4">
+    <Container maxWidth="lg" className="side-padding">
+      <Grid container css={styles} className="border-container">
+        <Grid item xs={12} md={6} className="giving-back-section">
           <Typography variant="h2">
             {givingBackSection.leftSideTitle}
           </Typography>
-          <Typography
-            variant="body1"
-            dangerouslySetInnerHTML={{
-              __html: givingBackSection.leftSideCopy.childMarkdownRemark.html,
-            }}
-          />
+          <Typography variant="body1">
+            {givingBackSection.leftSideCopy.leftSideCopy}
+          </Typography>
           <Typography variant="body1">
             {givingBackSection.orgsModalLinkText}
           </Typography>
@@ -38,12 +29,9 @@ const GivingBackSection = ({ givingBackSection }) => (
               {givingBackSection.rightSideTitle}
             </Typography>
           </Box>
-          <Typography
-            variant="body1"
-            dangerouslySetInnerHTML={{
-              __html: givingBackSection.rightSideCopy.childMarkdownRemark.html,
-            }}
-          />
+          <Typography variant="body1" className="copy-right">
+            {givingBackSection.rightSideCopy.rightSideCopy}
+          </Typography>
         </Grid>
       </Grid>
     </Container>

@@ -2,25 +2,24 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/layout/layout';
 import Navigation from '../components/layout/navigation';
-import HeroSection from '../components/heroSection';
-import WhoWePartnerWith from '../components/whoWePartnerWith';
+import HeroSection from '../components/hero';
+import WhoWePartnerWith from '../components/partner-with';
 import Services from '../components/services';
-import WhyUsSection from '../components/whyUs';
-import GivingBackSection from '../components/givingBack';
+import WhyUsSection from '../components/why-us';
+import GivingBackSection from '../components/giving-back';
 import NetworkSection from '../components/network';
 import ToolsSection from '../components/tools';
-import MeetTheTeamSection from '../components/meetTheTeam';
+import MeetTheTeamSection from '../components/team';
 import ChatButton from '../components/chat/chatButton';
+import Footer from '../components/footer';
 
 export const PAGE_DATA_QUERY = graphql`
   query pageDataQuery {
     contentfulHeroSection {
-      heroCopyRichText {
-        raw
-      }
       introCopy {
         raw
       }
+      headline
       navTitle
     }
     contentfulWhoWeWorkWithSection {
@@ -78,14 +77,10 @@ export const PAGE_DATA_QUERY = graphql`
       rightSideTitle
       leftSideTitle
       leftSideCopy {
-        childMarkdownRemark {
-          html
-        }
+        leftSideCopy
       }
       rightSideCopy {
-        childMarkdownRemark {
-          html
-        }
+        rightSideCopy
       }
       orgsModalLinkText
       orgsModalCopy {
@@ -108,14 +103,21 @@ export const PAGE_DATA_QUERY = graphql`
         }
       }
       networkAttributeItem {
+        id
         title
-        childContentfulNetworkAttributeItemDescriptionTextNode {
+        description {
           description
+        }
+        backgroundRectangle {
+          file {
+            url
+          }
         }
       }
     }
     contentfulMeetTheTeam {
       title
+      wereHiringText
       teamMember {
         id
         name
@@ -123,6 +125,11 @@ export const PAGE_DATA_QUERY = graphql`
           bio
         }
         linkedinLink
+        linkedinIcon {
+          file {
+            url
+          }
+        }
         profileImage {
           file {
             url
@@ -155,6 +162,18 @@ export const PAGE_DATA_QUERY = graphql`
         }
       }
     }
+    contentfulFooter {
+      logo {
+        file {
+          url
+        }
+      }
+      logoCaption
+      footerLinks {
+        id
+        linkText
+      }
+    }
   }
 `;
 
@@ -168,6 +187,7 @@ const Home = ({ data }) => {
     contentfulWhoWeWorkWithSection,
     contentfulWhyUsSection,
     contentfulMeetTheTeam,
+    contentfulFooter,
   } = data;
   console.log(data);
   const pageTitles = [
@@ -175,9 +195,9 @@ const Home = ({ data }) => {
     { navTitle: contentfulWhoWeWorkWithSection.whoWeWorkWithTitle },
     { navTitle: contentfulServicesSection.title },
     { navTitle: contentfulWhyUsSection.title },
-    { navTitle: contentfulServicesSection.title },
-    { navTitle: contentfulGivingBackSection.title },
+    { navTitle: 'Giving Back' },
     { navTitle: contentfulNetworkSection.title },
+    { navTitle: contentfulMeetTheTeam.title },
     { navTitle: contentfulTools.title },
   ];
 
@@ -193,6 +213,7 @@ const Home = ({ data }) => {
       <NetworkSection networkSection={contentfulNetworkSection} />
       <MeetTheTeamSection meetTheTeamSection={contentfulMeetTheTeam} />
       <ToolsSection toolsSection={contentfulTools} />
+      <Footer footer={contentfulFooter} />
     </Layout>
   );
 };

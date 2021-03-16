@@ -48,9 +48,14 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
   const open = Boolean(anchorEl);
 
   return (
-    <Container maxWidth={false} css={styles} className="section-padding">
-      <Container maxWidth="lg">
-        <Grid container id="section1" className="partner-section-container">
+    <Container
+      maxWidth={false}
+      css={styles}
+      className="section-padding"
+      id="section1"
+    >
+      <Container maxWidth="lg" className="side-padding">
+        <Grid container className="partner-section-container">
           <Grid item xs={12}>
             <Typography variant="h2" component="h2">
               {whoWeWorkWithSection.whoWeWorkWithTitle}

@@ -46,6 +46,12 @@ const theme = createMuiTheme({
       letterSpacing: '-2px',
       fontWeight: 'normal',
     },
+    h6: {
+      fontFamily: '"Bogue-Regular", Garamond, Baskerville, sans-serif',
+      fontSize: '2.4rem',
+      lineHeight: '2.8rem',
+      letterSpacing: '-1px',
+    },
     // body regular
     body1: {
       fontFamily: '"Whyte", Helvetica, sans-serif',
@@ -64,6 +70,12 @@ const theme = createMuiTheme({
       fontSize: '3.2rem',
       lineHeight: '4.2rem',
       color: lightPeach.main,
+    },
+    // footer link text
+    subtitle2: {
+      fontFamily: '"Whyte", Helvetica, sans-serif',
+      fontSize: '1.6rem',
+      lineHeight: '2rem',
     },
     caption: {
       fontFamily: '"Whyte", Helvetica, sans-serif',
@@ -107,6 +119,16 @@ const theme = createMuiTheme({
       lilac,
       cobalt,
       seaGreen,
+    },
+  },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 960,
+      lg: 1280,
+      xl: 1920,
+      tablet: 800,
     },
   },
   overrides: {
