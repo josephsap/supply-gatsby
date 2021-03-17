@@ -62,7 +62,6 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
   }
 
   function onSetItemActive(index) {
-    console.log('active', index)
     setCurrentCategoryIndex(index);
   }
 
