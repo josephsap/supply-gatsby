@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { stripCharacters } from '../../utils/utils'
 
+import { categories } from './categories';
 import {
   Container,
   Popover,
@@ -12,118 +13,6 @@ import {
 } from '@material-ui/core';
 import TabContent from './TabContent';
 import styles, { tabStyles } from './whoWePartnerWith.styles';
-
-import iconClover from '../../assets/svg/icon-clover.inline.svg';
-import iconStar from '../../assets/svg/icon-star.inline.svg';
-
-
-const categories = {
-  design: {
-    items: [
-      'UX/Research',
-      'Creative direction',
-      'Motion/3D',
-      'Digital/Visual',
-      'Product UI',
-      'Writers',
-      'Illustrators'
-    ],
-    icons: [
-      iconClover,
-      iconClover, 
-      iconStar,
-      iconStar
-    ]
-  },
-  technology: {
-    items: [
-      'Software Engineer',
-      'Fullstack/Backend',
-      'Native Mobile',
-      'Front-end Developers',
-      'Tech Direction'
-    ],
-    icons: [
-      iconClover,
-      iconClover, 
-      iconClover, 
-      iconStar,
-      iconStar,
-      iconStar
-    ]
-  },
-  management: {
-    items: [
-      'Product Managers',
-      'Growth/New Biz',
-      'Creative Producers',
-      'Program/Account/Client Services',
-      'Managing Director',
-      'Project Managers'
-    ],
-    icons: [
-      iconClover,
-      iconClover, 
-      iconClover, 
-      iconStar,
-      iconStar,
-      iconStar
-    ]
-  },
-  brands: {
-    items: [
-      'Marketing in-house',
-      'Product teams',
-      'Ecommerce'
-    ],
-    icons: [
-      iconClover,
-      iconClover, 
-      iconClover, 
-      iconStar,
-      iconStar,
-      iconStar
-    ]
-  },
-  agencies: {
-    items: [
-      'Design Studios',
-      'Creative Technology',
-      'Digital Advertising',
-      'Product Consultancies'
-    ],
-    icons: [
-      iconClover,
-      iconClover, 
-      iconClover, 
-      iconClover,
-      iconStar,
-      iconStar,
-      iconStar
-    ]
-  },
-  startuptech: {
-    items: [
-      'Social',
-      'Innovative',
-      'Mobile Apps',
-      'Tools / Platforms',
-      'SAAS'
-    ],
-    icons: [
-      iconClover,
-      iconClover, 
-      iconClover,
-      iconClover,  
-      iconStar,
-      iconStar,
-      iconStar
-    ]
-  }
-
-}
-
-
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -145,7 +34,8 @@ function TabPanel(props) {
 }
 
 const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState(0);
+  const [currentCategoryIndex, setCurrentCategoryIndex] = useState(null);
   const [anchorEl, setAnchorEl] = useState(null);
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -171,6 +61,14 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
     return categories[category].icons;
   }
 
+  function onSetItemActive(index) {
+    console.log('active', index)
+    setCurrentCategoryIndex(index);
+  }
+
+  function onSetItemInactive() {
+    setCurrentCategoryIndex(null);
+  }
 
   return (
     <Container
@@ -205,7 +103,11 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
                   key={`${stripCharacters(talentItem.jobCategory)}-item-${index}`}
                   items={getItems(talentItem.jobCategory) }
                   title={talentItem.jobCategory}
-                  icons={getIcons(talentItem.jobCategory)}/>
+                  icons={getIcons(talentItem.jobCategory)}
+                  onSetActive={onSetItemActive}
+                  onSetInactive={onSetItemInactive}
+                  index={index}
+                  inactive={currentCategoryIndex !== null && index !== currentCategoryIndex}/>
               ))}
             </TabPanel>
             <TabPanel value={value} index={1}>
@@ -214,7 +116,11 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
                   key={`${stripCharacters(clientItem.specialty)}-item-${index}`}
                   items={getItems(clientItem.specialty) }
                   title={clientItem.specialty}
-                  icons={getIcons(clientItem.specialty)}/>
+                  icons={getIcons(clientItem.specialty)}
+                  onSetActive={onSetItemActive}
+                  onSetInactive={onSetItemInactive}
+                  index={index}
+                  inactive={currentCategoryIndex !== null && index !== currentCategoryIndex}/>
               ))}
             </TabPanel>
             <Box mt={6}>
