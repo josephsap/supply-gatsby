@@ -37,7 +37,8 @@
     "react-dnd-html5-backend": "^12.1.1",
     "react-dom": "^16.14.0",
     "react-helmet": "^6.1.0",
-    "react-scroll": "^1.8.2"
+    "react-scroll": "^1.8.2",
+    "react-swipeable-views": "^0.13.9"
   },
   "devDependencies": {
     "eslint": "^7.21.0",

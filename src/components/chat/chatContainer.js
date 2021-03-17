@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ChatBuilder } from '@papercups-io/chat-builder';
-import { Dialog, DialogActions, Button, Zoom } from '@material-ui/core';
+import { Dialog, Zoom, Tab, Tabs, Box } from '@material-ui/core';
+import SwipeableViews from 'react-swipeable-views';
 import Chat from './chat';
+import EmailForm from '../email-form';
 import styles from './chatContainer.styles';
 
 const CHAT_ACCOUNT_TOKEN = process.env.CHAT_ACCOUNT_TOKEN;
@@ -24,7 +26,33 @@ const config = {
 
 // https://codepen.io/ig_design/pen/BajVZre
 
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`full-width-tabpanel-${index}`}
+      aria-labelledby={`full-width-tab-${index}`}
+      {...other}
+    >
+      {value === index && <Box p={3}>{children}</Box>}
+    </div>
+  );
+}
+
 const ChatContainer = ({ showChatModal, onClose }) => {
+  const [value, setValue] = useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  const handleChangeIndex = (index) => {
+    setValue(index);
+  };
+
   const Transition = React.forwardRef(function Transition(props, ref) {
     return (
       <Zoom
@@ -51,6 +79,10 @@ const ChatContainer = ({ showChatModal, onClose }) => {
       aria-labelledby="chat-dialog-title"
       aria-describedby="chat-dialog-description"
     >
+      {/* <Button onClick={onClose} color="primary" variant="contained">
+          CLOSE CHAT
+        </Button> */}
+
       <ChatBuilder
         config={config}
         onChatLoaded={() => console.log('Chat loaded!')}

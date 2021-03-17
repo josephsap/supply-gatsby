@@ -2,21 +2,21 @@ import { css } from '@emotion/react';
 
 const styles = (theme) => css`
   background: ${theme.palette.supply.salmon.main};
-  height: 100%;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 
   .message-container {
     padding: 4.8rem 6rem;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    ${'' /* height: 100%; */}
+    ${'' /* display: flex; */}
+    ${'' /* flex-direction: column; */}
   }
 
   .message-interior {
     border: 3px solid;
     border-radius: 20px;
-    height: 100%;
-    overflow: scroll;
+    ${'' /* height: 100%;
+    overflow: scroll; */}
   }
 
   .send-msg-btn {
@@ -34,19 +34,25 @@ const styles = (theme) => css`
 
   .email-side-container {
     padding: 4.8rem 6rem;
-    height: 100%;
+    ${'' /* height: 100%; */}
   }
 
   .email-btn {
     margin-top: auto;
   }
 
+  .slide-styles {
+    ${'' /* display: flex; */}
+    overflow-x: hidden;
+    ${'' /* height: 100%; */}
+  }
+
   .email-side-interior {
     margin-top: 2.75rem;
     padding-bottom: 2.4rem;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    ${'' /* display: flex; */}
+    ${'' /* flex-direction: column; */}
+    ${'' /* height: 100%; */}
 
     h5 {
       margin-bottom: 1rem;
@@ -58,14 +64,14 @@ const styles = (theme) => css`
 `;
 
 export const customerMsgStyles = css`
-  display: flex;
+  ${'' /* display: flex; */}
   justify-content: end;
   margin: 2rem 4rem 2rem auto;
   max-width: 60%;
 `;
 
 export const agentMsgStyles = css`
-  display: flex;
+  ${'' /* display: flex; */}
   margin: 4rem 8rem 2rem 2rem;
 `;
 
