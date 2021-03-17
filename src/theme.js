@@ -17,8 +17,10 @@ const theme = createMuiTheme({
     htmlFontSize: 10, // Paired with the html 62.5% font-size specified in withMaterialUI
     h1: {
       fontFamily: '"Bogue-Bold", Garamond, Baskerville, sans-serif',
-      fontSize: '10rem',
-      lineHeight: '11rem',
+      // fontSize: '10rem',
+      // lineHeight: '11rem',
+      fontSize: '7vw',
+      lineHeight: '1',
     },
     h2: {
       fontFamily: '"Bogue-Black", Garamond, Baskerville, sans-serif',
