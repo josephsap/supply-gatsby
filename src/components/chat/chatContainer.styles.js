@@ -1,10 +1,5 @@
 import { css } from '@emotion/react';
 
-const styles = (theme) => css`
-  position: absolute;
-  z-index: 10;
-  background: ${theme.palette.supply.salmon.main};
-  right: 0;
-`;
+const styles = (theme) => css``;
 
 export default styles;

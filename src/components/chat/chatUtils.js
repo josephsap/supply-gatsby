@@ -1,31 +1,33 @@
-export const CustomerMessage = ({ message }) => {
-  return (
-    <div>
-      <div style={{ maxWidth: '80%' }}>{message.body}</div>
-    </div>
-  );
-};
+import {
+  customerMsgStyles,
+  agentMsgStyles,
+  agentPhotoStyles,
+} from './chat.styles';
+import { Typography } from '@material-ui/core';
+
+export const CustomerMessage = ({ message }) => (
+  <Typography variant="body1" css={customerMsgStyles}>
+    {message.body}
+  </Typography>
+);
 
 export const AgentMessage = ({ message }) => {
   const { user = {} } = message;
   const { display_name, full_name, profile_photo_url } = user;
   const name = display_name || full_name || 'A';
   const photoUrl = profile_photo_url || null;
-
   return (
-    <div>
-      {photoUrl && photoUrl.length ? (
-        <div
-          style={{
-            backgroundPosition: 'center',
-            backgroundSize: 'cover',
-            backgroundImage: `url(${photoUrl})`,
-          }}
-        ></div>
+    <div css={agentMsgStyles}>
+      {photoUrl ? (
+        <div css={agentPhotoStyles(photoUrl)}></div>
       ) : (
-        <div>{name.slice(0, 1).toUpperCase()}</div>
+        <Typography variant="body1">
+          {name.slice(0, 1).toUpperCase()}
+        </Typography>
       )}
-      <div style={{ maxWidth: '80%' }}>{message.body}</div>
+      <Typography variant="body1" style={{ maxWidth: '80%' }}>
+        {message.body}
+      </Typography>
     </div>
   );
 };

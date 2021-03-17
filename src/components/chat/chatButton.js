@@ -6,16 +6,26 @@ import styles from './chatButton.styles';
 const ChatButton = () => {
   const [showChatModal, setShowChatModal] = useState(false);
 
-  const handleClick = () => {
+  const handleOpen = () => {
     setShowChatModal(true);
+  };
+
+  const handleClose = () => {
+    setShowChatModal(false);
   };
 
   return (
     <div css={styles}>
-      <Button variant="contained" onClick={handleClick} className="chat-button">
+      <Button variant="contained" onClick={handleOpen} className="chat-button">
         Talk to&nbsp;<span className="btn-italic-text">A real person</span>
       </Button>
-      {showChatModal && <ChatContainer setShowChatModal={setShowChatModal} />}
+      {showChatModal && (
+        <ChatContainer
+          setShowChatModal={setShowChatModal}
+          showChatModal={showChatModal}
+          onClose={handleClose}
+        />
+      )}
     </div>
   );
 };

@@ -9,6 +9,7 @@ const goldLeather = { main: '#CA7F28' };
 const lilac = { main: '#BB9CFE' };
 const cobalt = { main: '#356AD2', contrastText: pink };
 const seaGreen = { main: '#5F8B86', contrastText: pink };
+const textBlack = '#162C29';
 
 // A custom theme for this app
 const theme = createMuiTheme({
@@ -107,7 +108,7 @@ const theme = createMuiTheme({
       default: lightPeach.main,
     },
     text: {
-      primary: '#162C29',
+      primary: textBlack,
     },
     supply: {
       cream,
@@ -135,20 +136,24 @@ const theme = createMuiTheme({
     MuiButton: {
       root: {
         padding: '1.3rem 2.6rem',
-        borderRadius: '25px',
+        borderRadius: '40px',
         textTransform: 'none',
       },
       containedPrimary: {
-        backgroundColor: lightPeach.main,
+        backgroundColor: textBlack,
+        color: lightPeach.main,
+        fontSize: '2.4rem',
         '&:hover': {
-          backgroundColor: '#FFCBBB',
+          backgroundColor: '#254A45',
           transition: '0.25s ease',
         },
       },
       containedSecondary: {
-        backgroundColor: '#254A45',
+        backgroundColor: lightPeach.main,
+        color: lightPeach.contrastText,
+        fontSize: '2.4rem',
         '&:hover': {
-          backgroundColor: '#162C29',
+          backgroundColor: '#FFCBBB',
           transition: '0.25s ease',
         },
       },

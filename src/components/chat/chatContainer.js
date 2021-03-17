@@ -1,5 +1,6 @@
+import React from 'react';
 import { ChatBuilder } from '@papercups-io/chat-builder';
-import { Grid } from '@material-ui/core';
+import { Dialog, DialogActions, Button, Zoom } from '@material-ui/core';
 import Chat from './chat';
 import styles from './chatContainer.styles';
 
@@ -23,10 +24,33 @@ const config = {
 
 // https://codepen.io/ig_design/pen/BajVZre
 
-const ChatContainer = ({ setShowChatModal }) => {
+const ChatContainer = ({ showChatModal, onClose }) => {
+  const Transition = React.forwardRef(function Transition(props, ref) {
+    return (
+      <Zoom
+        in={showChatModal}
+        ref={ref}
+        style={{ transitionDelay: '350ms', transitionDuration: '350ms' }}
+        // timeout={{ enter: 1400, exit: 1400 }}
+        {...props}
+      />
+    );
+  });
+
   return (
-    <Grid container css={styles}>
-      <p onClick={() => setShowChatModal(false)}>CLOSE CHAT</p>
+    <Dialog
+      css={styles}
+      BackdropProps={{
+        style: { backgroundColor: 'rgba(255, 255, 255, 0.85)' },
+      }}
+      open={showChatModal}
+      TransitionComponent={Transition}
+      keepMounted
+      maxWidth="lg"
+      onClose={onClose}
+      aria-labelledby="chat-dialog-title"
+      aria-describedby="chat-dialog-description"
+    >
       <ChatBuilder
         config={config}
         onChatLoaded={() => console.log('Chat loaded!')}
@@ -44,6 +68,7 @@ const ChatContainer = ({ setShowChatModal }) => {
           onSendMessage,
           onToggleOpen,
           scrollToRef,
+          onChatLoaded,
         }) => {
           return (
             <Chat
@@ -53,11 +78,12 @@ const ChatContainer = ({ setShowChatModal }) => {
               onSendMessage={onSendMessage}
               onToggleOpen={onToggleOpen}
               scrollToRef={scrollToRef}
+              onChatLoaded={onChatLoaded}
             />
           );
         }}
       </ChatBuilder>
-    </Grid>
+    </Dialog>
   );
 };
 
