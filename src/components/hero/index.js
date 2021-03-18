@@ -77,7 +77,7 @@ const HeroSection = ({ heroSection }) => {
 
     //animate the badges and logo
     timeline.current.staggerTo([badge1Ref.current, badge2Ref.current], .5, {
-      stagger: .1,
+      stagger: .05,
       rotate: '0deg',
       x: 0,
       scale: 1,
@@ -94,7 +94,7 @@ const HeroSection = ({ heroSection }) => {
     }, '-=.5');
 
     timeline.current.to(logoRef.current, {
-      duration: .5,
+      duration: .75,
       scale: 1,
       x: 0,
       y: 0,
