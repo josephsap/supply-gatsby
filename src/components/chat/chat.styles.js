@@ -6,17 +6,15 @@ const styles = (theme) => css`
   overflow-x: hidden;
 
   .message-container {
-    padding: 4.8rem 6rem;
-    ${'' /* height: 100%; */}
-    ${'' /* display: flex; */}
-    ${'' /* flex-direction: column; */}
+    padding: 0 6rem;
+    margin: 40px 0;
   }
 
   .message-interior {
     border: 3px solid;
     border-radius: 20px;
-    ${'' /* height: 100%;
-    overflow: scroll; */}
+    overflow: auto;
+    height: calc(80vh - 140px);
   }
 
   .send-msg-btn {
@@ -34,7 +32,6 @@ const styles = (theme) => css`
 
   .email-side-container {
     padding: 4.8rem 6rem;
-    ${'' /* height: 100%; */}
   }
 
   .email-btn {
@@ -42,17 +39,15 @@ const styles = (theme) => css`
   }
 
   .slide-styles {
-    ${'' /* display: flex; */}
     overflow-x: hidden;
-    ${'' /* height: 100%; */}
   }
 
   .email-side-interior {
     margin-top: 2.75rem;
     padding-bottom: 2.4rem;
-    ${'' /* display: flex; */}
-    ${'' /* flex-direction: column; */}
-    ${'' /* height: 100%; */}
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 
     h5 {
       margin-bottom: 1rem;

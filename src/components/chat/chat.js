@@ -169,19 +169,11 @@ const Chat = ({ state, onSendMessage, scrollToRef }) => {
             {isLoaded ? (
               <Grid item xs={12} md={6} className="message-container">
                 <div className="message-interior">
-                  <div
-                    style={{
-                      flex: 1,
-                      height: '100%',
-                      overflow: 'scroll',
-                    }}
-                  >
-                    <ChatMessages
-                      messages={messages}
-                      customerId={customerId}
-                      scrollToRef={scrollToRef}
-                    />
-                  </div>
+                  <ChatMessages
+                    messages={messages}
+                    customerId={customerId}
+                    scrollToRef={scrollToRef}
+                  />
                 </div>
                 <div className="message-input-container">
                   <form onSubmit={handleSubmit}>
