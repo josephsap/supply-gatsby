@@ -1,5 +1,7 @@
 import { memo } from 'react';
 
+import boxStyles from './box.styles';
+
 const styles = {
   cursor: 'move',
   backgroundColor: '#FFE8E1',
@@ -10,12 +12,13 @@ const styles = {
   transform: 'rotate(4.5deg)',
 };
 
-export const Box = memo(function Box({ content, preview }) {
+export const Box = memo(function Box({ content, preview, className }) {
   return (
     <div
       style={{ ...styles }}
       role={preview ? 'BoxPreview' : 'Box'}
-      className="rich-text-body-copy"
+      className={`rich-text-body-copy ${className}`}
+      css={boxStyles}
     >
       {content}
     </div>
