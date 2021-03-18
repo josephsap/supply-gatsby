@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useRef, createRef } from 'react';
 import { stripCharacters } from '../../utils/utils'
+import useScrollAnimation from '../../hooks/use-scroll-animation';
+import gsap from 'gsap'; 
 
 import { categories } from './categories';
 import {
@@ -37,6 +39,27 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
   const [value, setValue] = useState(0);
   const [currentCategoryIndex, setCurrentCategoryIndex] = useState(null);
   const [anchorEl, setAnchorEl] = useState(null);
+
+  //animations that are scroll triggered
+  const wrapper = useRef(null);
+  const headline = useRef(null);
+  const buttons = useRef(null);
+  const talentTabHeadlines = useRef(whoWeWorkWithSection.talentItem.map(() => createRef()));
+  const clientTabHeadlines = useRef(whoWeWorkWithSection.clientItem.map(() => createRef()));
+
+  //the scroll triggered animation
+  useScrollAnimation(wrapper, [headline, buttons, ...talentTabHeadlines.current]);
+
+  //when the tab changes
+  useEffect(() => {
+    let elements = value === 0 ? talentTabHeadlines.current : clientTabHeadlines.current;
+    gsap.to([...elements.map((ref) => ref.current)], .5, {
+      y: 0,
+      opacity: 1,
+      stagger: .05  
+    })
+  }, [value]);
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -75,11 +98,12 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
       css={styles}
       className="section-padding"
       id="section1"
+      ref={wrapper}
     >
       <Container maxWidth="lg" className="side-padding">
         <Grid container className="partner-section-container">
           <Grid item xs={12}>
-            <Typography variant="h2" component="h2">
+            <Typography className="headline" variant="h2" component="h2" ref={headline}>
               {whoWeWorkWithSection.whoWeWorkWithTitle}
             </Typography>
             <Tabs
@@ -90,13 +114,13 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
               className="partner-tabs"
               TabIndicatorProps={{ className: 'tab-indicator-override' }}
               css={tabStyles(value)}
+              ref={buttons}
             >
               {whoWeWorkWithSection.talentclientToggle.map((item, index) => (
                 <Tab key={index} label={item} className="single-tab-item" />
               ))}
             </Tabs>
             <TabPanel value={value} index={0}>
-            
               {whoWeWorkWithSection.talentItem.map((talentItem, index) => (
                 <TabContent 
                   key={`${stripCharacters(talentItem.jobCategory)}-item-${index}`}
@@ -106,7 +130,8 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
                   onSetActive={onSetItemActive}
                   onSetInactive={onSetItemInactive}
                   index={index}
-                  inactive={currentCategoryIndex !== null && index !== currentCategoryIndex}/>
+                  inactive={currentCategoryIndex !== null && index !== currentCategoryIndex}
+                  ref={talentTabHeadlines.current[index]}/>
               ))}
             </TabPanel>
             <TabPanel value={value} index={1}>
@@ -119,7 +144,8 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
                   onSetActive={onSetItemActive}
                   onSetInactive={onSetItemInactive}
                   index={index}
-                  inactive={currentCategoryIndex !== null && index !== currentCategoryIndex}/>
+                  inactive={currentCategoryIndex !== null && index !== currentCategoryIndex}
+                  ref={clientTabHeadlines.current[index]}/>
               ))}
             </TabPanel>
             <Box mt={6}>

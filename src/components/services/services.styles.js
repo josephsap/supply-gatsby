@@ -3,6 +3,14 @@ import { css } from '@emotion/react';
 const styles = (theme) => css`
   background-color: ${theme.palette.supply.goldLeather.main};
 
+  //pre-animated in styles
+  .hww-title,
+  .hww-description,
+  .service-item {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
   .hww-title {
     margin-bottom: 4rem;
     div {

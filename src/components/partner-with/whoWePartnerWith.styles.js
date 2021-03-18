@@ -3,6 +3,14 @@ import { css } from '@emotion/react';
 const styles = (theme) => css`
   background-color: ${theme.palette.supply.pink.main};
 
+  //pre-animated styles
+  .headline,
+  .partner-tabs,
+  .category-container {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
   .tab-indicator-override {
     background: none;
   }

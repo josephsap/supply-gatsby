@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, forwardRef } from 'react';
 import { stripCharacters } from '../../utils/utils';
 import {
   Typography,
@@ -6,11 +6,9 @@ import {
 
 import IconArrow from '../../assets/svg/icon-arrow.inline.svg';
 
-
-const TabContent = ({ index, items, title, icons, inactive, onSetActive, onSetInactive }) => {
+const TabContent = forwardRef(({ index, items, title, icons, inactive, onSetActive, onSetInactive }, ref) => {
   const [active, setActive] = useState(false);
   const timeout = useRef(null);
-
 
   function renderCategoryItems() {
     return items.map((item, i) => {
@@ -52,7 +50,7 @@ const TabContent = ({ index, items, title, icons, inactive, onSetActive, onSetIn
   }
   
   return  (
-    <div className={`${stripCharacters(title)} category-container ${active ? 'active' : ''} ${inactive ? 'inactive' : ''}`} >
+    <div className={`${stripCharacters(title)} category-container ${active ? 'active' : ''} ${inactive ? 'inactive' : ''}`} ref={ref  }>
         <a href="#" className={'category-title'} onMouseEnter={onMouseOver} onMouseLeave={onMouseOut}>
           <Typography variant="h1" component="h3">
             {title}
@@ -70,6 +68,6 @@ const TabContent = ({ index, items, title, icons, inactive, onSetActive, onSetIn
         </div>
     </div>)
 
-};
+});
 
 export default TabContent;
