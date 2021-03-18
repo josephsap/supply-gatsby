@@ -114,7 +114,7 @@ const styles = (theme) => css`
       top: -70px;
       left: 70px;
       opacity: 0;
-      transform: rotate(800deg);
+      transform: translateY(100%) rotate(800deg);
     }
 
     .squiggly-arrow {

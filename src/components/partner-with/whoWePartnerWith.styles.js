@@ -46,15 +46,21 @@ const styles = (theme) => css`
     .category-cta,
     .category-item,
     .category-icons svg {
-      transition: transform .25s ${theme.transitions.easing.inOutCirc}, opacity .25s ${theme.transitions.easing.inOutCirc} .1s;
+      transition: ${theme.transitions.create(['transform', 'opacity'], {
+        duration: '.25s',
+        easing: theme.transitions.easing.outExpo
+      })};
     }
 
     &.active {
       .category-cta,
       .category-item,
       .category-icons svg {
+        transition: ${theme.transitions.create(['all'], {
+          duration: '.25s',
+          easing: theme.transitions.easing.inOutCirc
+        })};
         opacity: 1;
-        transition: all .25s ${theme.transitions.easing.inOutCirc};
       }  
 
       .category-cta {
@@ -80,7 +86,10 @@ const styles = (theme) => css`
         display: inline-block;
         color: ${theme.palette.text.primary};
         position: relative;
-        transition: opacity .25s ${theme.transitions.easing.inOutCirc};
+        transition: ${theme.transitions.create(['opacity'], {
+          duration: '.25s',
+          easing: theme.transitions.easing.inOutCirc
+        })};
         
         &:after {
           width: 100%;

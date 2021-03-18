@@ -40,6 +40,8 @@ const HeroSection = ({ heroSection }) => {
 
   useEffect(() => {
     //set up the timeline animations using scroll trigger
+    
+
     timeline.current = gsap.timeline({
       scrollTrigger: {
         id: SCROLL_TRIGGER_ID,
@@ -47,6 +49,9 @@ const HeroSection = ({ heroSection }) => {
         end: 'bottom bottom',
         trigger: wrapperRef.current,
         onEnter: () => {
+          //add the shown class to the sticker
+          const box = draggableBoxRef.current?.querySelector('.drag-box'); 
+          setTimeout(() => { box.classList.add('shown') }, 1500);
         }
       }
     });
@@ -59,21 +64,6 @@ const HeroSection = ({ heroSection }) => {
       opacity: 1,
       ease: 'expo.out'
     });
-
-    //animate the clip path of the draggable box
-    let dragboxClipPath = { current: 100 };
-
-    timeline.current.to(dragboxClipPath, .5, {
-      current: 0,
-      ease: 'expo.out',
-      onStart: () => {
-        gsap.set(draggableBoxRef.current, { opacity: 1 });
-      },
-      onUpdate: () => {
-        const box = draggableBoxRef.current?.querySelector('.drag-box'); 
-        gsap.set(box, { 'clip-path': `inset(0 ${dragboxClipPath.current}% 0 0)`});
-      }
-    }, '-=.5');
 
     //animate the badges and logo
     timeline.current.staggerTo([badge1Ref.current, badge2Ref.current], .5, {
