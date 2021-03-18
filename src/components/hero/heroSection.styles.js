@@ -102,7 +102,7 @@ const styles = (theme) => css`
     position: absolute;
     right: -40px;
     bottom: -90px;
-    z-index: 2;
+    z-index: 3;
     transform: translateY(100%);
 
     .clover {
