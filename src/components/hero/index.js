@@ -40,6 +40,8 @@ const HeroSection = ({ heroSection }) => {
 
   useEffect(() => {
     //set up the timeline animations using scroll trigger
+    
+
     timeline.current = gsap.timeline({
       scrollTrigger: {
         id: SCROLL_TRIGGER_ID,
@@ -49,7 +51,7 @@ const HeroSection = ({ heroSection }) => {
         onEnter: () => {
           //add the shown class to the sticker
           const box = draggableBoxRef.current?.querySelector('.drag-box'); 
-          setTimeout(() => { box.classList.add('shown') }, 1500);
+          setTimeout(() => { box.classList.add('shown') }, 1000);
         }
       }
     });
@@ -170,7 +172,8 @@ const HeroSection = ({ heroSection }) => {
   useEffect(() => {
     const { left } = heroCopyRef.current.getBoundingClientRect();
     const { offsetHeight } = heroCopyRef.current;
-    setBoxPos({ top: offsetHeight * 1.75, left: left + 10 });
+    // setBoxPos({ top: offsetHeight * 1.75, left: left + 10 });
+    setBoxPos({ top: offsetHeight * 1, left: left + 100 });
   }, [heroCopyRef]);
 
   return (

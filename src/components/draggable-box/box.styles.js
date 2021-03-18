@@ -1,9 +1,6 @@
 import { css } from '@emotion/react';
 
 const boxStyles = (theme) => css`
-    cursor: move;
-    width: 630px;
-    transform: rotate(4.5deg);
     opacity: 0;
     transition: ${theme.transitions.create(['opacity'], {
         duration: '.2s',
