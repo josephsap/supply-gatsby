@@ -3,7 +3,7 @@ import EmailForm from './email-form';
 import { chatBaseStyles } from '../chat/chat.styles';
 import { emailFormStyles } from './email-form.styles';
 
-const EmailForm = ({ setChecked }) => {
+const EmailContainer = ({ setChecked }) => {
   return (
     <Grid container css={[chatBaseStyles, emailFormStyles]}>
       {/* TODO: put this copy in the cms */}
@@ -15,4 +15,4 @@ const EmailForm = ({ setChecked }) => {
   );
 };
 
-export default EmailForm;
+export default EmailContainer;

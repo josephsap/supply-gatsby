@@ -9,7 +9,7 @@ import {
   Slide,
 } from '@material-ui/core';
 import { CustomerMessage, AgentMessage } from './chatUtils';
-import EmailForm from '../email-form';
+import EmailContainer from '../email/email-container';
 import { chatBaseStyles } from './chat.styles';
 
 const ChatMessages = ({ messages = [], customerId, scrollToRef }) => {
@@ -138,7 +138,7 @@ const Chat = ({ state, onSendMessage, scrollToRef }) => {
           timeout={{ enter: 400, exit: 400 }}
         >
           <div>
-            <EmailForm setChecked={setChecked} />
+            <EmailContainer setChecked={setChecked} />
           </div>
         </Slide>
       ) : null}

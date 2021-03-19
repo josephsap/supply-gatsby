@@ -3,7 +3,6 @@ import { ChatBuilder } from '@papercups-io/chat-builder';
 import { Dialog, Zoom, Tab, Tabs, Box } from '@material-ui/core';
 import SwipeableViews from 'react-swipeable-views';
 import Chat from './chat';
-import EmailForm from '../email-form';
 
 const CHAT_ACCOUNT_TOKEN = process.env.CHAT_ACCOUNT_TOKEN;
 
