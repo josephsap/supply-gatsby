@@ -9,7 +9,8 @@ import {
   Slide,
 } from '@material-ui/core';
 import { CustomerMessage, AgentMessage } from './chatUtils';
-import styles from './chat.styles';
+import EmailForm from '../email-form';
+import { chatBaseStyles } from './chat.styles';
 
 const ChatMessages = ({ messages = [], customerId, scrollToRef }) => {
   return (
@@ -63,7 +64,7 @@ const Chat = ({ state, onSendMessage, scrollToRef }) => {
           unmountOnExit
           timeout={{ enter: 400, exit: 400 }}
         >
-          <Grid container css={styles}>
+          <Grid container css={chatBaseStyles}>
             {/* TODO: put this copy in the cms */}
 
             <Grid item xs={12} md={6} className="email-side-container">
@@ -136,69 +137,9 @@ const Chat = ({ state, onSendMessage, scrollToRef }) => {
           unmountOnExit
           timeout={{ enter: 400, exit: 400 }}
         >
-          <Grid container css={styles}>
-            {/* TODO: put this copy in the cms */}
-
-            <Grid item xs={12} md={6} className="email-side-container">
-              <Box className="email-side-interior">
-                <Typography variant="h5">the email side.</Typography>
-                <Typography variant="body1">
-                  No, really. We are probably sitting at our computers right
-                  now, waiting to talk to you. We’re the kind of folks that
-                  understand how important time is when it comes to hiring the
-                  right talent. Let’s chat!
-                </Typography>
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  className="email-btn"
-                  fullWidth
-                  onClick={() => setChecked(false)}
-                  startIcon={
-                    <img
-                      src={`images/arrow-left-email-btn.svg`}
-                      style={{ marginRight: 'auto' }}
-                    />
-                  }
-                >
-                  Email us
-                </Button>
-              </Box>
-            </Grid>
-
-            {isLoaded ? (
-              <Grid item xs={12} md={6} className="message-container">
-                <div className="message-interior">
-                  <ChatMessages
-                    messages={messages}
-                    customerId={customerId}
-                    scrollToRef={scrollToRef}
-                  />
-                </div>
-                <div className="message-input-container">
-                  <form onSubmit={handleSubmit}>
-                    <TextField
-                      fullWidth
-                      value={message}
-                      placeholder="Start typing..."
-                      onChange={handleChangeMessage}
-                    />
-                  </form>
-                  <Button
-                    fullWidth
-                    onClick={(e) => handleSendMessage(e)}
-                    className="send-msg-btn"
-                    variant="contained"
-                    color="primary"
-                  >
-                    Send
-                  </Button>
-                </div>
-              </Grid>
-            ) : (
-              <CircularProgress />
-            )}
-          </Grid>
+          <div>
+            <EmailForm setChecked={setChecked} />
+          </div>
         </Slide>
       ) : null}
     </div>
@@ -206,35 +147,3 @@ const Chat = ({ state, onSendMessage, scrollToRef }) => {
 };
 
 export default Chat;
-
-{
-  /* <Slide
-        in={activeIndex}
-        direction="left"
-        timeout={400}
-        style={{ border: '2px solid green' }}
-      >
-        <Grid container>
-          <Grid item xs={12}>
-            <div>
-              <div>hello </div>
-              <Button
-                variant="contained"
-                color="secondary"
-                className="email-btn"
-                fullWidth
-                onClick={() => setActiveIndex(0)}
-                startIcon={
-                  <img
-                    src={`images/arrow-left-email-btn.svg`}
-                    style={{ marginRight: 'auto' }}
-                  />
-                }
-              >
-                second panel
-              </Button>
-            </div>
-          </Grid>
-        </Grid>
-      </Slide> */
-}

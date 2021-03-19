@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-const styles = (theme) => css`
+export const chatBaseStyles = (theme) => css`
   background: ${theme.palette.supply.salmon.main};
   overflow-y: auto;
   overflow-x: hidden;
@@ -59,14 +59,12 @@ const styles = (theme) => css`
 `;
 
 export const customerMsgStyles = css`
-  ${'' /* display: flex; */}
   justify-content: end;
   margin: 2rem 4rem 2rem auto;
   max-width: 60%;
 `;
 
 export const agentMsgStyles = css`
-  ${'' /* display: flex; */}
   margin: 4rem 8rem 2rem 2rem;
 `;
 
@@ -80,4 +78,4 @@ export const agentPhotoStyles = (photoUrl) => css`
   margin-right: 2.4rem;
 `;
 
-export default styles;
+// export default styles;

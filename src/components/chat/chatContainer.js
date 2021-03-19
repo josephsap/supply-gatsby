@@ -4,7 +4,6 @@ import { Dialog, Zoom, Tab, Tabs, Box } from '@material-ui/core';
 import SwipeableViews from 'react-swipeable-views';
 import Chat from './chat';
 import EmailForm from '../email-form';
-import styles from './chatContainer.styles';
 
 const CHAT_ACCOUNT_TOKEN = process.env.CHAT_ACCOUNT_TOKEN;
 
@@ -67,7 +66,6 @@ const ChatContainer = ({ showChatModal, onClose }) => {
 
   return (
     <Dialog
-      css={styles}
       BackdropProps={{
         style: { backgroundColor: 'rgba(255, 255, 255, 0.85)' },
       }}
