@@ -11,7 +11,7 @@ const styles = {
   overflow: 'hidden',
 };
 
-export const DragContainer = ({ content, boxPos, boxClassName }) => {
+export const DragContainer = ({ content, boxPos, isShown }) => {
   console.log(boxPos, 'boxPos');
   const [boxes, setBoxes] = useState({
     a: { top: boxPos.top, left: boxPos.left, content },
@@ -44,7 +44,7 @@ export const DragContainer = ({ content, boxPos, boxClassName }) => {
   return (
     <div ref={drop} style={styles}>
       {Object.keys(boxes).map((key) => (
-        <DraggableBox key={key} id={key} {...boxes[key]} boxClassName={boxClassName} />
+        <DraggableBox key={key} id={key} {...boxes[key]} isShown={isShown}/>
       ))}
     </div>
   );

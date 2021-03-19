@@ -20,6 +20,7 @@ const SCROLL_TRIGGER_ID = `heroAnimation`;
 const HeroSection = ({ heroSection }) => {
   const heroCopyRef = useRef();
   const [boxPos, setBoxPos] = useState(null);
+  const [showBox, setShowBox] = useState(false);
 
   //for animations
   const timeline = useRef(null); 
@@ -47,12 +48,7 @@ const HeroSection = ({ heroSection }) => {
         id: SCROLL_TRIGGER_ID,
         start: 'top 70%',
         end: 'bottom bottom',
-        trigger: wrapperRef.current,
-        onEnter: () => {
-          //add the shown class to the sticker
-          const box = draggableBoxRef.current?.querySelector('.drag-box'); 
-          setTimeout(() => { box.classList.add('shown') }, 1000);
-        }
+        trigger: wrapperRef.current
       }
     });
 
@@ -62,7 +58,11 @@ const HeroSection = ({ heroSection }) => {
       y: 0,
       delay: 2,
       opacity: 1,
-      ease: 'expo.out'
+      ease: 'expo.out',
+      onCompleteAll: () => {
+         //add the shown class to the sticker
+        setShowBox(true);
+      }
     });
 
     //animate the badges and logo
@@ -172,8 +172,7 @@ const HeroSection = ({ heroSection }) => {
   useEffect(() => {
     const { left } = heroCopyRef.current.getBoundingClientRect();
     const { offsetHeight } = heroCopyRef.current;
-    // setBoxPos({ top: offsetHeight * 1.75, left: left + 10 });
-    setBoxPos({ top: offsetHeight * 1, left: left + 100 });
+    setBoxPos({ top: offsetHeight * 1.75, left: left + 10 });
   }, [heroCopyRef]);
 
   return (
@@ -181,11 +180,11 @@ const HeroSection = ({ heroSection }) => {
       {boxPos && (
         <div css={dragStyles} ref={draggableBoxRef}>
           <DragContainer
-            boxClassName={'drag-box'}
             content={documentToReactComponents(
               JSON.parse(heroSection.introCopy.raw)
             )}
             boxPos={boxPos}
+            isShown={showBox}
           />
           <CustomDragLayer />
         </div>

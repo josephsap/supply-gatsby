@@ -8,12 +8,12 @@ const styles = {
   transform: 'rotate(4.5deg)',
 };
 
-export const Box = memo(function Box({ content, preview, className }) {
+export const Box = memo(function Box({ content, preview, isShown }) {
   return (
     <div
       style={{...styles}}
       role={preview ? 'BoxPreview' : 'Box'}
-      className={`rich-text-body-copy ${className}`}
+      className={`rich-text-body-copy ${isShown || preview ? `shown` : ``}`}
       css={boxStyles}
     > 
       <span className="sticker-front"></span>

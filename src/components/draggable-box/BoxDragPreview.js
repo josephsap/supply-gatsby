@@ -7,7 +7,7 @@ const styles = {
 };
 export const BoxDragPreview = memo(function BoxDragPreview({ content }) {
   return (
-    <div style={styles}>
+    <div className="box-preview" style={styles}>
       <Box content={content} preview />
     </div>
   );
