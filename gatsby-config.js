@@ -25,6 +25,7 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-recaptcha`,
     `gatsby-plugin-emotion`,
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
