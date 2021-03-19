@@ -41,8 +41,6 @@ const HeroSection = ({ heroSection }) => {
 
   useEffect(() => {
     //set up the timeline animations using scroll trigger
-    
-
     timeline.current = gsap.timeline({
       scrollTrigger: {
         id: SCROLL_TRIGGER_ID,
