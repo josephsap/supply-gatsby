@@ -1,4 +1,6 @@
 import { css } from '@emotion/react';
+import { initiallyHidden } from '../shared/shared.styles';
+
 
 const styles = (theme) => css`
   background-color: ${theme.palette.supply.goldLeather.main};
@@ -7,8 +9,7 @@ const styles = (theme) => css`
   .hww-title,
   .hww-description,
   .service-item {
-    opacity: 0;
-    transform: translateY(50px);
+    ${initiallyHidden}
   }
 
   .hww-title {
