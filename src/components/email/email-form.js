@@ -18,6 +18,10 @@ import {
   GoogleReCaptchaProvider,
   GoogleReCaptcha,
 } from 'react-google-recaptcha-v3';
+import { chatBaseStyles } from '../chat/chat.styles';
+import styles, { emailFormStyles } from './email-form.styles';
+import { chatContainerPadding } from '../layout/margin-padding-utils.styles';
+import ChatContainer from '../chat/chatContainer';
 
 const reCaptchaKey = process.env.RECAPTCHA_KEY;
 
@@ -45,89 +49,104 @@ const EmailForm = ({
 }) => {
   return (
     <GoogleReCaptchaProvider reCaptchaKey={reCaptchaKey}>
-      <Box className="email-side-interior">
-        <Typography variant="h5">{emailFormData.title}</Typography>
-        <Typography variant="body1">{emailFormData.description}</Typography>
-        <div>
-          <Typography variant="h4">The basics</Typography>
+      <Formik
+        initialValues={{
+          name: '',
+          email: '',
+          resumeLink: '',
+          message: '',
+          want: 'talent',
+          skillsChecked: [],
+          areasChecked: [],
+        }}
+        validationSchema={validationSchema}
+        validate={(values) => {
+          const errors = {};
 
-          <Formik
-            initialValues={{
-              name: '',
-              email: '',
-              resumeLink: '',
-              message: '',
-              want: 'talent',
-              skillsChecked: [],
-              areasChecked: [],
-            }}
-            validationSchema={validationSchema}
-            validate={(values) => {
-              const errors = {};
+          if (!values.email) {
+            errors.email = 'Required';
+          } else if (
+            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+          ) {
+            errors.email = 'Invalid email address';
+          }
 
-              if (!values.email) {
-                errors.email = 'Required';
-              } else if (
-                !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-              ) {
-                errors.email = 'Invalid email address';
-              }
-
-              return errors;
-            }}
-            onSubmit={(values, { setSubmitting }) => {
-              setTimeout(() => {
-                alert(JSON.stringify(values, null, 2));
-                console.log(values, 'valsssss');
-                setSubmitting(false);
-              }, 400);
-            }}
-          >
-            {({
-              values,
-              errors,
-              touched,
-              handleChange,
-              handleBlur,
-              handleSubmit,
-              isSubmitting,
-            }) => (
-              <form onSubmit={handleSubmit}>
-                <TextField
-                  type="name"
-                  name="name"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.name}
-                />
-                <TextField
-                  type="email"
-                  name="email"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.email}
-                />
-
-                {errors.email && touched.email && errors.email}
-
-                <TextField
-                  type="resumeLink"
-                  name="resumeLink"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.resumeLink}
-                />
-                <TextField
-                  type="message"
-                  name="message"
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                  value={values.message}
-                  placeholder="Message"
-                  multiline
-                />
-
+          return errors;
+        }}
+        onSubmit={(values, { setSubmitting }) => {
+          setTimeout(() => {
+            alert(JSON.stringify(values, null, 2));
+            console.log(values, 'valsssss');
+            setSubmitting(false);
+          }, 400);
+        }}
+      >
+        {({
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          isSubmitting,
+        }) => (
+          <div css={styles}>
+            <form onSubmit={handleSubmit} className="form-wrapper">
+              <div
+                css={[chatBaseStyles, emailFormStyles]}
+                className="form-item-left"
+              >
                 <div>
+                  <Typography variant="h5">{emailFormData.title}</Typography>
+                  <Typography variant="body1">
+                    {emailFormData.description}
+                  </Typography>
+                  <Typography variant="h4">The basics</Typography>
+                </div>
+
+                {/* <div css={chatContainerPadding}> */}
+                <div className="left-form-fields">
+                  <TextField
+                    type="name"
+                    name="name"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.name}
+                    label="Name"
+                  />
+                  <TextField
+                    type="email"
+                    name="email"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.email}
+                    label="Email"
+                  />
+
+                  {errors.email && touched.email && errors.email}
+                  <TextField
+                    type="resumeLink"
+                    name="resumeLink"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.resumeLink}
+                    label="Resumé Link"
+                  />
+                  <TextField
+                    type="message"
+                    name="message"
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    value={values.message}
+                    placeholder="Message"
+                    multiline
+                    label="Message"
+                  />
+                </div>
+              </div>
+
+              <div className="form-item-right">
+                <div className="selectors-wrapper">
                   <FormControl component="fieldset">
                     <FormLabel component="legend">You want</FormLabel>
                     <RadioGroup
@@ -188,8 +207,15 @@ const EmailForm = ({
                     </FormGroup>
                   </FormControl>
                 </div>
-                <GoogleReCaptcha onVerify={onVerifyRecaptcha} />
-                <Button type="submit" disabled={isSubmitting}>
+
+                {/* <GoogleReCaptcha onVerify={onVerifyRecaptcha} /> */}
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  variant="contained"
+                  color="primary"
+                  fullWidth
+                >
                   Send
                 </Button>
                 <Button
@@ -205,13 +231,13 @@ const EmailForm = ({
                     />
                   }
                 >
-                  Email us
+                  Go Back
                 </Button>
-              </form>
-            )}
-          </Formik>
-        </div>
-      </Box>
+              </div>
+            </form>
+          </div>
+        )}
+      </Formik>
     </GoogleReCaptchaProvider>
   );
 };

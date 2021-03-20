@@ -35,3 +35,7 @@ export const mt6 = css`
 export const mb6 = css`
   margin-bottom: 6rem;
 `;
+
+export const chatContainerPadding = css`
+  padding: 0 6rem;
+`;

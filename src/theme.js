@@ -166,6 +166,20 @@ const theme = createMuiTheme({
         backgroundColor: cream.main,
       },
     },
+    MuiCheckbox: {
+      colorSecondary: {
+        display: 'none',
+        // '&$checked': {
+        //   color: 'aqua',
+        //   border: '4px solid aqua',
+        // },
+      },
+    },
+    MuiRadio: {
+      colorSecondary: {
+        display: 'none',
+      },
+    },
   },
 });
 
