@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 
-export const emailFormStyles = (theme) => css`
+export const emailFormStyles = css`
   .email-side-interior {
     h5 {
       width: 100%;
@@ -8,7 +8,7 @@ export const emailFormStyles = (theme) => css`
   }
 `;
 
-const styles = css`
+const styles = (theme) => css`
   .form-wrapper {
     display: flex;
   }
@@ -33,6 +33,20 @@ const styles = css`
   .selectors-wrapper {
     display: flex;
     flex-direction: column;
+  }
+
+  .location-select-item {
+    margin: 0 1.6rem 1.6rem 0;
+    .MuiFormControlLabel-label {
+      border: 1px solid;
+      border-radius: 100px;
+      padding: 1rem 2rem;
+    }
+  }
+
+  .Mui-checked + .MuiFormControlLabel-label {
+    background-color: ${theme.palette.text.primary};
+    color: ${theme.palette.supply.lightPeach.main};
   }
 `;
 

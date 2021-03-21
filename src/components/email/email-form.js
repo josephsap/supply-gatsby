@@ -194,6 +194,7 @@ const EmailForm = ({
                       {locations.map((location) => (
                         <FormControlLabel
                           key={location.value}
+                          className="location-select-item"
                           control={
                             <Checkbox
                               onChange={handleChange}
