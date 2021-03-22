@@ -4,7 +4,7 @@ import { Dialog, Zoom, Tab, Tabs, Box } from '@material-ui/core';
 import SwipeableViews from 'react-swipeable-views';
 import Chat from './chat';
 
-const CHAT_ACCOUNT_TOKEN = process.env.CHAT_ACCOUNT_TOKEN;
+const CHAT_ACCOUNT_TOKEN = process.env.GATSBY_CHAT_ACCOUNT_TOKEN;
 
 const config = {
   accountId: CHAT_ACCOUNT_TOKEN,
