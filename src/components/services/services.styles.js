@@ -1,7 +1,16 @@
 import { css } from '@emotion/react';
+import { initiallyHidden } from '../shared/shared.styles';
+
 
 const styles = (theme) => css`
   background-color: ${theme.palette.supply.goldLeather.main};
+
+  //pre-animated in styles
+  .hww-title,
+  .hww-description,
+  .service-item {
+    ${initiallyHidden}
+  }
 
   .hww-title {
     margin-bottom: 4rem;

@@ -10,6 +10,7 @@ const lilac = { main: '#BB9CFE' };
 const cobalt = { main: '#356AD2', contrastText: pink };
 const seaGreen = { main: '#5F8B86', contrastText: pink };
 const textBlack = '#162C29';
+const purple = { main: '#8357DF' };
 
 // A custom theme for this app
 const theme = createMuiTheme({
@@ -18,8 +19,10 @@ const theme = createMuiTheme({
     htmlFontSize: 10, // Paired with the html 62.5% font-size specified in withMaterialUI
     h1: {
       fontFamily: '"Bogue-Bold", Garamond, Baskerville, sans-serif',
-      fontSize: '10rem',
-      lineHeight: '11rem',
+      // fontSize: '10rem',
+      // lineHeight: '11rem',
+      fontSize: '7vw',
+      lineHeight: '1',
     },
     h2: {
       fontFamily: '"Bogue-Black", Garamond, Baskerville, sans-serif',
@@ -120,6 +123,7 @@ const theme = createMuiTheme({
       lilac,
       cobalt,
       seaGreen,
+      purple
     },
   },
   breakpoints: {
@@ -201,6 +205,39 @@ const theme = createMuiTheme({
         display: 'none',
       },
     },
+    transitions: { 
+      easing: {
+        linear: 'cubic-bezier(0.25, 0.25, 0.75, 0.75)',
+        default: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
+        in: 'cubic-bezier(0.42, 0, 1, 1)',
+        out: 'cubic-bezier(0, 0, 0.58, 1)',
+        inOut: 'cubic-bezier(0.42, 0, 0.58, 1)',
+        inQuad: 'cubic-bezier(0.55, 0.085, 0.68, 0.53)',
+        inCubic: 'cubic-bezier(0.55, 0.055, 0.675, 0.19)',
+        inQuart: 'cubic-bezier(0.895, 0.03, 0.685, 0.22)',
+        inQuint: 'cubic-bezier(0.755, 0.05, 0.855, 0.06)',
+        inSine: 'cubic-bezier(0.47, 0, 0.745, 0.715)',
+        inExpo: 'cubic-bezier(0.95, 0.05, 0.795, 0.035)',
+        inCirc: 'cubic-bezier(0.6, 0.04, 0.98, 0.335)',
+        inBack: 'cubic-bezier(0.6, -0.28, 0.735, 0.045)',
+        outQuad: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+        outCubic: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
+        outQuart: 'cubic-bezier(0.165, 0.84, 0.44, 1)',
+        outQuint: 'cubic-bezier(0.23, 1, 0.32, 1)',
+        outSine: 'cubic-bezier(0.39, 0.575, 0.565, 1)',
+        outExpo: 'cubic-bezier(0.19, 1, 0.22, 1)',
+        outCirc: 'cubic-bezier(0.075, 0.82, 0.165, 1)',
+        outBack: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+        inOutQuad: 'cubic-bezier(0.455, 0.03, 0.515, 0.955)',
+        inOutCubic: 'cubic-bezier(0.645, 0.045, 0.355, 1)',
+        inOutQuart: 'cubic-bezier(0.77, 0, 0.175, 1)',
+        inOutQuint: 'cubic-bezier(0.86, 0, 0.07, 1)',
+        inOutSine: 'cubic-bezier(0.445, 0.05, 0.55, 0.95)',
+        inOutExpo: 'cubic-bezier(1, 0, 0, 1)',
+        inOutCirc: 'cubic-bezier(0.785, 0.135, 0.15, 0.86)',
+        inOutBack: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)'
+      }
+    }
   },
 });
 

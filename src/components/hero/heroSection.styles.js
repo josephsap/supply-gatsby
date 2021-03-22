@@ -3,6 +3,7 @@ import { css } from '@emotion/react';
 const styles = (theme) => css`
   background-color: ${theme.palette.supply.cream.main};
   padding: 6rem 0 32rem;
+  overflow: hidden;
 
   .top-images {
     z-index: 2;
@@ -11,18 +12,46 @@ const styles = (theme) => css`
       display: flex;
       position: relative;
     }
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .top-image {
+    position: relative;
+  }
+
+  .badge-green {
+    width: 157px;
+    height: 115px;
+    opacity: 0;
+    transform: scale(1.5) translateY(-50px);
   }
 
   .peach {
     position: absolute;
     left: 112px;
-    top: -5px;
+    top: -35px;
+    width: 219px;
+    height: 113px;
+    opacity: 0;
+    transform: scale(3) translateY(-50px);
+    z-index: 2;
   }
 
   .star {
     position: absolute;
     left: 375px;
-    top: 85px;
+    top: 35px;
+    width: 49px;
+    height: 49px;
+    opacity: 0;
+    transform-origin: 50%;
+    transform: rotate(-800deg);
+    z-index: 1;
   }
 
   .rich-text-section {
@@ -34,16 +63,22 @@ const styles = (theme) => css`
       font-weight: normal;
       line-height: 11rem;
       margin-bottom: 2.5rem;
+      margin-top: 5rem;
     }
 
-    span {
+    .bogue-font {
       font-family: Bogue-Bold, Garamond, Baskerville, sans-serif;
       font-size: 10rem;
       line-height: 8rem;
       letter-spacing: -2px;
       font-weight: normal;
-      display: inline-block;
       padding: 0 2.4rem 0 0;
+    }
+
+    span {
+      opacity: 0;
+      display: inline-block;
+      transform: translateY(50px);
     }
   }
 
@@ -54,7 +89,116 @@ const styles = (theme) => css`
 
   .hero-logo {
     margin-left: auto;
-    width: 225px;
+    width:160px;
+    height:160px;
+    margin-top: -30px;
+
+    //initial styles before animating in
+    opacity: 0;
+    transform: scale(3) translateY(-50px);
+  }
+  
+  .chatbox-container {
+    position: absolute;
+    right: -40px;
+    bottom: -90px;
+    z-index: 3;
+    transform: translateY(100%);
+
+    .clover {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: url(/images/clover-purple.svg);
+      background-size: 100%;
+      top: -70px;
+      left: 70px;
+      opacity: 0;
+      transform: translateY(100%) rotate(800deg);
+    }
+
+    .squiggly-arrow {
+      width: 73px;
+      height: 212px;
+      position: absolute;
+      top: -194px;
+      right: 47px;
+      z-index: 2;
+      clip-path: inset(0% 0% 100% 0%);
+
+      span {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: url(/images/squiggly-arrow.png);
+        background-size: 100%;
+      }
+    }
+    
+    .chatbox {  
+      text-decoration: none;
+      background: ${theme.palette.supply.salmon.main};
+      width: 476px;
+      height: 211px;
+      transform: rotate(-5deg);
+      padding: 40px;
+      display: block;
+    }
+
+    .chatbox-cta {
+      color: ${theme.palette.text.primary};
+    }
+
+    .drag-box{
+      transition: ${theme.transitions.create(['opacity'], {
+        duration: '.2s',
+        easing: theme.transitions.easing.outExpo
+      })};
+    }
+    .sticker-front {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        background: linear-gradient(to right, #feb29c 70%,#F9D9CF 80%,#F9D9CF 81%,#feb29c 100%);
+        z-index: 2;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);;
+        transform-origin: 100% 100%;
+        transform: translateX(-100%) skewY(15deg); 
+    }
+    .sticker-content {
+        clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+    }
+
+    .sticker-content,
+    .sticker-front {
+        transition: ${theme.transitions.create(['all'], {
+            duration: '.5s',
+            easing: theme.transitions.easing.outExpo
+        })};
+    }
+
+    .sticker-content {
+        width: 100%;
+        height: 100%;
+        background-color: #FFE8E1;
+        borderRadius: 8px;
+        padding: 2rem;
+      
+    }
+
+    &.shown {
+        opacity: 1;
+        .sticker-content {
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+
+        .sticker-front {
+          clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
+          transform: translateX(0%) rotate(0deg) skew(0deg, 15deg);
+        }
+    }
   }
 `;
 

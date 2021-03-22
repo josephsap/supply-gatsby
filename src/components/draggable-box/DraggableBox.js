@@ -17,7 +17,7 @@ function getStyles(left, top, isDragging) {
 }
 
 export const DraggableBox = memo(function DraggableBox(props) {
-  const { id, content, left, top } = props;
+  const { id, content, left, top, isShown } = props;
   const [{ isDragging }, drag, preview] = useDrag(
     () => ({
       item: { id, left, top, content, type: 'box' },
@@ -38,7 +38,7 @@ export const DraggableBox = memo(function DraggableBox(props) {
       style={getStyles(left, top, isDragging)}
       role="DraggableBox"
     >
-      <Box content={content} />
+      <Box isShown={isShown} content={content} />
     </div>
   );
 });
