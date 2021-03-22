@@ -25,7 +25,6 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-recaptcha`,
     `gatsby-plugin-emotion`,
     `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
@@ -48,12 +47,12 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-react-svg",
+      resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
-          include: /\.inline\.svg$/
-        }
-      }
-    }
+          include: /\.inline\.svg$/,
+        },
+      },
+    },
   ],
 };
