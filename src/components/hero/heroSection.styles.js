@@ -5,6 +5,13 @@ const styles = (theme) => css`
   padding: 6rem 0 32rem;
   overflow: hidden;
 
+  .mobile-dragbox {
+    background-color: ${theme.palette.supply.lightPeach.main};
+    transform: rotate(-1.5deg);
+    padding: 1.6rem;
+    border-radius: 8px;
+  }
+
   .top-images {
     z-index: 2;
 
@@ -25,13 +32,18 @@ const styles = (theme) => css`
   }
 
   .badge-green {
+    display: none;
     width: 157px;
     height: 115px;
     opacity: 0;
     transform: scale(1.5) translateY(-50px);
+    ${theme.breakpoints.up('sm')} {
+      display: block;
+    }
   }
 
   .peach {
+    display: none;
     position: absolute;
     left: 112px;
     top: -35px;
@@ -40,6 +52,9 @@ const styles = (theme) => css`
     opacity: 0;
     transform: scale(3) translateY(-50px);
     z-index: 2;
+    ${theme.breakpoints.up('sm')} {
+      display: block;
+    }
   }
 
   .star {
@@ -57,22 +72,34 @@ const styles = (theme) => css`
   .rich-text-section {
     position: relative;
     z-index: 2;
+    text-align: center;
+    ${theme.breakpoints.up('md')} {
+      text-align: left;
+    }
     h1 {
       font-family: Whyte-Inktrap, Helvetica, sans-serif, sans-serif;
-      font-size: 10rem;
+      font-size: 4rem;
       font-weight: normal;
-      line-height: 11rem;
+      line-height: 5rem;
       margin-bottom: 2.5rem;
       margin-top: 5rem;
+      ${theme.breakpoints.up('md')} {
+        font-size: 10rem;
+        line-height: 11rem;
+      }
     }
 
     .bogue-font {
       font-family: Bogue-Bold, Garamond, Baskerville, sans-serif;
-      font-size: 10rem;
-      line-height: 8rem;
+      font-size: 4rem;
+      line-height: 5rem;
       letter-spacing: -2px;
       font-weight: normal;
-      padding: 0 2.4rem 0 0;
+      ${theme.breakpoints.up('md')} {
+        font-size: 10rem;
+        line-height: 11rem;
+        padding: 0 2.4rem 0 0;
+      }
     }
 
     span {
@@ -88,22 +115,31 @@ const styles = (theme) => css`
   }
 
   .hero-logo {
-    margin-left: auto;
-    width: 160px;
-    height: 160px;
-    margin-top: -30px;
-
+    width: 190px;
+    height: 190px;
+    margin-top: -60px;
+    margin-left: -30px;
     //initial styles before animating in
     opacity: 0;
     transform: scale(3) translateY(-50px);
+    ${theme.breakpoints.up('md')} {
+      margin-top: -30px;
+      width: 160px;
+      height: 160px;
+    }
   }
 
   .chatbox-container {
     position: fixed;
-    right: -40px;
+    right: 0;
     bottom: -90px;
     z-index: 3;
     transform: translateY(100%);
+    width: 100%;
+    ${theme.breakpoints.up('md')} {
+      right: -40px;
+      width: auto;
+    }
 
     .clover {
       position: absolute;
@@ -137,9 +173,16 @@ const styles = (theme) => css`
     }
 
     .chatbox {
-      width: 476px;
+      margin-left: auto;
+      width: 100%;
       height: 211px;
       transform: rotate(-5.23deg);
+      right: -40%;
+      position: relative;
+      ${theme.breakpoints.up('md')} {
+        width: 476px;
+        right: auto;
+      }
     }
 
     .drag-box {
@@ -209,8 +252,11 @@ export const backgroundDotStyles = (theme) => css`
   height: 58%;
   width: 94%;
   position: absolute;
-  top: 200px;
+  top: 92px;
   left: 3%;
+  ${theme.breakpoints.up('md')} {
+    top: 200px;
+  }
 `;
 
 export const backgroundStyles = (theme) => css`

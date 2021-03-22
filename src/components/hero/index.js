@@ -3,7 +3,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { DragContainer } from '../draggable-box/DragContainer';
 import { CustomDragLayer } from '../draggable-box/CustomDragLayer';
-import { Container, Grid, Typography } from '@material-ui/core';
+import { Container, Grid, Typography, useMediaQuery } from '@material-ui/core';
+import { useTheme } from '@material-ui/core/styles';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styles, {
   backgroundStyles,
@@ -22,6 +23,8 @@ const HeroSection = ({ heroSection }) => {
   const heroCopyRef = useRef();
   const [boxPos, setBoxPos] = useState(null);
   const [showBox, setShowBox] = useState(false);
+  const theme = useTheme();
+  const showMdAndUp = useMediaQuery(theme.breakpoints.up('md'));
 
   //for animations
   const timeline = useRef(null);
@@ -217,7 +220,7 @@ const HeroSection = ({ heroSection }) => {
 
   return (
     <div style={{ position: 'relative', overflow: 'hidden' }} ref={wrapperRef}>
-      {boxPos && (
+      {boxPos && showMdAndUp && (
         <div css={dragStyles} ref={draggableBoxRef}>
           <DragContainer
             content={documentToReactComponents(
@@ -256,6 +259,15 @@ const HeroSection = ({ heroSection }) => {
             </Grid>
             <Grid item xs={12} className="rich-text-section" ref={heroCopyRef}>
               {titleTransform()}
+              {!showMdAndUp && (
+                <div className="mobile-dragbox">
+                  <Typography variant="body1">
+                    {documentToReactComponents(
+                      JSON.parse(heroSection.introCopy.raw)
+                    )}
+                  </Typography>
+                </div>
+              )}
             </Grid>
           </Grid>
         </Container>

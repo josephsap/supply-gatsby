@@ -6,11 +6,21 @@ const styles = (theme) => css`
     width: 100%;
     height: 100%;
     background-color: ${theme.palette.supply.salmon.main};
-    font-size: 3rem;
+    font-size: 2.4rem;
     letter-spacing: -1px;
-    padding-right: 14rem;
-    padding-bottom: 7rem;
-    padding-top: 2rem;
+
+    ${theme.breakpoints.up('md')} {
+      padding-right: 14rem;
+      padding-bottom: 7rem;
+      padding-top: 2rem;
+      font-size: 3rem;
+    }
+
+    .MuiButton-label {
+      ${theme.breakpoints.down('sm')} {
+        justify-content: flex-start;
+      }
+    }
   }
 
   .btn-italic-text {

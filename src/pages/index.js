@@ -11,6 +11,8 @@ import NetworkSection from '../components/network';
 import ToolsSection from '../components/tools';
 import MeetTheTeamSection from '../components/team';
 import Footer from '../components/footer';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
 
 export const PAGE_DATA_QUERY = graphql`
   query pageDataQuery {
@@ -200,9 +202,12 @@ const Home = ({ data }) => {
     { navTitle: contentfulTools.title },
   ];
 
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('sm'));
+
   return (
     <Layout>
-      <Navigation pageTitles={pageTitles} />
+      {matches && <Navigation pageTitles={pageTitles} />}
       <HeroSection heroSection={contentfulHeroSection} />
       <WhoWePartnerWith whoWeWorkWithSection={contentfulWhoWeWorkWithSection} />
       <Services servicesSection={contentfulServicesSection} />

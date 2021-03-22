@@ -1,5 +1,12 @@
 import { css } from '@emotion/react';
-import { floatRight, floatLeft, scaleRotate, rotate1, rotate2, rotate3 } from '../shared/animations.styles';
+import {
+  floatRight,
+  floatLeft,
+  scaleRotate,
+  rotate1,
+  rotate2,
+  rotate3,
+} from '../shared/animations.styles';
 
 const styles = (theme) => css`
   .network-title {
@@ -7,6 +14,13 @@ const styles = (theme) => css`
       text-align: center;
       margin-top: 3.2rem;
     }
+    h2 {
+      line-height: 7.6rem;
+    }
+  }
+
+  .network-container {
+    padding-top: 6rem;
   }
 
   .network-desc {
@@ -45,16 +59,16 @@ const styles = (theme) => css`
 
       circle {
         animation: ${floatLeft} 5s ease-out infinite;
-  
+
         &:nth-of-type(even) {
           animation: ${floatRight} 5s ease-out infinite;
         }
         &:nth-of-type(3n) {
-          animation-delay: .02s;
+          animation-delay: 0.02s;
           animation-duration: 4.5s;
         }
         &:nth-of-type(4n) {
-          animation-delay: .05s;
+          animation-delay: 0.05s;
           animation-duration: 4.5s;
         }
       }
@@ -65,17 +79,17 @@ const styles = (theme) => css`
       padding-bottom: 23%;
       transform: translate(-50%, -50%) scale(0) rotate(10deg);
     }
-  
+
     &.network-outer {
       width: 40%;
       padding-bottom: 40%;
       transform: translate(-50%, -50%) scale(0) rotate(-10deg);
-  
+
       path {
         animation-duration: 4s;
-        animation-delay: .5s;
+        animation-delay: 0.5s;
       }
-  
+
       path,
       circle {
         fill: ${theme.palette.supply.seaGreen.main};
@@ -131,7 +145,7 @@ const styles = (theme) => css`
         margin-top: -4%;
         //the starting position before it animates in
         transform: translate(-20%, -60%);
-        
+
         .network-item-inner-wrapper {
           transform: rotate(-6deg);
           animation: ${rotate1} 5s ease-out infinite;
@@ -149,10 +163,10 @@ const styles = (theme) => css`
           animation: ${rotate2} 5s ease-out infinite;
         }
       }
-      
-      &:nth-of-type(3) {    
+
+      &:nth-of-type(3) {
         margin-left: 22%;
-        margin-top: -17%; 
+        margin-top: -17%;
         //the starting position before it animates in
         transform: translate(-100%, -70%);
 
@@ -161,7 +175,7 @@ const styles = (theme) => css`
           animation: ${rotate3} 5s ease-out infinite;
         }
       }
-      
+
       header {
         color: #fff;
         padding: 13px 25px;
@@ -176,12 +190,12 @@ const styles = (theme) => css`
 
         &:hover {
           z-index: 2;
-          +  .item-description {
+          + .item-description {
             transform: scale(1);
           }
         }
       }
-      
+
       .item-description {
         z-index: 2;
         margin-top: 10px;
@@ -196,7 +210,7 @@ const styles = (theme) => css`
 
         transition: ${theme.transitions.create(['transform'], {
           duration: '.25s',
-          easing: theme.transitions.easing.inOutCirc
+          easing: theme.transitions.easing.inOutCirc,
         })};
       }
 
@@ -220,7 +234,7 @@ const styles = (theme) => css`
         opacity: 0;
 
         svg {
-         animation: ${floatLeft} 5s ease-out infinite;
+          animation: ${floatLeft} 5s ease-out infinite;
         }
         &:nth-of-type(even) {
           svg {
@@ -260,12 +274,7 @@ const styles = (theme) => css`
         }
       }
     }
-
   }
-
-
-
-
 `;
 
 // export const networkItemStyles = (imgUrl) => css`
