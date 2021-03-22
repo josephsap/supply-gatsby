@@ -123,7 +123,7 @@ const theme = createMuiTheme({
       lilac,
       cobalt,
       seaGreen,
-      purple
+      purple,
     },
   },
   breakpoints: {
@@ -158,6 +158,14 @@ const theme = createMuiTheme({
         fontSize: '2.4rem',
         '&:hover': {
           backgroundColor: '#FFCBBB',
+          transition: '0.25s ease',
+        },
+      },
+      textPrimary: {
+        color: textBlack,
+        transition: '0.25s ease',
+        '&:hover': {
+          color: '#254A45',
           transition: '0.25s ease',
         },
       },
@@ -205,7 +213,7 @@ const theme = createMuiTheme({
         display: 'none',
       },
     },
-    transitions: { 
+    transitions: {
       easing: {
         linear: 'cubic-bezier(0.25, 0.25, 0.75, 0.75)',
         default: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
@@ -235,9 +243,9 @@ const theme = createMuiTheme({
         inOutSine: 'cubic-bezier(0.445, 0.05, 0.55, 0.95)',
         inOutExpo: 'cubic-bezier(1, 0, 0, 1)',
         inOutCirc: 'cubic-bezier(0.785, 0.135, 0.15, 0.86)',
-        inOutBack: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)'
-      }
-    }
+        inOutBack: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+      },
+    },
   },
 });
 

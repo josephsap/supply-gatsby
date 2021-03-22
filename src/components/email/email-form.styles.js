@@ -80,6 +80,10 @@ const styles = (theme) => css`
     color: ${theme.palette.supply.lightPeach.main};
     border-color: ${theme.palette.text.primary};
   }
+
+  .form-sent-success {
+    margin: 6rem 0 10rem 0;
+  }
 `;
 
 export default styles;

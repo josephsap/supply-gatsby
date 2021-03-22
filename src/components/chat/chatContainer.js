@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { ChatBuilder } from '@papercups-io/chat-builder';
-import { Dialog, Zoom, Tab, Tabs, Box } from '@material-ui/core';
-import SwipeableViews from 'react-swipeable-views';
+import { Dialog, Zoom, Button, Typography } from '@material-ui/core';
 import Chat from './chat';
+import { closeChatBtnStyles } from './chatButton.styles';
 
 const CHAT_ACCOUNT_TOKEN = process.env.GATSBY_CHAT_ACCOUNT_TOKEN;
 
@@ -23,22 +23,6 @@ const config = {
 };
 
 // https://codepen.io/ig_design/pen/BajVZre
-
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`full-width-tabpanel-${index}`}
-      aria-labelledby={`full-width-tab-${index}`}
-      {...other}
-    >
-      {value === index && <Box p={3}>{children}</Box>}
-    </div>
-  );
-}
 
 const ChatContainer = ({ showChatModal, onClose }) => {
   const [value, setValue] = useState(0);
@@ -76,9 +60,16 @@ const ChatContainer = ({ showChatModal, onClose }) => {
       aria-labelledby="chat-dialog-title"
       aria-describedby="chat-dialog-description"
     >
-      {/* <Button onClick={onClose} color="primary" variant="contained">
-          CLOSE CHAT
-        </Button> */}
+      <Button
+        css={closeChatBtnStyles}
+        onClick={onClose}
+        color="primary"
+        size="small"
+        variant="text"
+        endIcon={<img src="images/closechaticon.svg" />}
+      >
+        <Typography variant="body1">Close</Typography>
+      </Button>
 
       <ChatBuilder
         config={config}

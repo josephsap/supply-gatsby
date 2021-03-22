@@ -10,7 +10,6 @@ import GivingBackSection from '../components/giving-back';
 import NetworkSection from '../components/network';
 import ToolsSection from '../components/tools';
 import MeetTheTeamSection from '../components/team';
-import ChatButton from '../components/chat/chatButton';
 import Footer from '../components/footer';
 
 export const PAGE_DATA_QUERY = graphql`
@@ -189,7 +188,7 @@ const Home = ({ data }) => {
     contentfulMeetTheTeam,
     contentfulFooter,
   } = data;
-  console.log(data);
+
   const pageTitles = [
     { navTitle: contentfulHeroSection.navTitle },
     { navTitle: contentfulWhoWeWorkWithSection.whoWeWorkWithTitle },
@@ -203,7 +202,6 @@ const Home = ({ data }) => {
 
   return (
     <Layout>
-      <ChatButton />
       <Navigation pageTitles={pageTitles} />
       <HeroSection heroSection={contentfulHeroSection} />
       <WhoWePartnerWith whoWeWorkWithSection={contentfulWhoWeWorkWithSection} />

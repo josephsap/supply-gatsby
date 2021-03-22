@@ -2,12 +2,9 @@ import { css } from '@emotion/react';
 
 const styles = (theme) => css`
   .chat-button {
-    position: fixed;
-    z-index: 9;
-    bottom: -20px;
-    right: -14px;
     border-radius: 0;
-    transform: rotate(-5.23deg);
+    width: 100%;
+    height: 100%;
     background-color: ${theme.palette.supply.salmon.main};
     font-size: 3rem;
     letter-spacing: -1px;
@@ -19,6 +16,18 @@ const styles = (theme) => css`
   .btn-italic-text {
     font-family: 'Bogue-Italic', Garamond, sans-serif;
     margin-bottom: -2px;
+  }
+`;
+
+export const closeChatBtnStyles = css`
+  position: absolute;
+  transform: rotate(-90deg);
+  top: 51px;
+  right: -8px;
+
+  img {
+    margin-left: 10px;
+    margin-bottom: -4px;
   }
 `;
 

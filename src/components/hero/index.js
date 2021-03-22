@@ -10,6 +10,7 @@ import styles, {
   backgroundDotStyles,
   dragStyles,
 } from './heroSection.styles';
+import ChatButton from '../chat/chatButton';
 
 // TODO: adjust cache values once we are
 // in production https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/deploying-to-heroku/
@@ -23,7 +24,7 @@ const HeroSection = ({ heroSection }) => {
   const [showBox, setShowBox] = useState(false);
 
   //for animations
-  const timeline = useRef(null); 
+  const timeline = useRef(null);
   const wrapperRef = useRef(null);
   const logoRef = useRef(null);
   const badge1Ref = useRef(null);
@@ -33,11 +34,10 @@ const HeroSection = ({ heroSection }) => {
   const chatboxRef = useRef(null);
   const arrowRef = useRef(null);
   const draggableBoxRef = useRef(null);
-  
+
   const reg = new RegExp(/\s/g, '');
   const headlineSegments = heroSection.headline.split(reg);
   const headlineWords = useRef(headlineSegments.map(() => createRef()));
- 
 
   useEffect(() => {
     //set up the timeline animations using scroll trigger
@@ -46,99 +46,131 @@ const HeroSection = ({ heroSection }) => {
         id: SCROLL_TRIGGER_ID,
         start: 'top 70%',
         end: 'bottom bottom',
-        trigger: wrapperRef.current
-      }
+        trigger: wrapperRef.current,
+      },
     });
 
     //animate the headline words
-    timeline.current.staggerTo([...headlineWords.current.map((ref) => ref.current)], .5, {
-      stagger: .02,
-      y: 0,
-      delay: 2,
-      opacity: 1,
-      ease: 'expo.out',
-      onCompleteAll: () => {
-         //add the shown class to the sticker
-        setShowBox(true);
+    timeline.current.staggerTo(
+      [...headlineWords.current.map((ref) => ref.current)],
+      0.5,
+      {
+        stagger: 0.02,
+        y: 0,
+        delay: 2,
+        opacity: 1,
+        ease: 'expo.out',
+        onCompleteAll: () => {
+          //add the shown class to the sticker
+          setShowBox(true);
+        },
       }
-    });
+    );
 
     //animate the badges and logo
-    timeline.current.staggerTo([badge1Ref.current, badge2Ref.current], .5, {
-      stagger: .05,
-      rotate: '0deg',
-      x: 0,
-      scale: 1,
-      y: 0,
-      opacity: 1,
-      ease: 'back'
-    }, '-=.5');
+    timeline.current.staggerTo(
+      [badge1Ref.current, badge2Ref.current],
+      0.5,
+      {
+        stagger: 0.05,
+        rotate: '0deg',
+        x: 0,
+        scale: 1,
+        y: 0,
+        opacity: 1,
+        ease: 'back',
+      },
+      '-=.5'
+    );
 
-    timeline.current.to(starRef.current, {
-      duration: 1,
-      rotate: '0deg',
-      opacity: 1,
-      ease: 'expo.out'
-    }, '-=.5');
+    timeline.current.to(
+      starRef.current,
+      {
+        duration: 1,
+        rotate: '0deg',
+        opacity: 1,
+        ease: 'expo.out',
+      },
+      '-=.5'
+    );
 
-    timeline.current.to(logoRef.current, {
-      duration: .75,
-      scale: 1,
-      x: 0,
-      y: 0,
-      opacity: 1,
-      ease: 'expo.out'
-    }, '-=.5');
+    timeline.current.to(
+      logoRef.current,
+      {
+        duration: 0.75,
+        scale: 1,
+        x: 0,
+        y: 0,
+        opacity: 1,
+        ease: 'expo.out',
+      },
+      '-=.5'
+    );
 
     //animate the chatbox
     timeline.current.to(chatboxRef.current, {
-      duration: .5,
+      duration: 0.5,
       y: 0,
-      ease: 'back'
+      ease: 'back',
     });
 
-    timeline.current.to(cloverRef.current, {
-      duration: .5,
-      y: 0,
-      opacity: 1,
-      rotate: '21deg',
-      ease: 'expo.out'
-    }, '-=.2');
+    timeline.current.to(
+      cloverRef.current,
+      {
+        duration: 0.5,
+        y: 0,
+        opacity: 1,
+        rotate: '21deg',
+        ease: 'expo.out',
+      },
+      '-=.2'
+    );
 
     //animate clip path of the squiggly arrow
     let arrowClipPath = { current: 100 };
-    timeline.current.to(arrowClipPath, .5, {
-      current: 0,
-      ease: 'expo.out',
-      onUpdate: () => {
-        gsap.set(arrowRef.current, { 'clip-path': `inset(0 0 ${arrowClipPath.current}% 0)`});
-      }
-    }, '-=.2');
+    timeline.current.to(
+      arrowClipPath,
+      0.5,
+      {
+        current: 0,
+        ease: 'expo.out',
+        onUpdate: () => {
+          gsap.set(arrowRef.current, {
+            'clip-path': `inset(0 0 ${arrowClipPath.current}% 0)`,
+          });
+        },
+      },
+      '-=.2'
+    );
 
-    timeline.current.to(arrowClipPath, .5, {
-      current: 100,
-      ease: 'expo.out',
-      onUpdate: () => {
-        gsap.set(arrowRef.current, { 'clip-path': `inset(${arrowClipPath.current}% 0 0% 0)`});
-      }
-    }, '+=.25');
-    
+    timeline.current.to(
+      arrowClipPath,
+      0.5,
+      {
+        current: 100,
+        ease: 'expo.out',
+        onUpdate: () => {
+          gsap.set(arrowRef.current, {
+            'clip-path': `inset(${arrowClipPath.current}% 0 0% 0)`,
+          });
+        },
+      },
+      '+=.25'
+    );
 
-    return(() => {
+    return () => {
       if (!timeline.current) return;
       timeline.current.kill();
       const scrollTriggerRef = ScrollTrigger.getById(SCROLL_TRIGGER_ID);
       if (scrollTriggerRef) {
         scrollTriggerRef.kill(true);
       }
-    })
-  }, [])
-  
-  
+    };
+  }, []);
 
   const titleTransform = () => {
     const parts = headlineSegments;
-    
+
     return (
       <Typography variant="h1">
         {parts.map((part, index) => {
@@ -148,7 +180,11 @@ const HeroSection = ({ heroSection }) => {
             part.includes('mindset')
           ) {
             return (
-              <span className="bogue-font" key={index} ref={headlineWords.current[index]}>
+              <span
+                className="bogue-font"
+                key={index}
+                ref={headlineWords.current[index]}
+              >
                 {part}{' '}
               </span>
             );
@@ -156,12 +192,18 @@ const HeroSection = ({ heroSection }) => {
           if (part.includes('curation')) {
             return (
               <Fragment key={index}>
-                <span className="bogue-font" ref={headlineWords.current[index]}>{part}</span>
+                <span className="bogue-font" ref={headlineWords.current[index]}>
+                  {part}
+                </span>
                 <br />
               </Fragment>
             );
           }
-          return <Fragment key={index}><span ref={headlineWords.current[index]}>{part}</span> </Fragment>;
+          return (
+            <Fragment key={index}>
+              <span ref={headlineWords.current[index]}>{part}</span>{' '}
+            </Fragment>
+          );
         })}
       </Typography>
     );
@@ -170,7 +212,7 @@ const HeroSection = ({ heroSection }) => {
   useEffect(() => {
     const { left } = heroCopyRef.current.getBoundingClientRect();
     const { offsetHeight } = heroCopyRef.current;
-    setBoxPos({ top: offsetHeight * 1.75, left: left + 10 });
+    setBoxPos({ top: offsetHeight * 1.4, left: left + 10 });
   }, [heroCopyRef]);
 
   return (
@@ -200,18 +242,15 @@ const HeroSection = ({ heroSection }) => {
               <Grid item xs={12}>
                 <div className="badge-green top-image" ref={badge1Ref}>
                   <img src={`images/rectangle-badge-top.svg`} />
-                </div>  
+                </div>
                 <div className="peach  top-image" ref={badge2Ref}>
-                  <img src={`images/top-peach-rectangle.svg`}  />
+                  <img src={`images/top-peach-rectangle.svg`} />
                 </div>
                 <div className="star  top-image" ref={starRef}>
                   <img src={`images/star-purple.svg`} />
                 </div>
                 <div className="hero-logo top-image" ref={logoRef}>
-                  <img
-                    src={`images/supply-badge-logo.svg`}
-                    alt="The Supply"
-                  />
+                  <img src={`images/supply-badge-logo.svg`} alt="The Supply" />
                 </div>
               </Grid>
             </Grid>
@@ -221,11 +260,14 @@ const HeroSection = ({ heroSection }) => {
           </Grid>
         </Container>
         <div className="chatbox-container" ref={chatboxRef}>
-          <div className="squiggly-arrow" ref={arrowRef}><span></span></div>
+          <div className="squiggly-arrow" ref={arrowRef}>
+            <span></span>
+          </div>
           <span className="clover" ref={cloverRef}></span>
-          <a href="#" className="chatbox">
-            <Typography className="chatbox-cta" variant="subtitle1">Talk to <em>a real person</em></Typography>
-          </a>
+
+          <div className="chatbox">
+            <ChatButton />
+          </div>
         </div>
       </Container>
       <div css={backgroundDotStyles}></div>

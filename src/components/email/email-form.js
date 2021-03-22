@@ -1,3 +1,4 @@
+import React from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -18,8 +19,6 @@ import {
 } from 'react-google-recaptcha-v3';
 import { chatBaseStyles } from '../chat/chat.styles';
 import styles, { emailFormStyles } from './email-form.styles';
-import { chatContainerPadding } from '../layout/margin-padding-utils.styles';
-import ChatContainer from '../chat/chatContainer';
 
 const reCaptchaKey = process.env.RECAPTCHA_KEY;
 
@@ -44,6 +43,8 @@ const EmailForm = ({
   skills,
   locations,
   onVerifyRecaptcha,
+  onEmailFormSubmit,
+  serverState,
 }) => {
   return (
     <GoogleReCaptchaProvider reCaptchaKey={reCaptchaKey}>
@@ -53,9 +54,9 @@ const EmailForm = ({
           email: '',
           resumeLink: '',
           message: '',
-          want: 'talent',
-          skillsChecked: [],
-          areasChecked: [],
+          want: '',
+          skills: [],
+          locations: [],
         }}
         validationSchema={validationSchema}
         validate={(values) => {
@@ -71,12 +72,9 @@ const EmailForm = ({
 
           return errors;
         }}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            console.log(values, 'valsssss');
-            setSubmitting(false);
-          }, 400);
+        onSubmit={async (values, actions) => {
+          actions.setSubmitting(true);
+          await onEmailFormSubmit(values, actions);
         }}
       >
         {({
@@ -102,7 +100,6 @@ const EmailForm = ({
                   <Typography variant="h4">The basics</Typography>
                 </div>
 
-                {/* <div css={chatContainerPadding}> */}
                 <div className="left-form-fields">
                   <TextField
                     type="name"
@@ -147,90 +144,105 @@ const EmailForm = ({
 
               <div className="form-item-right">
                 <div className="selectors-wrapper">
-                  <FormControl component="fieldset">
-                    <Typography variant="h4" className="select-headline">
-                      You want
-                    </Typography>
-                    <RadioGroup
-                      aria-label="want"
-                      name="want"
-                      value={values.skills}
-                      onChange={handleChange}
-                      className="select-group"
-                    >
-                      <FormControlLabel
-                        value="talent"
-                        control={<Radio />}
-                        label="Digital Talent"
-                        className="select-item"
-                      />
-                      <FormControlLabel
-                        value="job"
-                        control={<Radio />}
-                        label="A new job"
-                        className="select-item"
-                      />
-                    </RadioGroup>
-                  </FormControl>
-                  {/* skills section */}
-                  <FormControl component="fieldset">
-                    <Typography variant="h4" className="select-headline">
-                      with skills
-                    </Typography>
-                    <FormGroup className="select-group">
-                      {skills.map((skill) => (
-                        <FormControlLabel
-                          key={skill.value}
-                          className="select-item"
-                          control={
-                            <Checkbox
-                              onChange={handleChange}
-                              name="skillsChecked"
-                              value={skill.value}
+                  {serverState ? (
+                    <div className="form-sent-success">
+                      <Typography
+                        variant="h6"
+                        className={!serverState.ok ? 'errorMsg' : ''}
+                      >
+                        {serverState.msg}
+                      </Typography>
+                    </div>
+                  ) : (
+                    <>
+                      <FormControl component="fieldset">
+                        <Typography variant="h4" className="select-headline">
+                          You want
+                        </Typography>
+                        <RadioGroup
+                          aria-label="want"
+                          name="want"
+                          value={values.want}
+                          onChange={handleChange}
+                          className="select-group"
+                        >
+                          <FormControlLabel
+                            value="talent"
+                            control={<Radio />}
+                            label="Digital Talent"
+                            className="select-item"
+                          />
+                          <FormControlLabel
+                            value="job"
+                            control={<Radio />}
+                            label="A new job"
+                            className="select-item"
+                          />
+                        </RadioGroup>
+                      </FormControl>
+                      {/* skills section */}
+                      <FormControl component="fieldset">
+                        <Typography variant="h4" className="select-headline">
+                          with skills
+                        </Typography>
+                        <FormGroup className="select-group">
+                          {skills.map((skill) => (
+                            <FormControlLabel
+                              key={skill.value}
+                              className="select-item"
+                              control={
+                                <Checkbox
+                                  onChange={handleChange}
+                                  name="skills"
+                                  value={skill.value}
+                                />
+                              }
+                              label={skill.label}
                             />
-                          }
-                          label={skill.label}
-                        />
-                      ))}
-                    </FormGroup>
-                  </FormControl>
+                          ))}
+                        </FormGroup>
+                      </FormControl>
 
-                  {/* location section */}
-                  <FormControl component="fieldset">
-                    <Typography variant="h4" className="select-headline">
-                      in this area
-                    </Typography>
-                    <FormGroup className="select-group">
-                      {locations.map((location) => (
-                        <FormControlLabel
-                          key={location.value}
-                          className="select-item"
-                          control={
-                            <Checkbox
-                              onChange={handleChange}
-                              name="areasChecked"
-                              value={location.value}
+                      {/* location section */}
+                      <FormControl component="fieldset">
+                        <Typography variant="h4" className="select-headline">
+                          in this area
+                        </Typography>
+                        <FormGroup className="select-group">
+                          {locations.map((location) => (
+                            <FormControlLabel
+                              key={location.value}
+                              className="select-item"
+                              control={
+                                <Checkbox
+                                  onChange={handleChange}
+                                  name="locations"
+                                  value={location.value}
+                                />
+                              }
+                              label={location.label}
                             />
-                          }
-                          label={location.label}
-                        />
-                      ))}
-                    </FormGroup>
-                  </FormControl>
+                          ))}
+                        </FormGroup>
+                      </FormControl>
+                    </>
+                  )}
                 </div>
 
                 {/* <GoogleReCaptcha onVerify={onVerifyRecaptcha} /> */}
                 <Grid container spacing={2}>
                   <Grid item xs={12} md={6}>
-                    <Button
-                      type="submit"
-                      disabled={isSubmitting}
-                      variant="contained"
-                      color="primary"
-                      fullWidth
-                    >
-                      Send
-                    </Button>
+                    {!serverState && (
+                      <Button
+                        type="submit"
+                        disabled={isSubmitting}
+                        variant="contained"
+                        color="primary"
+                        fullWidth
+                      >
+                        Send
+                      </Button>
+                    )}
                   </Grid>
                   <Grid item xs={12} md={6}>
                     <Button

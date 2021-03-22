@@ -89,17 +89,17 @@ const styles = (theme) => css`
 
   .hero-logo {
     margin-left: auto;
-    width:160px;
-    height:160px;
+    width: 160px;
+    height: 160px;
     margin-top: -30px;
 
     //initial styles before animating in
     opacity: 0;
     transform: scale(3) translateY(-50px);
   }
-  
+
   .chatbox-container {
-    position: absolute;
+    position: fixed;
     right: -40px;
     bottom: -90px;
     z-index: 3;
@@ -135,69 +135,66 @@ const styles = (theme) => css`
         background-size: 100%;
       }
     }
-    
-    .chatbox {  
-      text-decoration: none;
-      background: ${theme.palette.supply.salmon.main};
+
+    .chatbox {
       width: 476px;
       height: 211px;
-      transform: rotate(-5deg);
-      padding: 40px;
-      display: block;
+      transform: rotate(-5.23deg);
     }
 
-    .chatbox-cta {
-      color: ${theme.palette.text.primary};
-    }
-
-    .drag-box{
+    .drag-box {
       transition: ${theme.transitions.create(['opacity'], {
         duration: '.2s',
-        easing: theme.transitions.easing.outExpo
+        easing: theme.transitions.easing.outExpo,
       })};
     }
     .sticker-front {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        background: linear-gradient(to right, #feb29c 70%,#F9D9CF 80%,#F9D9CF 81%,#feb29c 100%);
-        z-index: 2;
-        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);;
-        transform-origin: 100% 100%;
-        transform: translateX(-100%) skewY(15deg); 
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      background: linear-gradient(
+        to right,
+        #feb29c 70%,
+        #f9d9cf 80%,
+        #f9d9cf 81%,
+        #feb29c 100%
+      );
+      z-index: 2;
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+      transform-origin: 100% 100%;
+      transform: translateX(-100%) skewY(15deg);
     }
     .sticker-content {
-        clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+      clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
     }
 
     .sticker-content,
     .sticker-front {
-        transition: ${theme.transitions.create(['all'], {
-            duration: '.5s',
-            easing: theme.transitions.easing.outExpo
-        })};
+      transition: ${theme.transitions.create(['all'], {
+        duration: '.5s',
+        easing: theme.transitions.easing.outExpo,
+      })};
     }
 
     .sticker-content {
-        width: 100%;
-        height: 100%;
-        background-color: #FFE8E1;
-        borderRadius: 8px;
-        padding: 2rem;
-      
+      width: 100%;
+      height: 100%;
+      background-color: #ffe8e1;
+      borderradius: 8px;
+      padding: 2rem;
     }
 
     &.shown {
-        opacity: 1;
-        .sticker-content {
-            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-        }
+      opacity: 1;
+      .sticker-content {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+      }
 
-        .sticker-front {
-          clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
-          transform: translateX(0%) rotate(0deg) skew(0deg, 15deg);
-        }
+      .sticker-front {
+        clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%);
+        transform: translateX(0%) rotate(0deg) skew(0deg, 15deg);
+      }
     }
   }
 `;
