@@ -9,6 +9,7 @@ const goldLeather = { main: '#CA7F28' };
 const lilac = { main: '#BB9CFE' };
 const cobalt = { main: '#356AD2', contrastText: pink };
 const seaGreen = { main: '#5F8B86', contrastText: pink };
+const textBlack = '#162C29';
 const purple = { main: '#8357DF' };
 
 // A custom theme for this app
@@ -41,13 +42,13 @@ const theme = createMuiTheme({
       // lineHeight: '8.6rem',
       letterSpacing: '-1px',
     },
-    // H5 is used as an H1 alternate
+
     h5: {
-      fontFamily: '"Whyte-Inktrap", Helvetica, sans-serif, sans-serif',
-      fontSize: '10rem',
-      lineHeight: '11rem',
-      letterSpacing: '-2px',
-      fontWeight: 'normal',
+      fontFamily: '"Bogue-Black", Garamond, Baskerville, sans-serif',
+      fontSize: '6rem',
+      lineHeight: '6.4rem',
+      letterSpacing: '-1px',
+      fontWeight: 'bold',
     },
     h6: {
       fontFamily: '"Bogue-Regular", Garamond, Baskerville, sans-serif',
@@ -110,7 +111,7 @@ const theme = createMuiTheme({
       default: lightPeach.main,
     },
     text: {
-      primary: '#162C29',
+      primary: textBlack,
     },
     supply: {
       cream,
@@ -139,22 +140,52 @@ const theme = createMuiTheme({
     MuiButton: {
       root: {
         padding: '1.3rem 2.6rem',
-        borderRadius: '25px',
+        borderRadius: '40px',
+        textTransform: 'none',
       },
       containedPrimary: {
+        backgroundColor: textBlack,
+        color: lightPeach.main,
+        fontSize: '2.4rem',
+        '&:hover': {
+          backgroundColor: '#254A45',
+          transition: '0.25s ease',
+        },
+      },
+      containedSecondary: {
         backgroundColor: lightPeach.main,
+        color: lightPeach.contrastText,
+        fontSize: '2.4rem',
         '&:hover': {
           backgroundColor: '#FFCBBB',
           transition: '0.25s ease',
         },
       },
-      containedSecondary: {
-        backgroundColor: '#254A45',
-        '&:hover': {
-          backgroundColor: '#162C29',
-          transition: '0.25s ease',
-        },
+    },
+    MuiInput: {
+      root: {
+        // borderBottom: `3px solid #162C29`,
+        // '&$focused': {
+        //   color: textBlack,
+        // },
+        // '&$focused': {
+        //   borderBottom: `3px solid #162C29`,
+        //   // outline: `1px solid red`,
+        //   '&:before': {
+        //     borderBottom: `3px solid #162C29`,
+        //   },
+        // },
       },
+      // underline: {
+      //   '&$hover': {
+      //     '&$before': {
+      //       borderBottom: `1px solid aqua`,
+      //     },
+      //   },
+      //   '&:after': {
+      //     backgroundColor: seaGreen.main,
+      //   },
+      // },
     },
     MuiPopover: {
       paper: {
@@ -162,6 +193,16 @@ const theme = createMuiTheme({
         transform: 'rotate(-15deg)',
         borderRadius: '8px',
         backgroundColor: cream.main,
+      },
+    },
+    MuiCheckbox: {
+      colorSecondary: {
+        display: 'none',
+      },
+    },
+    MuiRadio: {
+      colorSecondary: {
+        display: 'none',
       },
     },
     transitions: { 
