@@ -2,14 +2,12 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import {
   FormControl,
-  FormLabel,
   FormControlLabel,
   FormGroup,
   Grid,
   Typography,
   TextField,
   Button,
-  Box,
   Radio,
   RadioGroup,
   Checkbox,
@@ -98,7 +96,7 @@ const EmailForm = ({
               >
                 <div>
                   <Typography variant="h5">{emailFormData.title}</Typography>
-                  <Typography variant="body1">
+                  <Typography variant="body1" className="form-copy">
                     {emailFormData.description}
                   </Typography>
                   <Typography variant="h4">The basics</Typography>
@@ -112,7 +110,8 @@ const EmailForm = ({
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.name}
-                    label="Name"
+                    label="Your name"
+                    color="secondary"
                   />
                   <TextField
                     type="email"
@@ -120,7 +119,8 @@ const EmailForm = ({
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.email}
-                    label="Email"
+                    label="Email address"
+                    color="secondary"
                   />
 
                   {errors.email && touched.email && errors.email}
@@ -130,7 +130,7 @@ const EmailForm = ({
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.resumeLink}
-                    label="Resumé Link"
+                    label="Link to Resumé/Portfolio"
                   />
                   <TextField
                     type="message"
@@ -148,32 +148,40 @@ const EmailForm = ({
               <div className="form-item-right">
                 <div className="selectors-wrapper">
                   <FormControl component="fieldset">
-                    <FormLabel component="legend">You want</FormLabel>
+                    <Typography variant="h4" className="select-headline">
+                      You want
+                    </Typography>
                     <RadioGroup
                       aria-label="want"
                       name="want"
                       value={values.skills}
                       onChange={handleChange}
+                      className="select-group"
                     >
                       <FormControlLabel
                         value="talent"
                         control={<Radio />}
                         label="Digital Talent"
+                        className="select-item"
                       />
                       <FormControlLabel
                         value="job"
                         control={<Radio />}
                         label="A new job"
+                        className="select-item"
                       />
                     </RadioGroup>
                   </FormControl>
                   {/* skills section */}
                   <FormControl component="fieldset">
-                    <FormLabel component="legend">with skills</FormLabel>
-                    <FormGroup>
+                    <Typography variant="h4" className="select-headline">
+                      with skills
+                    </Typography>
+                    <FormGroup className="select-group">
                       {skills.map((skill) => (
                         <FormControlLabel
                           key={skill.value}
+                          className="select-item"
                           control={
                             <Checkbox
                               onChange={handleChange}
@@ -189,12 +197,14 @@ const EmailForm = ({
 
                   {/* location section */}
                   <FormControl component="fieldset">
-                    <FormLabel component="legend">in this area</FormLabel>
-                    <FormGroup>
+                    <Typography variant="h4" className="select-headline">
+                      in this area
+                    </Typography>
+                    <FormGroup className="select-group">
                       {locations.map((location) => (
                         <FormControlLabel
                           key={location.value}
-                          className="location-select-item"
+                          className="select-item"
                           control={
                             <Checkbox
                               onChange={handleChange}
@@ -210,30 +220,36 @@ const EmailForm = ({
                 </div>
 
                 {/* <GoogleReCaptcha onVerify={onVerifyRecaptcha} /> */}
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  variant="contained"
-                  color="primary"
-                  fullWidth
-                >
-                  Send
-                </Button>
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  className="email-btn"
-                  fullWidth
-                  onClick={() => setChecked(false)}
-                  startIcon={
-                    <img
-                      src={`images/arrow-left-email-btn.svg`}
-                      style={{ marginRight: 'auto' }}
-                    />
-                  }
-                >
-                  Go Back
-                </Button>
+                <Grid container spacing={2}>
+                  <Grid item xs={12} md={6}>
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      variant="contained"
+                      color="primary"
+                      fullWidth
+                    >
+                      Send
+                    </Button>
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                    <Button
+                      variant="contained"
+                      color="secondary"
+                      className="email-btn"
+                      fullWidth
+                      onClick={() => setChecked(false)}
+                      endIcon={
+                        <img
+                          src={`images/arrow-left-email-btn.svg`}
+                          style={{ transform: 'rotate(180deg)' }}
+                        />
+                      }
+                    >
+                      Go Back
+                    </Button>
+                  </Grid>
+                </Grid>
               </div>
             </form>
           </div>

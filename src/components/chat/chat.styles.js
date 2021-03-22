@@ -17,6 +17,14 @@ export const chatBaseStyles = (theme) => css`
     height: calc(80vh - 140px);
   }
 
+  .loading-messages {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
   .send-msg-btn {
     margin-top: 2rem;
   }

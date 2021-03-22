@@ -94,38 +94,40 @@ const Chat = ({ state, onSendMessage, scrollToRef }) => {
               </Box>
             </Grid>
 
-            {isLoaded ? (
-              <Grid item xs={12} md={6} className="message-container">
-                <div className="message-interior">
+            <Grid item xs={12} md={6} className="message-container">
+              <div className="message-interior">
+                {isLoaded ? (
                   <ChatMessages
                     messages={messages}
                     customerId={customerId}
                     scrollToRef={scrollToRef}
                   />
-                </div>
-                <div className="message-input-container">
-                  <form onSubmit={handleSubmit}>
-                    <TextField
-                      fullWidth
-                      value={message}
-                      placeholder="Start typing..."
-                      onChange={handleChangeMessage}
-                    />
-                  </form>
-                  <Button
+                ) : (
+                  <div className="loading-messages">
+                    <CircularProgress />
+                  </div>
+                )}
+              </div>
+              <div className="message-input-container">
+                <form onSubmit={handleSubmit}>
+                  <TextField
                     fullWidth
-                    onClick={(e) => handleSendMessage(e)}
-                    className="send-msg-btn"
-                    variant="contained"
-                    color="primary"
-                  >
-                    Send
-                  </Button>
-                </div>
-              </Grid>
-            ) : (
-              <CircularProgress />
-            )}
+                    value={message}
+                    placeholder="Start typing..."
+                    onChange={handleChangeMessage}
+                  />
+                </form>
+                <Button
+                  fullWidth
+                  onClick={(e) => handleSendMessage(e)}
+                  className="send-msg-btn"
+                  variant="contained"
+                  color="primary"
+                >
+                  Send
+                </Button>
+              </div>
+            </Grid>
           </Grid>
         </Slide>
       ) : null}

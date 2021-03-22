@@ -158,6 +158,31 @@ const theme = createMuiTheme({
         },
       },
     },
+    MuiInput: {
+      root: {
+        // borderBottom: `3px solid #162C29`,
+        // '&$focused': {
+        //   color: textBlack,
+        // },
+        // '&$focused': {
+        //   borderBottom: `3px solid #162C29`,
+        //   // outline: `1px solid red`,
+        //   '&:before': {
+        //     borderBottom: `3px solid #162C29`,
+        //   },
+        // },
+      },
+      // underline: {
+      //   '&$hover': {
+      //     '&$before': {
+      //       borderBottom: `1px solid aqua`,
+      //     },
+      //   },
+      //   '&:after': {
+      //     backgroundColor: seaGreen.main,
+      //   },
+      // },
+    },
     MuiPopover: {
       paper: {
         maxWidth: '400px',
