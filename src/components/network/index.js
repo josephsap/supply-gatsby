@@ -146,7 +146,7 @@ const NetworkSection = ({ networkSection }) => {
       <Container maxWidth="lg" className="side-padding">
         <Grid
           container
-          className="border-container network-container"
+          className="border-container network-container-top"
           justify="center"
           alignItems="center"
         >

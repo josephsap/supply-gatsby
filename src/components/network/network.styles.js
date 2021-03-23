@@ -19,7 +19,7 @@ const styles = (theme) => css`
     }
   }
 
-  .network-container {
+  .network-container-top {
     padding-top: 6rem;
   }
 

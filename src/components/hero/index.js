@@ -215,7 +215,7 @@ const HeroSection = ({ heroSection }) => {
   useEffect(() => {
     const { left } = heroCopyRef.current.getBoundingClientRect();
     const { offsetHeight } = heroCopyRef.current;
-    setBoxPos({ top: offsetHeight * 1.4, left: left + 10 });
+    setBoxPos({ top: offsetHeight, left: left + 10 });
   }, [heroCopyRef]);
 
   return (
@@ -268,6 +268,7 @@ const HeroSection = ({ heroSection }) => {
                   </Typography>
                 </div>
               )}
+              <span className="clover" ref={cloverRef}></span>
             </Grid>
           </Grid>
         </Container>
@@ -275,8 +276,6 @@ const HeroSection = ({ heroSection }) => {
           <div className="squiggly-arrow" ref={arrowRef}>
             <span></span>
           </div>
-          <span className="clover" ref={cloverRef}></span>
-
           <div className="chatbox">
             <ChatButton />
           </div>

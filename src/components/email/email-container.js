@@ -75,8 +75,6 @@ const EmailContainer = ({ setChecked }) => {
     contentfulEmailFormLocation: { locationsJson },
   } = data;
 
-  console.log(skillsJson, locationsJson);
-
   return (
     <EmailForm
       setChecked={setChecked}

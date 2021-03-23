@@ -1,32 +1,42 @@
 import React, { useState } from 'react';
 import { ChatBuilder } from '@papercups-io/chat-builder';
 import { Dialog, Zoom, Button, Typography } from '@material-ui/core';
+import { useStaticQuery, graphql } from 'gatsby';
 import Chat from './chat';
 import { closeChatBtnStyles } from './chatButton.styles';
 
 const CHAT_ACCOUNT_TOKEN = process.env.GATSBY_CHAT_ACCOUNT_TOKEN;
 
-const config = {
-  accountId: CHAT_ACCOUNT_TOKEN,
-  greeting: 'Whaddup wit it?',
-  // customer: {
-  //   name: 'Demo User',
-  //   // Ad hoc metadata
-  //   metadata: {
-  //     page: 'github',
-  //   },
-  // },
-  // NB: we override these values during development if we want to test against our local server
-  // baseUrl: 'http://localhost:4000',
-  // For the demo, we just point at our demo staging environment
-  // baseUrl: 'baseUrl: http://127.0.0.1:8000',
-};
-
 // https://codepen.io/ig_design/pen/BajVZre
 
 const ChatContainer = ({ showChatModal, onClose }) => {
-  const [value, setValue] = useState(0);
+  const { contentfulChat } = useStaticQuery(graphql`
+    query ChatCopyQuery {
+      contentfulChat {
+        introText
+      }
+    }
+  `);
 
+  const { introText } = contentfulChat;
+
+  const config = {
+    accountId: CHAT_ACCOUNT_TOKEN,
+    greeting: introText,
+    // customer: {
+    //   name: 'Demo User',
+    //   // Ad hoc metadata
+    //   metadata: {
+    //     page: 'github',
+    //   },
+    // },
+    // NB: we override these values during development if we want to test against our local server
+    // baseUrl: 'http://localhost:4000',
+    // For the demo, we just point at our demo staging environment
+    // baseUrl: 'baseUrl: http://127.0.0.1:8000',
+  };
+
+  const [value, setValue] = useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };

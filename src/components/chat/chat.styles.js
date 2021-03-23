@@ -74,6 +74,7 @@ export const customerMsgStyles = css`
 
 export const agentMsgStyles = css`
   margin: 4rem 8rem 2rem 2rem;
+  display: flex;
 `;
 
 export const agentPhotoStyles = (photoUrl) => css`

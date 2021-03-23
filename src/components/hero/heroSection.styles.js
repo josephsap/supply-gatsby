@@ -119,14 +119,26 @@ const styles = (theme) => css`
     height: 190px;
     margin-top: -60px;
     margin-left: -30px;
-    //initial styles before animating in
     opacity: 0;
     transform: scale(3) translateY(-50px);
     ${theme.breakpoints.up('md')} {
       margin-top: -30px;
+      margin-left: auto;
       width: 160px;
       height: 160px;
     }
+  }
+
+  .clover {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: url(/images/clover-purple.svg);
+    background-size: 100%;
+    right: 20%;
+    opacity: 0;
+    transform: translateY(100%) rotate(800deg);
+    display: block;
   }
 
   .chatbox-container {
@@ -139,18 +151,6 @@ const styles = (theme) => css`
     ${theme.breakpoints.up('md')} {
       right: -40px;
       width: auto;
-    }
-
-    .clover {
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      background: url(/images/clover-purple.svg);
-      background-size: 100%;
-      top: -70px;
-      left: 70px;
-      opacity: 0;
-      transform: translateY(100%) rotate(800deg);
     }
 
     .squiggly-arrow {
