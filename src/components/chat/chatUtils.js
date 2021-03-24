@@ -19,7 +19,7 @@ export const AgentMessage = ({ message }) => {
   return (
     <div css={agentMsgStyles}>
       {photoUrl ? (
-        <div css={agentPhotoStyles(photoUrl)}></div>
+        <div css={(theme) => agentPhotoStyles(theme, { photoUrl })}></div>
       ) : (
         <Typography variant="body1">
           {name.slice(0, 1).toUpperCase()}

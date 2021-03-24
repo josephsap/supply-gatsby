@@ -124,8 +124,8 @@ const styles = (theme) => css`
     ${theme.breakpoints.up('md')} {
       margin-top: -30px;
       margin-left: auto;
-      width: 160px;
-      height: 160px;
+      width: 210px;
+      height: 210px;
     }
   }
 

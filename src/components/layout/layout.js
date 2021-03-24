@@ -10,6 +10,26 @@ import { ThemeProvider as MaterialUiThemeProvider } from '@material-ui/core/styl
 import theme from '../../theme';
 import styles from './globalStyles.styles';
 
+const muiTheme = {
+  ...theme,
+  overrides: {
+    ...theme.overrides,
+    MuiTypography: {
+      body1: {
+        [theme.breakpoints.down('sm')]: {
+          fontSize: '1.6rem',
+        },
+      },
+      h5: {
+        [theme.breakpoints.up('md')]: {
+          fontSize: '6rem',
+          lineHeight: '6.4rem',
+        },
+      },
+    },
+  },
+};
+
 const Layout = (props) => {
   const pageMetaQuery = useStaticQuery(graphql`
     query pageMetaQuery {
@@ -48,8 +68,8 @@ const Layout = (props) => {
           rel="stylesheet"
         />
       </Helmet>
-      <MaterialUiThemeProvider theme={theme}>
-        <ThemeProvider theme={theme}>
+      <MaterialUiThemeProvider theme={muiTheme}>
+        <ThemeProvider theme={muiTheme}>
           <Global styles={styles} />
           <CssBaseline />
           <DndProvider backend={HTML5Backend}>{props.children}</DndProvider>

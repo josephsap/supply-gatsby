@@ -4,6 +4,8 @@ import { Dialog, Zoom, Button, Typography } from '@material-ui/core';
 import { useStaticQuery, graphql } from 'gatsby';
 import Chat from './chat';
 import { closeChatBtnStyles } from './chatButton.styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
 
 const CHAT_ACCOUNT_TOKEN = process.env.GATSBY_CHAT_ACCOUNT_TOKEN;
 
@@ -17,6 +19,9 @@ const ChatContainer = ({ showChatModal, onClose }) => {
       }
     }
   `);
+
+  const theme = useTheme();
+  const showMed = useMediaQuery(theme.breakpoints.up('md'));
 
   const { introText } = contentfulChat;
 
@@ -78,7 +83,7 @@ const ChatContainer = ({ showChatModal, onClose }) => {
         variant="text"
         endIcon={<img src="images/closechaticon.svg" />}
       >
-        <Typography variant="body1">Close</Typography>
+        {showMed && <Typography variant="body1">Close</Typography>}
       </Button>
 
       <ChatBuilder

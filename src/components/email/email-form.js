@@ -12,6 +12,7 @@ import {
   Radio,
   RadioGroup,
   Checkbox,
+  TextareaAutosize,
 } from '@material-ui/core';
 import {
   GoogleReCaptchaProvider,
@@ -129,15 +130,17 @@ const EmailForm = ({
                     value={values.resumeLink}
                     label="Link to Resumé/Portfolio"
                   />
-                  <TextField
+                  <TextareaAutosize
                     type="message"
                     name="message"
+                    rowsMin={5}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.message}
                     placeholder="Message"
                     multiline
                     label="Message"
+                    className="msg-textarea"
                   />
                 </div>
               </div>
@@ -230,8 +233,8 @@ const EmailForm = ({
                 </div>
 
                 {/* <GoogleReCaptcha onVerify={onVerifyRecaptcha} /> */}
-                <Grid container spacing={2}>
-                  <Grid item xs={12} md={6}>
+                <Grid container>
+                  <Grid item xs={12} sm={6} className="btn-container">
                     {!serverState && (
                       <Button
                         type="submit"
@@ -244,7 +247,7 @@ const EmailForm = ({
                       </Button>
                     )}
                   </Grid>
-                  <Grid item xs={12} md={6}>
+                  <Grid item xs={12} sm={6} className="btn-container">
                     <Button
                       variant="contained"
                       color="secondary"

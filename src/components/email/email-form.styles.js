@@ -9,15 +9,27 @@ export const emailFormStyles = css`
 `;
 
 const styles = (theme) => css`
-  padding: 7rem 7rem 4rem 7rem;
+  padding: 4rem 2rem;
+  ${theme.breakpoints.up('sm')} {
+    padding: 7rem 7rem 4rem 7rem;
+  }
   .form-wrapper {
     display: flex;
-    height: 80vh;
-    overflow: auto;
+    height: auto;
+    overflow: inherit;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+    ${theme.breakpoints.up('sm')} {
+      margin-bottom: 0;
+      height: 80vh;
+      overflow: auto;
+    }
   }
 
   .form-item-left {
-    padding-right: 4rem;
+    ${theme.breakpoints.up('sm')} {
+      padding-right: 4rem;
+    }
   }
 
   .form-copy {
@@ -26,11 +38,16 @@ const styles = (theme) => css`
 
   .form-item-left,
   .form-item-right {
-    width: 50%;
+    width: 100%;
+    ${theme.breakpoints.up('sm')} {
+      width: 50%;
+    }
   }
 
   .form-item-right {
-    padding: 0 3rem;
+    ${theme.breakpoints.up('sm')} {
+      padding: 0 3rem;
+    }
     .MuiFormGroup-root {
       flex-direction: row;
     }
@@ -39,6 +56,8 @@ const styles = (theme) => css`
   .left-form-fields {
     display: flex;
     flex-direction: column;
+    margin-right: 3rem;
+    margin-bottom: 6rem;
     div {
       margin-bottom: 1.4rem;
     }
@@ -83,6 +102,30 @@ const styles = (theme) => css`
 
   .form-sent-success {
     margin: 6rem 0 10rem 0;
+  }
+
+  .msg-textarea {
+    background: transparent;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    border-bottom: 1px solid;
+    font-family: '"Whyte", Helvetica, sans-serif';
+  }
+
+  .btn-container {
+    ${'' /* ${theme.breakpoints.down('sm')} { */}
+    max-width: 45%;
+    ${'' /* margin-right: 2.2rem; */}
+    ${'' /* } */}
+    &:nth-of-type(2) {
+      margin-left: auto;
+      .MuiButton-endIcon {
+        ${theme.breakpoints.down('sm')} {
+          display: none;
+        }
+      }
+    }
   }
 `;
 

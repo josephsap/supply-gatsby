@@ -45,8 +45,8 @@ const theme = createMuiTheme({
 
     h5: {
       fontFamily: '"Bogue-Black", Garamond, Baskerville, sans-serif',
-      fontSize: '6rem',
-      lineHeight: '6.4rem',
+      fontSize: '3.2rem',
+      lineHeight: '3.8rem',
       letterSpacing: '-1px',
       fontWeight: 'bold',
     },
@@ -129,7 +129,7 @@ const theme = createMuiTheme({
   breakpoints: {
     values: {
       xs: 0,
-      sm: 600,
+      sm: 768,
       md: 960,
       lg: 1280,
       xl: 1920,

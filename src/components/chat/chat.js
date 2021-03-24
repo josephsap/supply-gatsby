@@ -11,6 +11,8 @@ import {
 import { CustomerMessage, AgentMessage } from './chatUtils';
 import EmailContainer from '../email/email-container';
 import { chatBaseStyles } from './chat.styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
 
 const ChatMessages = ({ messages = [], customerId, scrollToRef }) => {
   return (
@@ -37,6 +39,9 @@ const Chat = ({ state, onSendMessage, scrollToRef }) => {
   const [message, setMessageBody] = useState('');
   const [checked, setChecked] = useState(false);
   const { messages = [], customerId, isLoaded } = state;
+  const theme = useTheme();
+  const showMed = useMediaQuery(theme.breakpoints.up('md'));
+  const showSm = useMediaQuery(theme.breakpoints.down('sm'));
 
   const handleChangeMessage = (e) => setMessageBody(e.target.value);
 
@@ -76,21 +81,23 @@ const Chat = ({ state, onSendMessage, scrollToRef }) => {
                   understand how important time is when it comes to hiring the
                   right talent. Let’s chat!
                 </Typography>
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  className="email-btn"
-                  fullWidth
-                  onClick={() => setChecked(true)}
-                  startIcon={
-                    <img
-                      src={`images/arrow-left-email-btn.svg`}
-                      style={{ marginRight: 'auto' }}
-                    />
-                  }
-                >
-                  Email us
-                </Button>
+                {showMed && (
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    className="email-btn"
+                    fullWidth
+                    onClick={() => setChecked(true)}
+                    startIcon={
+                      <img
+                        src={`images/arrow-left-email-btn.svg`}
+                        style={{ marginRight: 'auto' }}
+                      />
+                    }
+                  >
+                    Email us
+                  </Button>
+                )}
               </Box>
             </Grid>
 
@@ -113,19 +120,44 @@ const Chat = ({ state, onSendMessage, scrollToRef }) => {
                   <TextField
                     fullWidth
                     value={message}
-                    placeholder="Start typing..."
+                    placeholder="Talky Talk."
                     onChange={handleChangeMessage}
+                    variant="outlined"
+                    className="chat-input"
                   />
                 </form>
-                <Button
-                  fullWidth
-                  onClick={(e) => handleSendMessage(e)}
-                  className="send-msg-btn"
-                  variant="contained"
-                  color="primary"
-                >
-                  Send
-                </Button>
+                <Grid container>
+                  <Grid item xs={12} md={12} className="em-send-btn-container">
+                    <Button
+                      fullWidth
+                      onClick={(e) => handleSendMessage(e)}
+                      className="send-msg-btn"
+                      variant="contained"
+                      color="primary"
+                    >
+                      Send
+                    </Button>
+                  </Grid>
+                  <Grid item xs={12} className="em-send-btn-container">
+                    {showSm && (
+                      <Button
+                        variant="contained"
+                        color="secondary"
+                        className="email-btn"
+                        fullWidth
+                        onClick={() => setChecked(true)}
+                        startIcon={
+                          <img
+                            src={`images/arrow-left-email-btn.svg`}
+                            style={{ marginRight: 'auto' }}
+                          />
+                        }
+                      >
+                        Email us
+                      </Button>
+                    )}
+                  </Grid>
+                </Grid>
               </div>
             </Grid>
           </Grid>
