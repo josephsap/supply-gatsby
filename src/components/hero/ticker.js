@@ -4,8 +4,8 @@ import styles from './ticker.styles';
 
 const contentful = require('contentful');
 const client = contentful.createClient({
-  space: '1wmnm7ky08ew',
-  accessToken: '0q8Z9KA6Pt7YSIONnZj23fxci18TIWjk4iVjkZQxOC4',
+  space: process.env.GATSBY_CONTENTFUL_SPACE_ID,
+  accessToken: process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN,
 });
 
 const Ticker = () => {
