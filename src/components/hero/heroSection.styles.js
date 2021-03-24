@@ -2,8 +2,11 @@ import { css } from '@emotion/react';
 
 const styles = (theme) => css`
   background-color: ${theme.palette.supply.cream.main};
-  padding: 6rem 0 32rem;
+  padding: 6rem 0 8rem;
   overflow: hidden;
+  ${theme.breakpoints.up('sm')} {
+    padding-bottom: 32rem;
+  }
 
   .mobile-dragbox {
     background-color: ${theme.palette.supply.lightPeach.main};
@@ -33,47 +36,51 @@ const styles = (theme) => css`
 
   .badge-green {
     display: none;
-    width: 157px;
-    height: 115px;
-    opacity: 0;
-    transform: scale(1.5) translateY(-50px);
     ${theme.breakpoints.up('sm')} {
       display: block;
+      width: 157px;
+      height: 115px;
+      opacity: 0;
+      transform: scale(1.5) translateY(-50px);
     }
   }
 
   .peach {
     display: none;
-    position: absolute;
-    left: 112px;
-    top: -35px;
-    width: 219px;
-    height: 113px;
-    opacity: 0;
-    transform: scale(3) translateY(-50px);
-    z-index: 2;
     ${theme.breakpoints.up('sm')} {
       display: block;
+      position: absolute;
+      left: 112px;
+      top: -35px;
+      width: 219px;
+      height: 113px;
+      opacity: 0;
+      transform: scale(3) translateY(-50px);
+      z-index: 2;
     }
   }
 
   .star {
-    position: absolute;
-    left: 375px;
-    top: 35px;
-    width: 49px;
-    height: 49px;
-    opacity: 0;
-    transform-origin: 50%;
-    transform: rotate(-800deg);
-    z-index: 1;
+    display: none;
+    ${theme.breakpoints.up('sm')} {
+      display: block;
+      position: absolute;
+      left: 375px;
+      top: 35px;
+      width: 49px;
+      height: 49px;
+      opacity: 0;
+      transform-origin: 50%;
+      transform: rotate(-800deg);
+      z-index: 1;
+    }
   }
 
   .rich-text-section {
     position: relative;
     z-index: 2;
     text-align: center;
-    ${theme.breakpoints.up('md')} {
+    ${theme.breakpoints.up('sm')} {
       text-align: left;
     }
     h1 {
@@ -82,10 +89,12 @@ const styles = (theme) => css`
       font-weight: normal;
       line-height: 5rem;
       margin-bottom: 2.5rem;
-      margin-top: 5rem;
-      ${theme.breakpoints.up('md')} {
+      padding: 0 3rem;
+      ${theme.breakpoints.up('sm')} {
         font-size: 10rem;
         line-height: 11rem;
+        padding: 0;
+        margin-top: 5rem;
       }
     }
 
@@ -95,7 +104,8 @@ const styles = (theme) => css`
       line-height: 5rem;
       letter-spacing: -2px;
       font-weight: normal;
-      ${theme.breakpoints.up('md')} {
+      margin-right: 1rem;
+      ${theme.breakpoints.up('sm')} {
         font-size: 10rem;
         line-height: 11rem;
         padding: 0 2.4rem 0 0;
@@ -175,13 +185,15 @@ const styles = (theme) => css`
     .chatbox {
       margin-left: auto;
       width: 100%;
-      height: 211px;
+      height: 170px;
       transform: rotate(-5.23deg);
       right: -40%;
       position: relative;
-      ${theme.breakpoints.up('md')} {
+      background-color: ${theme.palette.supply.salmon.main};
+      ${theme.breakpoints.up('sm')} {
         width: 476px;
         right: auto;
+        height: 211px;
       }
     }
 

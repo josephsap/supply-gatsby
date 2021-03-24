@@ -13,8 +13,12 @@ const styles = (theme) => css`
     border-radius: 20px;
   }
   .section-padding {
-    padding-top: 12rem;
-    padding-bottom: 12rem;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+    ${theme.breakpoints.up('sm')} {
+      padding-top: 12rem;
+      padding-bottom: 12rem;
+    }
   }
   .section-padding-bottom {
     padding-bottom: 12rem;

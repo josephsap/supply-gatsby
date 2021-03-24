@@ -25,9 +25,9 @@ const theme = createMuiTheme({
       lineHeight: '1',
     },
     h2: {
-      fontFamily: '"Bogue-Black", Garamond, Baskerville, sans-serif',
-      fontSize: '7.2rem',
-      lineHeight: '8.6rem',
+      fontFamily: '"Bogue-Regular", Garamond, Baskerville, sans-serif',
+      fontSize: '2.4rem',
+      lineHeight: '3.4rem',
     },
     // Who we work with text
     h3: {
@@ -38,8 +38,8 @@ const theme = createMuiTheme({
     },
     h4: {
       fontFamily: '"Bogue-Regular", Garamond, Baskerville, sans-serif',
-      fontSize: '3.2rem',
-      // lineHeight: '8.6rem',
+      fontSize: '2.4rem',
+      lineHeight: '3.4rem',
       letterSpacing: '-1px',
     },
 
@@ -71,8 +71,8 @@ const theme = createMuiTheme({
     // body XL
     subtitle1: {
       fontFamily: '"Bogue-Regular", Garamond, Baskerville, sans-serif',
-      fontSize: '3.2rem',
-      lineHeight: '4.2rem',
+      fontSize: '1.8rem',
+      lineHeight: '2.6rem',
       color: lightPeach.main,
     },
     // footer link text

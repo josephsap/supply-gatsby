@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Typography, Grid } from '@material-ui/core';
 import styles from './whyUs.styles';
 import PebbleStats from './pebbleStats';
-import { pl4, pt4, pb4 } from '../layout/margin-padding-utils.styles';
+import { pt4, pb4 } from '../layout/margin-padding-utils.styles';
 
 const WhyUsSection = ({ whyUsSection }) => (
   <>
@@ -10,13 +10,13 @@ const WhyUsSection = ({ whyUsSection }) => (
       <Container maxWidth="lg" className="side-padding">
         <Grid container justify="center" alignItems="center">
           <Grid item xs={12} className="title-container">
-            <Typography variant="h2" className="why-us-title">
+            <Typography variant="h5" component="h2" className="why-us-title">
               {whyUsSection.title}
             </Typography>
           </Grid>
         </Grid>
         <Grid container className="border-container top-section">
-          <Grid item xs={12} md={6} css={pl4} className="upper-container">
+          <Grid item xs={12} md={6} className="upper-container">
             <div
               className="why-us-intro-title"
               dangerouslySetInnerHTML={{

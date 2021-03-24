@@ -15,15 +15,34 @@ const muiTheme = {
   overrides: {
     ...theme.overrides,
     MuiTypography: {
+      h2: {
+        [theme.breakpoints.up('sm')]: {
+          fontSize: '7.2rem',
+          lineHeight: '8.6rem',
+          fontFamily: '"Bogue-Black", Garamond, Baskerville, sans-serif',
+        },
+      },
+      h5: {
+        [theme.breakpoints.up('sm')]: {
+          fontSize: '6rem',
+          lineHeight: '6.4rem',
+        },
+      },
+      h4: {
+        [theme.breakpoints.up('sm')]: {
+          fontSize: '3.2rem',
+          lineHeight: '3rem',
+        },
+      },
       body1: {
         [theme.breakpoints.down('sm')]: {
           fontSize: '1.6rem',
         },
       },
-      h5: {
-        [theme.breakpoints.up('md')]: {
-          fontSize: '6rem',
-          lineHeight: '6.4rem',
+      subtitle1: {
+        [theme.breakpoints.up('sm')]: {
+          fontSize: '3.2rem',
+          lineHeight: '4.2rem',
         },
       },
     },

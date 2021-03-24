@@ -2,11 +2,15 @@ import { css } from '@emotion/react';
 
 const styles = (theme) => css`
   .title-container {
-    margin: 6rem 0 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 430px;
+    margin-top: 2.8rem;
+    margin-bottom: 2rem;
+    ${theme.breakpoints.up('md')} {
+      height: 430px;
+      margin: 6rem 0 1rem;
+    }
   }
   .why-us-title {
     text-align: center;
@@ -14,27 +18,39 @@ const styles = (theme) => css`
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-size: 518px;
-    line-height: 450px;
-    height: 450px;
+    background-size: 268px;
+    line-height: 200px;
+    height: 200px;
     width: 100%;
     position: relative;
     z-index: 2;
+    ${theme.breakpoints.up('md')} {
+      background-size: 518px;
+      line-height: 450px;
+      height: 450px;
+    }
     &:after {
       content: '';
       position: absolute;
-      height: 130px;
+      height: 72px;
       width: 2px;
-      bottom: 0;
+      bottom: -20px;
       left: 50%;
       margin-left: -1px;
       background-color: ${theme.palette.text.primary};
       z-index: -1;
+      ${theme.breakpoints.up('md')} {
+        height: 130px;
+        bottom: 0;
+      }
     }
   }
 
   .upper-container {
     display: flex;
+    ${theme.breakpoints.up('sm')} {
+      padding-left: 4rem;
+    }
   }
 
   .why-us-intro-title {
@@ -43,15 +59,18 @@ const styles = (theme) => css`
     flex-direction: column;
     justify-content: center;
     ${theme.breakpoints.down('md')} {
-      margin-top: 5rem;
       text-align: center;
+      margin: 5rem auto 0;
     }
 
     h2 {
       font-family: 'Bogue-Black';
       font-weight: 900;
-      font-size: 7.2rem;
-      margin: 1rem 0;
+      font-size: 3.2rem;
+      margin: 0.8rem 0;
+      ${theme.breakpoints.up('sm')} {
+        font-size: 7.2rem;
+      }
       em {
         font-weight: 300;
         font-family: 'Bogue-LightItalic';
@@ -77,7 +96,7 @@ const styles = (theme) => css`
   }
 
   .intro-copy {
-    padding: 4rem;
+    padding: 1rem 4rem 4rem;
     text-align: center;
     ${theme.breakpoints.up('md')} {
       padding-right: 9rem;

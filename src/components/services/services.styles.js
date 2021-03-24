@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
 import { initiallyHidden } from '../shared/shared.styles';
 
-
 const styles = (theme) => css`
   background-color: ${theme.palette.supply.goldLeather.main};
 
@@ -13,7 +12,12 @@ const styles = (theme) => css`
   }
 
   .hww-title {
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
+    padding: 0 4.5rem;
+    ${theme.breakpoints.up('md')} {
+      margin-bottom: 4rem;
+      padding: 0;
+    }
     div {
       display: inline-block;
     }
@@ -37,12 +41,11 @@ const styles = (theme) => css`
   }
 
   .service-item {
-    padding: 4rem 0;
+    padding: 2rem 0;
     text-align: center;
     ${theme.breakpoints.up('md')} {
-      padding-left: 6rem;
-      padding-right: 6rem;
       text-align: left;
+      padding: 4rem 6rem;
     }
     h4 {
       margin: 1rem 0 1.5rem;
@@ -59,8 +62,12 @@ const styles = (theme) => css`
 
   .services-section-top {
     text-align: center;
-    margin: 7rem 0 6rem;
+    margin: 2rem 0 4rem;
     padding: 0 2.4rem;
+    ${theme.breakpoints.up('sm')} {
+      margin-top: 7rem;
+      margin-bottom: 6rem;
+    }
   }
 `;
 

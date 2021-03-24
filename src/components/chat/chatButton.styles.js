@@ -8,6 +8,7 @@ const styles = (theme) => css`
     background-color: ${theme.palette.supply.salmon.main};
     font-size: 2.4rem;
     letter-spacing: -1px;
+    box-shadow: none;
 
     ${theme.breakpoints.up('md')} {
       padding-right: 14rem;
