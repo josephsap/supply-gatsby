@@ -12,6 +12,7 @@ import styles, {
   dragStyles,
 } from './heroSection.styles';
 import ChatButton from '../chat/chatButton';
+import Ticker from './ticker';
 
 // TODO: adjust cache values once we are
 // in production https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/deploying-to-heroku/
@@ -219,70 +220,84 @@ const HeroSection = ({ heroSection }) => {
   }, [heroCopyRef]);
 
   return (
-    <div style={{ position: 'relative', overflow: 'hidden' }} ref={wrapperRef}>
-      {boxPos && showMdAndUp && (
-        <div css={dragStyles} ref={draggableBoxRef}>
-          <DragContainer
-            content={documentToReactComponents(
-              JSON.parse(heroSection.introCopy.raw)
-            )}
-            boxPos={boxPos}
-            isShown={showBox}
-          />
-          <CustomDragLayer />
-        </div>
-      )}
-      <Container maxWidth={false} css={styles} id="section0">
-        <Container maxWidth="lg" className="side-padding">
-          <Grid container css={backgroundStyles}>
-            <Grid
-              container
-              direction="row"
-              justify="flex-start"
-              alignItems="flex-start"
-              className="top-images"
-            >
-              <Grid item xs={12}>
-                <div className="badge-green top-image" ref={badge1Ref}>
-                  <img src={`images/rectangle-badge-top.svg`} />
-                </div>
-                <div className="peach  top-image" ref={badge2Ref}>
-                  <img src={`images/top-peach-rectangle.svg`} />
-                </div>
-                <div className="star  top-image" ref={starRef}>
-                  <img src={`images/star-purple.svg`} />
-                </div>
-                <div className="hero-logo top-image" ref={logoRef}>
-                  <img src={`images/supply-badge-logo.svg`} alt="The Supply" />
-                </div>
+    <>
+      {showMdAndUp && <Ticker />}
+      <div
+        style={{ position: 'relative', overflow: 'hidden' }}
+        ref={wrapperRef}
+      >
+        {boxPos && showMdAndUp && (
+          <div css={dragStyles} ref={draggableBoxRef}>
+            <DragContainer
+              content={documentToReactComponents(
+                JSON.parse(heroSection.introCopy.raw)
+              )}
+              boxPos={boxPos}
+              isShown={showBox}
+            />
+            <CustomDragLayer />
+          </div>
+        )}
+        <Container maxWidth={false} css={styles} id="section0">
+          <Container maxWidth="lg" className="side-padding">
+            <Grid container css={backgroundStyles}>
+              <Grid
+                container
+                direction="row"
+                justify="flex-start"
+                alignItems="flex-start"
+                className="top-images"
+              >
+                <Grid item xs={12}>
+                  <div className="badge-green top-image" ref={badge1Ref}>
+                    <img src={`images/rectangle-badge-top.svg`} />
+                  </div>
+                  <div className="peach  top-image" ref={badge2Ref}>
+                    <img src={`images/top-peach-rectangle.svg`} />
+                  </div>
+                  <div className="star  top-image" ref={starRef}>
+                    <img src={`images/star-purple.svg`} />
+                  </div>
+                  <div className="hero-logo top-image" ref={logoRef}>
+                    <img
+                      src={`images/supply-badge-logo.svg`}
+                      alt="The Supply"
+                    />
+                  </div>
+                </Grid>
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                className="rich-text-section"
+                ref={heroCopyRef}
+              >
+                {titleTransform()}
+                {!showMdAndUp && (
+                  <div className="mobile-dragbox">
+                    <div>
+                      {documentToReactComponents(
+                        JSON.parse(heroSection.introCopy.raw)
+                      )}
+                    </div>
+                  </div>
+                )}
+                <span className="clover" ref={cloverRef}></span>
               </Grid>
             </Grid>
-            <Grid item xs={12} className="rich-text-section" ref={heroCopyRef}>
-              {titleTransform()}
-              {!showMdAndUp && (
-                <div className="mobile-dragbox">
-                  <Typography variant="body1">
-                    {documentToReactComponents(
-                      JSON.parse(heroSection.introCopy.raw)
-                    )}
-                  </Typography>
-                </div>
-              )}
-              <span className="clover" ref={cloverRef}></span>
-            </Grid>
-          </Grid>
+          </Container>
+          <div className="chatbox-container" ref={chatboxRef}>
+            <div className="squiggly-arrow" ref={arrowRef}>
+              <span></span>
+            </div>
+            <div className="chatbox">
+              <ChatButton />
+            </div>
+          </div>
         </Container>
-        <div className="chatbox-container" ref={chatboxRef}>
-          <div className="squiggly-arrow" ref={arrowRef}>
-            <span></span>
-          </div>
-          <div className="chatbox">
-            <ChatButton />
-          </div>
-        </div>
-      </Container>
-      <div css={backgroundDotStyles}></div>
-    </div>
+        <div css={backgroundDotStyles}></div>
+      </div>
+    </>
   );
 };
 
