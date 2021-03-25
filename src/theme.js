@@ -65,8 +65,8 @@ const theme = createMuiTheme({
     // body LG
     body2: {
       fontFamily: '"Whyte", Helvetica, sans-serif',
-      fontSize: '2.2rem',
-      lineHeight: '3.2rem',
+      fontSize: '2.6rem',
+      lineHeight: '3.6rem',
     },
     // body XL
     subtitle1: {

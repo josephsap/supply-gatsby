@@ -151,7 +151,9 @@ const NetworkSection = ({ networkSection }) => {
           alignItems="center"
         >
           <Grid item xs={12} md={6} className="network-title">
-            <Typography variant="h2">{networkSection.title}</Typography>
+            <Typography variant="h5" component="h2">
+              {networkSection.title}
+            </Typography>
           </Grid>
           <Grid item xs={12} md={5} className="network-desc">
             <Typography

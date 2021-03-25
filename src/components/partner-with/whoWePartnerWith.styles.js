@@ -1,7 +1,6 @@
 import { css } from '@emotion/react';
 import { initiallyHidden } from '../shared/shared.styles';
 
-
 const styles = (theme) => css`
   background-color: ${theme.palette.supply.pink.main};
 
@@ -57,7 +56,7 @@ const styles = (theme) => css`
     .category-icons svg {
       transition: ${theme.transitions.create(['transform', 'opacity'], {
         duration: '.25s',
-        easing: theme.transitions.easing.outExpo
+        easing: theme.transitions.easing.outExpo,
       })};
     }
 
@@ -67,10 +66,10 @@ const styles = (theme) => css`
       .category-icons svg {
         transition: ${theme.transitions.create(['all'], {
           duration: '.25s',
-          easing: theme.transitions.easing.inOutCirc
+          easing: theme.transitions.easing.inOutCirc,
         })};
         opacity: 1;
-      }  
+      }
 
       .category-cta {
         transform: translateY(0);
@@ -79,37 +78,36 @@ const styles = (theme) => css`
 
     &.inactive {
       h3 {
-        opacity: .5;
+        opacity: 0.5;
       }
     }
-
   }
 
   .category-title {
-      display: inline-block;
-      margin-bottom: 30px;
-      text-decoration: none;
-      cursor: pointer;
+    display: inline-block;
+    margin-bottom: 30px;
+    text-decoration: none;
+    cursor: pointer;
 
-      h3 {
-        display: inline-block;
-        color: ${theme.palette.text.primary};
-        position: relative;
-        transition: ${theme.transitions.create(['opacity'], {
-          duration: '.25s',
-          easing: theme.transitions.easing.inOutCirc
-        })};
-        
-        &:after {
-          width: 100%;
-          height: 2px;
-          background: currentColor;
-          position: absolute;
-          content: '';
-          left: 0;
-          bottom: .05em;
-        }
+    h3 {
+      display: inline-block;
+      color: ${theme.palette.text.primary};
+      position: relative;
+      transition: ${theme.transitions.create(['opacity'], {
+        duration: '.25s',
+        easing: theme.transitions.easing.inOutCirc,
+      })};
+
+      &:after {
+        width: 100%;
+        height: 2px;
+        background: currentColor;
+        position: absolute;
+        content: '';
+        left: 0;
+        bottom: 0.05em;
       }
+    }
 
     .category-cta {
       margin-top: 15px;
@@ -121,28 +119,26 @@ const styles = (theme) => css`
       transform: translateY(-20px);
 
       svg {
-        display: block;  
+        display: block;
         width: 12px;
         margin: auto;
       }
 
       em {
-        display: block;  
+        display: block;
         font-style: normal;
       }
-  
     }
   }
 
   .category-item {
-    // pointer-events: none;
     display: inline-block;
     background-size: 100% auto;
     background-repeat: no-repeat;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(.25);
+    transform: translate(-50%, -50%) scale(0.25);
     transform-origin: 50%;
     backface-visibility: hidden;
     height: 0;
@@ -160,14 +156,14 @@ const styles = (theme) => css`
 
   .category-cta,
   .category-item-title {
-    font-size: 1.1vw;
+    font-size: 2rem;
     line-height: 1.4;
   }
 
   .category-icons {
     svg {
       display: block;
-      width: 2vw;
+      width: 2rem;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -183,44 +179,44 @@ const styles = (theme) => css`
       background-image: url(/images/pill-bg-purple.svg);
       width: 14%;
       padding-bottom: 9%;
-      transform: translate(-50%, -50%) rotate(40deg) scale(.25);
+      transform: translate(-50%, -50%) rotate(40deg) scale(0.25);
     }
     .category-item:nth-of-type(2) {
       background-image: url(/images/pill-bg-coral.svg);
       width: 17%;
       padding-bottom: 4%;
-      transform: translate(-50%, -50%) rotate(-10deg) scale(.25);
+      transform: translate(-50%, -50%) rotate(-10deg) scale(0.25);
     }
     .category-item:nth-of-type(3) {
       background-image: url(/images/pill-bg-green.svg);
       width: 12%;
       padding-bottom: 4.5%;
-      transform: translate(-50%, -50%) rotate(-10deg) scale(.25);
+      transform: translate(-50%, -50%) rotate(-10deg) scale(0.25);
     }
     .category-item:nth-of-type(4) {
       background-image: url(/images/pill-bg-orange.svg);
       width: 19%;
       padding-bottom: 7%;
-      transform: translate(-50%, -50%) rotate(0deg) scale(.25);
+      transform: translate(-50%, -50%) rotate(0deg) scale(0.25);
     }
     .category-item:nth-of-type(5) {
       background-image: url(/images/pill-bg-blue.svg);
       width: 17%;
       padding-bottom: 4%;
       color: ${theme.palette.supply.pink.main};
-      transform: translate(-50%, -50%) rotate(25deg) scale(.25);
+      transform: translate(-50%, -50%) rotate(25deg) scale(0.25);
     }
     .category-item:nth-of-type(6) {
       background-image: url(/images/pill-bg-white-scalloped.svg);
       width: 11%;
       padding-bottom: 7%;
-      transform: translate(-50%, -50%) rotate(-10deg) scale(.25);
+      transform: translate(-50%, -50%) rotate(-10deg) scale(0.25);
     }
     .category-item:nth-of-type(7) {
       background-image: url(/images/pill-bg-gold.svg);
       width: 16%;
       padding-bottom: 5.5%;
-      transform: translate(-50%, -50%) rotate(-20deg) scale(.25);
+      transform: translate(-50%, -50%) rotate(-20deg) scale(0.25);
     }
 
     .category-icons {
@@ -279,11 +275,11 @@ const styles = (theme) => css`
         svg:nth-of-type(1) {
           transform: translate(-480%, -310%) rotate(16deg);
         }
-  
+
         svg:nth-of-type(2) {
           transform: translate(877%, -11%) rotate(-9deg);
         }
-  
+
         svg:nth-of-type(3) {
           transform: translate(-870%, -140%);
         }
@@ -295,7 +291,7 @@ const styles = (theme) => css`
   }
   .technology {
     .category-item:nth-of-type(1) {
-      transform: translate(-50%, -50%) rotate(20deg) scale(.25);
+      transform: translate(-50%, -50%) rotate(20deg) scale(0.25);
       background-image: url(/images/pill-bg-coral.svg);
       width: 22%;
       padding-bottom: 6%;
@@ -314,50 +310,50 @@ const styles = (theme) => css`
       background-image: url(/images/pill-bg-orange.svg);
       width: 19%;
       padding-bottom: 7%;
-      transform: translate(-50%,-50%) rotate(45deg) scale(.25);
+      transform: translate(-50%, -50%) rotate(45deg) scale(0.25);
     }
     .category-item:nth-of-type(5) {
       background-image: url(/images/pill-bg-blue.svg);
       width: 18%;
       padding-bottom: 4%;
-      transform: translate(-50%,-50%) rotate(-70deg) scale(.25);
+      transform: translate(-50%, -50%) rotate(-70deg) scale(0.25);
       color: ${theme.palette.supply.pink.main};
     }
-    .category-icons  {
+    .category-icons {
       svg:nth-of-type(1) {
-        transform: translate(-50%, -50%) rotate(400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.seaGreen.main};
         }
       }
 
       svg:nth-of-type(2) {
-        transform: translate(-50%, -50%) rotate(-400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(-400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.seaGreen.main};
         }
       }
 
       svg:nth-of-type(3) {
-        transform: translate(-50%, -50%) rotate(-400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(-400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.seaGreen.main};
         }
       }
       svg:nth-of-type(4) {
-        transform: translate(-50%, -50%) rotate(400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.orange.main};
         }
       }
       svg:nth-of-type(5) {
-        transform: translate(-50%, -50%) rotate(-400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(-400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.salmon.main};
         }
       }
       svg:nth-of-type(6) {
-        transform: translate(-50%, -50%) rotate(-400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(-400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.lilac.main};
         }
@@ -385,11 +381,11 @@ const styles = (theme) => css`
         svg:nth-of-type(1) {
           transform: translate(-1480%, -120%) rotate(45deg) scale(1);
         }
-  
+
         svg:nth-of-type(2) {
           transform: translate(1387%, -111%) rotate(-9deg) scale(1);
         }
-  
+
         svg:nth-of-type(3) {
           transform: translate(830%, -260%) rotate(30deg) scale(1);
         }
@@ -410,77 +406,77 @@ const styles = (theme) => css`
       background-image: url(/images/pill-bg-coral.svg);
       width: 18%;
       padding-bottom: 5%;
-      transform: translate(-50%, -50%) rotate(25deg) scale(.25);
+      transform: translate(-50%, -50%) rotate(25deg) scale(0.25);
     }
     .category-item:nth-of-type(2) {
       background-image: url(/images/pill-bg-purple-small.svg);
       width: 15%;
       padding-bottom: 7%;
       background-size: 100% 100%;
-      transform: translate(-50%, -50%) rotate(-1deg) scale(.25);
+      transform: translate(-50%, -50%) rotate(-1deg) scale(0.25);
     }
     .category-item:nth-of-type(3) {
       background-image: url(/images/pill-bg-green.svg);
       width: 16%;
       padding-bottom: 5.5%;
-      background-size: 100% 100%; 
-      transform: translate(-50%, -50%) rotate(-13.11deg) scale(.25);
+      background-size: 100% 100%;
+      transform: translate(-50%, -50%) rotate(-13.11deg) scale(0.25);
     }
     .category-item:nth-of-type(4) {
       background-image: url(/images/pill-bg-blue.svg);
       width: 25%;
       padding-bottom: 5.5%;
       color: ${theme.palette.supply.pink.main};
-      transform: translate(-50%, -50%) rotate(-11deg) scale(.25);
+      transform: translate(-50%, -50%) rotate(-11deg) scale(0.25);
     }
     .category-item:nth-of-type(5) {
       background-image: url(/images/pill-bg-white-scalloped-long.svg);
       width: 17%;
       padding-bottom: 8%;
-      transform: translate(-50%, -50%) rotate(27deg) scale(.25);
+      transform: translate(-50%, -50%) rotate(27deg) scale(0.25);
     }
     .category-item:nth-of-type(6) {
       background-image: url(/images/pill-bg-orange-long.svg);
       width: 18%;
       padding-bottom: 4.5%;
-      transform: translate(-50%, -50%) rotate(-10deg) scale(.25);
+      transform: translate(-50%, -50%) rotate(-10deg) scale(0.25);
     }
 
     .category-icons {
       svg:nth-of-type(1) {
-        transform: translate(-50%, -50%) rotate(400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.seaGreen.main};
         }
       }
 
       svg:nth-of-type(2) {
-        transform: translate(-50%, -50%) rotate(-400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(-400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.seaGreen.main};
         }
       }
 
       svg:nth-of-type(3) {
-        transform: translate(-50%, -50%) rotate(-400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(-400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.cobalt.main};
         }
       }
       svg:nth-of-type(4) {
-        transform: translate(-50%, -50%) rotate(400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.seaGreen.main};
         }
       }
       svg:nth-of-type(5) {
-        transform: translate(-50%, -50%) rotate(400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.orange.main};
         }
       }
       svg:nth-of-type(6) {
-        transform: translate(-50%, -50%) rotate(-400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(-400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.lilac.main};
         }
@@ -511,22 +507,19 @@ const styles = (theme) => css`
         svg:nth-of-type(1) {
           transform: translate(-590%, -260%) rotate(30deg) scale(1);
         }
-  
+
         svg:nth-of-type(2) {
           transform: translate(1160%, -250%) rotate(-35deg) scale(1);
         }
-    
+
         svg:nth-of-type(3) {
           transform: translate(260%, -10%) rotate(-22deg) scale(1);
-         
         }
         svg:nth-of-type(4) {
           transform: translate(-1460%, 0%) rotate(0deg) scale(1);
-        
         }
         svg:nth-of-type(5) {
           transform: translate(-450%, -20%) rotate(0deg) scale(1);
-          
         }
         svg:nth-of-type(6) {
           transform: translate(910%, -210%) rotate(0deg) scale(1);
@@ -540,7 +533,7 @@ const styles = (theme) => css`
       background-image: url(/images/pill-bg-white.svg);
       width: 13%;
       padding-bottom: 8.5%;
-      transform: translate(-50%, -50%) rotate(10deg) scale(.25);
+      transform: translate(-50%, -50%) rotate(10deg) scale(0.25);
 
       span {
         width: 60%;
@@ -550,42 +543,42 @@ const styles = (theme) => css`
       background-image: url(/images/pill-bg-orange.svg);
       width: 17%;
       padding-bottom: 6%;
-      transform: translate(-50%, -50%) rotate(0deg) scale(.25);
+      transform: translate(-50%, -50%) rotate(0deg) scale(0.25);
     }
     .category-item:nth-of-type(3) {
       background-image: url(/images/pill-bg-blue-scalloped.svg);
       width: 13%;
       padding-bottom: 7%;
-      transform: translate(-50%, -50%) rotate(-20deg) scale(.25);
+      transform: translate(-50%, -50%) rotate(-20deg) scale(0.25);
       color: ${theme.palette.supply.pink.main};
     }
-    .category-icons { 
+    .category-icons {
       svg:nth-of-type(1) {
-        transform: translate(-50%, -50%) rotate(400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.lilac.main};
         }
       }
       svg:nth-of-type(2) {
-        transform: translate(-50%, -50%) rotate(400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.seaGreen.main};
         }
       }
       svg:nth-of-type(3) {
-        transform: translate(-50%, -50%) rotate(-400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(-400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.goldLeather.main};
         }
       }
       svg:nth-of-type(4) {
-        transform: translate(-50%, -50%) rotate(-400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(-400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.salmon.main};
         }
       }
       svg:nth-of-type(5) {
-        transform: translate(-50%, -50%) rotate(400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.orange.main};
         }
@@ -608,7 +601,7 @@ const styles = (theme) => css`
         transform: translate(90%, 0%) rotate(-8deg) scale(1);
       }
 
-      .category-icons { 
+      .category-icons {
         svg:nth-of-type(1) {
           transform: translate(-420%, -280%) rotate(20deg) scale(1);
         }
@@ -636,25 +629,25 @@ const styles = (theme) => css`
       background-image: url(/images/pill-bg-coral.svg);
       width: 19%;
       padding-bottom: 5%;
-      transform: translate(-50%, -50%) rotate(10deg) scale(.25);
+      transform: translate(-50%, -50%) rotate(10deg) scale(0.25);
     }
     .category-item:nth-of-type(2) {
       background-image: url(/images/pill-bg-green.svg);
       width: 15%;
       padding-bottom: 5.5%;
-      transform: translate(-50%, -50%) rotate(30deg) scale(.25);
+      transform: translate(-50%, -50%) rotate(30deg) scale(0.25);
     }
     .category-item:nth-of-type(3) {
       background-image: url(/images/pill-bg-gold.svg);
       width: 18%;
       padding-bottom: 6%;
-      transform: translate(-50%, -50%) rotate(0deg) scale(.25);
+      transform: translate(-50%, -50%) rotate(0deg) scale(0.25);
     }
     .category-item:nth-of-type(4) {
       background-image: url(/images/pill-bg-purple.svg);
       width: 13%;
       padding-bottom: 8.2%;
-      transform: translate(-50%, -50%) rotate(30deg) scale(.25);
+      transform: translate(-50%, -50%) rotate(30deg) scale(0.25);
 
       span {
         width: 80%;
@@ -663,43 +656,43 @@ const styles = (theme) => css`
 
     .category-icons {
       svg:nth-of-type(1) {
-        transform: translate(-50%, -50%) rotate(400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.lilac.main};
         }
       }
       svg:nth-of-type(2) {
-        transform: translate(-50%, -50%) rotate(400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.cobalt.main};
         }
       }
       svg:nth-of-type(3) {
-        transform: translate(-50%, -50%) rotate(-400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(-400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.salmon.main};
         }
       }
       svg:nth-of-type(4) {
-        transform: translate(-50%, -50%) rotate(-400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(-400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.lilac.main};
         }
       }
       svg:nth-of-type(5) {
-        transform: translate(-50%, -50%) rotate(-400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(-400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.orange.main};
         }
       }
       svg:nth-of-type(6) {
-        transform: translate(-50%, -50%) rotate(400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.goldLeather.main};
         }
       }
       svg:nth-of-type(7) {
-        transform: translate(-50%, -50%) rotate(-400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(-400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.orange.main};
         }
@@ -743,7 +736,6 @@ const styles = (theme) => css`
         }
       }
     }
-
   }
 
   .startuptech {
@@ -751,26 +743,26 @@ const styles = (theme) => css`
       background-image: url(/images/pill-bg-green-small.svg);
       width: 10%;
       padding-bottom: 5%;
-      transform: translate(-50%, -50%) rotate(20deg) scale(.25);
+      transform: translate(-50%, -50%) rotate(20deg) scale(0.25);
     }
     .category-item:nth-of-type(2) {
       background-image: url(/images/pill-bg-blue-small.svg);
       width: 12%;
       padding-bottom: 7.5%;
-      transform: translate(-50%, -50%) rotate(0deg) scale(.25);
+      transform: translate(-50%, -50%) rotate(0deg) scale(0.25);
       color: ${theme.palette.supply.pink.main};
     }
     .category-item:nth-of-type(3) {
       background-image: url(/images/pill-bg-coral.svg);
       width: 17%;
       padding-bottom: 4.7%;
-      transform: translate(-50%, -50%) rotate(-20deg) scale(.25);
+      transform: translate(-50%, -50%) rotate(-20deg) scale(0.25);
     }
     .category-item:nth-of-type(4) {
       background-image: url(/images/pill-bg-purple.svg);
       width: 11%;
-      padding-bottom: 7%;  
-      transform: translate(-50%, -50%) rotate(-20deg) scale(.25);
+      padding-bottom: 7%;
+      transform: translate(-50%, -50%) rotate(-20deg) scale(0.25);
 
       span {
         width: 60%;
@@ -780,47 +772,47 @@ const styles = (theme) => css`
       background-image: url(/images/pill-bg-gold-small.svg);
       width: 13%;
       padding-bottom: 6.5%;
-      transform: translate(-50%, -50%) rotate(20deg) scale(.25);
+      transform: translate(-50%, -50%) rotate(20deg) scale(0.25);
     }
     .category-icons {
       svg:nth-of-type(1) {
-        transform: translate(-50%, -50%) rotate(400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.lilac.main};
         }
       }
       svg:nth-of-type(2) {
-        transform: translate(-50%, -50%) rotate(400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.cobalt.main};
         }
       }
       svg:nth-of-type(3) {
-        transform: translate(-50%, -50%) rotate(-400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(-400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.seaGreen.main};
         }
       }
       svg:nth-of-type(4) {
-        transform: translate(-50%, -50%) rotate(-400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(-400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.salmon.main};
         }
       }
       svg:nth-of-type(5) {
-        transform: translate(-50%, -50%) rotate(400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.orange.main};
         }
       }
       svg:nth-of-type(6) {
-        transform: translate(-50%, -50%) rotate(400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.goldLeather.main};
         }
       }
       svg:nth-of-type(7) {
-        transform: translate(-50%, -50%) rotate(-400deg) scale(.25);
+        transform: translate(-50%, -50%) rotate(-400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.lilac.main};
         }
@@ -867,10 +859,8 @@ const styles = (theme) => css`
           transform: translate(1260%, -50%) rotate(0deg) scale(1);
         }
       }
-  
     }
   }
-
 `;
 
 export const tabStyles = (value) => css`

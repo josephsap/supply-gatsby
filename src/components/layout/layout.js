@@ -22,6 +22,11 @@ const muiTheme = {
           fontFamily: '"Bogue-Black", Garamond, Baskerville, sans-serif',
         },
       },
+      h3: {
+        [theme.breakpoints.down('md')]: {
+          fontSize: '4.7rem',
+        },
+      },
       h5: {
         [theme.breakpoints.up('sm')]: {
           fontSize: '6rem',
@@ -37,6 +42,12 @@ const muiTheme = {
       body1: {
         [theme.breakpoints.down('sm')]: {
           fontSize: '1.6rem',
+        },
+      },
+      body2: {
+        [theme.breakpoints.down('sm')]: {
+          fontSize: '1.8rem',
+          lineHeight: '2.6rem',
         },
       },
       subtitle1: {

@@ -5,18 +5,15 @@ const styles = (theme) => css`
     border: 3px solid;
     text-align: center;
     border-radius: 20px;
-    padding: 4rem 4rem 7rem;
+    padding: 4rem 4rem 4.5rem;
     ${theme.breakpoints.up('md')} {
       border-radius: 170px;
+      padding-bottom: 7rem;
     }
   }
 
-  .tools-description {
-    font-size: 3.2rem;
-    line-height: 4.2rem;
-  }
-
   .tools-title {
+    margin-top: 0.5rem;
     div {
       display: inline-block;
       margin: 0 1rem;

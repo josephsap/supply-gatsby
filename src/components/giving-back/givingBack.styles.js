@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { pr4, pl4, pb4, pt4 } from '../layout/margin-padding-utils.styles';
+import { pr4, pl4 } from '../layout/margin-padding-utils.styles';
 
 const styles = (theme) => css`
   padding: 3rem;
@@ -13,34 +13,51 @@ const styles = (theme) => css`
       ${pr4};
     }
     h2 {
-      ${theme.breakpoints.down('md')} {
+      padding: 1rem 0;
+      ${'' /* ${theme.breakpoints.down('md')} {
         ${pb4};
         padding-top: 1.8rem;
-      }
+      } */}
     }
   }
 
   .pushing-diversity {
-    margin-left: auto;
-    ${pl4};
+    margin-bottom: 3rem;
+    ${theme.breakpoints.up('md')} {
+      margin-left: auto;
+      ${pl4};
+    }
   }
 
   .badges-container {
     display: flex;
-    margin: 3rem 0;
+    margin: 5.5rem 0 1rem;
     ${theme.breakpoints.up('md')} {
       text-align: right;
       display: block;
+      margin: 3rem 0;
+    }
+    img:nth-of-type(1) {
+      width: 63%;
+    }
+    img:nth-of-type(2) {
+      width: 40%;
     }
   }
 
   .diversity-header-section {
     position: relative;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
+    ${theme.breakpoints.up('sm')} {
+      margin-bottom: 3rem;
+    }
   }
 
   .title-right {
-    text-align: right;
+    text-align: center;
+    ${theme.breakpoints.up('sm')} {
+      text-align: right;
+    }
 
     img {
       margin-bottom: -1rem;

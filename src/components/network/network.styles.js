@@ -12,15 +12,20 @@ const styles = (theme) => css`
   .network-title {
     ${theme.breakpoints.down('md')} {
       text-align: center;
-      margin-top: 3.2rem;
+      ${'' /* margin-top: 3.2rem; */}
     }
     h2 {
-      line-height: 7.6rem;
+      ${theme.breakpoints.up('sm')} {
+        line-height: 7.6rem;
+      }
     }
   }
 
   .network-container-top {
-    padding-top: 6rem;
+    padding-top: 3rem;
+    ${theme.breakpoints.up('sm')} {
+      padding-top: 6rem;
+    }
   }
 
   .network-desc {

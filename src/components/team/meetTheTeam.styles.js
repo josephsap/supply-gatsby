@@ -14,7 +14,7 @@ const styles = (theme) => css`
     mask: url('images/profile-bg.svg');
     width: 270px;
     height: 270px;
-    margin: 0 auto;
+    margin: 0 auto 4.5rem;
 
     img {
       width: 270px;
@@ -22,8 +22,13 @@ const styles = (theme) => css`
     }
   }
 
+  .teammate-container {
+    margin-bottom: 4.4rem;
+  }
+
   .teammate-name {
     margin: 3.5rem 0 2.5rem;
+    color: ${theme.palette.supply.lightPeach.main};
   }
 
   .linkedin-icon {
@@ -32,17 +37,24 @@ const styles = (theme) => css`
   }
 `;
 
-export const hiringImageStyles = (img) => css`
+export const hiringImageStyles = (theme, { teamImg }) => css`
   &:after {
     content: '';
-    background-image: url(${img});
+    background-image: url(${teamImg});
     background-repeat: no-repeat;
-    background-size: 250px;
+    background-size: 130px;
     position: absolute;
-    right: -150px;
-    top: -85%;
-    width: 250px;
-    height: 155px;
+    width: 130px;
+    height: 130px;
+    right: -60px;
+    top: -50px;
+    ${theme.breakpoints.up('sm')} {
+      width: 250px;
+      height: 155px;
+      background-size: 250px;
+      right: -150px;
+      top: -85%;
+    }
   }
 `;
 

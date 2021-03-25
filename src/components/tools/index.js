@@ -2,10 +2,15 @@ import React from 'react';
 import { Container, Grid, Typography } from '@material-ui/core';
 import styles from './tools.styles';
 import { pb25, pt45, pb4, mt6 } from '../layout/margin-padding-utils.styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
 
 const ToolsSection = ({ toolsSection }) => {
   const reg = new RegExp(/\s/g, '');
   const parts = toolsSection.title.split(reg);
+  const theme = useTheme();
+  const hideMed = useMediaQuery(theme.breakpoints.down('md'));
+  const showMed = useMediaQuery(theme.breakpoints.up('lg'));
 
   const titleTransform = () => {
     return (
@@ -37,11 +42,13 @@ const ToolsSection = ({ toolsSection }) => {
           >
             <Grid item xs={12}>
               <Typography
-                variant="h2"
+                variant="h5"
+                component="h2"
                 className="tools-title"
-                css={[pb25, pt45]}
+                css={pb25}
               >
-                {titleTransform()}
+                {hideMed && toolsSection.title}
+                {showMed && titleTransform()}
               </Typography>
             </Grid>
             <Grid item xs={12} md={10}>

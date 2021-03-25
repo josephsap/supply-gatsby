@@ -20,9 +20,11 @@ export const chatBaseStyles = (theme) => css`
   }
 
   .chat-input {
-    border-radius: 16px;
     fieldset {
       border: 2px solid;
+    }
+    .MuiOutlinedInput-root {
+      border-radius: 16px;
     }
   }
 
