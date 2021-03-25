@@ -7,6 +7,9 @@ const styles = (theme) => css`
     align-items: center;
     margin-top: 2.8rem;
     margin-bottom: 2rem;
+    ${theme.breakpoints.up('sm')} {
+      margin-bottom: 0;
+    }
     ${theme.breakpoints.up('md')} {
       height: 430px;
       margin: 6rem 0 1rem;
@@ -24,7 +27,7 @@ const styles = (theme) => css`
     width: 100%;
     position: relative;
     z-index: 2;
-    ${theme.breakpoints.up('md')} {
+    ${theme.breakpoints.up('sm')} {
       background-size: 518px;
       line-height: 450px;
       height: 450px;
@@ -39,7 +42,7 @@ const styles = (theme) => css`
       margin-left: -1px;
       background-color: ${theme.palette.text.primary};
       z-index: -1;
-      ${theme.breakpoints.up('md')} {
+      ${theme.breakpoints.up('sm')} {
         height: 130px;
         bottom: 0;
       }

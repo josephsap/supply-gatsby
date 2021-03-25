@@ -19,7 +19,7 @@ import {
   GoogleReCaptcha,
 } from 'react-google-recaptcha-v3';
 import { chatBaseStyles } from '../chat/chat.styles';
-import styles, { emailFormStyles } from './email-form.styles';
+import styles from './email-form.styles';
 
 const reCaptchaKey = process.env.RECAPTCHA_KEY;
 
@@ -89,10 +89,7 @@ const EmailForm = ({
         }) => (
           <div css={styles}>
             <form onSubmit={handleSubmit} className="form-wrapper">
-              <div
-                css={[chatBaseStyles, emailFormStyles]}
-                className="form-item-left"
-              >
+              <div css={chatBaseStyles} className="form-item-left">
                 <div>
                   <Typography variant="h5">{emailFormData.title}</Typography>
                   <Typography variant="body1" className="form-copy">

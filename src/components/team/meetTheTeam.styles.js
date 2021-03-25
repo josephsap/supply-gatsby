@@ -48,7 +48,7 @@ export const hiringImageStyles = (theme, { teamImg }) => css`
     height: 130px;
     right: -60px;
     top: -50px;
-    ${theme.breakpoints.up('sm')} {
+    ${theme.breakpoints.up('md')} {
       width: 250px;
       height: 155px;
       background-size: 250px;

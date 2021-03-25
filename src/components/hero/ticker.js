@@ -5,6 +5,7 @@ import styles from './ticker.styles';
 const contentful = require('contentful');
 const client = contentful.createClient({
   space: process.env.GATSBY_CONTENTFUL_SPACE_ID,
+  environment: 'master',
   accessToken: process.env.GATSBY_CONTENTFUL_ACCESS_TOKEN,
 });
 
@@ -14,18 +15,20 @@ const Ticker = () => {
 
   useEffect(() => {
     client
-      .getEntry({
-        content_type: '2hvJxHus2fNs0IvBurdXGI',
-      })
-      .then(function (entries) {
-        const factsListKeys = Object.keys(entries.fields.facts);
+      .getEntry('2hvJxHus2fNs0IvBurdXGI')
+      .then(function (entry) {
+        const factsListKeys = Object.keys(entry.fields.facts);
         const randomIndex =
           factsListKeys[Math.floor(Math.random() * factsListKeys.length)];
-        const randomFact = entries.fields.facts[randomIndex];
+        const randomFact = entry.fields.facts[randomIndex];
+        if (!randomFact) {
+          setFact('');
+        }
         setFact(randomFact.d);
       })
       .catch(function (error) {
         console.log(error);
+        setFact('');
       });
 
     const timeDate = new Date().toLocaleString();

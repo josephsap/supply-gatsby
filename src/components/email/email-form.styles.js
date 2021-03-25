@@ -1,16 +1,8 @@
 import { css } from '@emotion/react';
 
-export const emailFormStyles = css`
-  .email-side-interior {
-    h5 {
-      width: 100%;
-    }
-  }
-`;
-
 const styles = (theme) => css`
   padding: 4rem 2rem;
-  ${theme.breakpoints.up('sm')} {
+  ${theme.breakpoints.up('md')} {
     padding: 7rem 7rem 4rem 7rem;
   }
   .form-wrapper {
@@ -20,14 +12,18 @@ const styles = (theme) => css`
     flex-wrap: wrap;
     margin-bottom: 4rem;
     ${theme.breakpoints.up('sm')} {
+      padding: 0 6rem;
+    }
+    ${theme.breakpoints.up('md')} {
       margin-bottom: 0;
       height: 80vh;
       overflow: auto;
+      padding: 0 2rem;
     }
   }
 
   .form-item-left {
-    ${theme.breakpoints.up('sm')} {
+    ${theme.breakpoints.up('md')} {
       padding-right: 4rem;
     }
   }
@@ -39,13 +35,13 @@ const styles = (theme) => css`
   .form-item-left,
   .form-item-right {
     width: 100%;
-    ${theme.breakpoints.up('sm')} {
+    ${theme.breakpoints.up('md')} {
       width: 50%;
     }
   }
 
   .form-item-right {
-    ${theme.breakpoints.up('sm')} {
+    ${theme.breakpoints.up('md')} {
       padding: 0 3rem;
     }
     .MuiFormGroup-root {
@@ -110,7 +106,8 @@ const styles = (theme) => css`
     border: none;
     box-shadow: none;
     border-bottom: 1px solid;
-    font-family: '"Whyte", Helvetica, sans-serif';
+    font-size: 18px;
+    font-family: 'Whyte', Helvetica, sans-serif;
   }
 
   .btn-container {

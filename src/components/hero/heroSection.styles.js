@@ -4,7 +4,7 @@ const styles = (theme) => css`
   background-color: ${theme.palette.supply.cream.main};
   padding: 6rem 0 8rem;
   overflow: hidden;
-  ${theme.breakpoints.up('sm')} {
+  ${theme.breakpoints.up('md')} {
     padding-bottom: 32rem;
   }
 
@@ -13,6 +13,9 @@ const styles = (theme) => css`
     transform: rotate(-1.5deg);
     padding: 1.6rem;
     border-radius: 8px;
+    ${theme.breakpoints.up('sm')} {
+      max-width: 70%;
+    }
   }
 
   .top-images {
@@ -131,7 +134,7 @@ const styles = (theme) => css`
     margin-left: -30px;
     opacity: 0;
     transform: scale(3) translateY(-50px);
-    ${theme.breakpoints.up('md')} {
+    ${theme.breakpoints.up('sm')} {
       margin-top: -30px;
       margin-left: auto;
       width: 210px;
@@ -154,13 +157,18 @@ const styles = (theme) => css`
   .chatbox-container {
     position: fixed;
     right: 0;
-    bottom: -90px;
+    bottom: -60px;
     z-index: 3;
     transform: translateY(100%);
     width: 100%;
-    ${theme.breakpoints.up('md')} {
+    ${theme.breakpoints.up('sm')} {
       right: -40px;
+      width: 300px;
+      bottom: -75px;
+    }
+    ${theme.breakpoints.up('md')} {
       width: auto;
+      bottom: -90px;
     }
 
     .squiggly-arrow {

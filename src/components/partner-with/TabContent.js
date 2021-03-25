@@ -64,9 +64,8 @@ const TabContent = forwardRef(
       <div
         className={`
           ${stripCharacters(title)} category-container 
-          ${active ? 'active' : ''} 
+          ${active ? 'active' : 'active'} 
           ${inactive ? 'inactive' : ''}
-          ${showItems && 'active'}
         `}
         ref={ref}
       >

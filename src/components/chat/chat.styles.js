@@ -96,9 +96,6 @@ export const chatBaseStyles = (theme) => css`
 
     h5 {
       margin-bottom: 1rem;
-      ${theme.breakpoints.up('sm')} {
-        width: 75%;
-      }
     }
   }
 `;
