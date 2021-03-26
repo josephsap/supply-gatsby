@@ -1,0 +1,69 @@
+import { css } from '@emotion/react';
+
+const styles = (theme) => css`
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  margin-top: 90px;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+
+  .footerLogoContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    a {
+      @media (max-width: 769px) {
+        margin: 0 auto;
+      }
+    }
+    img {
+      margin-top: 20px;
+      @media (min-width: 769px) {
+        margin-left: 50px;
+        margin-top: 0;
+      }
+    }
+  }
+
+  .footerLogoContainer,
+  .footerOneThird {
+    @media (min-width: 769px) {
+      border-right: 1px solid;
+    }
+  }
+
+  .titleLines {
+    position: relative;
+    padding-left: 7.5%;
+    text-transform: uppercase;
+    font-size: 1.25em;
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 20px;
+      height: 1px;
+      background-color: #000;
+      top: 50%;
+    }
+  }
+
+  .social {
+    list-style-type: circle;
+    list-style-position: inside;
+
+    li {
+      margin-bottom: 6px;
+      a {
+        color: #333;
+        text-decoration: none;
+        &:hover {
+          ${'' /* color: $gold; */}
+          color: aqua;
+        }
+      }
+    }
+  }
+`;
+
+export default styles;
