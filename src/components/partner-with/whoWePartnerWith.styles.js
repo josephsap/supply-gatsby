@@ -4,6 +4,10 @@ import { initiallyHidden } from '../shared/shared.styles';
 const styles = (theme) => css`
   background-color: ${theme.palette.supply.pink.main};
 
+  .mobile-title {
+    margin: 1rem 0rem 8rem;
+  }
+
   //pre-animated styles
   .headline,
   .partner-tabs,
@@ -50,6 +54,9 @@ const styles = (theme) => css`
   //the hovering items
   .category-container {
     position: relative;
+    ${theme.breakpoints.down('md')} {
+      margin-bottom: 18rem;
+    }
 
     .category-cta,
     .category-item,
@@ -119,9 +126,12 @@ const styles = (theme) => css`
       transform: translateY(-20px);
 
       svg {
-        display: block;
-        width: 12px;
-        margin: auto;
+        display: none;
+        ${theme.breakpoints.up('md')} {
+          display: block;
+          width: 12px;
+          margin: auto;
+        }
       }
 
       em {
@@ -210,8 +220,8 @@ const styles = (theme) => css`
     }
     .category-item:nth-of-type(4) {
       background-image: url(/images/pill-bg-orange.svg);
-      width: 150px;
-      padding-bottom: 54px;
+      width: 120px;
+      padding-bottom: 44px;
       transform: translate(-50%, -50%) rotate(0deg) scale(0.25);
       ${theme.breakpoints.up('md')} {
         width: 19%;
@@ -231,8 +241,8 @@ const styles = (theme) => css`
     }
     .category-item:nth-of-type(6) {
       background-image: url(/images/pill-bg-white-scalloped.svg);
-      width: 125px;
-      padding-bottom: 82px;
+      width: 88px;
+      padding-bottom: 55px;
       transform: translate(-50%, -50%) rotate(-10deg) scale(0.25);
       ${theme.breakpoints.up('md')} {
         width: 11%;
@@ -241,8 +251,8 @@ const styles = (theme) => css`
     }
     .category-item:nth-of-type(7) {
       background-image: url(/images/pill-bg-gold.svg);
-      width: 150px;
-      padding-bottom: 50px;
+      width: 111px;
+      padding-bottom: 38px;
       transform: translate(-50%, -50%) rotate(-20deg) scale(0.25);
       ${theme.breakpoints.up('md')} {
         width: 16%;
@@ -290,13 +300,13 @@ const styles = (theme) => css`
         transform: translate(-47%, -348%) rotate(-2deg);
       }
       .category-item:nth-of-type(3) {
-        transform: translate(94%, -230%) rotate(9.6deg);
+        transform: translate(94%, -280%) rotate(9.6deg);
         ${theme.breakpoints.up('md')} {
           transform: translate(173%, -330%) rotate(9.6deg);
         }
       }
       .category-item:nth-of-type(4) {
-        transform: translate(-119%, -10%) rotate(-3deg);
+        transform: translate(-159%, -10%) rotate(-3deg);
         ${theme.breakpoints.up('md')} {
           transform: translate(-219%, -93%) rotate(-3deg);
         }
@@ -308,13 +318,13 @@ const styles = (theme) => css`
         }
       }
       .category-item:nth-of-type(6) {
-        transform: translate(20%, 67%) rotate(-9deg);
+        transform: translate(85%, 67%) rotate(-9deg);
         ${theme.breakpoints.up('md')} {
           transform: translate(104%, 0%) rotate(-9deg);
         }
       }
       .category-item:nth-of-type(7) {
-        transform: translate(38%, -18%) rotate(-5deg);
+        transform: translate(78%, -98%) rotate(-5deg);
         ${theme.breakpoints.up('md')} {
           transform: translate(138%, -135%) rotate(-5deg);
         }
@@ -342,31 +352,51 @@ const styles = (theme) => css`
     .category-item:nth-of-type(1) {
       transform: translate(-50%, -50%) rotate(20deg) scale(0.25);
       background-image: url(/images/pill-bg-coral.svg);
-      width: 22%;
-      padding-bottom: 6%;
+      width: 150px;
+      padding-bottom: 40px;
+      ${theme.breakpoints.up('md')} {
+        width: 22%;
+        padding-bottom: 6%;
+      }
     }
     .category-item:nth-of-type(2) {
       background-image: url(/images/pill-bg-green.svg);
-      width: 21%;
-      padding-bottom: 7.5%;
+      width: 130px;
+      padding-bottom: 50px;
+      ${theme.breakpoints.up('md')} {
+        width: 21%;
+        padding-bottom: 7.5%;
+      }
     }
     .category-item:nth-of-type(3) {
       background-image: url(/images/pill-bg-purple-small.svg);
-      width: 16%;
-      padding-bottom: 7.7%;
+      width: 117px;
+      padding-bottom: 59px;
+      ${theme.breakpoints.up('md')} {
+        width: 16%;
+        padding-bottom: 7.7%;
+      }
     }
     .category-item:nth-of-type(4) {
       background-image: url(/images/pill-bg-orange.svg);
-      width: 19%;
-      padding-bottom: 7%;
+      width: 160px;
+      padding-bottom: 60px;
       transform: translate(-50%, -50%) rotate(45deg) scale(0.25);
+      ${theme.breakpoints.up('md')} {
+        width: 19%;
+        padding-bottom: 7%;
+      }
     }
     .category-item:nth-of-type(5) {
       background-image: url(/images/pill-bg-blue.svg);
-      width: 18%;
-      padding-bottom: 4%;
+      width: 150px;
+      padding-bottom: 32px;
       transform: translate(-50%, -50%) rotate(-70deg) scale(0.25);
       color: ${theme.palette.supply.pink.main};
+      ${theme.breakpoints.up('md')} {
+        width: 18%;
+        padding-bottom: 4%;
+      }
     }
     .category-icons {
       svg:nth-of-type(1) {
@@ -411,19 +441,31 @@ const styles = (theme) => css`
 
     &.active {
       .category-item:nth-of-type(1) {
-        transform: translate(-163%, -266%) rotate(-8.7deg) scale(1);
+        transform: translate(-133%, -266%) rotate(-8.7deg) scale(1);
+        ${theme.breakpoints.up('md')} {
+          transform: translate(-163%, -266%) rotate(-8.7deg) scale(1);
+        }
       }
       .category-item:nth-of-type(2) {
-        transform: translate(-45%, -232%) rotate(13deg) scale(1);
+        transform: translate(-45%, -290%) rotate(13deg) scale(1);
       }
       .category-item:nth-of-type(3) {
-        transform: translate(123%, -225%) rotate(17deg) scale(1);
+        transform: translate(59%, -196%) rotate(17deg) scale(1);
+        ${theme.breakpoints.up('md')} {
+          transform: translate(123%, -225%) rotate(17deg) scale(1);
+        }
       }
       .category-item:nth-of-type(4) {
-        transform: translate(-142%, 5%) rotate(9.3deg) scale(1);
+        transform: translate(-125%, 5%) rotate(19.3deg) scale(1);
+        ${theme.breakpoints.up('md')} {
+          transform: translate(-142%, 5%) rotate(9.3deg) scale(1);
+        }
       }
       .category-item:nth-of-type(5) {
-        transform: translate(95%, 33%) rotate(-13deg) scale(1);
+        transform: translate(12%, 164%) rotate(-13deg) scale(1);
+        ${theme.breakpoints.up('md')} {
+          transform: translate(95%, 33%) rotate(-13deg) scale(1);
+        }
       }
 
       .category-icons {
@@ -453,42 +495,67 @@ const styles = (theme) => css`
   .management {
     .category-item:nth-of-type(1) {
       background-image: url(/images/pill-bg-coral.svg);
-      width: 18%;
-      padding-bottom: 5%;
       transform: translate(-50%, -50%) rotate(25deg) scale(0.25);
+      width: 150px;
+      padding-bottom: 40px;
+      ${theme.breakpoints.up('md')} {
+        width: 18%;
+        padding-bottom: 5%;
+      }
     }
     .category-item:nth-of-type(2) {
       background-image: url(/images/pill-bg-purple-small.svg);
-      width: 15%;
-      padding-bottom: 7%;
+      width: 180px;
+      padding-bottom: 60px;
       background-size: 100% 100%;
       transform: translate(-50%, -50%) rotate(-1deg) scale(0.25);
+      ${theme.breakpoints.up('md')} {
+        width: 15%;
+        padding-bottom: 7%;
+      }
     }
     .category-item:nth-of-type(3) {
       background-image: url(/images/pill-bg-green.svg);
-      width: 16%;
-      padding-bottom: 5.5%;
+      width: 185px;
+      padding-bottom: 49px;
       background-size: 100% 100%;
       transform: translate(-50%, -50%) rotate(-13.11deg) scale(0.25);
+      ${theme.breakpoints.up('md')} {
+        width: 16%;
+        padding-bottom: 5.5%;
+      }
     }
     .category-item:nth-of-type(4) {
       background-image: url(/images/pill-bg-blue.svg);
-      width: 25%;
-      padding-bottom: 5.5%;
+      width: 185px;
+      padding-bottom: 43px;
+      line-height: 1.1;
       color: ${theme.palette.supply.pink.main};
       transform: translate(-50%, -50%) rotate(-11deg) scale(0.25);
+      ${theme.breakpoints.up('md')} {
+        width: 25%;
+        padding-bottom: 5.5%;
+      }
     }
     .category-item:nth-of-type(5) {
       background-image: url(/images/pill-bg-white-scalloped-long.svg);
-      width: 17%;
-      padding-bottom: 8%;
+      width: 170px;
+      padding-bottom: 80px;
       transform: translate(-50%, -50%) rotate(27deg) scale(0.25);
+      ${theme.breakpoints.up('md')} {
+        width: 17%;
+        padding-bottom: 8%;
+      }
     }
     .category-item:nth-of-type(6) {
       background-image: url(/images/pill-bg-orange-long.svg);
-      width: 18%;
-      padding-bottom: 4.5%;
+      width: 150px;
+      padding-bottom: 40px;
       transform: translate(-50%, -50%) rotate(-10deg) scale(0.25);
+      ${theme.breakpoints.up('md')} {
+        width: 18%;
+        padding-bottom: 4.5%;
+      }
     }
 
     .category-icons {
@@ -534,19 +601,35 @@ const styles = (theme) => css`
 
     &.active {
       .category-item:nth-of-type(1) {
-        transform: translate(-190%, -272%) rotate(-7.95deg) scale(1);
+        transform: translate(-130%, -272%) rotate(-7.95deg) scale(1);
+        ${theme.breakpoints.up('md')} {
+          transform: translate(-190%, -272%) rotate(-7.95deg) scale(1);
+        }
       }
       .category-item:nth-of-type(2) {
-        transform: translate(-76%, -220%) rotate(-13deg) scale(1);
+        transform: translate(-40%, -220%) rotate(-13deg) scale(1);
+        ${theme.breakpoints.up('md')} {
+          transform: translate(-76%, -220%) rotate(-13deg) scale(1);
+        }
       }
       .category-item:nth-of-type(3) {
-        transform: translate(40%, -260%) rotate(17deg) scale(1);
+        transform: translate(17%, -188%) rotate(17deg) scale(1);
+        z-index: -1;
+        ${theme.breakpoints.up('md')} {
+          transform: translate(40%, -260%) rotate(17deg) scale(1);
+        }
       }
       .category-item:nth-of-type(4) {
-        transform: translate(-131%, 47%) rotate(9.3deg) scale(1);
+        transform: translate(-110%, 47%) rotate(9.3deg) scale(1);
+        ${theme.breakpoints.up('md')} {
+          transform: translate(-131%, 47%) rotate(9.3deg) scale(1);
+        }
       }
       .category-item:nth-of-type(5) {
-        transform: translate(49%, 27%) rotate(-13deg) scale(1);
+        transform: translate(16%, 27%) rotate(-13deg) scale(1);
+        ${theme.breakpoints.up('md')} {
+          transform: translate(49%, 27%) rotate(-13deg) scale(1);
+        }
       }
       .category-item:nth-of-type(6) {
         transform: translate(140%, 20%) rotate(10deg) scale(1);
@@ -580,26 +663,38 @@ const styles = (theme) => css`
   .brands {
     .category-item:nth-of-type(1) {
       background-image: url(/images/pill-bg-white.svg);
-      width: 13%;
-      padding-bottom: 8.5%;
+      width: 111px;
+      padding-bottom: 71px;
+      line-height: 1;
       transform: translate(-50%, -50%) rotate(10deg) scale(0.25);
-
+      ${theme.breakpoints.up('md')} {
+        width: 13%;
+        padding-bottom: 8.5%;
+      }
       span {
         width: 60%;
       }
     }
     .category-item:nth-of-type(2) {
       background-image: url(/images/pill-bg-orange.svg);
-      width: 17%;
-      padding-bottom: 6%;
+      width: 150px;
+      padding-bottom: 53px;
       transform: translate(-50%, -50%) rotate(0deg) scale(0.25);
+      ${theme.breakpoints.up('md')} {
+        width: 17%;
+        padding-bottom: 6%;
+      }
     }
     .category-item:nth-of-type(3) {
       background-image: url(/images/pill-bg-blue-scalloped.svg);
-      width: 13%;
-      padding-bottom: 7%;
+      width: 110px;
+      padding-bottom: 59px;
       transform: translate(-50%, -50%) rotate(-20deg) scale(0.25);
       color: ${theme.palette.supply.pink.main};
+      ${theme.breakpoints.up('md')} {
+        width: 13%;
+        padding-bottom: 7%;
+      }
     }
     .category-icons {
       svg:nth-of-type(1) {
@@ -642,12 +737,21 @@ const styles = (theme) => css`
     &.active {
       .category-item:nth-of-type(1) {
         transform: translate(-50%, -182%) rotate(-10deg) scale(1);
+        ${theme.breakpoints.up('md')} {
+          transform: translate(-50%, -182%) rotate(-10deg) scale(1);
+        }
       }
       .category-item:nth-of-type(2) {
-        transform: translate(-163%, 0%) rotate(13deg) scale(1);
+        transform: translate(-135%, 0%) rotate(13deg) scale(1);
+        ${theme.breakpoints.up('md')} {
+          transform: translate(-163%, 0%) rotate(13deg) scale(1);
+        }
       }
       .category-item:nth-of-type(3) {
-        transform: translate(90%, 0%) rotate(-8deg) scale(1);
+        transform: translate(77%, 0%) rotate(-8deg) scale(1);
+        ${theme.breakpoints.up('md')} {
+          transform: translate(90%, 0%) rotate(-8deg) scale(1);
+        }
       }
 
       .category-icons {
@@ -676,27 +780,44 @@ const styles = (theme) => css`
   .agencies {
     .category-item:nth-of-type(1) {
       background-image: url(/images/pill-bg-coral.svg);
-      width: 19%;
-      padding-bottom: 5%;
+      width: 150px;
+      padding-bottom: 42px;
       transform: translate(-50%, -50%) rotate(10deg) scale(0.25);
+      ${theme.breakpoints.up('md')} {
+        width: 19%;
+        padding-bottom: 5%;
+      }
     }
     .category-item:nth-of-type(2) {
       background-image: url(/images/pill-bg-green.svg);
-      width: 15%;
-      padding-bottom: 5.5%;
+      width: 138px;
+      padding-bottom: 50px;
       transform: translate(-50%, -50%) rotate(30deg) scale(0.25);
+      ${theme.breakpoints.up('md')} {
+        width: 15%;
+        padding-bottom: 5.5%;
+      }
     }
     .category-item:nth-of-type(3) {
       background-image: url(/images/pill-bg-gold.svg);
-      width: 18%;
-      padding-bottom: 6%;
+      width: 150px;
+      padding-bottom: 50px;
       transform: translate(-50%, -50%) rotate(0deg) scale(0.25);
+      ${theme.breakpoints.up('md')} {
+        width: 18%;
+        padding-bottom: 6%;
+      }
     }
     .category-item:nth-of-type(4) {
       background-image: url(/images/pill-bg-purple.svg);
-      width: 13%;
-      padding-bottom: 8.2%;
+      width: 114px;
+      padding-bottom: 73px;
+      line-height: 1;
       transform: translate(-50%, -50%) rotate(30deg) scale(0.25);
+      ${theme.breakpoints.up('md')} {
+        width: 13%;
+        padding-bottom: 8.2%;
+      }
 
       span {
         width: 80%;
@@ -753,13 +874,22 @@ const styles = (theme) => css`
         transform: translate(-140%, -280%) rotate(-12deg) scale(1);
       }
       .category-item:nth-of-type(2) {
-        transform: translate(80%, -280%) rotate(-21deg) scale(1);
+        transform: translate(20%, -280%) rotate(-21deg) scale(1);
+        ${theme.breakpoints.up('md')} {
+          transform: translate(80%, -280%) rotate(-21deg) scale(1);
+        }
       }
       .category-item:nth-of-type(3) {
-        transform: translate(-180%, -26%) rotate(19deg) scale(1);
+        transform: translate(-130%, 6%) rotate(19deg) scale(1);
+        ${theme.breakpoints.up('md')} {
+          transform: translate(-180%, -26%) rotate(19deg) scale(1);
+        }
       }
       .category-item:nth-of-type(4) {
-        transform: translate(140%, -10%) rotate(-10deg) scale(1);
+        transform: translate(67%, -10%) rotate(-10deg) scale(1);
+        ${theme.breakpoints.up('md')} {
+          transform: translate(140%, -10%) rotate(-10deg) scale(1);
+        }
       }
       .category-icons {
         svg:nth-of-type(1) {
@@ -790,28 +920,45 @@ const styles = (theme) => css`
   .startuptech {
     .category-item:nth-of-type(1) {
       background-image: url(/images/pill-bg-green-small.svg);
-      width: 10%;
-      padding-bottom: 5%;
+      width: 80px;
+      padding-bottom: 40px;
       transform: translate(-50%, -50%) rotate(20deg) scale(0.25);
+      ${theme.breakpoints.up('md')} {
+        width: 10%;
+        padding-bottom: 5%;
+      }
     }
     .category-item:nth-of-type(2) {
       background-image: url(/images/pill-bg-blue-small.svg);
-      width: 12%;
-      padding-bottom: 7.5%;
+      width: 85px;
+      padding-bottom: 53px;
       transform: translate(-50%, -50%) rotate(0deg) scale(0.25);
       color: ${theme.palette.supply.pink.main};
+      ${theme.breakpoints.up('md')} {
+        width: 12%;
+        padding-bottom: 7.5%;
+      }
     }
     .category-item:nth-of-type(3) {
       background-image: url(/images/pill-bg-coral.svg);
-      width: 17%;
-      padding-bottom: 4.7%;
+      width: 150px;
+      padding-bottom: 40px;
       transform: translate(-50%, -50%) rotate(-20deg) scale(0.25);
+      ${theme.breakpoints.up('md')} {
+        width: 17%;
+        padding-bottom: 4.7%;
+      }
     }
     .category-item:nth-of-type(4) {
       background-image: url(/images/pill-bg-purple.svg);
-      width: 11%;
-      padding-bottom: 7%;
+      width: 90px;
+      padding-bottom: 58px;
+      line-height: 1.1;
       transform: translate(-50%, -50%) rotate(-20deg) scale(0.25);
+      ${theme.breakpoints.up('md')} {
+        width: 11%;
+        padding-bottom: 7%;
+      }
 
       span {
         width: 60%;
@@ -819,9 +966,13 @@ const styles = (theme) => css`
     }
     .category-item:nth-of-type(5) {
       background-image: url(/images/pill-bg-gold-small.svg);
-      width: 13%;
-      padding-bottom: 6.5%;
+      width: 82px;
+      padding-bottom: 40px;
       transform: translate(-50%, -50%) rotate(20deg) scale(0.25);
+      ${theme.breakpoints.up('md')} {
+        width: 13%;
+        padding-bottom: 6.5%;
+      }
     }
     .category-icons {
       svg:nth-of-type(1) {
@@ -870,19 +1021,31 @@ const styles = (theme) => css`
 
     &.active {
       .category-item:nth-of-type(1) {
-        transform: translate(-340%, -280%) rotate(-21deg) scale(1);
+        transform: translate(-230%, -280%) rotate(-21deg) scale(1);
+        ${theme.breakpoints.up('md')} {
+          transform: translate(-340%, -280%) rotate(-21deg) scale(1);
+        }
       }
       .category-item:nth-of-type(2) {
         transform: translate(-80%, -220%) rotate(-16deg) scale(1);
       }
       .category-item:nth-of-type(3) {
-        transform: translate(100%, -300%) rotate(11deg) scale(1);
+        transform: translate(30%, -300%) rotate(11deg) scale(1);
+        ${theme.breakpoints.up('md')} {
+          transform: translate(100%, -300%) rotate(11deg) scale(1);
+        }
       }
       .category-item:nth-of-type(4) {
-        transform: translate(-240%, 16%) rotate(16deg) scale(1);
+        transform: translate(-170%, 16%) rotate(16deg) scale(1);
+        ${theme.breakpoints.up('md')} {
+          transform: translate(-240%, 16%) rotate(16deg) scale(1);
+        }
       }
       .category-item:nth-of-type(5) {
-        transform: translate(130%, 30%) rotate(-23deg) scale(1);
+        transform: translate(110%, 30%) rotate(-23deg) scale(1);
+        ${theme.breakpoints.up('md')} {
+          transform: translate(130%, 30%) rotate(-23deg) scale(1);
+        }
       }
 
       .category-icons {

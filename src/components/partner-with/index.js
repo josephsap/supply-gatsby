@@ -2,8 +2,6 @@ import React, { useEffect, useState, useRef, createRef } from 'react';
 import { stripCharacters } from '../../utils/utils';
 import useScrollAnimation from '../../hooks/use-scroll-animation';
 import gsap from 'gsap';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { useTheme } from '@material-ui/core/styles';
 
 import { categories } from './categories';
 import {
@@ -41,8 +39,6 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
   const [value, setValue] = useState(0);
   const [currentCategoryIndex, setCurrentCategoryIndex] = useState(null);
   const [anchorEl, setAnchorEl] = useState(null);
-  const theme = useTheme();
-  const showTabs = useMediaQuery(theme.breakpoints.up('md'));
 
   //animations that are scroll triggered
   const wrapper = useRef(null);
@@ -124,22 +120,20 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
             >
               {whoWeWorkWithSection.whoWeWorkWithTitle}
             </Typography>
-            {showTabs && (
-              <Tabs
-                value={value}
-                onChange={handleChange}
-                aria-label="talent tabs"
-                textColor="secondary"
-                className="partner-tabs"
-                TabIndicatorProps={{ className: 'tab-indicator-override' }}
-                css={tabStyles(value)}
-                ref={buttons}
-              >
-                {whoWeWorkWithSection.talentclientToggle.map((item, index) => (
-                  <Tab key={index} label={item} className="single-tab-item" />
-                ))}
-              </Tabs>
-            )}
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              aria-label="talent tabs"
+              textColor="secondary"
+              className="partner-tabs"
+              TabIndicatorProps={{ className: 'tab-indicator-override' }}
+              css={tabStyles(value)}
+              ref={buttons}
+            >
+              {whoWeWorkWithSection.talentclientToggle.map((item, index) => (
+                <Tab key={index} label={item} className="single-tab-item" />
+              ))}
+            </Tabs>
             <TabPanel value={value} index={0}>
               {whoWeWorkWithSection.talentItem.map((talentItem, index) => (
                 <TabContent
