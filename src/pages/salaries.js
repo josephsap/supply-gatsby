@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import 'normalize.css';
+import Layout from '../components/layout/layout';
 import axios from 'axios';
 import * as styles from '../salaries/styles/app.module.scss';
 import SVGS from '../salaries/components/svgs';
@@ -10,6 +10,7 @@ import SalaryResults from '../salaries/components/salaryResults';
 import withDataFetching from '../salaries/components/withDataFetching';
 import LoadingScreen from '../salaries/components/loadingScreen';
 import Footer from '../salaries/components/Footer';
+import { Button } from '@material-ui/core';
 
 const SalariesPage = (props) => {
   const { loading, titles, locations } = props;
@@ -57,7 +58,6 @@ const SalariesPage = (props) => {
   };
 
   const earlyClick = (clickStatus) => {
-    console.log('early click', clickStatus);
     setIsEarlyClick(clickStatus);
   };
 
@@ -102,7 +102,7 @@ const SalariesPage = (props) => {
   }, [loading, descriptions, handleSubmitLoading, sortedJobs]);
 
   return (
-    <>
+    <Layout>
       {loading ? (
         <LoadingScreen loading={props.loading} />
       ) : (
@@ -129,22 +129,26 @@ const SalariesPage = (props) => {
               />
               {selectedPositionValue !== 'position' &&
               selectedLocationValue !== 'location' ? (
-                <button
+                <Button
+                  variant="contained"
+                  color="primary"
                   type="submit"
                   value="submit"
                   className={styles.submitBtn}
                 >
-                  <span>Submit</span>
-                </button>
+                  Submit
+                </Button>
               ) : (
-                <button
+                <Button
+                  variant="contained"
+                  color="primary"
                   type="submit"
-                  disabled
+                  // disabled
                   value="submit"
                   className={`${styles.submitBtn} ${styles.disabledButton}`}
                 >
-                  <span>Submit</span>
-                </button>
+                  Submit
+                </Button>
               )}
             </form>
             <div className={`${styles.jobContainer} ${styles.contain}`}>
@@ -169,7 +173,7 @@ const SalariesPage = (props) => {
           <Footer />
         </div>
       )}
-    </>
+    </Layout>
   );
 };
 

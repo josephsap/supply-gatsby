@@ -1,12 +1,12 @@
 @import './_variables';
 
 body {
-  font-family: 'brandon-grotesque', 'Helvetica Neue', Helvetica, Arial,
-    sans-serif;
+  font-family: $whyte-body;
+  font-size: $body-lg;
+  line-height: 3.4rem;
   font-weight: 400;
   font-style: normal;
-  color: $darkGray;
-  background-color: $backgroundGray;
+  color: $textBlack;
 }
 
 .mobileSliderIndicator {
@@ -19,7 +19,7 @@ body {
   position: relative;
   &:after {
     content: '';
-    // background: url('images/money-stack.png');
+    background: url('/images/money-stack.png');
     position: absolute;
     top: -47px;
     width: 45px;

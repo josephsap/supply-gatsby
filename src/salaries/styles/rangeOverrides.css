@@ -35,7 +35,7 @@
 
 .slider:after {
   content: '';
-  /* background: url('images/money-stack.png'); */
+  background: url('/images/money-stack.png');
   position: absolute;
   top: -47px;
   width: 45px;

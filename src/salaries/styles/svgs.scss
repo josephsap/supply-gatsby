@@ -1,6 +1,5 @@
 @import './_variables';
 .topBar {
-  background-color: gray;
   position: static;
   height: 250px;
   display: table;
@@ -34,10 +33,7 @@
   }
 
   h1 {
-    letter-spacing: 2px;
-    font-size: 35px;
-    margin-bottom: 1px;
-    font-weight: 700;
+    color: $textBlack;
   }
 }
 

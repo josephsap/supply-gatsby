@@ -1,6 +1,7 @@
 import React from 'react';
 import Fade from 'react-reveal/Fade';
 import * as styles from '../styles/salaryResults.module.scss';
+import { Typography } from '@material-ui/core';
 
 const SalaryResults = (props) => {
   const {
@@ -13,23 +14,21 @@ const SalaryResults = (props) => {
   } = props;
 
   if (activeJob && posVal !== 'position' && locVal !== 'location') {
+    const figureLow = activeJob.salaryLow.replace(',000.00', 'k');
+    const figureHigh = activeJob.salaryHigh.replace(',000.00', 'k');
     return (
       <Fade when={!handleSubmitLoading} duration={1500} wait={100}>
         <div className={`${styles.resultsContainer} ${styles.salaryArea}`}>
           <div className={styles.numberContainer}>
-            <h3 className={`${styles.salaryResultText} ${styles.firstNumber}`}>
-              ${activeJob.salaryLow.slice(0, -3)}
-            </h3>
-            <p className={styles.rangeDesc}>{activeJob.salaryRangeLowDesc}</p>
+            <Typography variant="h3" className={`${styles.firstNumber}`}>
+              {figureLow}
+            </Typography>
           </div>
           <p className={`${styles.salaryResultText} ${styles.salaryDash}`}>
             &ndash;
           </p>
           <div className={styles.numberContainer}>
-            <h3 className={styles.salaryResultText}>
-              ${activeJob.salaryHigh.slice(0, -3)}
-            </h3>
-            <p className={styles.rangeDesc}>{activeJob.salaryRangeHighDesc}</p>
+            <Typography variant="h3">{figureHigh}</Typography>
           </div>
         </div>
       </Fade>

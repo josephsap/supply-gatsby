@@ -8,6 +8,7 @@ import NextArrow from './nextArrow';
 import PrevArrow from './prevArrow';
 import 'react-input-range/lib/css/index.css';
 import '../styles/rangeOverrides.css';
+import { Typography } from '@material-ui/core';
 
 class JobDetails extends Component {
   state = {
@@ -66,8 +67,8 @@ class JobDetails extends Component {
 
     const jobDetailItems = this.props.sortedJobsArr.map((jobItem) => (
       <div key={jobItem.jobLevel} className={styles.jobItem}>
-        <h3>{jobItem.jobLevel}</h3>
-        <p>{jobItem.jobDescription}</p>
+        <Typography variant="body2">{jobItem.jobLevel}</Typography>
+        <Typography variant="caption">{jobItem.jobDescription}</Typography>
       </div>
     ));
 
