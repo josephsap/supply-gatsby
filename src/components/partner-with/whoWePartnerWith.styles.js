@@ -1122,8 +1122,8 @@ export const tabStyles = (value) => css`
 export const popoverStyles = (theme) => css`
   max-width: 340px;
   text-align: center;
-  ${theme.breakpoints.up('md')} {
-    max-width: auto;
+  ${theme.breakpoints.up('sm')} {
+    max-width: 100%;
     text-align: left;
   }
 `;

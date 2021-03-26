@@ -15,7 +15,7 @@ const TabContent = forwardRef(
     const timeout = useRef(null);
 
     const theme = useTheme();
-    const showItems = useMediaQuery(theme.breakpoints.down('md'));
+    const showItems = useMediaQuery(theme.breakpoints.down('sm'));
 
     function renderCategoryItems() {
       return items.map((item, i) => {
@@ -64,8 +64,9 @@ const TabContent = forwardRef(
       <div
         className={`
           ${stripCharacters(title)} category-container 
-          ${active ? 'active' : 'active'} 
+          ${active ? 'active' : ''} 
           ${inactive ? 'inactive' : ''}
+          ${showItems ? 'active' : ''}
         `}
         ref={ref}
       >

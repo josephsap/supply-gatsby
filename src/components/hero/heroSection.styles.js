@@ -158,7 +158,7 @@ const styles = (theme) => css`
     position: fixed;
     right: 0;
     bottom: -60px;
-    z-index: 3;
+    z-index: 6;
     transform: translateY(100%);
     width: 100%;
     ${theme.breakpoints.up('sm')} {

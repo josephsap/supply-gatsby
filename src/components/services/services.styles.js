@@ -25,7 +25,7 @@ const styles = (theme) => css`
 
   .line-separator {
     span {
-      letter-spacing: -10px;
+      letter-spacing: -15px;
       margin: 0 2.5rem;
       font-family: helvetica, sans-serif;
       ${theme.breakpoints.down(theme.breakpoints.values.lg - 14)} {
