@@ -195,7 +195,7 @@ const styles = (theme) => css`
       width: 100%;
       height: 170px;
       transform: rotate(-5.23deg);
-      right: -40%;
+      right: -35vw;
       position: relative;
       background-color: ${theme.palette.supply.salmon.main};
       ${theme.breakpoints.up('sm')} {

@@ -3,6 +3,7 @@ import { css } from '@emotion/react';
 const styles = (theme) => css`
   html {
     font-size: 62.5%;
+    overflow-x: hidden;
     ${'' /* cursor: url('images/cursor.png'), auto; */}
   }
   body {

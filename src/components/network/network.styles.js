@@ -126,7 +126,6 @@ const styles = (theme) => css`
       position: absolute;
       left: 50%;
       top: 50%;
-      z-index: 2;
       transform-origin: center 100%;
       //start with opacity 0
       opacity: 0;
@@ -146,10 +145,15 @@ const styles = (theme) => css`
       }
 
       &:nth-of-type(1) {
-        margin-left: -23%;
-        margin-top: -4%;
+        margin-left: -21%;
+        margin-top: -8%;
+        z-index: 5;
         //the starting position before it animates in
         transform: translate(-20%, -60%);
+        ${theme.breakpoints.up('sm')} {
+          margin-left: -23%;
+          margin-top: -4%;
+        }
 
         .network-item-inner-wrapper {
           transform: rotate(-6deg);
@@ -158,10 +162,15 @@ const styles = (theme) => css`
       }
 
       &:nth-of-type(2) {
-        margin-left: 32%;
-        margin-top: 10%;
+        margin-left: 23%;
+        margin-top: 43%;
+        z-index: 4;
         //the starting position before it animates in
         transform: translate(-130%, -100%);
+        ${theme.breakpoints.up('sm')} {
+          margin-left: 32%;
+          margin-top: 10%;
+        }
 
         .network-item-inner-wrapper {
           transform: rotate(7deg);
@@ -171,9 +180,14 @@ const styles = (theme) => css`
 
       &:nth-of-type(3) {
         margin-left: 22%;
-        margin-top: -17%;
+        margin-top: -47%;
+        z-index: 6;
         //the starting position before it animates in
         transform: translate(-100%, -70%);
+        ${theme.breakpoints.up('sm')} {
+          margin-left: 22%;
+          margin-top: -17%;
+        }
 
         .network-item-inner-wrapper {
           transform: rotate(7deg);

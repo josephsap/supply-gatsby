@@ -14,7 +14,7 @@ import {
   Box,
 } from '@material-ui/core';
 import TabContent from './TabContent';
-import styles, { tabStyles } from './whoWePartnerWith.styles';
+import styles, { tabStyles, popoverStyles } from './whoWePartnerWith.styles';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -202,6 +202,7 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
                 }}
                 onClose={handlePopoverClose}
                 disableRestoreFocus
+                css={popoverStyles}
               >
                 <Box p={3}>
                   <Typography>
