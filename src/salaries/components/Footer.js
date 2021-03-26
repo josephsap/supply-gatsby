@@ -1,19 +1,19 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import styles from './Footer.styles';
+import * as styles from '../styles/footer.module.scss';
 
 const Footer = () => {
   return (
-    <footer css={styles}>
+    <footer className={styles.footerContainer}>
       <Grid container>
-        <Grid item xs={12} md={6} className="footerLogoContainer">
+        <Grid item xs={12} md={6} className={styles.footerLogoContainer}>
           <a href="http://thesupply.com">
-            <img src={`images/footer-logo.png`} alt="supply footer logo" />
+            <img src="images/footer-logo.png" alt="supply footer logo" />
           </a>
         </Grid>
-        <Grid item xs={12} md={3} className="footerOneThird">
-          <h4 className="titleLines">Follow Us</h4>
-          <ul className="social">
+        <Grid item xs={12} md={3} className={styles.footerOneThird}>
+          <h4 className={styles.titleLines}>Follow Us</h4>
+          <ul className={styles.social}>
             <li>
               <a
                 href="https://www.facebook.com/TheSupply.Online"
@@ -35,8 +35,8 @@ const Footer = () => {
           </ul>
         </Grid>
         <Grid item xs={12} md={3}>
-          <h4 className="titleLines">Lets Talk</h4>
-          <ul className="social">
+          <h4 className={styles.titleLines}>Lets Talk</h4>
+          <ul className={styles.social}>
             <li>
               <a href="mailto:info@thesupply.com?Subject=Hello%20from%20The%20Supply%20Salaries">
                 email

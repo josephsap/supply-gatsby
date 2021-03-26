@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './app.styles';
+import * as styles from '../styles/app.module.scss';
 
 const LocationSelect = (props) => {
   const {
@@ -15,13 +15,15 @@ const LocationSelect = (props) => {
   ));
 
   return (
-    <div css={styles}>
-      <p className="inlineBlock dropdownCopy">Should make in</p>
+    <>
+      <p className={`${styles.inlineBlock} ${styles.dropdownCopy}`}>
+        Should make in
+      </p>
       <div
         className={
           isEarlyClick
-            ? `pulsate selectWrapper locWrapper`
-            : `selectWrapper locWrapper`
+            ? `${styles.pulsate} ${styles.selectWrapper} ${styles.locWrapper}`
+            : `${styles.selectWrapper} ${styles.locWrapper}`
         }
       >
         <select onChange={controlFunction} value={selectedLocationValue}>
@@ -31,7 +33,7 @@ const LocationSelect = (props) => {
           {locationSelectOptions}
         </select>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './loadingScreen.styles';
+import * as styles from '../styles/loading.module.scss';
 import { animated, useSpring, config } from 'react-spring';
 
 const LoadingScreen = ({ loading }) => {
@@ -10,7 +10,7 @@ const LoadingScreen = ({ loading }) => {
   });
 
   return (
-    <animated.div key={'hi'} style={loadingBackground} css={styles}>
+    <animated.div key={'hi'} style={loadingBackground}>
       <div className={styles.loadingScreen}>
         <div className={styles.loader}>Loading...</div>
       </div>

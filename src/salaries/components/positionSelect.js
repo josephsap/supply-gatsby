@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './app.styles';
+import * as styles from '../styles/app.module.scss';
 
 const PositionSelect = (props) => {
   const {
@@ -18,13 +18,15 @@ const PositionSelect = (props) => {
   });
 
   return (
-    <div css={styles}>
-      <p className="inlineBlock dropdownCopy">I'm curious what a</p>
+    <>
+      <p className={`${styles.inlineBlock} ${styles.dropdownCopy}`}>
+        I'm curious what a
+      </p>
       <div
         className={
           isEarlyClick
-            ? `pulsate selectWrapper posWrapper`
-            : `selectWrapper posWrapper`
+            ? `${styles.pulsate} ${styles.selectWrapper} ${styles.posWrapper}`
+            : `${styles.selectWrapper} ${styles.posWrapper}`
         }
       >
         <select onChange={controlFunction} value={selectedPositionValue}>
@@ -34,7 +36,7 @@ const PositionSelect = (props) => {
           {makePositionSelectOptions}
         </select>
       </div>
-    </div>
+    </>
   );
 };
 

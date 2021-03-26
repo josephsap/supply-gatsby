@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import 'normalize.css';
-import Layout from '../components/layout/layout';
 import axios from 'axios';
-import styles from '../salaries/components/app.styles';
+import * as styles from '../salaries/styles/app.module.scss';
 import SVGS from '../salaries/components/svgs';
 import PositionSelect from '../salaries/components/positionSelect';
 import LocationSelect from '../salaries/components/locationSelect';
@@ -58,6 +57,7 @@ const SalariesPage = (props) => {
   };
 
   const earlyClick = (clickStatus) => {
+    console.log('early click', clickStatus);
     setIsEarlyClick(clickStatus);
   };
 
@@ -102,69 +102,74 @@ const SalariesPage = (props) => {
   }, [loading, descriptions, handleSubmitLoading, sortedJobs]);
 
   return (
-    <Layout>
+    <>
       {loading ? (
         <LoadingScreen loading={props.loading} />
       ) : (
-        <div css={styles}>
-          <div className="wrapper">
-            <div className="app">
-              <div className="topBar">
-                <div className="container">
-                  <SVGS />
-                </div>
-              </div>
-              <form onSubmit={handleSubmit} className="textCenter contain">
-                <PositionSelect
-                  titles={titles}
-                  controlFunction={handlePositionChange}
-                  isEarlyClick={isEarlyClick}
-                />
-                <LocationSelect
-                  locations={locations}
-                  controlFunction={handleLocationChange}
-                  isEarlyClick={isEarlyClick}
-                />
-                {selectedPositionValue !== 'position' &&
-                selectedLocationValue !== 'location' ? (
-                  <button type="submit" value="submit" className="submitBtn">
-                    <span>Submit</span>
-                  </button>
-                ) : (
-                  <button
-                    type="submit"
-                    disabled
-                    value="submit"
-                    className="submitBtn disabledButton"
-                  >
-                    <span>Submit</span>
-                  </button>
-                )}
-              </form>
-              <div className="jobContainer contain">
-                <SalaryResults
-                  activeJob={activeJobItem}
-                  handleSubmitLoading={handleSubmitLoading}
-                  posVal={selectedPositionValue}
-                  locVal={selectedLocationValue}
-                  isEarlyClick={isEarlyClick}
-                />
-                <JobDetails
-                  handleJobLevelSelect={handleJobLevelSelect}
-                  sortedJobsArr={sortedJobs}
-                  activeIndex={activeIndex}
-                  posVal={selectedPositionValue}
-                  locVal={selectedLocationValue}
-                  activeJobItem={activeJobItem}
-                  earlyClick={earlyClick}
-                />
+        <div className={styles.wrapper}>
+          <div className={styles.app}>
+            <div className="topBar">
+              <div className="container">
+                <SVGS />
               </div>
             </div>
-            <Footer />
+            <form
+              onSubmit={handleSubmit}
+              className={`${styles.textCenter} ${styles.contain}`}
+            >
+              <PositionSelect
+                titles={titles}
+                controlFunction={handlePositionChange}
+                isEarlyClick={isEarlyClick}
+              />
+              <LocationSelect
+                locations={locations}
+                controlFunction={handleLocationChange}
+                isEarlyClick={isEarlyClick}
+              />
+              {selectedPositionValue !== 'position' &&
+              selectedLocationValue !== 'location' ? (
+                <button
+                  type="submit"
+                  value="submit"
+                  className={styles.submitBtn}
+                >
+                  <span>Submit</span>
+                </button>
+              ) : (
+                <button
+                  type="submit"
+                  disabled
+                  value="submit"
+                  className={`${styles.submitBtn} ${styles.disabledButton}`}
+                >
+                  <span>Submit</span>
+                </button>
+              )}
+            </form>
+            <div className={`${styles.jobContainer} ${styles.contain}`}>
+              <SalaryResults
+                activeJob={activeJobItem}
+                handleSubmitLoading={handleSubmitLoading}
+                posVal={selectedPositionValue}
+                locVal={selectedLocationValue}
+                isEarlyClick={isEarlyClick}
+              />
+              <JobDetails
+                handleJobLevelSelect={handleJobLevelSelect}
+                sortedJobsArr={sortedJobs}
+                activeIndex={activeIndex}
+                posVal={selectedPositionValue}
+                locVal={selectedLocationValue}
+                activeJobItem={activeJobItem}
+                earlyClick={earlyClick}
+              />
+            </div>
           </div>
+          <Footer />
         </div>
       )}
-    </Layout>
+    </>
   );
 };
 

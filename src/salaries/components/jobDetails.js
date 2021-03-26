@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles, { jobItemStyles } from './main.styles';
+import * as styles from '../styles/main.module.scss';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -65,16 +65,16 @@ class JobDetails extends Component {
     };
 
     const jobDetailItems = this.props.sortedJobsArr.map((jobItem) => (
-      <div key={jobItem.jobLevel} css={jobItemStyles}>
+      <div key={jobItem.jobLevel} className={styles.jobItem}>
         <h3>{jobItem.jobLevel}</h3>
         <p>{jobItem.jobDescription}</p>
       </div>
     ));
 
     return (
-      <div css={styles}>
-        <div className="mobileSliderIndicator"></div>
-        <div className="slider">
+      <div>
+        <div className={styles.mobileSliderIndicator}></div>
+        <div className={styles.slider}>
           <InputRange
             draggableTrack={true}
             maxValue={6}
