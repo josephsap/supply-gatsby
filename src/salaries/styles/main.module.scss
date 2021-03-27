@@ -1,38 +1,38 @@
 @import './_variables';
 
-body {
-  font-family: $whyte-body;
-  font-size: $body-lg;
-  line-height: 3.4rem;
-  font-weight: 400;
-  font-style: normal;
-  color: $textBlack;
-}
+// body {
+//   font-family: $whyte-body;
+//   font-size: $body-lg;
+//   line-height: 3.4rem;
+//   font-weight: 400;
+//   font-style: normal;
+//   color: $textBlack;
+// }
 
-.mobileSliderIndicator {
-  display: block;
-  width: 18px;
-  height: 18px;
-  background-color: #c7bda4;
-  border-radius: 50%;
-  margin: 0 auto 30px;
-  position: relative;
-  &:after {
-    content: '';
-    background: url('/images/money-stack.png');
-    position: absolute;
-    top: -47px;
-    width: 45px;
-    left: -50%;
-    height: 45px;
-    margin-left: -3px;
-    background-size: cover;
-    z-index: 2;
-  }
-  @media (min-width: 769px) {
-    display: none;
-  }
-}
+// .mobileSliderIndicator {
+//   display: block;
+//   width: 18px;
+//   height: 18px;
+//   background-color: #c7bda4;
+//   border-radius: 50%;
+//   margin: 0 auto 30px;
+//   position: relative;
+// &:after {
+//   content: '';
+//   background: url('/images/money-stack.png');
+//   position: absolute;
+//   top: -47px;
+//   width: 45px;
+//   left: -50%;
+//   height: 45px;
+//   margin-left: -3px;
+//   background-size: cover;
+//   z-index: 2;
+// }
+//   @media (min-width: 769px) {
+//     display: none;
+//   }
+// }
 
 :global(select) {
   border: none;
@@ -49,8 +49,12 @@ body {
 
 .jobItem {
   transition: 0.3s ease-in-out;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  line-height: 2.2rem;
+  padding: 1rem;
   &:hover {
-    background-color: $backgroundGrayHover;
+    border-color: #162c29;
     transition: 0.3s ease-in-out;
   }
   &:focus {
@@ -70,10 +74,4 @@ body {
     position: relative;
     margin-bottom: 30px;
   }
-}
-
-h1,
-h2 {
-  color: $gold;
-  font-weight: 700;
 }
