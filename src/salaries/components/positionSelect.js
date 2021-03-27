@@ -1,5 +1,6 @@
 import React from 'react';
 import * as styles from '../styles/app.module.scss';
+import { FormControl, Select, MenuItem, Typography } from '@material-ui/core';
 
 const PositionSelect = (props) => {
   const {
@@ -9,19 +10,14 @@ const PositionSelect = (props) => {
     isEarlyClick,
   } = props;
 
-  const makePositionSelectOptions = titles.map((title) => {
-    return (
-      <option key={title.id} value={title.slug}>
-        {title.jobTitle}
-      </option>
-    );
-  });
-
   return (
     <>
-      <p className={`${styles.inlineBlock} ${styles.dropdownCopy}`}>
+      <Typography
+        variant="body1"
+        className={`${styles.inlineBlock} ${styles.dropdownCopy}`}
+      >
         I'm curious what a
-      </p>
+      </Typography>
       <div
         className={
           isEarlyClick
@@ -29,12 +25,26 @@ const PositionSelect = (props) => {
             : `${styles.selectWrapper} ${styles.posWrapper}`
         }
       >
-        <select onChange={controlFunction} value={selectedPositionValue}>
-          <option value="position" key="pos1">
-            Choose a job
-          </option>
-          {makePositionSelectOptions}
-        </select>
+        <FormControl style={{ width: '340px' }}>
+          <Select
+            labelId="demo-simple-select-label"
+            value={selectedPositionValue}
+            onChange={controlFunction}
+            variant="standard"
+            IconComponent={() => (
+              <img
+                style={{ width: '14px', transform: 'rotate(90deg)' }}
+                src="/images/icon-select-down.svg"
+              />
+            )}
+          >
+            {titles.map((title) => (
+              <MenuItem key={title.id} value={title.jobTitle}>
+                {title.jobTitle}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
       </div>
     </>
   );
