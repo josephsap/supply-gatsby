@@ -1,9 +1,25 @@
 @import './_variables';
 .topBar {
-  position: static;
-  height: 250px;
+  position: relative;
   display: table;
   width: 100%;
+  padding: 8rem 0;
+  z-index: 1;
+  margin-top: 2rem;
+  &:after {
+    background-image: radial-gradient(#e8e8e8 10%, #f8f7f2 10%);
+    -webkit-background-position: 0 0;
+    background-position: 0 0;
+    -webkit-background-size: 60px 60px;
+    background-size: 60px 60px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    z-index: -1;
+  }
   @media (min-width: 769px) {
     margin-bottom: 2rem;
   }

@@ -25,6 +25,11 @@
   margin-bottom: 50px;
 }
 
+.mainArea {
+  background-color: #ffe8e1;
+  padding: 5rem 0 4rem;
+}
+
 .contain {
   max-width: 1200px;
   margin: 0 auto;
@@ -32,7 +37,7 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  background-color: #f8f7f2;
 }
 .app {
   padding: 0 30px;

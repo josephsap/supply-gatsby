@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '../components/layout/layout';
 import axios from 'axios';
+import { useStaticQuery, graphql } from 'gatsby';
 import * as styles from '../salaries/styles/app.module.scss';
 import SVGS from '../salaries/components/svgs';
 import PositionSelect from '../salaries/components/positionSelect';
@@ -9,7 +10,7 @@ import JobDetails from '../salaries/components/jobDetails';
 import SalaryResults from '../salaries/components/salaryResults';
 import withDataFetching from '../salaries/components/withDataFetching';
 import LoadingScreen from '../salaries/components/loadingScreen';
-import Footer from '../salaries/components/Footer';
+import Footer from '../components/Footer';
 import { Button, Grid } from '@material-ui/core';
 
 const SalariesPage = (props) => {
@@ -26,6 +27,23 @@ const SalariesPage = (props) => {
   const [descriptions, setDescriptions] = useState([]);
   const [handleSubmitLoading, setHandleSubmitLoading] = useState(false);
   const [isEarlyClick, setIsEarlyClick] = useState(false);
+
+  const { contentfulFooter } = useStaticQuery(graphql`
+    query FooterQuery {
+      contentfulFooter {
+        logo {
+          file {
+            url
+          }
+        }
+        logoCaption
+        footerLinks {
+          id
+          linkText
+        }
+      }
+    }
+  `);
 
   const handleJobLevelSelect = (activeIndex) => {
     const selectedJobItem = descriptions.filter((jobItem, index) => {
@@ -113,77 +131,79 @@ const SalariesPage = (props) => {
                 <SVGS />
               </div>
             </div>
-            <form
-              onSubmit={handleSubmit}
-              className={`${styles.textCenter} ${styles.chooseWrapper}`}
-            >
-              <Grid
-                container
-                direction="row"
-                justify="center"
-                alignItems="center"
+            <div className={styles.mainArea}>
+              <form
+                onSubmit={handleSubmit}
+                className={`${styles.textCenter} ${styles.chooseWrapper}`}
               >
-                <Grid item xs={12} md={4} className={styles.posContainer}>
-                  <PositionSelect
-                    titles={titles}
-                    controlFunction={handlePositionChange}
-                    isEarlyClick={isEarlyClick}
-                  />
+                <Grid
+                  container
+                  direction="row"
+                  justify="center"
+                  alignItems="center"
+                >
+                  <Grid item xs={12} md={4} className={styles.posContainer}>
+                    <PositionSelect
+                      titles={titles}
+                      controlFunction={handlePositionChange}
+                      isEarlyClick={isEarlyClick}
+                    />
+                  </Grid>
+                  <Grid item xs={12} md={4} className={styles.selectContainer}>
+                    <LocationSelect
+                      locations={locations}
+                      controlFunction={handleLocationChange}
+                      isEarlyClick={isEarlyClick}
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    {selectedPositionValue !== 'position' &&
+                    selectedLocationValue !== 'location' ? (
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        type="submit"
+                        value="submit"
+                        className={styles.submitBtn}
+                      >
+                        Submit
+                      </Button>
+                    ) : (
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        type="submit"
+                        style={{ width: '278px' }}
+                        value="submit"
+                        className={`${styles.submitBtn} ${styles.disabledButton}`}
+                      >
+                        Submit
+                      </Button>
+                    )}
+                  </Grid>
                 </Grid>
-                <Grid item xs={12} md={4} className={styles.selectContainer}>
-                  <LocationSelect
-                    locations={locations}
-                    controlFunction={handleLocationChange}
-                    isEarlyClick={isEarlyClick}
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  {selectedPositionValue !== 'position' &&
-                  selectedLocationValue !== 'location' ? (
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      type="submit"
-                      value="submit"
-                      className={styles.submitBtn}
-                    >
-                      Submit
-                    </Button>
-                  ) : (
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      type="submit"
-                      // disabled
-                      value="submit"
-                      className={`${styles.submitBtn} ${styles.disabledButton}`}
-                    >
-                      Submit
-                    </Button>
-                  )}
-                </Grid>
-              </Grid>
-            </form>
-            <div className={`${styles.jobContainer} ${styles.contain}`}>
-              <SalaryResults
-                activeJob={activeJobItem}
-                handleSubmitLoading={handleSubmitLoading}
-                posVal={selectedPositionValue}
-                locVal={selectedLocationValue}
-                isEarlyClick={isEarlyClick}
-              />
-              <JobDetails
-                handleJobLevelSelect={handleJobLevelSelect}
-                sortedJobsArr={sortedJobs}
-                activeIndex={activeIndex}
-                posVal={selectedPositionValue}
-                locVal={selectedLocationValue}
-                activeJobItem={activeJobItem}
-                earlyClick={earlyClick}
-              />
+              </form>
+              <div className={`${styles.jobContainer} ${styles.contain}`}>
+                <SalaryResults
+                  activeJob={activeJobItem}
+                  handleSubmitLoading={handleSubmitLoading}
+                  posVal={selectedPositionValue}
+                  locVal={selectedLocationValue}
+                  isEarlyClick={isEarlyClick}
+                />
+                <JobDetails
+                  handleJobLevelSelect={handleJobLevelSelect}
+                  sortedJobsArr={sortedJobs}
+                  activeIndex={activeIndex}
+                  posVal={selectedPositionValue}
+                  locVal={selectedLocationValue}
+                  activeJobItem={activeJobItem}
+                  earlyClick={earlyClick}
+                />
+              </div>
             </div>
           </div>
-          <Footer />
+          <Footer footer={contentfulFooter} />
         </div>
       )}
     </Layout>

@@ -42,7 +42,9 @@ const SalaryResults = (props) => {
             : `${styles.salaryArea}`
         }
       >
-        <h2>Select a position and a location!</h2>
+        <Typography variant="body1">
+          Select a position and a location!
+        </Typography>
       </div>
     ) : (
       <div
@@ -52,9 +54,9 @@ const SalaryResults = (props) => {
             : `${styles.salaryArea}`
         }
       >
-        <h4>
+        <Typography variant="body1">
           Select both a Job and a Location to see the estimated salary rages.
-        </h4>
+        </Typography>
       </div>
     );
   }

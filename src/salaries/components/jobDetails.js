@@ -67,7 +67,9 @@ class JobDetails extends Component {
 
     const jobDetailItems = this.props.sortedJobsArr.map((jobItem) => (
       <div key={jobItem.jobLevel} className={styles.jobItem}>
-        <Typography variant="body2">{jobItem.jobLevel}</Typography>
+        <Typography variant="body2" className={styles.jobItemHeader}>
+          {jobItem.jobLevel}
+        </Typography>
         <Typography variant="caption">{jobItem.jobDescription}</Typography>
       </div>
     ));
