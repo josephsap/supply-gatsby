@@ -27,7 +27,7 @@ class JobDetails extends Component {
       nextArrow: <NextArrow />,
       prevArrow: <PrevArrow />,
       beforeChange: (current, next) => {
-        if (posVal === 'position' || locVal === 'location') {
+        if (posVal === '' || locVal === '') {
           return false;
         }
         this.setState(
@@ -47,7 +47,7 @@ class JobDetails extends Component {
         }
       },
       afterChange: () => {
-        if (posVal === 'position' || locVal === 'location') {
+        if (posVal === '' || locVal === '') {
           this.props.earlyClick(true);
         }
       },
@@ -76,7 +76,6 @@ class JobDetails extends Component {
 
     return (
       <div>
-        <div className={styles.mobileSliderIndicator}></div>
         <div className={styles.slider}>
           <InputRange
             draggableTrack={true}
@@ -96,7 +95,7 @@ class JobDetails extends Component {
             }}
             onChange={(value) => {
               let theValue;
-              if (posVal === 'position' || locVal === 'location') {
+              if (posVal === '' || locVal === '') {
                 this.props.earlyClick(true);
                 return false;
               }

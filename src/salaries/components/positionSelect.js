@@ -6,7 +6,6 @@ import {
   MenuItem,
   Typography,
   InputBase,
-  FormHelperText,
 } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -27,12 +26,11 @@ const CustomSelect = withStyles((theme) => ({
 }))(InputBase);
 
 const PositionSelect = (props) => {
-  const {
-    titles,
-    controlFunction,
-    selectedPositionValue,
-    isEarlyClick,
-  } = props;
+  const { titles, onPositionChange, posVal, isEarlyClick } = props;
+
+  const handleChange = (e) => {
+    onPositionChange(e.target.value);
+  };
 
   return (
     <>
@@ -51,12 +49,11 @@ const PositionSelect = (props) => {
       >
         <FormControl style={{ width: '340px', textAlign: 'left' }}>
           <Select
-            labelId="demo-simple-select-label"
-            value={selectedPositionValue}
-            onChange={controlFunction}
+            value={posVal}
+            onChange={(e) => handleChange(e)}
+            displayEmpty={true}
             variant="standard"
             input={<CustomSelect />}
-            className={styles.selectForm}
             IconComponent={() => (
               <img
                 style={{ width: '14px' }}
@@ -64,13 +61,15 @@ const PositionSelect = (props) => {
               />
             )}
           >
+            <MenuItem value="" disabled>
+              Choose a job
+            </MenuItem>
             {titles.map((title) => (
-              <MenuItem key={title.id} value={title.jobTitle}>
+              <MenuItem key={title.id} value={title.slug}>
                 {title.jobTitle}
               </MenuItem>
             ))}
           </Select>
-          <FormHelperText>Choose a job</FormHelperText>
         </FormControl>
       </div>
     </>

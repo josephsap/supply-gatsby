@@ -39,23 +39,6 @@
   }
 }
 
-// .firstNumber {
-//   position: relative;
-//   margin-right: 30px;
-//   &:after {
-//     @media (max-width: 769px) {
-//       content: '';
-//       width: 18px;
-//       height: 6px;
-//       background-color: $gold;
-//       position: absolute;
-//       right: -26px;
-//       top: 50%;
-//       margin-top: -3px;
-//     }
-//   }
-// }
-
 .salaryDash {
   font-size: 4.5rem;
 }
@@ -65,12 +48,6 @@
     display: none;
   }
 }
-
-// .textFocusIn {
-// 	-webkit-animation: text-focus-in 500ms cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-//   animation: text-focus-in 500ms cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-//   animation-delay: 300ms;
-// }
 
 @-webkit-keyframes text-focus-in {
   0% {

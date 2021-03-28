@@ -16,12 +16,8 @@ import { Button, Grid } from '@material-ui/core';
 const SalariesPage = (props) => {
   const { loading, titles, locations } = props;
   const [sortedJobs, setSortedJobs] = useState([]);
-  const [selectedPositionValue, setSelectedPositionValue] = useState(
-    'position'
-  );
-  const [selectedLocationValue, setSelectedLocationValue] = useState(
-    'location'
-  );
+  const [selectedPositionValue, setSelectedPositionValue] = useState('');
+  const [selectedLocationValue, setSelectedLocationValue] = useState('');
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeJobItem, setActiveJobItem] = useState(null);
   const [descriptions, setDescriptions] = useState([]);
@@ -55,18 +51,18 @@ const SalariesPage = (props) => {
     setActiveJobItem(selectedJobItem[0]);
   };
 
-  const handlePositionChange = (e) => {
-    setSelectedPositionValue(e.target.value);
+  const handlePositionChange = (val) => {
+    setSelectedPositionValue(val);
   };
 
-  const handleLocationChange = (e) => {
-    setSelectedLocationValue(e.target.value);
+  const handleLocationChange = (val) => {
+    setSelectedLocationValue(val);
   };
 
   const setActiveSalaryRange = () => {
     if (
-      selectedPositionValue === 'position' &&
-      selectedLocationValue === 'location' &&
+      selectedPositionValue === '' &&
+      selectedLocationValue === '' &&
       activeIndex === 0
     ) {
       setActiveJobItem(null);
@@ -127,6 +123,14 @@ const SalariesPage = (props) => {
         <div className={styles.wrapper}>
           <div className={styles.app}>
             <div className="topBar">
+              <Button
+                href="/"
+                variant="contained"
+                color="primary"
+                className={styles.backBtn}
+              >
+                <img src="images/arrow-back.svg" />
+              </Button>
               <div className="container">
                 <SVGS />
               </div>
@@ -145,14 +149,16 @@ const SalariesPage = (props) => {
                   <Grid item xs={12} md={4} className={styles.posContainer}>
                     <PositionSelect
                       titles={titles}
-                      controlFunction={handlePositionChange}
+                      onPositionChange={handlePositionChange}
+                      posVal={selectedPositionValue}
                       isEarlyClick={isEarlyClick}
                     />
                   </Grid>
                   <Grid item xs={12} md={4} className={styles.selectContainer}>
                     <LocationSelect
                       locations={locations}
-                      controlFunction={handleLocationChange}
+                      locVal={selectedLocationValue}
+                      onLocationChange={handleLocationChange}
                       isEarlyClick={isEarlyClick}
                     />
                   </Grid>
@@ -164,7 +170,7 @@ const SalariesPage = (props) => {
                         color="primary"
                         type="submit"
                         value="submit"
-                        className={styles.submitBtn}
+                        style={{ width: '278px' }}
                       >
                         Submit
                       </Button>
@@ -175,7 +181,7 @@ const SalariesPage = (props) => {
                         type="submit"
                         style={{ width: '278px' }}
                         value="submit"
-                        className={`${styles.submitBtn} ${styles.disabledButton}`}
+                        className={styles.disabledButton}
                       >
                         Submit
                       </Button>

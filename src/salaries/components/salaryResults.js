@@ -13,16 +13,14 @@ const SalaryResults = (props) => {
     isEarlyClick,
   } = props;
 
-  if (activeJob && posVal !== 'position' && locVal !== 'location') {
+  if (activeJob && posVal !== '' && locVal !== '') {
     const figureLow = activeJob.salaryLow.replace(',000.00', 'k');
     const figureHigh = activeJob.salaryHigh.replace(',000.00', 'k');
     return (
       <Fade when={!handleSubmitLoading} duration={1500} wait={100}>
         <div className={`${styles.resultsContainer} ${styles.salaryArea}`}>
           <div className={styles.numberContainer}>
-            <Typography variant="h3" className={`${styles.firstNumber}`}>
-              {figureLow}
-            </Typography>
+            <Typography variant="h3">{figureLow}</Typography>
           </div>
           <p className={`${styles.salaryResultText} ${styles.salaryDash}`}>
             &ndash;

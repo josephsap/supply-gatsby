@@ -6,7 +6,6 @@ import {
   MenuItem,
   Typography,
   InputBase,
-  FormHelperText,
 } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -27,12 +26,11 @@ const CustomSelect = withStyles((theme) => ({
 }))(InputBase);
 
 const LocationSelect = (props) => {
-  const {
-    locations,
-    controlFunction,
-    selectedLocationValue,
-    isEarlyClick,
-  } = props;
+  const { locations, onLocationChange, locVal, isEarlyClick } = props;
+
+  const handleChange = (e) => {
+    onLocationChange(e.target.value);
+  };
 
   return (
     <>
@@ -51,11 +49,11 @@ const LocationSelect = (props) => {
       >
         <FormControl style={{ width: '340px', textAlign: 'left' }}>
           <Select
-            input={<CustomSelect />}
-            labelId="location"
-            value={selectedLocationValue}
-            onChange={controlFunction}
+            value={locVal}
+            onChange={(e) => handleChange(e)}
+            displayEmpty={true}
             variant="standard"
+            input={<CustomSelect />}
             IconComponent={() => (
               <img
                 style={{ width: '14px' }}
@@ -63,13 +61,15 @@ const LocationSelect = (props) => {
               />
             )}
           >
+            <MenuItem value="" disabled>
+              Choose a location
+            </MenuItem>
             {locations.map((location) => (
-              <MenuItem key={location.id} value={location.location}>
+              <MenuItem key={location.id} value={location.locationSlug}>
                 {location.location}
               </MenuItem>
             ))}
           </Select>
-          <FormHelperText>Choose a location</FormHelperText>
         </FormControl>
       </div>
     </>
