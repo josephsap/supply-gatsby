@@ -10,7 +10,7 @@ import JobDetails from '../salaries/components/jobDetails';
 import SalaryResults from '../salaries/components/salaryResults';
 import withDataFetching from '../salaries/components/withDataFetching';
 import LoadingScreen from '../salaries/components/loadingScreen';
-import Footer from '../components/Footer';
+import Footer from '../components/footer';
 import { Button, Grid } from '@material-ui/core';
 
 const SalariesPage = (props) => {
