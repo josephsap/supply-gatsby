@@ -131,7 +131,7 @@ const SalariesPage = (props) => {
               >
                 <img src="images/arrow-back.svg" />
               </Button>
-              <div className="container">
+              <div className={styles.container}>
                 <SVGS />
               </div>
             </div>
@@ -170,7 +170,7 @@ const SalariesPage = (props) => {
                         color="primary"
                         type="submit"
                         value="submit"
-                        style={{ width: '278px' }}
+                        className={styles.subBtn}
                       >
                         Submit
                       </Button>
@@ -181,7 +181,7 @@ const SalariesPage = (props) => {
                         type="submit"
                         style={{ width: '278px' }}
                         value="submit"
-                        className={styles.disabledButton}
+                        className={`${styles.disabledButton} ${styles.subBtn}`}
                       >
                         Submit
                       </Button>

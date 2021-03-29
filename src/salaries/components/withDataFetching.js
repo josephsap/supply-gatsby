@@ -9,7 +9,7 @@ const withDataFetching = (WrappedComponent) => {
         loading: true,
         locations: [],
         titles: [],
-        descriptions: []
+        descriptions: [],
       };
     }
 
@@ -23,20 +23,22 @@ const withDataFetching = (WrappedComponent) => {
       }
 
       function getDefaultDescriptions() {
-        return axios.get('https://events.thesupply.com/api/salaries/digital-producer');
+        return axios.get(
+          'https://events.thesupply.com/api/salaries/digital-producer'
+        );
       }
 
       let _this = this;
-      axios.all([getTitles(), getLocations(), getDefaultDescriptions()])
-        .then(axios.spread(function (titles, locations, descriptions) {
+      axios.all([getTitles(), getLocations(), getDefaultDescriptions()]).then(
+        axios.spread(function (titles, locations, descriptions) {
           _this.setState({
             titles: titles.data,
             locations: locations.data,
             descriptions: descriptions.data,
-            loading: false
-          })
+            loading: false,
+          });
         })
-      )
+      );
     }
 
     render() {
@@ -50,11 +52,10 @@ const withDataFetching = (WrappedComponent) => {
       );
     }
   }
-    
+
   WithDataFetching.displayName = `WithDataFetching(${WrappedComponent.name})`;
 
   return WithDataFetching;
-
 };
 
 export default withDataFetching;

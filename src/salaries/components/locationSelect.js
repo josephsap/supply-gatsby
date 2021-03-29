@@ -47,7 +47,7 @@ const LocationSelect = (props) => {
             : `${styles.selectWrapper} ${styles.locWrapper}`
         }
       >
-        <FormControl style={{ width: '340px', textAlign: 'left' }}>
+        <FormControl className={styles.formWrap}>
           <Select
             value={locVal}
             onChange={(e) => handleChange(e)}

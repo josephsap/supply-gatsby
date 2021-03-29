@@ -1,6 +1,7 @@
 import React from 'react';
 import * as styles from '../styles/loading.module.scss';
 import { animated, useSpring, config } from 'react-spring';
+import { CircularProgress } from '@material-ui/core';
 
 const LoadingScreen = ({ loading }) => {
   const loadingBackground = useSpring({
@@ -12,7 +13,7 @@ const LoadingScreen = ({ loading }) => {
   return (
     <animated.div key={'hi'} style={loadingBackground}>
       <div className={styles.loadingScreen}>
-        <div className={styles.loader}>Loading...</div>
+        <CircularProgress className={styles.progress} size="5rem" />
       </div>
     </animated.div>
   );

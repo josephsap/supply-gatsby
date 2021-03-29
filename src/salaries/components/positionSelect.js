@@ -47,7 +47,7 @@ const PositionSelect = (props) => {
             : `${styles.selectWrapper} ${styles.posWrapper}`
         }
       >
-        <FormControl style={{ width: '340px', textAlign: 'left' }}>
+        <FormControl className={styles.formWrap}>
           <Select
             value={posVal}
             onChange={(e) => handleChange(e)}

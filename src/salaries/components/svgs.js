@@ -1,8 +1,8 @@
 import React, { forwardRef, useState } from 'react';
-import { useTrail, useSpring, animated } from 'react-spring';
+import { useSpring, animated } from 'react-spring';
 import * as styles from '../styles/svgs.module.scss';
 import '../styles/svgs.scss';
-// import CloseIcon from '@material-ui/icons/Close';
+import CloseIcon from '@material-ui/icons/Close';
 import Backdrop from '@material-ui/core/Backdrop';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, Modal } from '@material-ui/core';
@@ -45,7 +45,7 @@ const Fade = forwardRef(function Fade(props, ref) {
   );
 });
 
-const SVGS = ({ loading }) => {
+const SVGS = () => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
@@ -56,14 +56,8 @@ const SVGS = ({ loading }) => {
     setOpen(false);
   };
 
-  // const trail = useTrail(SVGConfig.length, {
-  //   config: { mass: 1, tension: 200, friction: 24 },
-  //   opacity: loading ? 0 : 1,
-  //   from: { opacity: 0 },
-  // });
-
   return (
-    <div className={styles.svgWrapper}>
+    <div>
       <div className={styles.textCenter}>
         <Typography variant="h3" component="h1">
           Industry Salaries
@@ -76,18 +70,13 @@ const SVGS = ({ loading }) => {
           onClick={handleOpen}
           className={styles.modalButton}
         >
-          What is this?
+          <img
+            src={`images/info-icon.svg`}
+            alt="hover for more info"
+            className={styles.infoTooltip}
+          />
         </button>
       </div>
-      {/* {trail.map(({ height, ...rest }, index) => (
-        <animated.span
-          key={index}
-          style={{ ...rest }}
-          className={styles[`${SVGConfig[index].class}`]}
-        >
-          {SVGConfig[index].svg}
-        </animated.span>
-      ))} */}
       <Modal
         aria-labelledby="spring-modal-title"
         aria-describedby="spring-modal-description"
@@ -104,7 +93,10 @@ const SVGS = ({ loading }) => {
           <div className={classes.paper}>
             <div className={styles.modalTop}>
               <p>What is this?</p>
-              <div onClick={handleClose} className={styles.modalCloseIcon} />
+              <CloseIcon
+                onClick={handleClose}
+                className={styles.modalCloseIcon}
+              />
             </div>
             <div className={styles.modalInner}>
               <p id="spring-modal-description">

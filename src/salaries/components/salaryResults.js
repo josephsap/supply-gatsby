@@ -48,7 +48,7 @@ const SalaryResults = (props) => {
       <div
         className={
           !loading
-            ? `${styles.textFocusIn} ${styles.salaryArea}`
+            ? `${styles.textFocusFadeIn} ${styles.salaryArea}`
             : `${styles.salaryArea}`
         }
       >
