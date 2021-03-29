@@ -1,0 +1,36 @@
+@import './variables';
+
+.loadingScreen {
+  background: #f5f6f6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  opacity: 1;
+  transition: 2s ease-out;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress {
+  color: #bb9cfe;
+}
+
+.fade-enter {
+  opacity: 1;
+}
+.fade-enter-active {
+  opacity: 1;
+}
+.fade-exit {
+  opacity: 1;
+  transition: opacity 1.5s;
+}
+.alert-exit-active {
+  opacity: 0;
+  transition: opacity 1.5s;
+}

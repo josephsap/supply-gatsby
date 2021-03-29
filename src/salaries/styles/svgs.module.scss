@@ -1,0 +1,52 @@
+.textCenter {
+  text-align: center;
+}
+
+.subhead {
+  padding: 0 12px;
+  font-weight: 300;
+  margin: 0;
+}
+
+.modalButton {
+  cursor: pointer;
+  background: none;
+  outline: none;
+  border: none;
+  text-decoration: underline;
+  text-transform: uppercase;
+  margin-top: 4rem;
+}
+
+.modalStyles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalTop {
+  background: black;
+  display: flex;
+  padding: 0 20px;
+  p {
+    color: white;
+    font-size: 20px;
+    flex: 1 0 80%;
+  }
+}
+
+.modalCloseIcon {
+  align-self: center;
+  color: white;
+  cursor: pointer;
+  flex: 1 0 0;
+}
+
+.modalInner {
+  padding: 5px 20px 20px 20px;
+}
+
+.infoTooltip {
+  width: 30px;
+  height: 30px;
+}

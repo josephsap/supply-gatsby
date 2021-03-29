@@ -32,7 +32,7 @@ const theme = createMuiTheme({
     // Who we work with text
     h3: {
       fontFamily: '"Bogue-Black", Garamond, Baskerville, sans-serif',
-      fontSize: '7vw',
+      fontSize: '7.2rem',
       // lineHeight: '24.6rem',
       letterSpacing: '-1px',
     },

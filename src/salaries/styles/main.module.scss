@@ -1,0 +1,47 @@
+@import './_variables';
+
+.jobItemHeader {
+  font-size: 2.2rem;
+}
+
+:global(select) {
+  border: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+  color: $gold;
+  text-transform: uppercase;
+  font-weight: 700;
+  position: relative;
+  background-color: white;
+  cursor: pointer;
+  padding: 10px 25px 10px 10px;
+}
+
+.jobItem {
+  transition: 0.3s ease-in-out;
+  border: 2px solid transparent;
+  border-radius: 20px;
+  line-height: 2.2rem;
+  padding: 1rem;
+  &:hover {
+    border-color: #162c29;
+    transition: 0.3s ease-in-out;
+  }
+  &:focus {
+    outline: none !important;
+  }
+}
+
+.jobsLoading {
+  margin: 0 auto;
+  border-top: none !important;
+}
+
+.slider {
+  margin-bottom: 10px;
+  border-bottom: 2px solid;
+  @media (min-width: 769px) {
+    position: relative;
+    margin-bottom: 30px;
+  }
+}

@@ -1,0 +1,148 @@
+@import './variables';
+
+.inlineBlock {
+  display: inline-block;
+}
+
+.subBtn {
+  width: 160px;
+  height: 60px;
+  @media (min-width: 768px) {
+    width: 278px;
+  }
+}
+
+.backBtn {
+  width: 63px;
+  background-color: #bb9cfe;
+  &:hover {
+    background-color: #356ad2;
+  }
+}
+
+.container {
+  margin-top: 2rem;
+}
+
+.formWrap {
+  text-align: left;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.chooseWrapper {
+  margin-bottom: 50px;
+}
+.posContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 20px;
+  max-width: 340px;
+  margin-bottom: 50px;
+  @media (max-width: 769px) {
+    margin: 0 0 3.2rem;
+    text-align: left;
+  }
+}
+
+.selectContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 20px;
+  max-width: 340px;
+  margin-bottom: 50px;
+  @media (max-width: 769px) {
+    margin: 0 0 4.8rem;
+    text-align: left;
+  }
+}
+
+.mainArea {
+  background-color: #ffe8e1;
+  padding: 5rem 2rem 4rem;
+}
+
+.contain {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f7f2;
+}
+.app {
+  padding: 0 30px;
+  flex-grow: 1;
+}
+
+.jobContainer {
+  text-align: center;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.selectWrapper {
+  select {
+    @media (max-width: 769px) {
+      width: 215px;
+    }
+  }
+}
+
+.locWrapper,
+.posWrapper {
+  width: 100%;
+  @media (max-width: 769px) {
+    margin: 0 0 22px;
+  }
+}
+
+.dropdownCopy {
+  @media (max-width: 769px) {
+    width: 100%;
+  }
+}
+
+.disabledButton {
+  background-color: gray;
+  pointer-events: none;
+}
+
+.pulsate {
+  -webkit-animation: pulsate 0.3s ease-in-out 0.3s 3 both;
+  animation: pulsate 0.3s ease-in-out 0.3s 3 both;
+}
+
+@-webkit-keyframes pulsate {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes pulsate {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
