@@ -11,8 +11,8 @@ import styles, {
   backgroundDotStyles,
   dragStyles,
 } from './heroSection.styles';
-import ChatButton from '../chat/chatButton';
 import Ticker from './ticker';
+import ChatComponent from '../chat/chatComponent';
 
 // TODO: adjust cache values once we are
 // in production https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/deploying-to-heroku/
@@ -35,8 +35,6 @@ const HeroSection = ({ heroSection }) => {
   const badge2Ref = useRef(null);
   const starRef = useRef(null);
   const cloverRef = useRef(null);
-  const chatboxRef = useRef(null);
-  const arrowRef = useRef(null);
   const draggableBoxRef = useRef(null);
 
   const reg = new RegExp(/\s/g, '');
@@ -111,13 +109,6 @@ const HeroSection = ({ heroSection }) => {
       '-=.5'
     );
 
-    //animate the chatbox
-    timeline.current.to(chatboxRef.current, {
-      duration: 0.5,
-      y: 0,
-      ease: 'back',
-    });
-
     timeline.current.to(
       cloverRef.current,
       {
@@ -128,38 +119,6 @@ const HeroSection = ({ heroSection }) => {
         ease: 'expo.out',
       },
       '-=.2'
-    );
-
-    //animate clip path of the squiggly arrow
-    let arrowClipPath = { current: 100 };
-    timeline.current.to(
-      arrowClipPath,
-      0.5,
-      {
-        current: 0,
-        ease: 'expo.out',
-        onUpdate: () => {
-          gsap.set(arrowRef.current, {
-            'clip-path': `inset(0 0 ${arrowClipPath.current}% 0)`,
-          });
-        },
-      },
-      '-=.2'
-    );
-
-    timeline.current.to(
-      arrowClipPath,
-      0.5,
-      {
-        current: 100,
-        ease: 'expo.out',
-        onUpdate: () => {
-          gsap.set(arrowRef.current, {
-            'clip-path': `inset(${arrowClipPath.current}% 0 0% 0)`,
-          });
-        },
-      },
-      '+=.25'
     );
 
     return () => {
@@ -286,14 +245,7 @@ const HeroSection = ({ heroSection }) => {
               </Grid>
             </Grid>
           </Container>
-          <div className="chatbox-container" ref={chatboxRef}>
-            <div className="squiggly-arrow" ref={arrowRef}>
-              <span></span>
-            </div>
-            <div className="chatbox">
-              <ChatButton />
-            </div>
-          </div>
+          <ChatComponent ref={wrapperRef} />
         </Container>
         <div css={backgroundDotStyles}></div>
       </div>

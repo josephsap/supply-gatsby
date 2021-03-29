@@ -34,7 +34,7 @@ const styles = (theme) => css`
     margin: 0 2rem;
     vertical-align: top;
     ${theme.breakpoints.up('sm')} {
-      margin-right: 3rem;
+      margin: 0 3rem 0 0;
     }
 
     .email-link {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Layout from '../components/layout/layout';
 import axios from 'axios';
 import { useStaticQuery, graphql } from 'gatsby';
@@ -12,9 +12,11 @@ import withDataFetching from '../salaries/components/withDataFetching';
 import LoadingScreen from '../salaries/components/loadingScreen';
 import Footer from '../components/footer';
 import { Button, Grid } from '@material-ui/core';
+import ChatComponent from '../components/chat/chatComponent';
 
 const SalariesPage = (props) => {
   const { loading, titles, locations } = props;
+  const wrapperRef = useRef(null);
   const [sortedJobs, setSortedJobs] = useState([]);
   const [selectedPositionValue, setSelectedPositionValue] = useState('');
   const [selectedLocationValue, setSelectedLocationValue] = useState('');
@@ -120,7 +122,7 @@ const SalariesPage = (props) => {
       {loading ? (
         <LoadingScreen loading={props.loading} />
       ) : (
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper} ref={wrapperRef}>
           <div className={styles.app}>
             <div className="topBar">
               <Button
@@ -209,6 +211,7 @@ const SalariesPage = (props) => {
               </div>
             </div>
           </div>
+          <ChatComponent ref={wrapperRef} />
           <Footer footer={contentfulFooter} />
         </div>
       )}
