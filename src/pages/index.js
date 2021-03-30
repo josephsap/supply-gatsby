@@ -99,9 +99,7 @@ export const PAGE_DATA_QUERY = graphql`
     contentfulNetworkSection {
       title
       description {
-        childMarkdownRemark {
-          html
-        }
+        description
       }
       networkAttributeItem {
         id

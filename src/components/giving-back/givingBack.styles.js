@@ -38,10 +38,10 @@ const styles = (theme) => css`
       margin: 3rem 0;
     }
     img:nth-of-type(1) {
-      width: 63%;
+      width: 60%;
     }
     img:nth-of-type(2) {
-      width: 40%;
+      width: 39%;
     }
   }
 

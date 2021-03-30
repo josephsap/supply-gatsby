@@ -156,12 +156,9 @@ const NetworkSection = ({ networkSection }) => {
             </Typography>
           </Grid>
           <Grid item xs={12} md={5} className="network-desc">
-            <Typography
-              variant="body1"
-              dangerouslySetInnerHTML={{
-                __html: networkSection.description.childMarkdownRemark.html,
-              }}
-            />
+            <Typography variant="body1">
+              {networkSection.description.description}
+            </Typography>
           </Grid>
           <Grid item xs={12}>
             <div className="network-container" ref={wrapper}>
