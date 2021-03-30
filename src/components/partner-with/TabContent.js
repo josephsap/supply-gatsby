@@ -8,7 +8,7 @@ import IconArrow from '../../assets/svg/icon-arrow.inline.svg';
 
 const TabContent = forwardRef(
   (
-    { index, items, title, icons, inactive, onSetActive, onSetInactive },
+    { index, items, title, icons, inactive, onSetActive, onSetInactive, value },
     ref
   ) => {
     const [active, setActive] = useState(false);
@@ -71,9 +71,13 @@ const TabContent = forwardRef(
         ref={ref}
       >
         <div
-          className={'category-title'}
           onMouseEnter={onMouseOver}
           onMouseLeave={onMouseOut}
+          className={
+            index === 0 && value === 0
+              ? 'category-title'
+              : 'category-title category-hide'
+          }
         >
           <Typography variant="h3" component="h3">
             {title}

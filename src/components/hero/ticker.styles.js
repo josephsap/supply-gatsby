@@ -4,6 +4,12 @@ const styles = (theme) => css`
   overflow: hidden;
   background-color: ${theme.palette.supply.cream.main};
 
+  .dot {
+    font-size: 19px;
+    display: inline-block;
+    margin: 0 8px;
+  }
+
   .divider-img {
     height: 1.1rem;
     width: 1.1rem;

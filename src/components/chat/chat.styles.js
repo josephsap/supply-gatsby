@@ -4,9 +4,15 @@ export const chatBaseStyles = (theme) => css`
   background: ${theme.palette.supply.salmon.main};
   overflow-y: auto;
   overflow-x: hidden;
+  height: 89vh;
 
-  > div h5,
-  div p {
+  .msg-container {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
+
+  > div h5 {
     ${theme.breakpoints.down('sm')} {
       text-align: center;
     }
@@ -15,7 +21,7 @@ export const chatBaseStyles = (theme) => css`
   .em-send-btn-container {
     &:nth-of-type(2) {
       margin-left: auto;
-      margin-top: 2rem;
+      ${'' /* margin-top: 2rem; */}
     }
   }
 
@@ -29,9 +35,8 @@ export const chatBaseStyles = (theme) => css`
   }
 
   .message-container {
-    margin: 40px 0;
     padding: 0 2rem;
-    ${theme.breakpoints.up('sm')} {
+    ${theme.breakpoints.up('md')} {
       padding: 0 6rem;
     }
   }
@@ -40,7 +45,8 @@ export const chatBaseStyles = (theme) => css`
     border: 2px solid;
     border-radius: 20px;
     overflow: auto;
-    height: calc(80vh - 140px);
+    margin: 40px 0 0;
+    height: calc(80vh - 210px);
   }
 
   .loading-messages {
@@ -52,17 +58,15 @@ export const chatBaseStyles = (theme) => css`
   }
 
   .send-msg-btn {
+    height: 69px;
     ${theme.breakpoints.up('sm')} {
-      margin-top: 2rem;
+      margin-top: 14px;
     }
   }
 
   .message-input-container {
     margin: 3rem 0 0;
-    ${theme.breakpoints.up('sm')} {
-      padding: 0 1rem;
-    }
-
+    padding-bottom: 4.6rem;
     form {
       margin: 2rem 0 2.5rem;
     }
@@ -130,7 +134,7 @@ export const agentPhotoStyles = (theme, { photoUrl }) => css`
   ${theme.breakpoints.up('sm')} {
     height: 56px;
     width: 56px;
-    margin-right: 2.4rem;
+    margin-left: 1rem;
   }
 `;
 

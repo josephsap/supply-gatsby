@@ -114,9 +114,10 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
           <Grid item xs={12}>
             <Typography
               className="headline"
-              variant="h2"
+              variant="h6"
               component="h2"
               ref={headline}
+              className="partner-with-headline"
             >
               {whoWeWorkWithSection.whoWeWorkWithTitle}
             </Typography>
@@ -146,6 +147,7 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
                   onSetActive={onSetItemActive}
                   onSetInactive={onSetItemInactive}
                   index={index}
+                  value={value}
                   inactive={
                     currentCategoryIndex !== null &&
                     index !== currentCategoryIndex

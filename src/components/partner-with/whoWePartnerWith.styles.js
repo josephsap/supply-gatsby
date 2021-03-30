@@ -8,6 +8,13 @@ const styles = (theme) => css`
     margin: 1rem 0rem 8rem;
   }
 
+  .category-hide {
+    span {
+      opacity: 0 !important;
+      pointer-events: none;
+    }
+  }
+
   //pre-animated styles
   .headline,
   .partner-tabs,
@@ -17,6 +24,12 @@ const styles = (theme) => css`
 
   .tab-indicator-override {
     background: none;
+  }
+  .partner-with-headline {
+    font-size: 2.3rem;
+    ${theme.breakpoints.up('sm')} {
+      font-size: 2.8rem;
+    }
   }
 
   .partner-section-container {

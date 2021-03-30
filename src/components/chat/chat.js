@@ -16,7 +16,7 @@ import { useTheme } from '@material-ui/core/styles';
 
 const ChatMessages = ({ messages = [], customerId, scrollToRef }) => {
   return (
-    <div>
+    <div className="msg-container">
       {messages.map((message, idx) => {
         const key = message.id || idx;
         const isMe =

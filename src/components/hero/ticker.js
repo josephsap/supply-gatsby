@@ -41,25 +41,23 @@ const Ticker = () => {
       <Typography variant="caption" className="marquee">
         <span>
           {`${todayDate[0]}`}
-          <img src={`images/star.svg`} className="divider-img" />
+          <div className="dot">&#10687;</div>
           {`${todayDate[1]}`}
-          <img src={`images/star.svg`} className="divider-img" />
+          <div className="dot">&#10687;</div>
           {`WE ARE HIRING (SEE BELOW)`}
-          <img src={`images/star.svg`} className="divider-img" />
+          <div className="dot">&#10687;</div>
           {`FACT OF THE DAY: ${fact}`}
-          {/* <img src={`images/star.svg`} className="divider-img" /> */}
         </span>
       </Typography>
       <Typography variant="caption" className="marquee marquee2">
         <span>
           {`${todayDate[0]}`}
-          <img src={`images/star.svg`} className="divider-img" />
+          <div className="dot">&#10687;</div>
           {`${todayDate[1]}`}
-          <img src={`images/star.svg`} className="divider-img" />
+          <div className="dot">&#10687;</div>
           {`WE ARE HIRING (SEE BELOW)`}
-          <img src={`images/star.svg`} className="divider-img" />
+          <div className="dot">&#10687;</div>
           {`FACT OF THE DAY: ${fact}`}
-          {/* <img src={`images/star.svg`} className="divider-img" /> */}
         </span>
       </Typography>
     </div>
