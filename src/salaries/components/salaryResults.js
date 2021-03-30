@@ -21,12 +21,18 @@ const SalaryResults = (props) => {
         <div className={`${styles.resultsContainer} ${styles.salaryArea}`}>
           <div className={styles.numberContainer}>
             <Typography variant="h3">{figureLow}</Typography>
+            <Typography variant="body1" className={styles.rangeDesc}>
+              {activeJob.salaryRangeLowDesc}
+            </Typography>
           </div>
           <p className={`${styles.salaryResultText} ${styles.salaryDash}`}>
             &ndash;
           </p>
           <div className={styles.numberContainer}>
             <Typography variant="h3">{figureHigh}</Typography>
+            <Typography variant="body1" className={styles.rangeDesc}>
+              {activeJob.salaryRangeHighDesc}
+            </Typography>
           </div>
         </div>
       </Fade>
@@ -48,7 +54,7 @@ const SalaryResults = (props) => {
       <div
         className={
           !loading
-            ? `${styles.textFocusFadeIn} ${styles.salaryArea}`
+            ? `${styles.textFocusIn} ${styles.salaryArea}`
             : `${styles.salaryArea}`
         }
       >

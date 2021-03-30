@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, createRef } from 'react';
-import { Container, Typography, Grid, Box } from '@material-ui/core';
+import { Container, Typography, Grid } from '@material-ui/core';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import styles, { networkItemStyles } from './network.styles';
@@ -37,7 +37,7 @@ const NetworkSection = ({ networkSection }) => {
     timeline.current = gsap.timeline({
       scrollTrigger: {
         id: SCROLL_TRIGGER_ID,
-        start: 'top 50%',
+        start: 'top 30%',
         end: 'bottom bottom',
         trigger: wrapper.current,
         invalidateOnRefresh: true,

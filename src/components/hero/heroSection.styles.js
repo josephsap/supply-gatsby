@@ -127,6 +127,20 @@ const styles = (theme) => css`
     z-index: 2;
   }
 
+  @keyframes SPIN {
+    20%,
+    100% {
+      transform: rotate(0deg);
+    }
+    0% {
+      transform: rotate(0deg);
+    }
+    10% {
+      opacity: 1;
+      transform: rotate(180deg);
+    }
+  }
+
   .hero-logo {
     width: 190px;
     height: 190px;
@@ -139,6 +153,9 @@ const styles = (theme) => css`
       margin-left: auto;
       width: 210px;
       height: 210px;
+    }
+    img {
+      animation: SPIN 8s infinite ease-in-out;
     }
   }
 

@@ -12,7 +12,6 @@ const styles = (theme) => css`
   .network-title {
     ${theme.breakpoints.down('md')} {
       text-align: center;
-      ${'' /* margin-top: 3.2rem; */}
     }
     h2 {
       ${theme.breakpoints.up('sm')} {
@@ -63,18 +62,18 @@ const styles = (theme) => css`
       }
 
       circle {
-        animation: ${floatLeft} 5s ease-out infinite;
+        animation: ${floatLeft} 2s ease-out infinite;
 
         &:nth-of-type(even) {
-          animation: ${floatRight} 5s ease-out infinite;
+          animation: ${floatRight} 2s ease-out infinite;
         }
         &:nth-of-type(3n) {
           animation-delay: 0.02s;
-          animation-duration: 4.5s;
+          animation-duration: 2s;
         }
         &:nth-of-type(4n) {
           animation-delay: 0.05s;
-          animation-duration: 4.5s;
+          animation-duration: 2s;
         }
       }
     }

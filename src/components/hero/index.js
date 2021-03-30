@@ -131,6 +131,8 @@ const HeroSection = ({ heroSection }) => {
     };
   }, []);
 
+  console.log(showMdAndUp, '()()(**&&&');
+
   const titleTransform = () => {
     const parts = headlineSegments;
 
@@ -180,7 +182,7 @@ const HeroSection = ({ heroSection }) => {
 
   return (
     <>
-      {showMdAndUp && <Ticker />}
+      {showMdAndUp ? <Ticker /> : null}
       <div
         style={{ position: 'relative', overflow: 'hidden' }}
         ref={wrapperRef}

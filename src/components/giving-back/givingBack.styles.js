@@ -11,13 +11,10 @@ const styles = (theme) => css`
     text-align: center;
     ${theme.breakpoints.up('md')} {
       ${pr4};
+      text-align: left;
     }
     h2 {
       padding: 1rem 0;
-      ${'' /* ${theme.breakpoints.down('md')} {
-        ${pb4};
-        padding-top: 1.8rem;
-      } */}
     }
   }
 
