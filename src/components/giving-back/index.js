@@ -1,18 +1,29 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Container, Typography, Grid, Box } from '@material-ui/core';
 import styles from './givingBack.styles';
+import useScrollAnimation from '../../hooks/use-scroll-animation';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 
 const GivingBackSection = ({ givingBackSection }) => {
   const theme = useTheme();
   const hideSm = useMediaQuery(theme.breakpoints.up('sm'));
+  const leftSide = useRef(null);
+  const rightSide = useRef(null);
+
+  useScrollAnimation(leftSide, [leftSide, rightSide], null, { delay: 1 });
 
   return (
     <Container maxWidth={false} className="section-padding" id="section4">
       <Container maxWidth="lg" className="side-padding">
         <Grid container css={styles} className="border-container">
-          <Grid item xs={12} md={6} className="giving-back-section">
+          <Grid
+            item
+            xs={12}
+            md={6}
+            className="giving-back-section"
+            ref={leftSide}
+          >
             <Typography variant="h5" component="h2">
               {givingBackSection.leftSideTitle}
             </Typography>
@@ -23,7 +34,13 @@ const GivingBackSection = ({ givingBackSection }) => {
               {givingBackSection.orgsModalLinkText}
             </Typography>
           </Grid>
-          <Grid item xs={12} md={6} className="pushing-diversity">
+          <Grid
+            item
+            xs={12}
+            md={6}
+            className="pushing-diversity"
+            ref={rightSide}
+          >
             <Box className="badges-container">
               {givingBackSection.badges.map((badge) => (
                 <img key={badge.id} src={badge.file.url} />
@@ -35,6 +52,7 @@ const GivingBackSection = ({ givingBackSection }) => {
                 {givingBackSection.rightSideTitle}
               </Typography>
             </Box>
+            {/* <div ref={wrapper}></div> */}
             <Typography variant="body1" className="copy-right">
               {givingBackSection.rightSideCopy.rightSideCopy}
             </Typography>

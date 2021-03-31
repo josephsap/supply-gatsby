@@ -6,28 +6,14 @@ import { pt4, pb4 } from '../layout/margin-padding-utils.styles';
 import useScrollAnimation from '../../hooks/use-scroll-animation';
 
 const WhyUsSection = ({ whyUsSection }) => {
-  //scroll trigger animation
   const wrapper = useRef(null);
   const headline = useRef(null);
   const description = useRef(null);
   const introCopy = useRef(null);
   const roldxImg = useRef(null);
-  const imgWrapRef = useRef(null);
-  // const item1 = useRef(null);
-  // const item2 = useRef(null);
-  // const item3 = useRef(null);
-  // const item4 = useRef(null);
-  // const items = [item1, item2, item3, item4];
 
-  // items.current.forEach((item) => {
-
-  // });
   useScrollAnimation(wrapper, [headline, description, introCopy]);
-  useScrollAnimation(imgWrapRef, [roldxImg]);
-
-  // const items = useRef(servicesSection.serviceItem.map(() => createRef()));
-
-  // useScrollAnimation(wrapper, [item1, item2, item3, item4]);
+  useScrollAnimation(roldxImg, [roldxImg]);
 
   return (
     <Container maxWidth={false} css={styles} id="section3">
@@ -67,7 +53,7 @@ const WhyUsSection = ({ whyUsSection }) => {
               {whyUsSection.descriptionTwo.descriptionTwo}
             </Typography>
           </Grid>
-          <Grid item xs={12} className="second-section" ref={imgWrapRef}>
+          <Grid item xs={12} className="second-section">
             <img src={whyUsSection.mainImage.file.url} ref={roldxImg} />
           </Grid>
         </Grid>

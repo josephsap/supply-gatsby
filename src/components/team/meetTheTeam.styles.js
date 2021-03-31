@@ -6,8 +6,6 @@ const styles = (theme) => css`
 
   .team-section-title {
     position: relative;
-    display: table;
-    margin: 0 auto 7rem;
   }
 
   .profile-img {
@@ -24,6 +22,9 @@ const styles = (theme) => css`
 
   .teammate-container {
     margin-bottom: 4.4rem;
+    ${theme.breakpoints.up('sm')} {
+      padding: 0 3rem;
+    }
   }
 
   .teammate-name {
@@ -34,6 +35,17 @@ const styles = (theme) => css`
   .linkedin-icon {
     margin: 3rem 0 2rem;
     display: block;
+  }
+
+  .hiring-img {
+    position: absolute;
+    right: 280px;
+    top: -132%;
+
+    img {
+      width: 220px;
+      height: 155px;
+    }
   }
 `;
 

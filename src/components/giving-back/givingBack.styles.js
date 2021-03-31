@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import { pr4, pl4 } from '../layout/margin-padding-utils.styles';
+import { initiallyHidden } from '../shared/shared.styles';
 
 const styles = (theme) => css`
   padding: 3rem;
@@ -8,6 +9,7 @@ const styles = (theme) => css`
   }
 
   .giving-back-section {
+    ${initiallyHidden}
     text-align: center;
     ${theme.breakpoints.up('md')} {
       ${pr4};
@@ -19,6 +21,7 @@ const styles = (theme) => css`
   }
 
   .pushing-diversity {
+    ${initiallyHidden}
     margin-bottom: 3rem;
     ${theme.breakpoints.up('md')} {
       margin-left: auto;

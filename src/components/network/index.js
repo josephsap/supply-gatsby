@@ -2,6 +2,7 @@ import React, { useRef, useEffect, createRef } from 'react';
 import { Container, Typography, Grid } from '@material-ui/core';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import useScrollAnimation from '../../hooks/use-scroll-animation';
 import styles, { networkItemStyles } from './network.styles';
 import theme from '../../theme';
 
@@ -21,6 +22,8 @@ const NetworkSection = ({ networkSection }) => {
   const wrapper = useRef(null);
   const innerRing = useRef(null);
   const outerRing = useRef(null);
+  const titleRef = useRef(null);
+  const descRef = useRef(null);
   const networkItems = useRef(
     networkSection.networkAttributeItem.map(() => createRef())
   );
@@ -31,6 +34,8 @@ const NetworkSection = ({ networkSection }) => {
     networkSection.networkAttributeItem.map(() => createRef())
   );
   const backgroundStars = useRef(stars.map(() => createRef()));
+
+  useScrollAnimation(titleRef, [titleRef, descRef], null, { delay: 1.5 });
 
   useEffect(() => {
     //set up the timeline animations using scroll trigger
@@ -151,12 +156,12 @@ const NetworkSection = ({ networkSection }) => {
           alignItems="center"
         >
           <Grid item xs={12} md={6} className="network-title">
-            <Typography variant="h5" component="h2">
+            <Typography variant="h5" component="h2" ref={titleRef}>
               {networkSection.title}
             </Typography>
           </Grid>
           <Grid item xs={12} md={5} className="network-desc">
-            <Typography variant="body1">
+            <Typography variant="body1" ref={descRef}>
               {networkSection.description.description}
             </Typography>
           </Grid>

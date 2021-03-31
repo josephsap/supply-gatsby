@@ -7,13 +7,15 @@ import {
   rotate2,
   rotate3,
 } from '../shared/animations.styles';
+import { initiallyHidden } from '../shared/shared.styles';
 
 const styles = (theme) => css`
   .network-title {
-    ${theme.breakpoints.down('md')} {
+    ${theme.breakpoints.down('sm')} {
       text-align: center;
     }
     h2 {
+      ${initiallyHidden};
       ${theme.breakpoints.up('sm')} {
         line-height: 7.6rem;
       }
@@ -28,9 +30,12 @@ const styles = (theme) => css`
   }
 
   .network-desc {
-    ${theme.breakpoints.down('md')} {
+    ${theme.breakpoints.down('sm')} {
       text-align: center;
       padding: 0 2.4rem;
+    }
+    p {
+      ${initiallyHidden}
     }
   }
 

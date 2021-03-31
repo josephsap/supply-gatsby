@@ -1,9 +1,23 @@
 import React from 'react';
 import { Container, Typography, Grid } from '@material-ui/core';
-import styles, { hiringImageStyles } from './meetTheTeam.styles';
+import styles from './meetTheTeam.styles';
+import { useSpring, animated } from 'react-spring';
 
 const MeetTheTeamSection = ({ meetTheTeamSection }) => {
   const teamImg = meetTheTeamSection.wereHiringImage.file.url;
+
+  const calc = (x, y) => [
+    -(y - window.innerHeight / 2) / 20,
+    (x - window.innerWidth / 2) / 20,
+    1.1,
+  ];
+  const trans = (x, y, s) =>
+    `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
+
+  const [props, set] = useSpring(() => ({
+    xys: [0, 0, 1],
+    config: { mass: 5, tension: 350, friction: 40 },
+  }));
 
   return (
     <Container
@@ -14,17 +28,20 @@ const MeetTheTeamSection = ({ meetTheTeamSection }) => {
     >
       <Container maxWidth="lg" className="side-padding">
         <Grid container>
-          <Grid item xs={12}>
-            <div>
-              <Typography
-                variant="h5"
-                component="h2"
-                className="team-section-title"
-                css={(theme) => hiringImageStyles(theme, { teamImg })}
-              >
-                {meetTheTeamSection.title}
-              </Typography>
-            </div>
+          <Grid item xs={12} className="team-section-title">
+            <Typography variant="h5" component="h2">
+              {meetTheTeamSection.title}
+            </Typography>
+            <animated.div
+              onMouseMove={({ clientX: x, clientY: y }) =>
+                set({ xys: calc(x, y) })
+              }
+              onMouseLeave={() => set({ xys: [0, 0, 1] })}
+              style={{ transform: props.xys.interpolate(trans) }}
+              className="hiring-img"
+            >
+              <img src={teamImg} />
+            </animated.div>
           </Grid>
           {meetTheTeamSection.teamMember.map((teamMember) => (
             <Grid
