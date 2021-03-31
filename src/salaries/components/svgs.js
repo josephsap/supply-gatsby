@@ -71,8 +71,8 @@ const SVGS = () => {
           className={styles.modalButton}
         >
           <img
-            src={`images/info-icon.svg`}
-            alt="hover for more info"
+            src={`/images/info-icon.svg`}
+            alt="click for more info"
             className={styles.infoTooltip}
           />
         </button>

@@ -131,7 +131,7 @@ const SalariesPage = (props) => {
                 color="primary"
                 className={styles.backBtn}
               >
-                <img src="images/arrow-back.svg" />
+                <img src="/images/arrow-back.svg" />
               </Button>
               <div className={styles.container}>
                 <SVGS />

@@ -49,7 +49,7 @@ const Ticker = () => {
           {`FACT OF THE DAY: ${fact}`}
         </span>
       </Typography>
-      <Typography variant="caption" className="marquee marquee2">
+      <Typography variant="caption" className="marquee">
         <span>
           {`${todayDate[0]}`}
           <div className="dot">&#10687;</div>

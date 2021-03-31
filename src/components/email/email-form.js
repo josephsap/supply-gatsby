@@ -253,7 +253,7 @@ const EmailForm = ({
                       onClick={() => setChecked(false)}
                       endIcon={
                         <img
-                          src={`images/arrow-left-email-btn.svg`}
+                          src={`/images/arrow-left-email-btn.svg`}
                           style={{ transform: 'rotate(180deg)' }}
                         />
                       }

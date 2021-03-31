@@ -131,7 +131,7 @@ const HeroSection = ({ heroSection }) => {
     };
   }, []);
 
-  console.log(showMdAndUp, '()()(**&&&');
+  console.log(boxPos, showMdAndUp, '()()(**&&&');
 
   const titleTransform = () => {
     const parts = headlineSegments;
@@ -182,7 +182,7 @@ const HeroSection = ({ heroSection }) => {
 
   return (
     <>
-      {showMdAndUp ? <Ticker /> : null}
+      {showMdAndUp && <Ticker />}
       <div
         style={{ position: 'relative', overflow: 'hidden' }}
         ref={wrapperRef}

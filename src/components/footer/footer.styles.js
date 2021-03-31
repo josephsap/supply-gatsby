@@ -48,6 +48,7 @@ const styles = (theme) => css`
   }
 
   .star {
+    margin-top: -4px;
     ${theme.breakpoints.down('sm')} {
       width: 100%;
       text-align: center;

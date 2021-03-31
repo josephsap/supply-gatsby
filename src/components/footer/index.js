@@ -23,7 +23,7 @@ const Footer = ({ footer }) => (
               if (index === 2)
                 return (
                   <li key={index} className="footer-item star">
-                    <img src={`images/star.svg`} />
+                    <img src={`/images/star.svg`} />
                   </li>
                 );
 

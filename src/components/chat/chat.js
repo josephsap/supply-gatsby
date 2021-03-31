@@ -90,7 +90,7 @@ const Chat = ({ state, onSendMessage, scrollToRef }) => {
                     onClick={() => setChecked(true)}
                     startIcon={
                       <img
-                        src={`images/arrow-left-email-btn.svg`}
+                        src={`/images/arrow-left-email-btn.svg`}
                         style={{ marginRight: 'auto' }}
                       />
                     }
@@ -148,7 +148,7 @@ const Chat = ({ state, onSendMessage, scrollToRef }) => {
                         onClick={() => setChecked(true)}
                         startIcon={
                           <img
-                            src={`images/arrow-left-email-btn.svg`}
+                            src={`/images/arrow-left-email-btn.svg`}
                             style={{ marginRight: 'auto' }}
                           />
                         }

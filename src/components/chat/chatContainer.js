@@ -81,7 +81,7 @@ const ChatContainer = ({ showChatModal, onClose }) => {
         color="primary"
         size="small"
         variant="text"
-        endIcon={<img src="images/closechaticon.svg" />}
+        endIcon={<img src="/images/closechaticon.svg" />}
       >
         {showMed && <Typography variant="body1">Close</Typography>}
       </Button>

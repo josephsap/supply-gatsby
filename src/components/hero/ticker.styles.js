@@ -3,6 +3,7 @@ import { css } from '@emotion/react';
 const styles = (theme) => css`
   overflow: hidden;
   background-color: ${theme.palette.supply.cream.main};
+  display: flex;
 
   .dot {
     font-size: 19px;
@@ -18,15 +19,12 @@ const styles = (theme) => css`
 
   .marquee {
     white-space: nowrap;
-  }
-
-  .marquee span {
     display: inline-block;
-    padding-left: 45%;
-    animation: marquee 19s linear infinite;
+    padding-right: 15%;
+    animation: marqueeMove 19s linear infinite;
   }
 
-  @keyframes marquee {
+  @keyframes marqueeMove {
     0% {
       transform: translate(0, 0);
     }

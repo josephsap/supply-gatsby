@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import { initiallyHidden } from '../shared/shared.styles';
 
 const styles = (theme) => css`
   .title-container {
@@ -16,6 +17,7 @@ const styles = (theme) => css`
     }
   }
   .why-us-title {
+    ${initiallyHidden}
     text-align: center;
     background-image: url('images/why-us-ellipse.svg');
     background-repeat: no-repeat;
@@ -57,6 +59,7 @@ const styles = (theme) => css`
   }
 
   .why-us-intro-title {
+    ${initiallyHidden}
     line-height: 1;
     display: flex;
     flex-direction: column;
@@ -90,6 +93,8 @@ const styles = (theme) => css`
     }
 
     img {
+      opacity: 0;
+      transform: translateY(150px);
       width: 100%;
       ${theme.breakpoints.down('md')} {
         border-bottom-right-radius: 16px;
@@ -99,11 +104,13 @@ const styles = (theme) => css`
   }
 
   .intro-copy {
+    ${initiallyHidden}
     padding: 1rem 4rem 4rem;
     text-align: center;
     ${theme.breakpoints.up('md')} {
       padding-right: 9rem;
       padding-left: 6.4rem;
+      padding-top: 4rem;
       text-align: left;
     }
   }
