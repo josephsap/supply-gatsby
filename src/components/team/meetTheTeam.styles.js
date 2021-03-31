@@ -6,6 +6,7 @@ const styles = (theme) => css`
 
   .team-section-title {
     position: relative;
+    margin-bottom: 6rem;
   }
 
   .profile-img {
