@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Container, Typography, Grid } from '@material-ui/core';
 import styles from './meetTheTeam.styles';
+import useScrollAnimation from '../../hooks/use-scroll-animation';
 import { useSpring, animated } from 'react-spring';
 
 const MeetTheTeamSection = ({ meetTheTeamSection }) => {
+  const wrapper = useRef(null);
+  const teamMemberRef = useRef(null);
+  const titleRef = useRef(null);
   const teamImg = meetTheTeamSection.wereHiringImage.file.url;
+
+  useScrollAnimation(wrapper, [teamMemberRef, titleRef]);
 
   const calc = (x, y) => [
     -(y - window.innerHeight / 2) / 20,
@@ -27,8 +33,8 @@ const MeetTheTeamSection = ({ meetTheTeamSection }) => {
       id="section6"
     >
       <Container maxWidth="lg" className="side-padding">
-        <Grid container>
-          <Grid item xs={12} className="team-section-title">
+        <Grid container ref={wrapper}>
+          <Grid item xs={12} className="team-section-title" ref={titleRef}>
             <Typography variant="h5" component="h2">
               {meetTheTeamSection.title}
             </Typography>
@@ -43,31 +49,33 @@ const MeetTheTeamSection = ({ meetTheTeamSection }) => {
               <img src={teamImg} />
             </animated.div>
           </Grid>
-          {meetTheTeamSection.teamMember.map((teamMember) => (
-            <Grid
-              item
-              xs={12}
-              md={4}
-              key={teamMember.id}
-              className="teammate-container"
-            >
-              <div className="profile-img">
-                <img src={teamMember.profileImage.file.url} />
-              </div>
-              <Typography variant="h6" className="teammate-name">
-                {teamMember.name}
-              </Typography>
-              <Typography variant="body1">{teamMember.bio.bio}</Typography>
-              <a
-                href={teamMember.linkedinLink}
-                target="_blank"
-                rel="noopener"
-                className="linkedin-icon"
+          <div className="member-wrapper" ref={teamMemberRef}>
+            {meetTheTeamSection.teamMember.map((teamMember) => (
+              <Grid
+                item
+                xs={12}
+                md={4}
+                key={teamMember.id}
+                className="teammate-container"
               >
-                <img src={teamMember.linkedinIcon.file.url} />
-              </a>
-            </Grid>
-          ))}
+                <div className="profile-img">
+                  <img src={teamMember.profileImage.file.url} />
+                </div>
+                <Typography variant="h6" className="teammate-name">
+                  {teamMember.name}
+                </Typography>
+                <Typography variant="body1">{teamMember.bio.bio}</Typography>
+                <a
+                  href={teamMember.linkedinLink}
+                  target="_blank"
+                  rel="noopener"
+                  className="linkedin-icon"
+                >
+                  <img src={teamMember.linkedinIcon.file.url} />
+                </a>
+              </Grid>
+            ))}
+          </div>
         </Grid>
         <Grid item xs={12}>
           <Typography variant="body1">

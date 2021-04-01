@@ -1,10 +1,12 @@
 import { css } from '@emotion/react';
+import { initiallyHidden } from '../shared/shared.styles';
 
 const styles = (theme) => css`
   text-align: center;
   background-color: ${theme.palette.supply.seaGreen.main};
 
   .team-section-title {
+    ${initiallyHidden}
     position: relative;
     margin-bottom: 6rem;
   }
@@ -19,6 +21,11 @@ const styles = (theme) => css`
       width: 270px;
       height: 270px;
     }
+  }
+
+  .member-wrapper {
+    ${initiallyHidden}
+    display: flex;
   }
 
   .teammate-container {

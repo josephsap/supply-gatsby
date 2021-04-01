@@ -1,6 +1,10 @@
 import { css } from '@emotion/react';
+import { initiallyHidden } from '../shared/shared.styles';
 
 const styles = (theme) => css`
+  .tools-description {
+    ${initiallyHidden}
+  }
   .tools-header-border {
     border: 3px solid;
     text-align: center;
@@ -21,6 +25,7 @@ const styles = (theme) => css`
   }
 
   .tool-item-container {
+    ${initiallyHidden}
     text-align: center;
     ${theme.breakpoints.up('md')} {
       text-align: left;
