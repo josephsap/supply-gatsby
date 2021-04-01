@@ -131,8 +131,6 @@ const HeroSection = ({ heroSection }) => {
     };
   }, []);
 
-  console.log(boxPos, showMdAndUp, '()()(**&&&');
-
   const titleTransform = () => {
     const parts = headlineSegments;
 

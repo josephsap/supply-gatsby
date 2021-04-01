@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { Container, Grid, Typography } from '@material-ui/core';
 import styles from './tools.styles';
-import { pb25, pt45, pb4, mt6 } from '../layout/margin-padding-utils.styles';
+import { pb25, pb4, mt6 } from '../layout/margin-padding-utils.styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ToolsSection = ({ toolsSection }) => {
   const reg = new RegExp(/\s/g, '');
@@ -12,15 +16,18 @@ const ToolsSection = ({ toolsSection }) => {
   const hideMed = useMediaQuery(theme.breakpoints.down('md'));
   const showMed = useMediaQuery(theme.breakpoints.up('lg'));
 
+  const title = useRef(null);
+  const containerRef = useRef(null);
+
   const titleTransform = () => {
     return (
       <>
         {parts.map((part, index) => {
           if (index === 2)
             return (
-              <div key={index} className="line-separator">
-                <span>{` \u2014\u2014\u2014 `}</span>
-                {part}
+              <div key={index}>
+                <span className="line"></span>
+                <div>{part}</div>
               </div>
             );
           return <div key={index}>{part}</div>;
@@ -28,6 +35,17 @@ const ToolsSection = ({ toolsSection }) => {
       </>
     );
   };
+
+  useEffect(() => {
+    gsap.from(title.current, {
+      scrollTrigger: {
+        start: '+=120',
+        end: '+=1500',
+        trigger: containerRef.current,
+        toggleClass: 'line-animate',
+      },
+    });
+  }, []);
 
   return (
     <Container maxWidth={false} className="section-padding" id="section7">
@@ -40,7 +58,7 @@ const ToolsSection = ({ toolsSection }) => {
             className="tools-header-border"
             css={pb4}
           >
-            <Grid item xs={12}>
+            <Grid item xs={12} ref={containerRef}>
               <Typography
                 variant="h5"
                 component="h2"

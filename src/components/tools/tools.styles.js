@@ -20,18 +20,6 @@ const styles = (theme) => css`
     }
   }
 
-  .line-separator {
-    span {
-      letter-spacing: -15px;
-      margin: 0 3rem 0 0;
-      font-family: helvetica, sans-serif;
-      ${theme.breakpoints.down(theme.breakpoints.values.lg - 14)} {
-        font-size: 0;
-        margin: 0 1.5rem;
-      }
-    }
-  }
-
   .tool-item-container {
     text-align: center;
     ${theme.breakpoints.up('md')} {
@@ -45,6 +33,32 @@ const styles = (theme) => css`
 
   .tool-link {
     margin-top: 1.1rem;
+  }
+
+  .line {
+    height: 3px;
+    width: 0px;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: #000;
+    overflow: hidden;
+    opacity: 0;
+    margin: 0 1rem;
+    transition: all 0.5s ease;
+    transform: translate(0%, 0); /*Add this*/
+  }
+
+  .line-animate {
+    .line {
+      height: 5px;
+      width: 200px;
+      opacity: 1;
+      background-color: #000;
+      color: #000;
+      -webkit-transition: all 0.8s ease;
+      -moz-transition: all 0.8s ease;
+      transition: all 0.8s ease;
+    }
   }
 `;
 
