@@ -35,7 +35,7 @@ const NetworkSection = ({ networkSection }) => {
   );
   const backgroundStars = useRef(stars.map(() => createRef()));
 
-  useScrollAnimation(titleRef, [titleRef, descRef], null, { delay: 1.5 });
+  useScrollAnimation(titleRef, [titleRef, descRef]);
 
   useEffect(() => {
     //set up the timeline animations using scroll trigger

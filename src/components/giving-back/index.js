@@ -11,7 +11,7 @@ const GivingBackSection = ({ givingBackSection }) => {
   const leftSide = useRef(null);
   const rightSide = useRef(null);
 
-  useScrollAnimation(leftSide, [leftSide, rightSide], null, { delay: 1 });
+  useScrollAnimation(leftSide, [leftSide, rightSide]);
 
   return (
     <Container maxWidth={false} className="section-padding" id="section4">
