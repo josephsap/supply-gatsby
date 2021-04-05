@@ -25,14 +25,16 @@ const reCaptchaKey = process.env.RECAPTCHA_KEY;
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
-    .email('Sorry, that email is invalid. Check the format and try again.')
+    .email('Invalid email address.')
     .required('Email address is required')
     .label('Email'),
-  name: Yup.string().min(2).required('Please enter your name').label('Name'),
-  message: Yup.string()
+  name: Yup.string()
     .min(2)
-    .required('Please enter a message')
-    .label('Message'),
+    .required('Please enter your name')
+    .label('Name'),
+  resumeLink: Yup.string()
+    .min(2)
+    .required('Please enter a link to your site or Linkedin profile.'),
 });
 
 // get shaz to add localhost:8000 and supply-gatsby.herokuapp.com
@@ -60,19 +62,6 @@ const EmailForm = ({
           locations: [],
         }}
         validationSchema={validationSchema}
-        validate={(values) => {
-          const errors = {};
-
-          if (!values.email) {
-            errors.email = 'Required';
-          } else if (
-            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-          ) {
-            errors.email = 'Invalid email address';
-          }
-
-          return errors;
-        }}
         onSubmit={async (values, actions) => {
           actions.setSubmitting(true);
           await onEmailFormSubmit(values, actions);
@@ -108,6 +97,15 @@ const EmailForm = ({
                     label="Your name"
                     color="secondary"
                   />
+                  {errors.name && touched.name && errors.name && (
+                    <Typography
+                      variant="caption"
+                      color="error"
+                      style={{ marginTop: '-2rem' }}
+                    >
+                      {errors.name && touched.name && errors.name}
+                    </Typography>
+                  )}
                   <TextField
                     type="email"
                     name="email"
@@ -117,8 +115,16 @@ const EmailForm = ({
                     label="Email address"
                     color="secondary"
                   />
+                  {errors.name && touched.name && errors.name && (
+                    <Typography
+                      variant="caption"
+                      color="error"
+                      style={{ marginTop: '-2rem' }}
+                    >
+                      {errors.email && touched.email && errors.email}
+                    </Typography>
+                  )}
 
-                  {errors.email && touched.email && errors.email}
                   <TextField
                     type="resumeLink"
                     name="resumeLink"
@@ -127,6 +133,19 @@ const EmailForm = ({
                     value={values.resumeLink}
                     label="Link to Resumé/Portfolio"
                   />
+                  {errors.resumeLink &&
+                    touched.resumeLink &&
+                    errors.resumeLink && (
+                      <Typography
+                        variant="caption"
+                        color="error"
+                        style={{ marginTop: '-2rem' }}
+                      >
+                        {errors.resumeLink &&
+                          touched.resumeLink &&
+                          errors.resumeLink}
+                      </Typography>
+                  )}
                   <TextareaAutosize
                     type="message"
                     name="message"
@@ -135,10 +154,10 @@ const EmailForm = ({
                     onBlur={handleBlur}
                     value={values.message}
                     placeholder="Message"
-                    multiline
                     label="Message"
                     className="msg-textarea"
                   />
+                  <input type="text" name="_gotcha" style={{display: 'none'}} />
                 </div>
               </div>
 
@@ -154,7 +173,7 @@ const EmailForm = ({
                       </Typography>
                     </div>
                   ) : (
-                    <>
+                    <div>
                       <FormControl component="fieldset">
                         <Typography variant="h4" className="select-headline">
                           You want
@@ -225,7 +244,7 @@ const EmailForm = ({
                           ))}
                         </FormGroup>
                       </FormControl>
-                    </>
+                    </div>
                   )}
                 </div>
 
