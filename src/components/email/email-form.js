@@ -101,7 +101,7 @@ const EmailForm = ({
               name="supply-email-form"
               onSubmit={handleSubmit}
             >
-              <input type="hidden" name="email-form" value="supply-email-form" />
+              <input type="hidden" name="form-name" value="supply-email-form" />
               <div css={chatBaseStyles} className="form-item-left">
                 <div>
                   <Typography variant="h5">{emailFormData.title}</Typography>
