@@ -1,9 +1,13 @@
-import React, { useRef, createRef } from 'react';
+import React, { useEffect, useRef, createRef } from 'react';
 import { Container, Typography, Grid } from '@material-ui/core';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import useScrollAnimation from '../../hooks/use-scroll-animation';
 import styles from './services.styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Services = ({ servicesSection }) => {
   const reg = new RegExp(/\s/g, '');
@@ -14,15 +18,25 @@ const Services = ({ servicesSection }) => {
 
   //scroll trigger animation
   const wrapper = useRef(null);
-  const headline = useRef(null);
   const description = useRef(null);
+  const titleRef = useRef(null);
   const items = useRef(servicesSection.serviceItem.map(() => createRef()));
 
-  useScrollAnimation(wrapper, [headline, description]);
+  useScrollAnimation(wrapper, [description]);
 
   items.current.forEach((item) => {
     useScrollAnimation(item, [item]);
   });
+
+  useEffect(() => {
+    gsap.from(titleRef.current, {
+      scrollTrigger: {
+        trigger: titleRef.current,
+        start: 'top center',
+        toggleClass: 'line-animate',
+      },
+    });
+  }, []);
 
   const titleTransform = () => {
     return (
@@ -31,16 +45,16 @@ const Services = ({ servicesSection }) => {
           if (index === 0) return <div key={index}>{part}</div>;
           if (index === 1)
             return (
-              <div key={index} className="line-separator">
-                <span>{` \u2014\u2014\u2014 `}</span>
-                {part}
+              <div key={index}>
+                <span className="line"></span>
+                <div>{part}</div>
               </div>
             );
           if (index === 2)
             return (
-              <div key={index} className="line-separator">
-                <span>{` \u2014\u2014\u2014 `}</span>
-                {part}
+              <div key={index}>
+                <span className="line"></span>
+                <div>{part}</div>
               </div>
             );
         })}
@@ -69,7 +83,7 @@ const Services = ({ servicesSection }) => {
               variant="h5"
               component="h2"
               className="hww-title"
-              ref={headline}
+              ref={titleRef}
             >
               {hideMed && servicesSection.title}
               {showMed && titleTransform()}

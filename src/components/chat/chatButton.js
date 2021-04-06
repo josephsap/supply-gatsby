@@ -22,7 +22,6 @@ const ChatButton = () => {
       </Button>
       {showChatModal && (
         <ChatContainer
-          setShowChatModal={setShowChatModal}
           showChatModal={showChatModal}
           onClose={handleClose}
         />

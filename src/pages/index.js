@@ -84,11 +84,6 @@ export const PAGE_DATA_QUERY = graphql`
         rightSideCopy
       }
       orgsModalLinkText
-      orgsModalCopy {
-        childMarkdownRemark {
-          html
-        }
-      }
       badges {
         id
         file {

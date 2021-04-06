@@ -50,7 +50,7 @@ const styles = (theme) => css`
     opacity: 0;
     margin: 0 1rem;
     transition: all 0.5s ease;
-    transform: translate(0%, 0); /*Add this*/
+    transform: translate(0%, 0);
   }
 
   .line-animate {

@@ -185,7 +185,7 @@ const styles = (theme) => css`
   .category-item-title {
     font-size: 1.3rem;
     ${theme.breakpoints.up('md')} {
-      font-size: 2rem;
+      font-size: 1.5rem;
       line-height: 1.4;
     }
   }

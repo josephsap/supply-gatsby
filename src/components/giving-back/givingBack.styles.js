@@ -49,6 +49,7 @@ const styles = (theme) => css`
     &::after {
       width: 100%;
       height: 100%;
+      z-index: -1;
     }
 
     &::before {
@@ -57,7 +58,7 @@ const styles = (theme) => css`
       border-radius: 20px;
       transition: width 0.5s ease-out,
         // Width expands first
-        height 0.5s ease-out 0.5s; // And then height
+          height 0.5s ease-out 0.5s; // And then height
     }
 
     &::after {
@@ -67,9 +68,9 @@ const styles = (theme) => css`
       border-radius: 20px;
       transition: border-color 0s ease-out 0.5s,
         // Wait for ::before to finish before showing border
-        width 0.5s ease-out 0.5s,
+          width 0.5s ease-out 0.5s,
         // And then expanding width
-        height 0.5s ease-out 0.75s; // And finally height
+          height 0.5s ease-out 0.75s; // And finally height
     }
 
     // Change colors
@@ -81,13 +82,14 @@ const styles = (theme) => css`
     &::after {
       border-bottom-color: ${theme.palette.text.primary};
       border-left-color: ${theme.palette.text.primary};
-      transition: // Animate height first, then width
-        height 0.5s ease-out, width 0.5s ease-out 0.5s;
+      transition: // Animate height first, then width height 0.5s ease-out, width 0.5s ease-out 0.5s;
     }
   }
   .giving-back-section {
     ${initiallyHidden}
     text-align: center;
+    display: flex;
+    flex-direction: column;
     ${theme.breakpoints.up('md')} {
       ${pr4};
       text-align: left;
@@ -145,6 +147,17 @@ const styles = (theme) => css`
   .copy-right {
     ${theme.breakpoints.down('md')} {
       text-align: center;
+    }
+  }
+
+  .modal-link {
+    margin-top: auto;
+    color: #bb9cfe;
+    cursor: pointer;
+    transition: 0.25s ease;
+    &:hover {
+      color: #cab1ff;
+      transition: 0.25s ease;
     }
   }
 `;

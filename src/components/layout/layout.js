@@ -15,6 +15,12 @@ const muiTheme = {
   overrides: {
     ...theme.overrides,
     MuiTypography: {
+      h1: {
+        [theme.breakpoints.up('md')]: {
+          fontSize: '9rem',
+          lineHeight: '10rem',
+        },
+      },
       h2: {
         [theme.breakpoints.up('sm')]: {
           fontSize: '7.2rem',

@@ -111,14 +111,11 @@ const styles = (theme) => css`
   }
 
   .btn-container {
-    ${'' /* ${theme.breakpoints.down('sm')} { */}
     max-width: 45%;
-    ${'' /* margin-right: 2.2rem; */}
-    ${'' /* } */}
     &:nth-of-type(2) {
       margin-left: auto;
       .MuiButton-endIcon {
-        ${theme.breakpoints.down('sm')} {
+        ${theme.breakpoints.down('lg')} {
           display: none;
         }
       }

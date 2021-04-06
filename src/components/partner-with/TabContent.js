@@ -5,6 +5,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 
 import IconArrow from '../../assets/svg/icon-arrow.inline.svg';
+import ExamplesDialog from './examplesDialog';
 
 const TabContent = forwardRef(
   (
@@ -16,6 +17,16 @@ const TabContent = forwardRef(
 
     const theme = useTheme();
     const showItems = useMediaQuery(theme.breakpoints.down('sm'));
+
+    const [showWorkModal, setShowWorkModal] = useState(false);
+
+    const handleOpen = () => {
+      setShowWorkModal(true);
+    };
+
+    const handleClose = () => {
+      setShowWorkModal(false);
+    };
 
     function renderCategoryItems() {
       return items.map((item, i) => {
@@ -84,9 +95,12 @@ const TabContent = forwardRef(
           </Typography>
           <Typography variant="body1" component="span" className="category-cta">
             <IconArrow />
-            <em>View work examples</em>
+            <em onClick={handleOpen}>View work examples</em>
           </Typography>
         </div>
+        {showWorkModal && (
+          <ExamplesDialog onClose={handleClose} showWorkModal={showWorkModal} />
+        )}
         <div className="category-items-container">
           {renderCategoryItems()}
           <div className="category-icons">{renderCategoryIcons()}</div>

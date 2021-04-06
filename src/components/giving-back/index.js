@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { Container, Typography, Grid, Box } from '@material-ui/core';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -6,6 +6,7 @@ import styles, { baseStyles, drawStyles } from './givingBack.styles';
 import useScrollAnimation from '../../hooks/use-scroll-animation';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
+import OrgsSupportedDialog from './orgsSupported';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,11 +23,22 @@ const GivingBackSection = ({ givingBackSection }) => {
     gsap.from(drawRef.current, {
       scrollTrigger: {
         trigger: drawRef.current,
-        start: 'top +=150 center',
+        start: 'top 60%',
+        end: 'bottom top',
         toggleClass: 'draw',
       },
     });
   }, []);
+
+  const [showOrgsModal, setShowOrgsModal] = useState(false);
+
+  const handleOpen = () => {
+    setShowOrgsModal(true);
+  };
+
+  const handleClose = () => {
+    setShowOrgsModal(false);
+  };
 
   return (
     <Container maxWidth={false} className="section-padding" id="section4">
@@ -46,7 +58,7 @@ const GivingBackSection = ({ givingBackSection }) => {
               <Typography variant="body1">
                 {givingBackSection.leftSideCopy.leftSideCopy}
               </Typography>
-              <Typography variant="body1">
+              <Typography variant="body1" className="modal-link">
                 {givingBackSection.orgsModalLinkText}
               </Typography>
             </Grid>
@@ -68,7 +80,9 @@ const GivingBackSection = ({ givingBackSection }) => {
                   {givingBackSection.rightSideTitle}
                 </Typography>
               </Box>
-              {/* <div ref={wrapper}></div> */}
+              {showOrgsModal && (
+                <ExamplesDialog onClose={handleClose} showOrgsModal={showOrgsModal} />
+              )}
               <Typography variant="body1" className="copy-right">
                 {givingBackSection.rightSideCopy.rightSideCopy}
               </Typography>

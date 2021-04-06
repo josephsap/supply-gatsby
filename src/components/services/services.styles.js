@@ -5,7 +5,6 @@ const styles = (theme) => css`
   background-color: ${theme.palette.supply.goldLeather.main};
 
   //pre-animated in styles
-  .hww-title,
   .hww-description,
   .service-item {
     ${initiallyHidden}
@@ -23,7 +22,33 @@ const styles = (theme) => css`
     }
   }
 
-  .line-separator {
+  .line {
+    height: 3px;
+    width: 0px;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: #000;
+    overflow: hidden;
+    opacity: 0;
+    margin: 0 1rem;
+    transition: all 0.5s ease;
+    transform: translate(0%, 0);
+  }
+
+  .line-animate {
+    .line {
+      height: 5px;
+      width: 200px;
+      opacity: 1;
+      background-color: #000;
+      color: #000;
+      -webkit-transition: all 0.8s ease;
+      -moz-transition: all 0.8s ease;
+      transition: all 0.8s ease;
+    }
+  }
+
+  ${'' /* .line-separator {
     span {
       letter-spacing: -15px;
       margin: 0 2.5rem;
@@ -33,7 +58,7 @@ const styles = (theme) => css`
         margin: 0 1.5rem;
       }
     }
-  }
+  } */}
 
   .items-container {
     border-top: 3px solid;
