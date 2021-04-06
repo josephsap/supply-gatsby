@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -48,6 +48,7 @@ const EmailForm = ({
   onEmailFormSubmit,
   serverState,
 }) => {
+  const formRef = useRef(null);
   return (
     <Formik
       initialValues={{
@@ -64,7 +65,7 @@ const EmailForm = ({
         fetch('/?no-cache=1', {
           method: 'POST',
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: encode({ 'form-name': 'supply-email-form', ...values }),
+          body: encode({ 'form-name': 'contact', ...values }),
         })
           .then((response) => {
             console.log(response, 'ressss');
@@ -88,12 +89,14 @@ const EmailForm = ({
       }) => (
         <div css={styles}>
           <form
+            ref={formRef}
             className="form-wrapper"
             data-netlify="true"
-            name="supply-email-form"
+            data-netlify-honeypot="bot-field"
+            name="contact"
             onSubmit={handleSubmit}
           >
-            <input type="hidden" name="form-name" value="supply-email-form" />
+            <input type="hidden" name="form-name" value="contact" />
             <div css={chatBaseStyles} className="form-item-left">
               <div>
                 <Typography variant="h5">{emailFormData.title}</Typography>
