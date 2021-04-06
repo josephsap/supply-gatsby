@@ -31,7 +31,7 @@ const EmailContainer = ({ setChecked }) => {
     })
       .then((response) => {
         console.log(response, 'ressss');
-        alert('Success!');
+   
       })
       .catch((error) => alert(error));
 
@@ -101,7 +101,7 @@ const EmailContainer = ({ setChecked }) => {
       emailFormData={contentfulEmailForm}
       skills={skillsJson}
       locations={locationsJson}
-      onEmailFormSubmit={handleEmailFormSubmit}
+      // onEmailFormSubmit={handleEmailFormSubmit}
       serverState={serverState}
       // onVerifyRecaptcha={handleReCaptchaVerify}
     />

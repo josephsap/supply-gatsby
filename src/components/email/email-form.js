@@ -1,5 +1,5 @@
 import React from 'react';
-import { Formik } from 'formik';
+import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import {
   FormControl,
@@ -22,6 +22,12 @@ import { chatBaseStyles } from '../chat/chat.styles';
 import styles from './email-form.styles';
 
 const reCaptchaKey = process.env.RECAPTCHA_KEY;
+
+const encode = (data) => {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
+};
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -62,10 +68,22 @@ const EmailForm = ({
           locations: [],
         }}
         validationSchema={validationSchema}
-        onSubmit={async (values, actions) => {
-          actions.setSubmitting(true);
-          await onEmailFormSubmit(values, actions);
+        onSubmit={(values, actions) => {
+          fetch('/?no-cache=1', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: encode({ 'form-name': 'supply-email-form', ...values }),
+          })
+            .then((response) => {
+              console.log(response, 'ressss');
+              alert('Success!');
+            })
+            .catch((error) => alert(error));
         }}
+        // onSubmit={async (values, actions) => {
+        //   actions.setSubmitting(true);
+        //   await onEmailFormSubmit(values, actions);
+        // }}
       >
         {({
           values,
@@ -78,13 +96,12 @@ const EmailForm = ({
         }) => (
           <div css={styles}>
             <form
-              onSubmit={handleSubmit}
               className="form-wrapper"
               data-netlify="true"
-              data-netlify-honeypot="bot-field"
               name="supply-email-form"
+              onSubmit={handleSubmit}
             >
-              <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="email-form" value="supply-email-form" />
               <div css={chatBaseStyles} className="form-item-left">
                 <div>
                   <Typography variant="h5">{emailFormData.title}</Typography>
@@ -164,11 +181,6 @@ const EmailForm = ({
                     label="Message"
                     className="msg-textarea"
                   />
-                  <input
-                    type="text"
-                    name="_gotcha"
-                    style={{ display: 'none' }}
-                  />
                 </div>
               </div>
 
@@ -210,7 +222,7 @@ const EmailForm = ({
                           />
                         </RadioGroup>
                       </FormControl>
-                      {/* skills section */}
+
                       <FormControl component="fieldset">
                         <Typography variant="h4" className="select-headline">
                           with skills
@@ -233,7 +245,6 @@ const EmailForm = ({
                         </FormGroup>
                       </FormControl>
 
-                      {/* location section */}
                       <FormControl component="fieldset">
                         <Typography variant="h4" className="select-headline">
                           in this area
