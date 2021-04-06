@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { Formik, Form } from 'formik';
+import React from 'react';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
 import {
   FormControl,
@@ -17,12 +17,6 @@ import {
 import { chatBaseStyles } from '../chat/chat.styles';
 import styles from './email-form.styles';
 
-const encode = (data) => {
-  return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&');
-};
-
 const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email('Invalid email address.')
@@ -37,9 +31,6 @@ const validationSchema = Yup.object().shape({
     .required('Please enter a link to your site or Linkedin profile.'),
 });
 
-// get shaz to add localhost:8000 and supply-gatsby.herokuapp.com
-// to recaptcha sites http://localhost:8000/
-
 const EmailForm = ({
   setChecked,
   emailFormData,
@@ -48,7 +39,6 @@ const EmailForm = ({
   onEmailFormSubmit,
   serverState,
 }) => {
-  const formRef = useRef(null);
   return (
     <Formik
       initialValues={{
@@ -61,22 +51,10 @@ const EmailForm = ({
         locations: [],
       }}
       validationSchema={validationSchema}
-      onSubmit={(values, actions) => {
-        fetch('/?no-cache=1', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: encode({ 'form-name': 'contact', ...values }),
-        })
-          .then((response) => {
-            console.log(response, 'ressss');
-            alert('Success!');
-          })
-          .catch((error) => alert(error));
+      onSubmit={async (values, actions) => {
+        actions.setSubmitting(true);
+        await onEmailFormSubmit(values, actions);
       }}
-      // onSubmit={async (values, actions) => {
-      //   actions.setSubmitting(true);
-      //   await onEmailFormSubmit(values, actions);
-      // }}
     >
       {({
         values,
@@ -88,17 +66,9 @@ const EmailForm = ({
         isSubmitting,
       }) => (
         <div css={styles}>
-          <form
-            ref={formRef}
-            className="form-wrapper"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            name="contact"
-            onSubmit={handleSubmit}
-          >
-            <input type="hidden" name="form-name" value="contact" />
-            <input type="hidden" name="bot-field" />
+          <form onSubmit={handleSubmit} className="form-wrapper">
             <div css={chatBaseStyles} className="form-item-left">
+              <input type="text" name="_gotcha" style={{display: "none"}} />
               <div>
                 <Typography variant="h5">{emailFormData.title}</Typography>
                 <Typography variant="body1" className="form-copy">
@@ -175,6 +145,7 @@ const EmailForm = ({
                   label="Message"
                   className="msg-textarea"
                 />
+                <input type="text" name="_gotcha" style={{ display: 'none' }} />
               </div>
             </div>
 
@@ -216,7 +187,7 @@ const EmailForm = ({
                         />
                       </RadioGroup>
                     </FormControl>
-
+                    {/* skills section */}
                     <FormControl component="fieldset">
                       <Typography variant="h4" className="select-headline">
                         with skills
@@ -239,6 +210,7 @@ const EmailForm = ({
                       </FormGroup>
                     </FormControl>
 
+                    {/* location section */}
                     <FormControl component="fieldset">
                       <Typography variant="h4" className="select-headline">
                         in this area
