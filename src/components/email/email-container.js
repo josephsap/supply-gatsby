@@ -13,29 +13,49 @@ const EmailContainer = ({ setChecked }) => {
     setServerState({ ok, msg });
   };
 
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
+      )
+      .join('&');
+  };
+
   const handleEmailFormSubmit = (values, actions) => {
     // e.preventDefault();
     console.log('submit stuff', values, '0000', actions);
-    axios
-      .post('https://formspree.io/f/xyylgenv', values, {
-        headers: { Accept: 'application/json' },
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ 'form-name': 'supply-email-form', ...values }),
+    })
+      .then((response) => {
+        console.log(response, 'ressss');
+        alert('Success!');
       })
-      .then(function (response) {
-        actions.setSubmitting(false);
-        actions.resetForm();
-        handleServerResponse(
-          true,
-          'Thanks! We will review your email and get back to you shortly.'
-        );
-      })
-      .catch(function (error) {
-        console.log(error.response.data.error);
-        actions.setSubmitting(false);
-        handleServerResponse(
-          false,
-          'There has been an error. Please refresh the page and try again later.'
-        );
-      });
+      .catch((error) => alert(error));
+
+    // axios
+    //   .post('/', formBody, {
+    //     headers: { Accept: 'application/x-www-form-urlencoded' },
+    //   })
+    //   .then(function(response) {
+    //     console.log(response, 'hiohohihioho');
+    //     actions.setSubmitting(false);
+    //     actions.resetForm();
+    //     handleServerResponse(
+    //       true,
+    //       'Thanks! We will review your email and get back to you shortly.'
+    //     );
+    //   })
+    //   .catch(function(error) {
+    //     console.log(error.response.data.error);
+    //     actions.setSubmitting(false);
+    //     handleServerResponse(
+    //       false,
+    //       'There has been an error. Please refresh the page and try again later.'
+    //     );
+    //   });
   };
 
   // const handleReCaptchaVerify = useCallback(
