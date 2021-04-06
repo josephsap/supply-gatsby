@@ -13,13 +13,6 @@ const EmailContainer = ({ setChecked }) => {
     setServerState({ ok, msg });
   };
 
-  const encode = (data) => {
-    return Object.keys(data)
-      .map(
-        (key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
-      )
-      .join('&');
-  };
 
   const handleEmailFormSubmit = (values, actions) => {
     // e.preventDefault();
