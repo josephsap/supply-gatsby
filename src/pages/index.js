@@ -221,6 +221,7 @@ const Home = ({ data }) => {
         <input type="text" name="resumeLink" />
         <textarea name="message"></textarea>
         <input type="radio" name="want"></input>
+        <input type="radio" name="want"></input>
         <input type="checkbox" name="skills"></input>
         <input type="checkbox" name="locations"></input>
       </form>
