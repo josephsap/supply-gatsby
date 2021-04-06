@@ -97,6 +97,7 @@ const EmailForm = ({
             onSubmit={handleSubmit}
           >
             <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="bot-field" />
             <div css={chatBaseStyles} className="form-item-left">
               <div>
                 <Typography variant="h5">{emailFormData.title}</Typography>

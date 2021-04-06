@@ -215,6 +215,15 @@ const Home = ({ data }) => {
       <MeetTheTeamSection meetTheTeamSection={contentfulMeetTheTeam} />
       <ToolsSection toolsSection={contentfulTools} />
       <Footer footer={contentfulFooter} />
+      <form name="contact" netlify="true" netlify-honeypot="bot-field" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="text" name="resumeLink" />
+        <textarea name="message"></textarea>
+        <input type="radio" name="want"></input>
+        <input type="checkbox" name="skills"></input>
+        <input type="checkbox" name="locations"></input>
+      </form>
     </Layout>
   );
 };
