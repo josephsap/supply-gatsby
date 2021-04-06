@@ -220,10 +220,15 @@ const Home = ({ data }) => {
         <input type="email" name="email" />
         <input type="text" name="resumeLink" />
         <textarea name="message"></textarea>
-        <input type="radio" name="want"></input>
-        <input type="radio" name="want"></input>
-        <input type="checkbox" name="skills"></input>
-        <input type="checkbox" name="locations"></input>
+        <label>
+          <input type="radio" name="want"></input>
+        </label>
+        <label>
+          <input type="checkbox" name="skills"></input>
+        </label>
+        <label>
+          <input type="checkbox" name="locations"></input>
+        </label>
       </form>
     </Layout>
   );
