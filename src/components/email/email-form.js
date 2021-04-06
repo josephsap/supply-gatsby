@@ -79,6 +79,7 @@ const EmailForm = ({
           <div css={styles}>
             <form onSubmit={handleSubmit} className="form-wrapper">
               <div css={chatBaseStyles} className="form-item-left">
+                <input type="text" name="_gotcha" style="display:none" />
                 <div>
                   <Typography variant="h5">{emailFormData.title}</Typography>
                   <Typography variant="body1" className="form-copy">
@@ -145,7 +146,7 @@ const EmailForm = ({
                           touched.resumeLink &&
                           errors.resumeLink}
                       </Typography>
-                  )}
+                    )}
                   <TextareaAutosize
                     type="message"
                     name="message"
@@ -157,7 +158,11 @@ const EmailForm = ({
                     label="Message"
                     className="msg-textarea"
                   />
-                  <input type="text" name="_gotcha" style={{display: 'none'}} />
+                  <input
+                    type="text"
+                    name="_gotcha"
+                    style={{ display: 'none' }}
+                  />
                 </div>
               </div>
 
