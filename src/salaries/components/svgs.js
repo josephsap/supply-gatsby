@@ -3,18 +3,20 @@ import { useSpring, animated } from 'react-spring';
 import * as styles from '../styles/svgs.module.scss';
 import '../styles/svgs.scss';
 import CloseIcon from '@material-ui/icons/Close';
-import Backdrop from '@material-ui/core/Backdrop';
 import { makeStyles } from '@material-ui/core/styles';
-import { Typography, Modal } from '@material-ui/core';
+import { Typography, Modal, Backdrop } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
-    maxWidth: '555px',
-    width: '90%',
+    padding: '9rem 8rem',
+    borderRadius: '20px',
+    border: '3px solid',
+    maxWidth: '80%',
     margin: '0 auto',
     outline: 'none',
+    position: 'relative',
   },
   root: {
     outline: 'none',
@@ -91,15 +93,15 @@ const SVGS = () => {
       >
         <Fade in={open} className={classes.root}>
           <div className={classes.paper}>
-            <div className={styles.modalTop}>
-              <p>What is this?</p>
-              <CloseIcon
-                onClick={handleClose}
-                className={styles.modalCloseIcon}
-              />
-            </div>
+            <div onClick={handleClose} className={styles.modalCloseIcon}>
+              Close
+              <CloseIcon />
+            </div>{' '}
+            <Typography className={styles.modalHeadline} variant="h3">
+              What is this?
+            </Typography>
             <div className={styles.modalInner}>
-              <p id="spring-modal-description">
+              <Typography variant="body1" id="spring-modal-description">
                 Hey, thanks for stopping by. This is just a quick little tool
                 that gives some rough salary ranges in the industry/world we are
                 familiar with. We get asked about this all the time, figured
@@ -116,7 +118,7 @@ const SVGS = () => {
                   hi@thesupply.com
                 </a>{' '}
                 - Thanks
-              </p>
+              </Typography>
             </div>
           </div>
         </Fade>

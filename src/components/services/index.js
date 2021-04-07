@@ -110,6 +110,17 @@ const Services = ({ servicesSection }) => {
                 <Typography variant="h4">{item.title}</Typography>
                 <Typography variant="body1" className="service-item-copy">
                   {item.description.description}
+                  {item.link && item.linkText && (
+                    <a
+                      href={item.link}
+                      style={{ marginLeft: '0.5rem', color: '#162C29' }}
+                      target="_blank"
+                      rel="noopener"
+                    >
+                      {item.linkText}
+                    </a>
+                  )}
+                  .
                 </Typography>
               </Grid>
             ))}

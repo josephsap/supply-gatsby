@@ -22,24 +22,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
-.modalTop {
-  background: black;
-  display: flex;
-  padding: 0 20px;
-  p {
-    color: white;
-    font-size: 20px;
-    flex: 1 0 80%;
-  }
+.modalHeadline {
+  margin-bottom: 3rem;
 }
 
 .modalCloseIcon {
-  align-self: center;
-  color: white;
+  position: absolute;
+  top: 44px;
+  right: 0;
+  transform: rotate(-90deg);
   cursor: pointer;
-  flex: 1 0 0;
+  svg {
+    vertical-align: middle;
+    margin-left: 10px;
+  }
 }
 
 .modalInner {

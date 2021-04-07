@@ -53,6 +53,8 @@ export const PAGE_DATA_QUERY = graphql`
         description {
           description
         }
+        link
+        linkText
       }
       description {
         description
