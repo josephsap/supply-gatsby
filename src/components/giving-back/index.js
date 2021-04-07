@@ -33,14 +33,13 @@ const GivingBackSection = ({ givingBackSection }) => {
   const [showOrgsModal, setShowOrgsModal] = useState(false);
 
   const handleOpen = () => {
-    console.log('hihiohi');
     setShowOrgsModal(true);
   };
 
   const handleClose = () => {
     setShowOrgsModal(false);
   };
-  console.log(showOrgsModal, '******');
+
   return (
     <Container maxWidth={false} className="section-padding" id="section4">
       <Container maxWidth="lg" className="side-padding">
