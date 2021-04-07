@@ -33,13 +33,14 @@ const GivingBackSection = ({ givingBackSection }) => {
   const [showOrgsModal, setShowOrgsModal] = useState(false);
 
   const handleOpen = () => {
+    console.log('hihiohi');
     setShowOrgsModal(true);
   };
 
   const handleClose = () => {
     setShowOrgsModal(false);
   };
-
+  console.log(showOrgsModal, '******');
   return (
     <Container maxWidth={false} className="section-padding" id="section4">
       <Container maxWidth="lg" className="side-padding">
@@ -58,7 +59,11 @@ const GivingBackSection = ({ givingBackSection }) => {
               <Typography variant="body1">
                 {givingBackSection.leftSideCopy.leftSideCopy}
               </Typography>
-              <Typography variant="body1" className="modal-link">
+              <Typography
+                variant="body1"
+                className="modal-link"
+                onClick={handleOpen}
+              >
                 {givingBackSection.orgsModalLinkText}
               </Typography>
             </Grid>
@@ -80,15 +85,18 @@ const GivingBackSection = ({ givingBackSection }) => {
                   {givingBackSection.rightSideTitle}
                 </Typography>
               </Box>
-              {showOrgsModal && (
-                <ExamplesDialog onClose={handleClose} showOrgsModal={showOrgsModal} />
-              )}
               <Typography variant="body1" className="copy-right">
                 {givingBackSection.rightSideCopy.rightSideCopy}
               </Typography>
             </Grid>
           </Grid>
         </div>
+        {showOrgsModal && (
+          <OrgsSupportedDialog
+            onClose={handleClose}
+            showOrgsModal={showOrgsModal}
+          />
+        )}
       </Container>
     </Container>
   );

@@ -2,6 +2,7 @@ import React from 'react';
 import { Dialog, Zoom, Box, Typography, Grid, Button } from '@material-ui/core';
 import { useStaticQuery, graphql } from 'gatsby';
 import { closeChatBtnStyles } from '../chat/chatButton.styles';
+import styles from './orgsSupported.styles';
 
 const OrgsSupportDialog = ({ showOrgsModal, onClose }) => {
   const { contentfulGivingBackSection } = useStaticQuery(graphql`
@@ -18,7 +19,6 @@ const OrgsSupportDialog = ({ showOrgsModal, onClose }) => {
       }
     }
   `);
-
   const Transition = React.forwardRef(function Transition(props, ref) {
     return (
       <Zoom
@@ -42,6 +42,7 @@ const OrgsSupportDialog = ({ showOrgsModal, onClose }) => {
       onClose={onClose}
       aria-labelledby="dialog-title"
       aria-describedby="dialog-description"
+      css={styles}
     >
       <Button
         css={closeChatBtnStyles}
@@ -60,19 +61,19 @@ const OrgsSupportDialog = ({ showOrgsModal, onClose }) => {
         alignItems="center"
         className="inner-top"
       >
+        <Box mt={3} className="images-container">
+          {contentfulGivingBackSection.orgsModalLogos.map((image) => (
+            <div key={image.file.url} className="grid-img-grid">
+              <img src={image.file.url} className="grid-img" />
+            </div>
+          ))}
+        </Box>
         <Grid item xs={12} md={6}>
           <Typography variant="body1">
             {contentfulGivingBackSection.orgsModalCopy.orgsModalCopy}
           </Typography>
         </Grid>
       </Grid>
-      <Box mt={3} className="images-container">
-        {contentfulGivingBackSection.orgsModalLogos.map((image) => (
-          <div key={image.file.url} className="grid-img-grid">
-            <img src={image.file.url} className="grid-img" />
-          </div>
-        ))}
-      </Box>
     </Dialog>
   );
 };
