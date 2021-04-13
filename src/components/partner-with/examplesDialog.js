@@ -26,7 +26,7 @@ const ExamplesDialog = ({ showWorkModal, onClose }) => {
       <Zoom
         in={showWorkModal}
         ref={ref}
-        style={{ transitionDelay: '350ms', transitionDuration: '350ms' }}
+        // style={{ transitionDelay: '350ms', transitionDuration: '350ms' }}
         {...props}
       />
     );
