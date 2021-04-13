@@ -2,8 +2,12 @@ import { css } from '@emotion/react';
 
 const styles = (theme) => css`
   position: relative;
+  .MuiDialog-container {
+    height: auto;
+  }
   .MuiDialog-paper {
     border-radius: 20px;
+    max-height: 82vh;
     border: 3px solid;
     background-color: ${theme.palette.supply.cream.main};
   }
@@ -12,16 +16,14 @@ const styles = (theme) => css`
     padding: 2rem 4rem;
     width: 100%;
     &:nth-of-type(even) {
-      ${theme.breakpoints.up('sm')} {
+      ${theme.breakpoints.up('md')} {
         width: 40%;
-        ${'' /* padding: 0 4.8rem 4.8rem 2.4rem; */}
       }
     }
 
     &:nth-of-type(odd) {
-      ${theme.breakpoints.up('sm')} {
+      ${theme.breakpoints.up('md')} {
         width: 40%;
-        ${'' /* padding: 0 2.4rem 4.8rem 4.8rem; */}
       }
     }
   }

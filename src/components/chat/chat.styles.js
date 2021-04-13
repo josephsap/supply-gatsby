@@ -21,7 +21,9 @@ export const chatBaseStyles = (theme) => css`
   .em-send-btn-container {
     &:nth-of-type(2) {
       margin-left: auto;
-      ${'' /* margin-top: 2rem; */}
+      ${theme.breakpoints.down('sm')} {
+        margin-top: 2rem;
+      }
     }
   }
 
@@ -35,7 +37,7 @@ export const chatBaseStyles = (theme) => css`
   }
 
   .message-container {
-    padding: 0 2rem;
+    padding: 0 2rem 6rem;
     ${theme.breakpoints.up('md')} {
       padding: 0 6rem;
     }
@@ -46,7 +48,7 @@ export const chatBaseStyles = (theme) => css`
     border-radius: 20px;
     overflow: auto;
     margin: 40px 0 0;
-    height: calc(80vh - 210px);
+    height: calc(80vh - 195px);
   }
 
   .loading-messages {
@@ -67,6 +69,9 @@ export const chatBaseStyles = (theme) => css`
   .message-input-container {
     margin: 3rem 0 0;
     padding-bottom: 4.6rem;
+    ${theme.breakpoints.up('sm')} {
+      padding-bottom: 0;
+    }
     form {
       margin: 2rem 0 2.5rem;
     }
@@ -74,8 +79,8 @@ export const chatBaseStyles = (theme) => css`
 
   .email-side-container {
     padding: 2.8rem 2rem 0;
-    ${theme.breakpoints.up('sm')} {
-      padding: 4.8rem 6rem;
+    ${theme.breakpoints.up('md')} {
+      padding: 4.6rem 6rem 2.4rem;
     }
   }
 
@@ -88,18 +93,24 @@ export const chatBaseStyles = (theme) => css`
   }
 
   .email-side-interior {
-    margin-top: 2.75rem;
     display: flex;
     flex-direction: column;
     height: 100%;
     text-align: center;
-    ${theme.breakpoints.up('sm')} {
+    ${theme.breakpoints.up('md')} {
       text-align: left;
-      padding-bottom: 2.4rem;
     }
 
     h5 {
       margin-bottom: 1rem;
+      margin-top: 2.75rem;
+    }
+
+    p {
+      text-align: center;
+      ${theme.breakpoints.up('md')} {
+        text-align: left;
+      }
     }
   }
 `;

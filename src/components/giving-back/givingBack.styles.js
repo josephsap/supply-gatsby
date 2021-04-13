@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { pr4, pl4 } from '../layout/margin-padding-utils.styles';
+import { pl4 } from '../layout/margin-padding-utils.styles';
 import { initiallyHidden } from '../shared/shared.styles';
 
 export const baseStyles = (theme) => css`
@@ -25,6 +25,7 @@ export const drawStyles = css`
     border: 3px solid transparent;
     width: 0;
     height: 0;
+    z-index: -1;
   }
 
   &::before {
@@ -91,8 +92,9 @@ const styles = (theme) => css`
     text-align: center;
     display: flex;
     flex-direction: column;
+    padding: 4rem;
     ${theme.breakpoints.up('md')} {
-      ${pr4};
+      padding: 0 4rem 0 0;
       text-align: left;
     }
     h2 {
@@ -111,11 +113,13 @@ const styles = (theme) => css`
 
   .badges-container {
     display: flex;
-    margin: 5.5rem 0 1rem;
+    margin: 5rem auto 3rem;
+    max-width: 80%;
     ${theme.breakpoints.up('md')} {
       text-align: right;
       display: block;
       margin: 3rem 0;
+      max-width: 100%;
     }
     img:nth-of-type(1) {
       width: 60%;
@@ -152,10 +156,13 @@ const styles = (theme) => css`
   }
 
   .modal-link {
-    margin-top: auto;
+    margin-top: 4rem;
     color: #bb9cfe;
     cursor: pointer;
     transition: 0.25s ease;
+    ${theme.breakpoints.up('md')} {
+      margin-top: auto;
+    }
     &:hover {
       color: #cab1ff;
       transition: 0.25s ease;

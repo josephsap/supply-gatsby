@@ -23,7 +23,7 @@ const ChatButton = () => {
       {showChatModal && (
         <ChatContainer
           showChatModal={showChatModal}
-          onClose={handleClose}
+          onCloseChat={handleClose}
         />
       )}
     </div>

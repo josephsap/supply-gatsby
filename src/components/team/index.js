@@ -49,7 +49,7 @@ const MeetTheTeamSection = ({ meetTheTeamSection }) => {
               <img src={teamImg} />
             </animated.div>
           </Grid>
-          <div className="member-wrapper" ref={teamMemberRef}>
+          <Grid container className="member-wrapper" ref={teamMemberRef}>
             {meetTheTeamSection.teamMember.map((teamMember) => (
               <Grid
                 item
@@ -75,7 +75,7 @@ const MeetTheTeamSection = ({ meetTheTeamSection }) => {
                 </a>
               </Grid>
             ))}
-          </div>
+          </Grid>
         </Grid>
         <Grid item xs={12}>
           <Typography variant="body1">

@@ -47,8 +47,11 @@ const styles = (theme) => css`
 
   .hiring-img {
     position: absolute;
-    right: 280px;
+    right: 0;
     top: -132%;
+    ${theme.breakpoints.up('md')} {
+      right: 280px;
+    }
 
     img {
       width: 220px;

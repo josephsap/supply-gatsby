@@ -3,6 +3,8 @@ import { Dialog, Zoom, Box, Typography, Grid, Button } from '@material-ui/core';
 import { useStaticQuery, graphql } from 'gatsby';
 import styles from './examplesDialog.styles';
 import { closeChatBtnStyles } from '../chat/chatButton.styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
 
 const ExamplesDialog = ({ showWorkModal, onClose }) => {
   const { contentfulWorkExamplesModal } = useStaticQuery(graphql`
@@ -21,16 +23,8 @@ const ExamplesDialog = ({ showWorkModal, onClose }) => {
     }
   `);
 
-  const Transition = React.forwardRef(function Transition(props, ref) {
-    return (
-      <Zoom
-        in={showWorkModal}
-        ref={ref}
-        // style={{ transitionDelay: '350ms', transitionDuration: '350ms' }}
-        {...props}
-      />
-    );
-  });
+  const theme = useTheme();
+  const showMed = useMediaQuery(theme.breakpoints.up('md'));
 
   return (
     <Dialog
@@ -38,7 +32,6 @@ const ExamplesDialog = ({ showWorkModal, onClose }) => {
         style: { backgroundColor: 'rgba(255, 255, 255, 0.85)' },
       }}
       open={showWorkModal}
-      TransitionComponent={Transition}
       keepMounted
       maxWidth="lg"
       onClose={onClose}
@@ -54,7 +47,7 @@ const ExamplesDialog = ({ showWorkModal, onClose }) => {
         variant="text"
         endIcon={<img src="/images/closechaticon.svg" />}
       >
-        <Typography variant="body1">Close</Typography>
+        {showMed && <Typography variant="body1">Close</Typography>}
       </Button>
       <Grid
         container

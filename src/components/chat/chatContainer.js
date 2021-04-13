@@ -11,7 +11,7 @@ const CHAT_ACCOUNT_TOKEN = process.env.GATSBY_CHAT_ACCOUNT_TOKEN;
 
 // https://codepen.io/ig_design/pen/BajVZre
 
-const ChatContainer = ({ showChatModal, onClose }) => {
+const ChatContainer = ({ showChatModal, onCloseChat }) => {
   const { contentfulChat } = useStaticQuery(graphql`
     query ChatCopyQuery {
       contentfulChat {
@@ -51,15 +51,7 @@ const ChatContainer = ({ showChatModal, onClose }) => {
   };
 
   const Transition = React.forwardRef(function Transition(props, ref) {
-    return (
-      <Zoom
-        in={showChatModal}
-        ref={ref}
-        style={{ transitionDelay: '350ms', transitionDuration: '350ms' }}
-        // timeout={{ enter: 1400, exit: 1400 }}
-        {...props}
-      />
-    );
+    return <Zoom in={showChatModal} ref={ref} {...props} />;
   });
 
   return (
@@ -71,21 +63,10 @@ const ChatContainer = ({ showChatModal, onClose }) => {
       TransitionComponent={Transition}
       keepMounted
       maxWidth="lg"
-      onClose={onClose}
+      onClose={onCloseChat}
       aria-labelledby="chat-dialog-title"
       aria-describedby="chat-dialog-description"
     >
-      <Button
-        css={closeChatBtnStyles}
-        onClick={onClose}
-        color="primary"
-        size="small"
-        variant="text"
-        endIcon={<img src="/images/closechaticon.svg" />}
-      >
-        {showMed && <Typography variant="body1">Close</Typography>}
-      </Button>
-
       <ChatBuilder
         config={config}
         onChatLoaded={() => console.log('Chat loaded!')}
@@ -114,6 +95,18 @@ const ChatContainer = ({ showChatModal, onClose }) => {
               onToggleOpen={onToggleOpen}
               scrollToRef={scrollToRef}
               onChatLoaded={onChatLoaded}
+              chatCloseButton={
+                <Button
+                  css={closeChatBtnStyles}
+                  onClick={onCloseChat}
+                  color="primary"
+                  size="small"
+                  variant="text"
+                  endIcon={<img src="/images/closechaticon.svg" />}
+                >
+                  {showMed && <Typography variant="body1">Close</Typography>}
+                </Button>
+              }
             />
           );
         }}

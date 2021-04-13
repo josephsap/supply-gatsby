@@ -25,7 +25,7 @@ const styles = (theme) => css`
   .network-container-top {
     padding-top: 3rem;
     ${theme.breakpoints.up('sm')} {
-      padding-top: 6rem;
+      padding: 6rem 4rem;
     }
   }
 
@@ -43,8 +43,11 @@ const styles = (theme) => css`
     height: 0;
     padding-bottom: 60%;
     width: 100%;
-    margin: 120px 0 160px;
+    margin: 120px 0 60px;
     position: relative;
+    ${theme.breakpoints.up('md')} {
+      margin-bottom: 140px;
+    }
   }
 
   .network-ring-container {

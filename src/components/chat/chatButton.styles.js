@@ -31,12 +31,13 @@ const styles = (theme) => css`
 `;
 
 export const closeChatBtnStyles = (theme) => css`
-  position: absolute;
-  transform: rotate(-90deg);
-  top: 32px;
-  right: -8px;
+  margin: 2rem 0.5rem 0 auto;
   ${theme.breakpoints.up('md')} {
     top: 51px;
+    position: absolute;
+    transform: rotate(-90deg);
+    right: -2rem;
+    margin: 0;
   }
 
   img {

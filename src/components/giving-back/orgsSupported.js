@@ -3,6 +3,8 @@ import { Dialog, Zoom, Box, Typography, Grid, Button } from '@material-ui/core';
 import { useStaticQuery, graphql } from 'gatsby';
 import { closeChatBtnStyles } from '../chat/chatButton.styles';
 import styles from './orgsSupported.styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
 
 const OrgsSupportDialog = ({ showOrgsModal, onClose }) => {
   const { contentfulGivingBackSection } = useStaticQuery(graphql`
@@ -20,15 +22,11 @@ const OrgsSupportDialog = ({ showOrgsModal, onClose }) => {
     }
   `);
   const Transition = React.forwardRef(function Transition(props, ref) {
-    return (
-      <Zoom
-        in={showOrgsModal}
-        ref={ref}
-        style={{ transitionDelay: '350ms', transitionDuration: '350ms' }}
-        {...props}
-      />
-    );
+    return <Zoom in={showOrgsModal} ref={ref} {...props} />;
   });
+
+  const theme = useTheme();
+  const showMed = useMediaQuery(theme.breakpoints.up('md'));
 
   return (
     <Dialog
@@ -52,7 +50,7 @@ const OrgsSupportDialog = ({ showOrgsModal, onClose }) => {
         variant="text"
         endIcon={<img src="/images/closechaticon.svg" />}
       >
-        <Typography variant="body1">Close</Typography>
+        {showMed && <Typography variant="body1">Close</Typography>}
       </Button>
       <Grid
         container

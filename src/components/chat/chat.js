@@ -35,7 +35,7 @@ const ChatMessages = ({ messages = [], customerId, scrollToRef }) => {
   );
 };
 
-const Chat = ({ state, onSendMessage, scrollToRef }) => {
+const Chat = ({ state, onSendMessage, scrollToRef, chatCloseButton }) => {
   const [message, setMessageBody] = useState('');
   const [checked, setChecked] = useState(false);
   const { messages = [], customerId, isLoaded } = state;
@@ -71,7 +71,7 @@ const Chat = ({ state, onSendMessage, scrollToRef }) => {
         >
           <Grid container css={chatBaseStyles}>
             {/* TODO: put this copy in the cms */}
-
+            {chatCloseButton}
             <Grid item xs={12} md={6} className="email-side-container">
               <Box className="email-side-interior">
                 <Typography variant="h5">Talk to a real person.</Typography>

@@ -2,12 +2,16 @@ import { css } from '@emotion/react';
 
 const styles = (theme) => css`
   position: relative;
+  .MuiDialog-container {
+    height: auto;
+  }
   .MuiDialog-paper {
+    max-height: 82vh;
     border-radius: 20px;
     border: 3px solid;
     background-color: ${theme.palette.supply.cream.main};
   }
- 
+
   .grid-img {
     display: block;
     width: 100%;
