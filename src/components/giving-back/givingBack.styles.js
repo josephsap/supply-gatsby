@@ -36,55 +36,56 @@ export const drawStyles = css`
     bottom: 0;
     right: 0;
   }
-
-  &::after {
-    top: 0;
-    left: 0;
-  }
 `;
 
 const styles = (theme) => css`
   .draw {
     &::before,
     &::after {
+      border: 3px solid transparent;
+      width: 0;
+      height: 0;
+      border-radius: 20px;
+    }
+
+    // This covers the top & right borders (expands right, then down)
+    &::before {
+      top: 0;
+      left: 0;
+    }
+
+    // And this the bottom & left borders (expands left, then up)
+    &::after {
+      bottom: 0;
+      right: 0;
+    }
+
+    &::before,
+    &::after {
       width: 100%;
       height: 100%;
-      z-index: -1;
     }
 
     &::before {
       border-top-color: ${theme.palette.text.primary}; // Make borders visible
       border-right-color: ${theme.palette.text.primary};
-      border-radius: 20px;
-      transition: width 0.5s ease-out,
+      transition: width 0.25s ease-out,
         // Width expands first
-          height 0.5s ease-out 0.5s; // And then height
+          height 0.25s ease-out 0.25s; // And then height
     }
 
     &::after {
       border-bottom-color: ${theme.palette.text
         .primary}; // Make borders visible
       border-left-color: ${theme.palette.text.primary};
-      border-radius: 20px;
       transition: border-color 0s ease-out 0.5s,
         // Wait for ::before to finish before showing border
-          width 0.5s ease-out 0.5s,
-        // And then expanding width
-          height 0.5s ease-out 0.75s; // And finally height
-    }
-
-    // Change colors
-    &::before {
-      border-top-color: ${theme.palette.text.primary};
-      border-right-color: ${theme.palette.text.primary};
-    }
-
-    &::after {
-      border-bottom-color: ${theme.palette.text.primary};
-      border-left-color: ${theme.palette.text.primary};
-      transition: // Animate height first, then width height 0.5s ease-out, width 0.5s ease-out 0.5s;
+          width 0.25s ease-out 0.5s,
+        // And then exanding width
+          height 0.25s ease-out 0.75s; // And finally height
     }
   }
+
   .giving-back-section {
     ${initiallyHidden}
     text-align: center;
