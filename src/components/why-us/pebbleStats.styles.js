@@ -2,8 +2,7 @@ import { css } from '@emotion/react';
 
 const styles = (theme) => css`
   position: relative;
-  border: 2px solid;
-  height: 350px;
+  height: 800px;
 `;
 
 export const backgroundDotStyles = (theme) => css`
@@ -15,6 +14,7 @@ export const backgroundDotStyles = (theme) => css`
   background-size: 60px 60px;
   height: 100%;
   width: 100%;
+  max-width: auto;
   position: absolute;
   top: 0;
   left: 0;
