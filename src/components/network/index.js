@@ -42,10 +42,11 @@ const NetworkSection = ({ networkSection }) => {
     timeline.current = gsap.timeline({
       scrollTrigger: {
         id: SCROLL_TRIGGER_ID,
-        start: 'top 30%',
+        start: 'top 50%',
         end: 'bottom bottom',
         trigger: wrapper.current,
         invalidateOnRefresh: true,
+        markers: true,
       },
     });
 
@@ -154,6 +155,7 @@ const NetworkSection = ({ networkSection }) => {
           className="border-container network-container-top"
           justify="center"
           alignItems="center"
+          ref={wrapper}
         >
           <Grid item xs={12} md={6} className="network-title">
             <Typography variant="h5" component="h2" ref={titleRef}>
@@ -166,7 +168,7 @@ const NetworkSection = ({ networkSection }) => {
             </Typography>
           </Grid>
           <Grid item xs={12}>
-            <div className="network-container" ref={wrapper}>
+            <div className="network-container">
               <div
                 ref={innerRing}
                 className="network-inner network-ring-container"
