@@ -49,13 +49,7 @@ const ExamplesDialog = ({ showWorkModal, onClose }) => {
       >
         {showMed && <Typography variant="body1">Close</Typography>}
       </Button>
-      <Grid
-        container
-        direction="column"
-        justify="flex-start"
-        alignItems="center"
-        className="inner-top"
-      >
+      <Grid container className="inner-top">
         <Grid item xs={12} md={6}>
           <Typography variant="h5" component="h3" className="modal-title">
             {contentfulWorkExamplesModal.title}

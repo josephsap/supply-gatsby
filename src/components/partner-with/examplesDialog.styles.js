@@ -36,8 +36,11 @@ const styles = (theme) => css`
   }
 
   .inner-top {
-    padding: 8rem 10rem 4rem;
+    padding: 4rem 1em 2rem;
     text-align: center;
+    ${theme.breakpoints.up('md')} {
+      padding: 8rem 10rem 4rem;
+    }
   }
 
   .images-container {

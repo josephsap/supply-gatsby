@@ -54,9 +54,6 @@ const OrgsSupportDialog = ({ showOrgsModal, onClose }) => {
       </Button>
       <Grid
         container
-        direction="column"
-        justify="flex-start"
-        alignItems="center"
         className="inner-top"
       >
         <Box mt={3} className="images-container">
