@@ -168,30 +168,24 @@ const theme = createMuiTheme({
         },
       },
     },
-    MuiInput: {
+    MuiFormLabel: {
       root: {
-        // borderBottom: `3px solid #162C29`,
-        // '&$focused': {
-        //   color: textBlack,
-        // },
-        // '&$focused': {
-        //   borderBottom: `3px solid #162C29`,
-        //   // outline: `1px solid red`,
-        //   '&:before': {
-        //     borderBottom: `3px solid #162C29`,
-        //   },
-        // },
+        '&$focused': {
+          color: textBlack,
+        },
       },
-      // underline: {
-      //   '&$hover': {
-      //     '&$before': {
-      //       borderBottom: `1px solid aqua`,
-      //     },
-      //   },
-      //   '&:after': {
-      //     backgroundColor: seaGreen.main,
-      //   },
-      // },
+      colorSecondary: {
+        '&$focused': {
+          color: textBlack,
+        },
+      },
+    },
+    MuiInput: {
+      underline: {
+        '&:after': {
+          borderBottom: textBlack,
+        },
+      },
     },
     MuiPopover: {
       paper: {

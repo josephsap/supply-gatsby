@@ -31,9 +31,6 @@ const HeroSection = ({ heroSection }) => {
   const timeline = useRef(null);
   const wrapperRef = useRef(null);
   const logoRef = useRef(null);
-  // const badge1Ref = useRef(null);
-  // const badge2Ref = useRef(null);
-  // const starRef = useRef(null);
   const cloverRef = useRef(null);
   const draggableBoxRef = useRef(null);
 
@@ -68,33 +65,6 @@ const HeroSection = ({ heroSection }) => {
         },
       }
     );
-
-    //animate the badges and logo
-    // timeline.current.staggerTo(
-    //   [badge1Ref.current, badge2Ref.current],
-    //   0.5,
-    //   {
-    //     stagger: 0.05,
-    //     rotate: '0deg',
-    //     x: 0,
-    //     scale: 1,
-    //     y: 0,
-    //     opacity: 1,
-    //     ease: 'back',
-    //   },
-    //   '-=.5'
-    // );
-
-    // timeline.current.to(
-    //   starRef.current,
-    //   {
-    //     duration: 1,
-    //     rotate: '0deg',
-    //     opacity: 1,
-    //     ease: 'expo.out',
-    //   },
-    //   '-=.5'
-    // );
 
     timeline.current.to(
       logoRef.current,
@@ -208,15 +178,6 @@ const HeroSection = ({ heroSection }) => {
                 className="top-images"
               >
                 <Grid item xs={12}>
-                  {/* <div className="badge-green top-image" ref={badge1Ref}>
-                    <img src={`images/rectangle-badge-top.svg`} />
-                  </div>
-                  <div className="peach  top-image" ref={badge2Ref}>
-                    <img src={`images/top-peach-rectangle.svg`} />
-                  </div>
-                  <div className="star  top-image" ref={starRef}>
-                    <img src={`images/star-purple.svg`} />
-                  </div> */}
                   <div className="hero-logo top-image" ref={logoRef}>
                     <img
                       src={`images/supply-badge-logo.svg`}
@@ -232,15 +193,13 @@ const HeroSection = ({ heroSection }) => {
                 ref={heroCopyRef}
               >
                 {titleTransform()}
-                {!showMdAndUp && (
-                  <div className="mobile-dragbox">
-                    <div>
-                      {documentToReactComponents(
-                        JSON.parse(heroSection.introCopy.raw)
-                      )}
-                    </div>
+                <div className="mobile-dragbox">
+                  <div>
+                    {documentToReactComponents(
+                      JSON.parse(heroSection.introCopy.raw)
+                    )}
                   </div>
-                )}
+                </div>
                 <span className="clover" ref={cloverRef}></span>
               </Grid>
             </Grid>

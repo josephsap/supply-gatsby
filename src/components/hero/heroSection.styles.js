@@ -13,8 +13,9 @@ const styles = (theme) => css`
     transform: rotate(-1.5deg);
     padding: 1.6rem;
     border-radius: 8px;
-    ${theme.breakpoints.up('sm')} {
+    ${theme.breakpoints.up('md')} {
       max-width: 70%;
+      display: none;
     }
   }
 

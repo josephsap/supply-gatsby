@@ -46,7 +46,6 @@ const NetworkSection = ({ networkSection }) => {
         end: 'bottom bottom',
         trigger: wrapper.current,
         invalidateOnRefresh: true,
-        markers: true,
       },
     });
 

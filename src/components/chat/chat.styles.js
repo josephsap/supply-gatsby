@@ -4,7 +4,10 @@ export const chatBaseStyles = (theme) => css`
   background: ${theme.palette.supply.salmon.main};
   overflow-y: auto;
   overflow-x: hidden;
-  height: 89vh;
+  margin-bottom: 3rem;
+  ${theme.breakpoints.up('md')} {
+    height: 89vh;
+  }
 
   .msg-container {
     display: flex;
@@ -86,6 +89,7 @@ export const chatBaseStyles = (theme) => css`
 
   .email-btn {
     margin-top: auto;
+    margin-bottom: 1.8rem;
   }
 
   .slide-styles {

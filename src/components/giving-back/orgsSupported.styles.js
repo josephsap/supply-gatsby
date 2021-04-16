@@ -29,8 +29,11 @@ const styles = (theme) => css`
   }
 
   .inner-top {
-    padding: 0rem 10rem 8rem;
+    padding: 0rem 1rem 5rem;
     text-align: center;
+    ${theme.breakpoints.up('md')} {
+      padding: 0rem 10rem 8rem;
+    }
   }
 
   .images-container {
