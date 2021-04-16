@@ -62,10 +62,19 @@ export const PAGE_DATA_QUERY = graphql`
     }
     contentfulWhyUsSection {
       title
+      statisticItem {
+		image {
+            title
+		    file {
+				url
+                }
+            }
+        }
       description {
         childMarkdownRemark {
           html
         }
+        
       }
       descriptionTwo {
         descriptionTwo
@@ -158,6 +167,8 @@ export const PAGE_DATA_QUERY = graphql`
         }
       }
     }
+
+   
     contentfulFooter {
       logo {
         file {

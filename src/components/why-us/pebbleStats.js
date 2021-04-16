@@ -2,11 +2,11 @@ import { Container, Box } from '@material-ui/core';
 import Pebbles from './pebbles';
 import styles, { backgroundDotStyles } from './pebbleStats.styles';
 
-const PebbleStats = () => {
+const PebbleStats = ({data}) => {
   return (
     <Container maxWidth={false} disableGutters={true} css={styles}>
       <Box css={backgroundDotStyles}>
-          <Pebbles />
+          <Pebbles data={data} />
       </Box>
     </Container>
   );

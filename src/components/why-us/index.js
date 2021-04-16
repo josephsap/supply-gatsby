@@ -58,7 +58,7 @@ const WhyUsSection = ({ whyUsSection }) => {
           </Grid>
         </Grid>
       </Container>
-      <PebbleStats />
+      <PebbleStats data={whyUsSection} />
     </Container>
   );
 };

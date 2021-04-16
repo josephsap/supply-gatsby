@@ -4,14 +4,7 @@ import MatterAttractors from 'matter-attractors'
 
 //Images 
 import arrow from '../../assets/shape-images/arrow.png'
-import pay from '../../assets/shape-images/pay.png'
-import bipoc from '../../assets/shape-images/bipoc.png'
-import fullTime from '../../assets/shape-images/full-time.png'
-import contracts from '../../assets/shape-images/contracts.png'
-import exceed from '../../assets/shape-images/exceed.png'
 import sun from '../../assets/shape-images/sun.png'
-import whiteElipse1 from '../../assets/shape-images/white-elipse-1.png'
-import whiteElipse2 from '../../assets/shape-images/white-elipse-2.png'
 import greenElipse from '../../assets/shape-images/green-elipse.png'
 import orangeElipse from '../../assets/shape-images/orange-elipse.png'
 import blueElipse from '../../assets/shape-images/blue-elipse.png'
@@ -24,7 +17,15 @@ import blackCircle from '../../assets/shape-images/black-circle.png'
 import whiteCircle from '../../assets/shape-images/white-circle.png'
 import pinkCircle from '../../assets/shape-images/pink-circle.png'
 
-const Pebbles = () => {
+const Pebbles = ({data}) => {
+    const {statisticItem} = data 
+    const images = statisticItem.reduce((acc, val, i) => {
+        if (val.image?.title) {
+            acc[val.image.title] = val.image.file.url 
+            return acc 
+        } 
+        return acc 
+    }, {})
     const wrapperStyle = {
       };
     const sceneEl = useRef(null);
@@ -123,14 +124,14 @@ const Pebbles = () => {
             Bodies.rectangle(windowWidth + wallWidth, windowHeight / 2, wallWidth, windowHeight, wallOptions),
         ]);
         const bodyOptions = {}
-        const spriteOptions = {xScale: 0.5, yScale: 0.5}
-        const bodies =  [
+        const scaleFactor = windowWidth < 1200 ? 0.45 : 0.5
+        const spriteOptions = {xScale: scaleFactor, yScale: scaleFactor}
+        let bodies =  [
             Bodies.circle(windowWidth * 0.3, window.innerHeight / 2, 100, { 
-                
                 render: {
                     ...bodyOptions,
                     sprite: {
-                        texture: pay,
+                        texture: images['Higher Pay'],
                         ...spriteOptions
                     }
                 } 
@@ -178,7 +179,7 @@ const Pebbles = () => {
                 render: {
                     ...bodyOptions,
                     sprite: {
-                        texture: bipoc,
+                        texture: images['Bipoc'],
                         ...spriteOptions
                     }
                 } 
@@ -189,7 +190,7 @@ const Pebbles = () => {
                 render: {
                     ...bodyOptions,
                     sprite: {
-                        texture: fullTime,
+                        texture: images['Full Time'],
                         ...spriteOptions
                     }
                 } 
@@ -199,7 +200,7 @@ const Pebbles = () => {
                 render: {
                     ...bodyOptions,
                     sprite: {
-                        texture: contracts,
+                        texture: images['Contracts'],
                         ...spriteOptions
                     }
                 } 
@@ -218,7 +219,7 @@ const Pebbles = () => {
             Bodies.rectangle(windowWidth * 0.45, window.innerHeight / 2 + 200, 340, 130, { 
                 render: {
                     sprite: {
-                        texture: whiteElipse1,
+                        texture: images['Champion'],
                         ...spriteOptions
                     }
                 } 
@@ -227,7 +228,7 @@ const Pebbles = () => {
             Bodies.rectangle(windowWidth / 2, window.innerHeight / 2 - 100, 291, 130, { 
                 render: {
                     sprite: {
-                        texture: whiteElipse2,
+                        texture: images['Bpoco'],
                         ...spriteOptions
                     }
                 } 
@@ -254,7 +255,7 @@ const Pebbles = () => {
             Bodies.circle((window.innerWidth / 2) + (windowWidth * 0.3), window.innerHeight / 2, 75, { 
                 render: {
                     sprite: {
-                        texture: exceed,
+                        texture: images['Exceed'],
                         ...spriteOptions
                     }
                 } 
@@ -284,8 +285,23 @@ const Pebbles = () => {
                     }
                 }
             }),
-        
         ];
+        if (Object.keys(images).length > 7) {
+            let remaining = Object.keys(images).slice(7)
+            remaining.forEach(title => {
+                let body = Bodies.circle(windowWidth * Math.random(), window.innerHeight *  Math.random(), 75, { 
+                    render: {
+                        ...bodyOptions,
+                        sprite: {
+                            texture: images[title],
+                            ...spriteOptions
+                        }
+                    } 
+                })
+                bodies = bodies.concat(body)
+            })
+        }
+
         bodies.forEach(body => {
             World.add(world, body)
         })
@@ -353,8 +369,10 @@ const Pebbles = () => {
         
         // keep the mouse in sync with rendering
         render.mouse = mouse;
+        
+        // allow scrolling on canvas
         mouseConstraint.mouse.element.removeEventListener("mousewheel", mouseConstraint.mouse.mousewheel);
-mouseConstraint.mouse.element.removeEventListener("DOMMouseScroll", mouseConstraint.mouse.mousewheel);
+        mouseConstraint.mouse.element.removeEventListener("DOMMouseScroll", mouseConstraint.mouse.mousewheel);
         // fit the render viewport to the scene
 
         var cursor = Bodies.rectangle(window.innerWidth / 2, window.innerHeight / 2, 100, 100, {
