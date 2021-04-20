@@ -16,16 +16,23 @@ const GivingBackSection = ({ givingBackSection }) => {
   const leftSide = useRef(null);
   const rightSide = useRef(null);
   const drawRef = useRef(null);
+  const culturalRef = useRef(null);
+  const diversityRef = useRef(null);
 
   useScrollAnimation(leftSide, [leftSide, rightSide]);
 
   useEffect(() => {
+      function handleOnEnter() {
+        gsap.from(diversityRef.current, {y: 200, opacity: 0, duration: 1, ease: 'back'})
+        gsap.from(culturalRef.current, { scale: 0.3, rotation: 151, duration: 2, ease: 'elastic'})
+      }
     gsap.from(drawRef.current, {
       scrollTrigger: {
         trigger: drawRef.current,
         start: 'top 60%',
         end: 'bottom top',
         toggleClass: 'draw',
+        onEnter: handleOnEnter
       },
     });
   }, []);
@@ -74,8 +81,8 @@ const GivingBackSection = ({ givingBackSection }) => {
               ref={rightSide}
             >
               <Box className="badges-container">
-                {givingBackSection.badges.map((badge) => (
-                  <img key={badge.id} src={badge.file.url} />
+                {givingBackSection.badges.map((badge, i) => (
+                  <img ref={i ? culturalRef : diversityRef} key={badge.id} src={badge.file.url} />
                 ))}
               </Box>
               <Box className="diversity-header-section">

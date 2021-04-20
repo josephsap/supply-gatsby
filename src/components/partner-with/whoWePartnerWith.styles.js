@@ -15,6 +15,51 @@ const styles = (theme) => css`
     }
   }
 
+  //partner tabs styles 
+  .partner-tabs-wrapper {
+      ${initiallyHidden}
+      border-radius: 100px;
+      border: 3px solid #162C29;
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      opacity: 1;
+    margin: 3rem auto 10rem;
+      transform: translateY(0px);
+      transition: all 0.25s;
+  }
+  .section-button {
+      background: none;
+      border: none;
+      width: 173px;
+      font-size: 1.5rem;
+      color: rgba(1, 0, 0, 0.54);
+      font-family: "Whyte", Helvetica, sans-serif;
+      font-weight: 500;
+      z-index: 1;
+      position: relative;
+      transition: color 0.25s;
+      padding: 1.5rem 0;
+      cursor: pointer;
+      &:active, &:focus {
+        outline: none
+      }
+      &.active {
+          color: #FFE0F0;
+      }
+  }
+
+  .active-indicator {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 55%;
+      background: #162C29;
+      border-radius: 32px;
+  }
+
   //pre-animated styles
   .headline,
   .partner-tabs,

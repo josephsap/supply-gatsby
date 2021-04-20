@@ -15,6 +15,7 @@ import {
 } from '@material-ui/core';
 import TabContent from './TabContent';
 import styles, { tabStyles, popoverStyles } from './whoWePartnerWith.styles';
+import PartnerTabs from './PartnerTabs';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -121,7 +122,7 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
             >
               {whoWeWorkWithSection.whoWeWorkWithTitle}
             </Typography>
-            <Tabs
+            {/* <Tabs
               value={value}
               onChange={handleChange}
               aria-label="talent tabs"
@@ -134,7 +135,8 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
               {whoWeWorkWithSection.talentclientToggle.map((item, index) => (
                 <Tab key={index} label={item} className="single-tab-item" />
               ))}
-            </Tabs>
+            </Tabs> */}
+            <PartnerTabs handleChange={handleChange} sections={whoWeWorkWithSection.talentclientToggle} />
             <TabPanel value={value} index={0}>
               {whoWeWorkWithSection.talentItem.map((talentItem, index) => (
                 <TabContent

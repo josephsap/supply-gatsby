@@ -79,11 +79,11 @@ const TabContent = forwardRef(
           ${inactive ? 'inactive' : ''}
           ${showItems ? 'active' : ''}
         `}
+        onMouseLeave={onMouseOut}
         ref={ref}
       >
         <div
           onMouseEnter={onMouseOver}
-          onMouseLeave={onMouseOut}
           className={
             index === 0 && value === 0
               ? 'category-title'
