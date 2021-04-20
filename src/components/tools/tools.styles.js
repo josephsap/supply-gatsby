@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import { initiallyHidden } from '../shared/shared.styles';
 
 const styles = (theme) => css`
+  background-color: ${theme.palette.supply.cream.main};
   .tools-description {
     ${initiallyHidden}
   }
@@ -28,7 +29,7 @@ const styles = (theme) => css`
     ${initiallyHidden}
     text-align: center;
     ${theme.breakpoints.up('md')} {
-      text-align: left;
+      text-align: left; 
     }
   }
 

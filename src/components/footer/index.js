@@ -1,9 +1,9 @@
 import { Container, Typography, Grid } from '@material-ui/core';
-import { pb4, pt45 } from '../layout/margin-padding-utils.styles';
+import { pt45 } from '../layout/margin-padding-utils.styles';
 import styles from './footer.styles';
 
 const Footer = ({ footer }) => (
-  <Container maxWidth={false} css={[styles, pb4, pt45]}>
+  <Container maxWidth={false} css={[styles, pt45]}>
     <Container maxWidth="lg" className="side-padding">
       <Grid
         container

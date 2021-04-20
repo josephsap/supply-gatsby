@@ -1,7 +1,8 @@
 import { css } from '@emotion/react';
 
 const styles = (theme) => css`
-  margin-bottom: 9rem;
+  padding-bottom: 13rem;
+  background-color: ${theme.palette.supply.cream.main};
   .footer-container {
     list-style: none;
     padding-left: 0;

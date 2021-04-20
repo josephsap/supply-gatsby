@@ -3,6 +3,7 @@ import { css } from '@emotion/react';
 const styles = (theme) => css`
   position: relative;
   height: 800px;
+  margin-top: 10rem;
 `;
 
 export const backgroundDotStyles = (theme) => css`
