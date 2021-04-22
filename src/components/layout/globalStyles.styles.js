@@ -9,9 +9,6 @@ const styles = (theme) => css`
   body {
     font-size: 1.4rem;
   }
-  img {
-    width: 100%;
-  }
   .border-container {
     border: 3px solid;
     border-radius: 20px;

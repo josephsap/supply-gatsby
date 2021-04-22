@@ -69,6 +69,7 @@ const RoldxEmailForm = () => {
               direction="row"
               justify="center"
               alignItems="center"
+              spacing={6}
             >
               {serverState ? (
                 <Grid item xs={12} className="form-sent-success">
@@ -81,7 +82,7 @@ const RoldxEmailForm = () => {
                 </Grid>
               ) : (
                 <>
-                  <Grid item xs={12} md={3}>
+                  <Grid item xs={12} md={4}>
                     <TextField
                       type="email"
                       name="email"

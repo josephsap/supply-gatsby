@@ -15,7 +15,7 @@ const RoldxHome = ({ roldxData, footerLogo }) => {
   const { title, description, productImage, belowImageText } = roldxData;
 
   return (
-    <Container maxWidth={false} css={styles} className="section-padding">
+    <Container maxWidth={false} css={styles} className="section-padding-bottom">
       <Container maxWidth="lg" className="side-padding">
         <Grid
           container
@@ -38,7 +38,7 @@ const RoldxHome = ({ roldxData, footerLogo }) => {
             <img src={productImage.file.url} />
           </Grid>
           <Grid item xs={12}>
-            <Typography variant="body1">
+            <Typography variant="body1" className="below-img-text">
               {belowImageText.belowImageText}
             </Typography>
             <Box mt={3} mb={3}>

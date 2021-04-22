@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 
 const styles = (theme) => css`
-  margin: 4rem 0;
+  margin: 5rem 0;
   .form-sent-success {
     margin: 4rem auto;
   }
