@@ -99,10 +99,6 @@ const Layout = (props) => {
           name="description"
           content={edges[0].node.siteMetadata.description}
         />
-        <link
-          href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
-          rel="stylesheet"
-        />
       </Helmet>
       <MaterialUiThemeProvider theme={muiTheme}>
         <ThemeProvider theme={muiTheme}>
