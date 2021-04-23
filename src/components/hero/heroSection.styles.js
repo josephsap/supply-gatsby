@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 
 const styles = (theme) => css`
   background-color: ${theme.palette.supply.cream.main};
-  padding: 6rem 0 8rem;
+  padding: 2rem 0 8rem;
   overflow: hidden;
   ${theme.breakpoints.up('md')} {
     padding-bottom: 32rem;
@@ -98,7 +98,6 @@ const styles = (theme) => css`
         font-size: 10rem;
         line-height: 11rem;
         padding: 0;
-        margin-top: 5rem;
       }
     }
 
@@ -293,7 +292,7 @@ export const backgroundDotStyles = (theme) => css`
   top: 92px;
   left: 3%;
   ${theme.breakpoints.up('md')} {
-    top: 200px;
+    top: 150px;
   }
 `;
 

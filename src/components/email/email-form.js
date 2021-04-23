@@ -68,7 +68,6 @@ const EmailForm = ({
         <div css={styles}>
           <form onSubmit={handleSubmit} className="form-wrapper">
             <div css={chatBaseStyles} className="form-item-left">
-              <input type="text" name="_gotcha" style={{display: "none"}} />
               <div>
                 <Typography variant="h5">{emailFormData.title}</Typography>
                 <Typography variant="body1" className="form-copy">
@@ -105,7 +104,7 @@ const EmailForm = ({
                   label="Email address"
                   color="secondary"
                 />
-                {errors.name && touched.name && errors.name && (
+                {errors.email && touched.email && errors.email && (
                   <Typography
                     variant="caption"
                     color="error"

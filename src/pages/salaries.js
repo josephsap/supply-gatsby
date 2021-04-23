@@ -11,7 +11,7 @@ import SalaryResults from '../salaries/components/salaryResults';
 import withDataFetching from '../salaries/components/withDataFetching';
 import LoadingScreen from '../salaries/components/loadingScreen';
 import Footer from '../components/footer';
-import { Button, Grid } from '@material-ui/core';
+import { Button, Grid, Popover, Box, Typography } from '@material-ui/core';
 import ChatComponent from '../components/chat/chatComponent';
 
 const SalariesPage = (props) => {
@@ -86,6 +86,18 @@ const SalariesPage = (props) => {
     }
   };
 
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handlePopoverOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handlePopoverClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setHandleSubmitLoading(true);
@@ -102,7 +114,7 @@ const SalariesPage = (props) => {
         sortJobsLowToHigh();
         setHandleSubmitLoading(false);
       })
-      .catch(function (err) {
+      .catch(function(err) {
         console.log(err);
       });
   };
@@ -138,6 +150,37 @@ const SalariesPage = (props) => {
               </div>
             </div>
             <div className={styles.mainArea}>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={handlePopoverOpen}
+                className={styles.popoverBtn}
+              >
+                Gender and Diversity Filtering
+              </Button>
+              <Popover
+                id="mouse-over-popover"
+                open={open}
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'center',
+                }}
+                transformOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'center',
+                }}
+                onClose={handlePopoverClose}
+                disableRestoreFocus
+                style={{marginTop: '-20px'}}
+              >
+                <Box className={styles.popoverBox}>
+                  <Typography variant="caption">
+                    Why would you click that? Gender and diversity shouldn't
+                    affect pay at all, right?
+                  </Typography>
+                </Box>
+              </Popover>
               <form
                 onSubmit={handleSubmit}
                 className={`${styles.textCenter} ${styles.chooseWrapper}`}
