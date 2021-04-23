@@ -6,6 +6,7 @@ import { useTheme } from '@material-ui/core/styles';
 
 import IconArrow from '../../assets/svg/icon-arrow.inline.svg';
 import ExamplesDialog from './examplesDialog';
+import { useSpring, animated } from 'react-spring'
 
 const TabContent = forwardRef(
   (
@@ -20,6 +21,11 @@ const TabContent = forwardRef(
 
     const [showWorkModal, setShowWorkModal] = useState(false);
 
+    // Parallax animation
+    const [props, set] = useSpring(() => ({ xy: [0, 0], config: { mass: 10, tension: 550, friction: 140 } }))
+    const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
+    const trans1 = (x, y) => `translate3d(${x / 20}px,${y / 12}px,0)`
+   
     const handleOpen = () => {
       setShowWorkModal(true);
     };
@@ -30,22 +36,29 @@ const TabContent = forwardRef(
 
     function renderCategoryItems() {
       return items.map((item, i) => {
-        return (
-          <Typography
-            key={`item-${i}`}
-            className="category-item"
-            variant="body1"
-          >
-            <span className="category-item-title">{item}</span>
-          </Typography>
-        );
+          return ( 
+            <div
+              className="category-item"
+              key={`item-${i}`} 
+            >
+              <animated.div className="animated" style={{ transform: props.xy.interpolate(trans1)}}>
+                  <Typography variant="body1">
+                    <span className="category-item-title">{item}</span>
+                  </Typography>
+              </animated.div>
+            </div>
+          )
       });
     }
 
+
     function renderCategoryIcons() {
+      console.log(icons)
       return icons.map((icon, i) => {
-        const Icon = icon;
-        return <Icon key={`icon-${i}`} />;
+        let Icon = icon;
+        return (
+            <Icon key={`icon-${i}`}/>
+        ) 
       });
     }
 
@@ -71,6 +84,10 @@ const TabContent = forwardRef(
       }, 100);
     }
 
+    function handleParallax({ clientX: x, clientY: y }) {
+         set({ xy: calc(x, y) })
+    }
+
     return (
       <div
         className={`
@@ -81,6 +98,7 @@ const TabContent = forwardRef(
         `}
         onMouseLeave={onMouseOut}
         ref={ref}
+        onMouseMove={handleParallax}
       >
         <div
           onMouseEnter={onMouseOver}

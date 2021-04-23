@@ -50,6 +50,10 @@ const styles = (theme) => css`
       }
   }
 
+  .category-item-wrapper {
+      display: inline;
+  }
+
   .active-indicator {
       position: absolute;
       left: 0;
@@ -162,10 +166,15 @@ const styles = (theme) => css`
       display: inline-block;
       color: ${theme.palette.text.primary};
       position: relative;
+      font-size: 150px;
       transition: ${theme.transitions.create(['opacity'], {
         duration: '.25s',
         easing: theme.transitions.easing.inOutCirc,
       })};
+
+      ${theme.breakpoints.down('sm')} {
+        font-size: 72px;
+      }
 
       &:after {
         width: 100%;
@@ -228,9 +237,9 @@ const styles = (theme) => css`
 
   .category-cta,
   .category-item-title {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     ${theme.breakpoints.up('md')} {
-      font-size: 1.5rem;
+      font-size: 2rem;
       line-height: 1.4;
     }
   }
@@ -249,109 +258,131 @@ const styles = (theme) => css`
     }
   }
 
-  .design {
-    .category-item:nth-of-type(1) {
+ .animated {
+   position: absolute;
+   height: 100%;
+   width: 100%;
+   background-size: cover;
+   background-position: center;
+ }
+
+.design {
+  .category-item:nth-of-type(1) {
+    width: 110px;
+    padding-bottom: 70px;
+    transform: translate(-50%, -50%) rotate(40deg) scale(0.25);
+    ${theme.breakpoints.up('md')} {
+      width: 14%;
+      padding-bottom: 9%;
+    }
+    .animated {
       background-image: url(/images/pill-bg-purple.svg);
-      width: 110px;
-      padding-bottom: 70px;
-      transform: translate(-50%, -50%) rotate(40deg) scale(0.25);
-      ${theme.breakpoints.up('md')} {
-        width: 14%;
-        padding-bottom: 9%;
-      }
     }
-    .category-item:nth-of-type(2) {
+  }
+  .category-item:nth-of-type(2) {
+    width: 140px;
+    padding-bottom: 37px;
+    transform: translate(-50%, -50%) rotate(-10deg) scale(0.25);
+    ${theme.breakpoints.up('md')} {
+      width: 17%;
+      padding-bottom: 4%;
+    }
+    .animated {
       background-image: url(/images/pill-bg-coral.svg);
-      width: 140px;
-      padding-bottom: 37px;
-      transform: translate(-50%, -50%) rotate(-10deg) scale(0.25);
-      ${theme.breakpoints.up('md')} {
-        width: 17%;
-        padding-bottom: 4%;
-      }
     }
-    .category-item:nth-of-type(3) {
+  }
+  .category-item:nth-of-type(3) {
+    width: 95px;
+    padding-bottom: 37px;
+    transform: translate(-50%, -50%) rotate(-10deg) scale(0.25);
+    ${theme.breakpoints.up('md')} {
+      width: 12%;
+      padding-bottom: 4.5%;
+    }
+    .animated {
       background-image: url(/images/pill-bg-green.svg);
-      width: 95px;
-      padding-bottom: 37px;
-      transform: translate(-50%, -50%) rotate(-10deg) scale(0.25);
-      ${theme.breakpoints.up('md')} {
-        width: 12%;
-        padding-bottom: 4.5%;
-      }
     }
-    .category-item:nth-of-type(4) {
+  }
+  .category-item:nth-of-type(4) {
+    width: 120px;
+    padding-bottom: 44px;
+    transform: translate(-50%, -50%) rotate(0deg) scale(0.25);
+    ${theme.breakpoints.up('md')} {
+      width: 19%;
+      padding-bottom: 7%;
+    }
+    .animated {
       background-image: url(/images/pill-bg-orange.svg);
-      width: 120px;
-      padding-bottom: 44px;
-      transform: translate(-50%, -50%) rotate(0deg) scale(0.25);
-      ${theme.breakpoints.up('md')} {
-        width: 19%;
-        padding-bottom: 7%;
-      }
     }
-    .category-item:nth-of-type(5) {
+  }
+  .category-item:nth-of-type(5) {
+    width: 155px;
+    padding-bottom: 36px;
+    color: ${theme.palette.supply.pink.main};
+    transform: translate(-50%, -50%) rotate(25deg) scale(0.25);
+    ${theme.breakpoints.up('md')} {
+      width: 17%;
+      padding-bottom: 4%;
+    }
+    .animated {
       background-image: url(/images/pill-bg-blue.svg);
-      width: 155px;
-      padding-bottom: 36px;
-      color: ${theme.palette.supply.pink.main};
-      transform: translate(-50%, -50%) rotate(25deg) scale(0.25);
-      ${theme.breakpoints.up('md')} {
-        width: 17%;
-        padding-bottom: 4%;
-      }
     }
-    .category-item:nth-of-type(6) {
+  }
+  .category-item:nth-of-type(6) {
+    width: 88px;
+    padding-bottom: 55px;
+    transform: translate(-50%, -50%) rotate(-10deg) scale(0.25);
+    ${theme.breakpoints.up('md')} {
+      width: 11%;
+      padding-bottom: 7%;
+    }
+    .animated {
       background-image: url(/images/pill-bg-white-scalloped.svg);
-      width: 88px;
-      padding-bottom: 55px;
-      transform: translate(-50%, -50%) rotate(-10deg) scale(0.25);
-      ${theme.breakpoints.up('md')} {
-        width: 11%;
-        padding-bottom: 7%;
-      }
     }
-    .category-item:nth-of-type(7) {
+  }
+  .category-item:nth-of-type(7) {
+    width: 111px;
+    padding-bottom: 38px;
+    transform: translate(-50%, -50%) rotate(-20deg) scale(0.25);
+    ${theme.breakpoints.up('md')} {
+      width: 16%;
+      padding-bottom: 5.5%;
+    }
+    .animated {
       background-image: url(/images/pill-bg-gold.svg);
-      width: 111px;
-      padding-bottom: 38px;
-      transform: translate(-50%, -50%) rotate(-20deg) scale(0.25);
-      ${theme.breakpoints.up('md')} {
-        width: 16%;
-        padding-bottom: 5.5%;
+    }
+  }
+
+  .category-icons {
+   svg:nth-of-type(1) {
+      transform: translate(-50%, -50%) rotate(400deg);
+      path {
+        fill: ${theme.palette.supply.lilac.main};
       }
     }
 
-    .category-icons {
-      svg:nth-of-type(1) {
-        transform: translate(-50%, -50%) rotate(400deg);
-        path {
-          fill: ${theme.palette.supply.lilac.main};
-        }
-      }
-
-      svg:nth-of-type(2) {
-        transform: translate(-50%, -50%) rotate(-400deg);
-        path {
-          fill: ${theme.palette.supply.seaGreen.main};
-        }
-      }
-
-      svg:nth-of-type(3) {
-        transform: translate(-50%, -50%) rotate(400deg);
-        path {
-          fill: ${theme.palette.supply.orange.main};
-        }
-      }
-      svg:nth-of-type(4) {
-        transform: translate(-50%, -50%) rotate(400deg);
-        path {
-          fill: ${theme.palette.supply.lilac.main};
-        }
+   svg:nth-of-type(2) {
+      transform: translate(-50%, -50%) rotate(-400deg);
+      path {
+        fill: ${theme.palette.supply.seaGreen.main};
       }
     }
 
-    &.active {
+   svg:nth-of-type(3) {
+      transform: translate(-50%, -50%) rotate(400deg);
+      path {
+        fill: ${theme.palette.supply.orange.main};
+      }
+    }
+   svg:nth-of-type(4) {
+      transform: translate(-50%, -50%) rotate(400deg);
+      path {
+        fill: ${theme.palette.supply.lilac.main};
+      }
+    }
+  }
+
+  &.active {
       .category-item:nth-of-type(1) {
         transform: translate(-170%, -200%) rotate(17deg);
         ${theme.breakpoints.up('md')} {
@@ -391,26 +422,23 @@ const styles = (theme) => css`
           transform: translate(138%, -135%) rotate(-5deg);
         }
       }
-
       .category-icons {
-        svg:nth-of-type(1) {
-          transform: translate(-480%, -310%) rotate(16deg);
+       svg:nth-of-type(1) {
+          transform: translate(-480%, -310%) rotate(16deg) scale(2);
         }
-
-        svg:nth-of-type(2) {
-          transform: translate(777%, -11%) rotate(-9deg);
+       svg:nth-of-type(2) {
+          transform: translate(777%, -11%) rotate(-9deg) scale(2);
           ${theme.breakpoints.up('md')} {
-            transform: translate(877%, -11%) rotate(-9deg);
+            transform: translate(877%, -11%) rotate(-9deg) scale(2);
           }
         }
-
-        svg:nth-of-type(3) {
-          transform: translate(-870%, -140%);
+       svg:nth-of-type(3) {
+          transform: translate(-870%, -140%) scale(2);
         }
-        svg:nth-of-type(4) {
-          transform: translate(300%, 0%);
+       svg:nth-of-type(4) {
+          transform: translate(300%, 0%) scale(2);
           ${theme.breakpoints.up('md')} {
-            transform: translate(1300%, 0%);
+            transform: translate(1300%, 0%) scale(2);
           }
         }
       }
@@ -419,34 +447,45 @@ const styles = (theme) => css`
   .technology {
     .category-item:nth-of-type(1) {
       transform: translate(-50%, -50%) rotate(20deg) scale(0.25);
-      background-image: url(/images/pill-bg-coral.svg);
       width: 150px;
       padding-bottom: 40px;
       ${theme.breakpoints.up('md')} {
         width: 22%;
         padding-bottom: 6%;
       }
+      .animated {
+        background: url(/images/pill-bg-coral.svg) center / cover;
+        height: 100%;
+        width: 100%;
+      }
     }
     .category-item:nth-of-type(2) {
-      background-image: url(/images/pill-bg-green.svg);
       width: 130px;
       padding-bottom: 50px;
       ${theme.breakpoints.up('md')} {
         width: 21%;
         padding-bottom: 7.5%;
       }
+      .animated {
+        background: url(/images/pill-bg-green.svg) center / cover;
+        height: 100%;
+        width: 100%;
+      }
     }
     .category-item:nth-of-type(3) {
-      background-image: url(/images/pill-bg-purple-small.svg);
       width: 117px;
       padding-bottom: 59px;
       ${theme.breakpoints.up('md')} {
         width: 16%;
         padding-bottom: 7.7%;
       }
+      .animated {
+        background: url(/images/pill-bg-purple-small.svg) center / cover;
+        height: 100%;
+        width: 100%;
+      }
     }
     .category-item:nth-of-type(4) {
-      background-image: url(/images/pill-bg-orange.svg);
       width: 160px;
       padding-bottom: 60px;
       transform: translate(-50%, -50%) rotate(45deg) scale(0.25);
@@ -454,9 +493,13 @@ const styles = (theme) => css`
         width: 19%;
         padding-bottom: 7%;
       }
+      .animated {
+        background: url(/images/pill-bg-orange.svg) center / cover;
+        height: 100%;
+        width: 100%;
+      }
     }
     .category-item:nth-of-type(5) {
-      background-image: url(/images/pill-bg-blue.svg);
       width: 150px;
       padding-bottom: 32px;
       transform: translate(-50%, -50%) rotate(-70deg) scale(0.25);
@@ -464,6 +507,11 @@ const styles = (theme) => css`
       ${theme.breakpoints.up('md')} {
         width: 18%;
         padding-bottom: 4%;
+      }
+      .animated {
+        background: url(/images/pill-bg-blue.svg) center / cover;
+        height: 100%;
+        width: 100%;
       }
     }
     .category-icons {
@@ -538,34 +586,33 @@ const styles = (theme) => css`
 
       .category-icons {
         svg:nth-of-type(1) {
-          transform: translate(-1480%, -120%) rotate(45deg) scale(1);
+          transform: translate(-1480%, -120%) rotate(45deg) scale(2);
         }
 
         svg:nth-of-type(2) {
-          transform: translate(287%, -111%) rotate(-9deg) scale(1);
+          transform: translate(287%, -111%) rotate(-9deg) scale(2);
           ${theme.breakpoints.up('md')} {
-            transform: translate(1387%, -111%) rotate(-9deg) scale(1);
+            transform: translate(1387%, -111%) rotate(-9deg) scale(2);
           }
         }
 
         svg:nth-of-type(3) {
-          transform: translate(830%, -260%) rotate(30deg) scale(1);
+          transform: translate(830%, -260%) rotate(30deg) scale(2);
         }
         svg:nth-of-type(4) {
-          transform: translate(-530%, -270%) scale(1);
+          transform: translate(-530%, -270%) scale(2);
         }
         svg:nth-of-type(5) {
-          transform: translate(520%, -350%) scale(1);
+          transform: translate(520%, -350%) scale(2);
         }
         svg:nth-of-type(6) {
-          transform: translate(490%, 0%) scale(1);
+          transform: translate(490%, 0%) scale(2);
         }
       }
     }
   }
   .management {
     .category-item:nth-of-type(1) {
-      background-image: url(/images/pill-bg-coral.svg);
       transform: translate(-50%, -50%) rotate(25deg) scale(0.25);
       width: 150px;
       padding-bottom: 40px;
@@ -573,9 +620,11 @@ const styles = (theme) => css`
         width: 18%;
         padding-bottom: 5%;
       }
+      .animated {
+        background-image: url(/images/pill-bg-coral.svg);
+      }
     }
     .category-item:nth-of-type(2) {
-      background-image: url(/images/pill-bg-purple-small.svg);
       width: 180px;
       padding-bottom: 60px;
       background-size: 100% 100%;
@@ -584,9 +633,11 @@ const styles = (theme) => css`
         width: 15%;
         padding-bottom: 7%;
       }
+      .animated {
+        background-image: url(/images/pill-bg-purple-small.svg);
+      }
     }
     .category-item:nth-of-type(3) {
-      background-image: url(/images/pill-bg-green.svg);
       width: 185px;
       padding-bottom: 49px;
       background-size: 100% 100%;
@@ -595,9 +646,11 @@ const styles = (theme) => css`
         width: 16%;
         padding-bottom: 5.5%;
       }
+      .animated {
+        background-image: url(/images/pill-bg-green.svg);
+      }
     }
     .category-item:nth-of-type(4) {
-      background-image: url(/images/pill-bg-blue.svg);
       width: 185px;
       padding-bottom: 43px;
       line-height: 1.1;
@@ -607,9 +660,11 @@ const styles = (theme) => css`
         width: 25%;
         padding-bottom: 5.5%;
       }
+      .animated {
+        background-image: url(/images/pill-bg-blue.svg);
+      }
     }
     .category-item:nth-of-type(5) {
-      background-image: url(/images/pill-bg-white-scalloped-long.svg);
       width: 170px;
       padding-bottom: 80px;
       transform: translate(-50%, -50%) rotate(27deg) scale(0.25);
@@ -617,15 +672,20 @@ const styles = (theme) => css`
         width: 17%;
         padding-bottom: 8%;
       }
+      .animated {
+        background-image: url(/images/pill-bg-white-scalloped-long.svg);
+      }
     }
     .category-item:nth-of-type(6) {
-      background-image: url(/images/pill-bg-orange-long.svg);
       width: 150px;
       padding-bottom: 40px;
       transform: translate(-50%, -50%) rotate(-10deg) scale(0.25);
       ${theme.breakpoints.up('md')} {
         width: 18%;
         padding-bottom: 4.5%;
+      }
+      .animated {
+        background-image: url(/images/pill-bg-orange-long.svg);  
       }
     }
 
@@ -711,29 +771,29 @@ const styles = (theme) => css`
 
       .category-icons {
         svg:nth-of-type(1) {
-          transform: translate(-590%, -260%) rotate(30deg) scale(1);
+          transform: translate(-590%, -260%) rotate(30deg) scale(2);
         }
 
         svg:nth-of-type(2) {
           display: none;
           ${theme.breakpoints.up('md')} {
-            transform: translate(1160%, -250%) rotate(-35deg) scale(1);
+            transform: translate(1160%, -250%) rotate(-35deg) scale(2);
           }
         }
 
         svg:nth-of-type(3) {
-          transform: translate(260%, -10%) rotate(-22deg) scale(1);
+          transform: translate(260%, -10%) rotate(-22deg) scale(2);
         }
         svg:nth-of-type(4) {
-          transform: translate(-1460%, 0%) rotate(0deg) scale(1);
+          transform: translate(-1460%, 0%) rotate(0deg) scale(2);
         }
         svg:nth-of-type(5) {
-          transform: translate(-450%, -20%) rotate(0deg) scale(1);
+          transform: translate(-450%, -20%) rotate(0deg) scale(2);
         }
         svg:nth-of-type(6) {
           display: none;
           ${theme.breakpoints.up('md')} {
-            transform: translate(910%, -210%) rotate(0deg) scale(1);
+            transform: translate(910%, -210%) rotate(0deg) scale(2);
           }
         }
       }
@@ -742,7 +802,6 @@ const styles = (theme) => css`
 
   .brands {
     .category-item:nth-of-type(1) {
-      background-image: url(/images/pill-bg-white.svg);
       width: 111px;
       padding-bottom: 71px;
       line-height: 1;
@@ -754,9 +813,11 @@ const styles = (theme) => css`
       span {
         width: 60%;
       }
+      .animated {
+        background-image: url(/images/pill-bg-white.svg);
+      }
     }
     .category-item:nth-of-type(2) {
-      background-image: url(/images/pill-bg-orange.svg);
       width: 150px;
       padding-bottom: 53px;
       transform: translate(-50%, -50%) rotate(0deg) scale(0.25);
@@ -764,9 +825,11 @@ const styles = (theme) => css`
         width: 17%;
         padding-bottom: 6%;
       }
+      .animated {
+        background-image: url(/images/pill-bg-orange.svg);
+      }
     }
     .category-item:nth-of-type(3) {
-      background-image: url(/images/pill-bg-blue-scalloped.svg);
       width: 110px;
       padding-bottom: 59px;
       transform: translate(-50%, -50%) rotate(-20deg) scale(0.25);
@@ -774,6 +837,9 @@ const styles = (theme) => css`
       ${theme.breakpoints.up('md')} {
         width: 13%;
         padding-bottom: 7%;
+      }
+      .animated {
+        background-image: url(/images/pill-bg-blue-scalloped.svg);
       }
     }
     .category-icons {
@@ -836,22 +902,22 @@ const styles = (theme) => css`
 
       .category-icons {
         svg:nth-of-type(1) {
-          transform: translate(-420%, -280%) rotate(20deg) scale(1);
+          transform: translate(-420%, -280%) rotate(20deg) scale(2);
         }
         svg:nth-of-type(2) {
-          transform: translate(-410%, -10%) rotate(-30deg) scale(1);
+          transform: translate(-410%, -10%) rotate(-30deg) scale(2);
         }
         svg:nth-of-type(3) {
-          transform: translate(350%, -10%) rotate(24deg) scale(1);
+          transform: translate(350%, -10%) rotate(24deg) scale(2);
         }
         svg:nth-of-type(4) {
-          transform: translate(410%, -260%) rotate(0deg) scale(1);
+          transform: translate(410%, -260%) rotate(0deg) scale(2);
         }
         svg:nth-of-type(5) {
-          transform: translate(-770%, -130%) rotate(0deg) scale(1);
+          transform: translate(-770%, -130%) rotate(0deg) scale(2);
         }
         svg:nth-of-type(6) {
-          transform: translate(770%, -120%) rotate(0deg) scale(1);
+          transform: translate(770%, -120%) rotate(0deg) scale(2);
         }
       }
     }
@@ -859,7 +925,6 @@ const styles = (theme) => css`
 
   .agencies {
     .category-item:nth-of-type(1) {
-      background-image: url(/images/pill-bg-coral.svg);
       width: 150px;
       padding-bottom: 42px;
       transform: translate(-50%, -50%) rotate(10deg) scale(0.25);
@@ -867,9 +932,12 @@ const styles = (theme) => css`
         width: 19%;
         padding-bottom: 5%;
       }
+      .animated {
+      background-image: url(/images/pill-bg-coral.svg);
+
+      }
     }
     .category-item:nth-of-type(2) {
-      background-image: url(/images/pill-bg-green.svg);
       width: 138px;
       padding-bottom: 50px;
       transform: translate(-50%, -50%) rotate(30deg) scale(0.25);
@@ -877,9 +945,12 @@ const styles = (theme) => css`
         width: 15%;
         padding-bottom: 5.5%;
       }
+      .animated {
+      background-image: url(/images/pill-bg-green.svg);
+        
+      }
     }
     .category-item:nth-of-type(3) {
-      background-image: url(/images/pill-bg-gold.svg);
       width: 150px;
       padding-bottom: 50px;
       transform: translate(-50%, -50%) rotate(0deg) scale(0.25);
@@ -887,9 +958,12 @@ const styles = (theme) => css`
         width: 18%;
         padding-bottom: 6%;
       }
+      .animated {
+      background-image: url(/images/pill-bg-gold.svg);
+        
+      }
     }
     .category-item:nth-of-type(4) {
-      background-image: url(/images/pill-bg-purple.svg);
       width: 114px;
       padding-bottom: 73px;
       line-height: 1;
@@ -897,6 +971,10 @@ const styles = (theme) => css`
       ${theme.breakpoints.up('md')} {
         width: 13%;
         padding-bottom: 8.2%;
+      }
+      .animated {
+      background-image: url(/images/pill-bg-purple.svg);
+        
       }
 
       span {
@@ -973,28 +1051,28 @@ const styles = (theme) => css`
       }
       .category-icons {
         svg:nth-of-type(1) {
-          transform: translate(-1190%, -180%) rotate(15deg) scale(1);
+          transform: translate(-1190%, -180%) rotate(15deg) scale(2);
         }
         svg:nth-of-type(2) {
-          transform: translate(-520%, 60%) rotate(-33deg) scale(1);
+          transform: translate(-520%, 60%) rotate(-33deg) scale(2);
         }
         svg:nth-of-type(3) {
-          transform: translate(80%, -320%) rotate(-20deg) scale(1);
+          transform: translate(80%, -320%) rotate(-20deg) scale(2);
         }
         svg:nth-of-type(4) {
-          transform: translate(850%, -170%) rotate(20deg) scale(1);
+          transform: translate(850%, -170%) rotate(20deg) scale(2);
         }
         svg:nth-of-type(5) {
           display: none;
           ${theme.breakpoints.up('md')} {
-            transform: translate(1020%, -230%) rotate(0deg) scale(1);
+            transform: translate(1020%, -230%) rotate(0deg) scale(2);
           }
         }
         svg:nth-of-type(6) {
-          transform: translate(-170%, -240%) rotate(0deg) scale(1);
+          transform: translate(-170%, -240%) rotate(0deg) scale(2);
         }
         svg:nth-of-type(7) {
-          transform: translate(440%, 0%) rotate(0deg) scale(1);
+          transform: translate(440%, 0%) rotate(0deg) scale(2);
         }
       }
     }
@@ -1002,42 +1080,50 @@ const styles = (theme) => css`
 
   .startuptech {
     .category-item:nth-of-type(1) {
-      background-image: url(/images/pill-bg-green-small.svg);
       width: 80px;
       padding-bottom: 40px;
       transform: translate(-50%, -50%) rotate(20deg) scale(0.25);
+      .animated {
+        background-image: url(/images/pill-bg-green-small.svg);
+      }
       ${theme.breakpoints.up('md')} {
         width: 10%;
         padding-bottom: 5%;
       }
     }
     .category-item:nth-of-type(2) {
-      background-image: url(/images/pill-bg-blue-small.svg);
       width: 85px;
       padding-bottom: 53px;
       transform: translate(-50%, -50%) rotate(0deg) scale(0.25);
       color: ${theme.palette.supply.pink.main};
+      .animated {
+      background-image: url(/images/pill-bg-blue-small.svg);
+      }
       ${theme.breakpoints.up('md')} {
         width: 12%;
         padding-bottom: 7.5%;
       }
     }
     .category-item:nth-of-type(3) {
-      background-image: url(/images/pill-bg-coral.svg);
       width: 150px;
       padding-bottom: 40px;
       transform: translate(-50%, -50%) rotate(-20deg) scale(0.25);
+      .animated {
+        background-image: url(/images/pill-bg-coral.svg);
+      }
       ${theme.breakpoints.up('md')} {
         width: 17%;
         padding-bottom: 4.7%;
       }
     }
     .category-item:nth-of-type(4) {
-      background-image: url(/images/pill-bg-purple.svg);
       width: 90px;
       padding-bottom: 58px;
       line-height: 1.1;
       transform: translate(-50%, -50%) rotate(-20deg) scale(0.25);
+      .animated {
+      background-image: url(/images/pill-bg-purple.svg);
+      }
       ${theme.breakpoints.up('md')} {
         width: 11%;
         padding-bottom: 7%;
@@ -1048,53 +1134,56 @@ const styles = (theme) => css`
       }
     }
     .category-item:nth-of-type(5) {
-      background-image: url(/images/pill-bg-gold-small.svg);
       width: 82px;
       padding-bottom: 40px;
       transform: translate(-50%, -50%) rotate(20deg) scale(0.25);
+      .animated {
+      background-image: url(/images/pill-bg-gold-small.svg);
+      }
       ${theme.breakpoints.up('md')} {
         width: 13%;
         padding-bottom: 6.5%;
       }
     }
     .category-icons {
-      svg:nth-of-type(1) {
+      .animated:nth-of-type(1) {
         transform: translate(-50%, -50%) rotate(400deg) scale(0.25);
+        position: absolute;
         path {
           fill: ${theme.palette.supply.lilac.main};
         }
       }
-      svg:nth-of-type(2) {
+      .animated:nth-of-type(2) {
         transform: translate(-50%, -50%) rotate(400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.cobalt.main};
         }
       }
-      svg:nth-of-type(3) {
+      .animated:nth-of-type(3) {
         transform: translate(-50%, -50%) rotate(-400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.seaGreen.main};
         }
       }
-      svg:nth-of-type(4) {
+      .animated:nth-of-type(4) {
         transform: translate(-50%, -50%) rotate(-400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.salmon.main};
         }
       }
-      svg:nth-of-type(5) {
+      .animated:nth-of-type(5) {
         transform: translate(-50%, -50%) rotate(400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.orange.main};
         }
       }
-      svg:nth-of-type(6) {
+      .animated:nth-of-type(6) {
         transform: translate(-50%, -50%) rotate(400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.goldLeather.main};
         }
       }
-      svg:nth-of-type(7) {
+      .animated:nth-of-type(7) {
         transform: translate(-50%, -50%) rotate(-400deg) scale(0.25);
         path {
           fill: ${theme.palette.supply.lilac.main};
@@ -1133,27 +1222,27 @@ const styles = (theme) => css`
 
       .category-icons {
         svg:nth-of-type(1) {
-          transform: translate(-550%, -300%) rotate(21deg) scale(1);
+          transform: translate(-550%, -300%) rotate(21deg) scale(2);
         }
         svg:nth-of-type(2) {
-          transform: translate(-1231%, 0%) rotate(-30deg) scale(1);
+          transform: translate(-1231%, 0%) rotate(-30deg) scale(2);
         }
         svg:nth-of-type(3) {
-          transform: translate(260%, -320%) rotate(20deg) scale(1);
+          transform: translate(260%, -320%) rotate(20deg) scale(2);
         }
         svg:nth-of-type(4) {
-          transform: translate(480%, 40%) rotate(-40deg) scale(1);
+          transform: translate(480%, 40%) rotate(-40deg) scale(2);
         }
         svg:nth-of-type(5) {
-          transform: translate(-880%, -310%) rotate(0deg) scale(1);
+          transform: translate(-880%, -310%) rotate(0deg) scale(2);
         }
         svg:nth-of-type(6) {
-          transform: translate(-470%, 57%) rotate(0deg) scale(1);
+          transform: translate(-470%, 57%) rotate(0deg) scale(2);
         }
         svg:nth-of-type(7) {
-          transform: translate(260%, -50%) rotate(0deg) scale(1);
+          transform: translate(260%, -50%) rotate(0deg) scale(2);
           ${theme.breakpoints.up('md')} {
-            transform: translate(1260%, -50%) rotate(0deg) scale(1);
+            transform: translate(1260%, -50%) rotate(0deg) scale(2);
           }
         }
       }
