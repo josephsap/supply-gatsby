@@ -20,6 +20,32 @@
   }
 }
 
+.popoverBox {
+  line-height: 1;
+  text-align: center;
+  max-width: 265px;
+  padding: 1.8rem;
+}
+
+.popoverBtn {
+  display: none;
+  @media (min-width: 1025px) {
+    display: block;
+    margin-left: auto;
+    transform: rotate(15deg);
+    color: #162c29;
+    font-size: 1.3rem;
+    background-color: #bb9cfe;
+    max-width: 145px;
+    padding: 10px;
+    line-height: 1.2;
+  }
+  &:hover {
+    background-color: #356ad2;
+    color: white;
+  }
+}
+
 .container {
   margin-top: 2rem;
 }
@@ -62,6 +88,7 @@
 .mainArea {
   background-color: #ffe8e1;
   padding: 5rem 2rem 4rem;
+  position: relative;
 }
 
 .contain {

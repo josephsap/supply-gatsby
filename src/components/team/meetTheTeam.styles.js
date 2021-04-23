@@ -49,8 +49,10 @@ const styles = (theme) => css`
     position: absolute;
     right: 0;
     top: -132%;
+    display: none;
     ${theme.breakpoints.up('md')} {
       right: 280px;
+      display: block;
     }
 
     img {
