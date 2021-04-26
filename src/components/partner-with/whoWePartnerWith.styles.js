@@ -9,7 +9,7 @@ const styles = (theme) => css`
   }
 
   .category-hide {
-    span {
+    em {
       opacity: 0 !important;
       pointer-events: none;
     }
@@ -68,7 +68,6 @@ const styles = (theme) => css`
   .headline,
   .partner-tabs,
   .category-container {
-    ${initiallyHidden}
   }
 
   .tab-indicator-override {
@@ -161,19 +160,28 @@ const styles = (theme) => css`
     margin-bottom: 30px;
     text-decoration: none;
     cursor: pointer;
+    overflow: hidden;
 
     h3 {
-      display: inline-block;
+      display: flex;
+      overflow: hidden;
       color: ${theme.palette.text.primary};
       position: relative;
       font-size: 150px;
-      transition: ${theme.transitions.create(['opacity'], {
+      /* transition: ${theme.transitions.create(['opacity'], {
         duration: '.25s',
         easing: theme.transitions.easing.inOutCirc,
-      })};
+      })}; */
 
       ${theme.breakpoints.down('sm')} {
         font-size: 72px;
+      }
+
+      .title-char {
+        ${initiallyHidden}
+        transform: translateY(100%) rotate(7deg);
+        display: block;
+
       }
 
       &:after {
@@ -238,7 +246,7 @@ const styles = (theme) => css`
   .category-cta,
   .category-item-title {
     font-size: 1.4rem;
-    ${theme.breakpoints.up('md')} {
+    ${theme.breakpoints.up('lg')} {
       font-size: 2rem;
       line-height: 1.4;
     }
@@ -386,7 +394,7 @@ const styles = (theme) => css`
       .category-item:nth-of-type(1) {
         transform: translate(-170%, -200%) rotate(17deg);
         ${theme.breakpoints.up('md')} {
-          transform: translate(-211%, -186%) rotate(17deg);
+          transform: translate(-271%, -216%) rotate(17deg);
         }
       }
       .category-item:nth-of-type(2) {
@@ -401,19 +409,19 @@ const styles = (theme) => css`
       .category-item:nth-of-type(4) {
         transform: translate(-159%, -10%) rotate(-3deg);
         ${theme.breakpoints.up('md')} {
-          transform: translate(-219%, -93%) rotate(-3deg);
+          transform: translate(-249%, -73%) rotate(-3deg);
         }
       }
       .category-item:nth-of-type(5) {
         transform: translate(-122%, 189%) rotate(7deg);
         ${theme.breakpoints.up('md')} {
-          transform: translate(-172%, 49%) rotate(7deg);
+          transform: translate(-192%, 129%) rotate(7deg);
         }
       }
       .category-item:nth-of-type(6) {
         transform: translate(85%, 67%) rotate(-9deg);
         ${theme.breakpoints.up('md')} {
-          transform: translate(104%, 0%) rotate(-9deg);
+          transform: translate(144%, 70%) rotate(-9deg);
         }
       }
       .category-item:nth-of-type(7) {
@@ -429,7 +437,7 @@ const styles = (theme) => css`
        svg:nth-of-type(2) {
           transform: translate(777%, -11%) rotate(-9deg) scale(2);
           ${theme.breakpoints.up('md')} {
-            transform: translate(877%, -11%) rotate(-9deg) scale(2);
+            transform: translate(977%, -101%) rotate(-9deg) scale(2);
           }
         }
        svg:nth-of-type(3) {
@@ -734,38 +742,37 @@ const styles = (theme) => css`
       .category-item:nth-of-type(1) {
         transform: translate(-130%, -272%) rotate(-7.95deg) scale(1);
         ${theme.breakpoints.up('md')} {
-          transform: translate(-190%, -272%) rotate(-7.95deg) scale(1);
+          transform: translate(-250%, -342%) rotate(-7.95deg) scale(1);
         }
       }
       .category-item:nth-of-type(2) {
         transform: translate(-40%, -220%) rotate(-13deg) scale(1);
         ${theme.breakpoints.up('md')} {
-          transform: translate(-76%, -220%) rotate(-13deg) scale(1);
+          transform: translate(-106%, -270%) rotate(-13deg) scale(1);
         }
       }
       .category-item:nth-of-type(3) {
         transform: translate(17%, -188%) rotate(17deg) scale(1);
-        z-index: -1;
         ${theme.breakpoints.up('md')} {
-          transform: translate(40%, -260%) rotate(17deg) scale(1);
+          transform: translate(170%, -300%) rotate(17deg) scale(1);
         }
       }
       .category-item:nth-of-type(4) {
         transform: translate(-110%, 47%) rotate(9.3deg) scale(1);
         ${theme.breakpoints.up('md')} {
-          transform: translate(-131%, 47%) rotate(9.3deg) scale(1);
+          transform: translate(-191%, 77%) rotate(9.3deg) scale(1);
         }
       }
       .category-item:nth-of-type(5) {
         transform: translate(7%, 27%) rotate(-13deg) scale(1);
         ${theme.breakpoints.up('md')} {
-          transform: translate(49%, 27%) rotate(-13deg) scale(1);
+          transform: translate(49%, 57%) rotate(-13deg) scale(1);
         }
       }
       .category-item:nth-of-type(6) {
         transform: translate(10%, 250%) rotate(10deg) scale(1);
         ${theme.breakpoints.up('md')} {
-          transform: translate(140%, 20%) rotate(10deg) scale(1);
+          transform: translate(150%, 80%) rotate(10deg) scale(1);
         }
       }
 
@@ -884,19 +891,19 @@ const styles = (theme) => css`
       .category-item:nth-of-type(1) {
         transform: translate(-50%, -182%) rotate(-10deg) scale(1);
         ${theme.breakpoints.up('md')} {
-          transform: translate(-50%, -182%) rotate(-10deg) scale(1);
+          transform: translate(-50%, -222%) rotate(-10deg) scale(1);
         }
       }
       .category-item:nth-of-type(2) {
         transform: translate(-135%, 0%) rotate(13deg) scale(1);
         ${theme.breakpoints.up('md')} {
-          transform: translate(-163%, 0%) rotate(13deg) scale(1);
+          transform: translate(-229%, 0%) rotate(13deg) scale(1);
         }
       }
       .category-item:nth-of-type(3) {
         transform: translate(60%, 0%) rotate(-8deg) scale(1);
         ${theme.breakpoints.up('md')} {
-          transform: translate(90%, 0%) rotate(-8deg) scale(1);
+          transform: translate(150%, 40%) rotate(-8deg) scale(1);
         }
       }
 
@@ -1030,23 +1037,26 @@ const styles = (theme) => css`
     &.active {
       .category-item:nth-of-type(1) {
         transform: translate(-140%, -280%) rotate(-12deg) scale(1);
+        ${theme.breakpoints.up('md')} {
+          transform: translate(-180%, -290%) rotate(-21deg) scale(1);
+        }
       }
       .category-item:nth-of-type(2) {
         transform: translate(20%, -280%) rotate(-21deg) scale(1);
         ${theme.breakpoints.up('md')} {
-          transform: translate(80%, -280%) rotate(-21deg) scale(1);
+          transform: translate(150%, -280%) rotate(-21deg) scale(1);
         }
       }
       .category-item:nth-of-type(3) {
         transform: translate(-130%, 6%) rotate(19deg) scale(1);
         ${theme.breakpoints.up('md')} {
-          transform: translate(-180%, -26%) rotate(19deg) scale(1);
+          transform: translate(-250%, 56%) rotate(19deg) scale(1);
         }
       }
       .category-item:nth-of-type(4) {
         transform: translate(67%, -10%) rotate(-10deg) scale(1);
         ${theme.breakpoints.up('md')} {
-          transform: translate(140%, -10%) rotate(-10deg) scale(1);
+          transform: translate(200%, 40%) rotate(-10deg) scale(1);
         }
       }
       .category-icons {
@@ -1195,7 +1205,7 @@ const styles = (theme) => css`
       .category-item:nth-of-type(1) {
         transform: translate(-230%, -280%) rotate(-21deg) scale(1);
         ${theme.breakpoints.up('md')} {
-          transform: translate(-340%, -280%) rotate(-21deg) scale(1);
+          transform: translate(-500%, -310%) rotate(-21deg) scale(1);
         }
       }
       .category-item:nth-of-type(2) {
@@ -1204,19 +1214,19 @@ const styles = (theme) => css`
       .category-item:nth-of-type(3) {
         transform: translate(25%, -300%) rotate(11deg) scale(1);
         ${theme.breakpoints.up('md')} {
-          transform: translate(100%, -300%) rotate(11deg) scale(1);
+          transform: translate(210%, -350%) rotate(11deg) scale(1);
         }
       }
       .category-item:nth-of-type(4) {
         transform: translate(-170%, 16%) rotate(16deg) scale(1);
         ${theme.breakpoints.up('md')} {
-          transform: translate(-240%, 16%) rotate(16deg) scale(1);
+          transform: translate(-350%, 76%) rotate(16deg) scale(1);
         }
       }
       .category-item:nth-of-type(5) {
         transform: translate(110%, 30%) rotate(-23deg) scale(1);
         ${theme.breakpoints.up('md')} {
-          transform: translate(130%, 30%) rotate(-23deg) scale(1);
+          transform: translate(240%, 70%) rotate(-23deg) scale(1);
         }
       }
 

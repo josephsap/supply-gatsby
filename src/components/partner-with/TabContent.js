@@ -51,9 +51,11 @@ const TabContent = forwardRef(
       });
     }
 
+    function renderTitle(title) {
+      return title.split('').map((char, i) => <span className="title-char" key={i}>{char}</span>)
+    }
 
     function renderCategoryIcons() {
-      console.log(icons)
       return icons.map((icon, i) => {
         let Icon = icon;
         return (
@@ -85,7 +87,7 @@ const TabContent = forwardRef(
     }
 
     function handleParallax({ clientX: x, clientY: y }) {
-         set({ xy: calc(x, y) })
+      set({ xy: calc(x, y) })
     }
 
     return (
@@ -109,10 +111,10 @@ const TabContent = forwardRef(
           }
         >
           <Typography variant="h3" component="h3">
-            {title}
+            {renderTitle(title)}
           </Typography>
           <Typography variant="body1" component="span" className="category-cta">
-            <IconArrow />
+            <em><IconArrow /></em>
             <em onClick={handleOpen}>View work examples</em>
           </Typography>
         </div>

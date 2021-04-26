@@ -5,20 +5,20 @@ import Layout from '../components/layout/layout';
 
 export const ROLDX_PAGE_QUERY = graphql`
   query roldxPageQuery {
-    contentfulRoldxLanding {
-      title
-      description {
-        description
-      }
-      productImage {
-        file {
-          url
-        }
-      }
-      belowImageText {
-        belowImageText
-      }
-    }
+    # contentfulRoldxLanding {
+    #   title
+    #   description {
+    #     description
+    #   }
+    #   productImage {
+    #     file {
+    #       url
+    #     }
+    #   }
+    #   belowImageText {
+    #     belowImageText
+    #   }
+    # }
     contentfulFooter {
       logo {
         file {

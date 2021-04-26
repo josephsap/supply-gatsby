@@ -1,8 +1,7 @@
 import React, { useEffect, useState, useRef, createRef } from 'react';
-import { stripCharacters } from '../../utils/utils';
+import { stripCharacters, split } from '../../utils/utils';
 import useScrollAnimation from '../../hooks/use-scroll-animation';
 import gsap from 'gsap';
-
 import { categories } from './categories';
 import {
   Container,
@@ -61,14 +60,27 @@ const WhoWePartnerWith = ({ whoWeWorkWithSection }) => {
 
   //when the tab changes
   useEffect(() => {
+    let tl = gsap.timeline({pause: true})
     let elements =
       value === 0 ? talentTabHeadlines.current : clientTabHeadlines.current;
-    gsap.to([...elements.map((ref) => ref.current)], 0.5, {
-      y: 0,
-      opacity: 1,
-      stagger: 0.05,
-    });
+    function handleAnimateIn(els) {
+      for(let [index, value] of els.entries()) {
+        const delayVal = index ? 0.45 - (index / 15) : 0
+        const anim = tl.to([...value.current.getElementsByClassName('title-char')], 0.5, {
+          y: 0,
+          opacity: 1,
+          stagger: 0.014,
+          rotate: 0,
+          ease: 'Power3.easeOut'
+        }, `-=${delayVal}` )
+        tl.add(anim)
+      }
+      tl.play()
+    }
+    handleAnimateIn(elements);
   }, [value]);
+
+  
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
