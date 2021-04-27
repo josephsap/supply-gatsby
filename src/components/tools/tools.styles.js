@@ -10,7 +10,7 @@ const styles = (theme) => css`
     border: 3px solid;
     text-align: center;
     border-radius: 20px;
-    padding: 4rem 4rem 4.5rem;
+    padding: 4rem 2rem 4.5rem;
     ${theme.breakpoints.up('md')} {
       border-radius: 170px;
       padding-bottom: 7rem;

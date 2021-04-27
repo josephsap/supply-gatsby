@@ -105,7 +105,7 @@ const styles = (theme) => css`
 
   .intro-copy {
     ${initiallyHidden}
-    padding: 1rem 4rem 4rem;
+    padding: 1rem 1.6rem 4rem;
     text-align: center;
     ${theme.breakpoints.up('md')} {
       padding-right: 9rem;

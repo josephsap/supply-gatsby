@@ -92,7 +92,7 @@ const styles = (theme) => css`
     text-align: center;
     display: flex;
     flex-direction: column;
-    padding: 4rem;
+    padding: 4rem 1.6rem;
     ${theme.breakpoints.up('md')} {
       padding: 0 4rem 0 0;
       text-align: left;
@@ -105,6 +105,8 @@ const styles = (theme) => css`
   .pushing-diversity {
     ${initiallyHidden}
     margin-bottom: 3rem;
+    padding-right: 1.6rem;
+    padding-left: 1.6rem;
     ${theme.breakpoints.up('md')} {
       margin-left: auto;
       ${pl4};

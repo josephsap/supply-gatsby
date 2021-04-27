@@ -13,6 +13,7 @@ const styles = (theme) => css`
   .network-title {
     ${theme.breakpoints.down('sm')} {
       text-align: center;
+      padding: 0 0.8rem 1rem;
     }
     h2 {
       ${initiallyHidden};
@@ -32,7 +33,7 @@ const styles = (theme) => css`
   .network-desc {
     ${theme.breakpoints.down('sm')} {
       text-align: center;
-      padding: 0 2.4rem;
+      padding: 0 1.6rem;
     }
     p {
       ${initiallyHidden}

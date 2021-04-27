@@ -17,17 +17,17 @@ const styles = (theme) => css`
 
   //partner tabs styles 
   .partner-tabs-wrapper {
-      ${initiallyHidden}
-      border-radius: 100px;
-      border: 3px solid #162C29;
-      display: inline-block;
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      opacity: 1;
+    ${initiallyHidden}
+    border-radius: 100px;
+    border: 3px solid #162C29;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 1;
     margin: 3rem auto 10rem;
-      transform: translateY(0px);
-      transition: all 0.25s;
+    transform: translateY(0px);
+    transition: all 0.25s;
   }
   .section-button {
       background: none;
@@ -42,6 +42,9 @@ const styles = (theme) => css`
       transition: color 0.25s;
       padding: 1.5rem 0;
       cursor: pointer;
+      ${theme.breakpoints.down('sm')} {
+        width: 100px;
+      }
       &:active, &:focus {
         outline: none
       }
