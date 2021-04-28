@@ -90,7 +90,23 @@ export const chatBaseStyles = (theme) => css`
   .email-btn {
     margin-top: auto;
     margin-bottom: 1.8rem;
+    &.email-md {
+      ${theme.breakpoints.down('md')} {
+        display: none;
+      }
+    }
+    &.email-sm {
+      ${theme.breakpoints.up('md')} {
+        display: none;
+      }
+    }
   }
+
+.close-container {
+  right: -2rem;
+  top: 51px;
+}
+
 
   .slide-styles {
     overflow-x: hidden;

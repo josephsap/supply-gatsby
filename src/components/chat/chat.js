@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   Grid,
   Typography,
@@ -13,6 +13,7 @@ import EmailContainer from '../email/email-container';
 import { chatBaseStyles } from './chat.styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
+import gsap from 'gsap/gsap-core';
 
 const ChatMessages = ({ messages = [], customerId, scrollToRef }) => {
   return (
@@ -40,10 +41,25 @@ const Chat = ({ state, onSendMessage, scrollToRef, chatCloseButton }) => {
   const [checked, setChecked] = useState(false);
   const { messages = [], customerId, isLoaded } = state;
   const theme = useTheme();
-  const showMed = useMediaQuery(theme.breakpoints.up('md'));
-  const showSm = useMediaQuery(theme.breakpoints.down('sm'));
+  const emailTitleRef = useRef(null)
+  const emailDescriptionRef = useRef(null)
+  const emailButtonRef = useRef(null)
+  const formRef = useRef(null)
+  const sendButtonRef = useRef(null)
+  const closeRef = useRef(null)
 
   const handleChangeMessage = (e) => setMessageBody(e.target.value);
+
+  useEffect(() => {
+    gsap.from(formRef.current, {x: -50, opacity: 0, ease: 'power4.out', duration: 0.75, delay: 0.3 })
+    gsap.from(sendButtonRef.current, {x: -50, opacity: 0, ease: 'power4.out', duration: 0.75, delay: 0.4 })
+
+    gsap.from(emailTitleRef.current, {x: -300, opacity: 0, ease: 'power4.out', duration: 0.75, delay: 0.5 })
+    gsap.from(emailDescriptionRef.current, {y: 100, opacity: 0, ease: 'power3.out', duration: 0.75, delay: 0.6 })
+    gsap.from(emailButtonRef.current, {x: 100, opacity: 0, ease: 'power3.out', duration: 0.6, delay: 0.75 })
+
+    gsap.from(closeRef.current, {opacity: 0, duration: 0.75, delay: 1 })
+  }, [])
 
   const handleSendMessage = (e) => {
     onSendMessage({ body: message });
@@ -55,10 +71,10 @@ const Chat = ({ state, onSendMessage, scrollToRef, chatCloseButton }) => {
     handleSendMessage();
   };
 
+
   // const Transition = React.forwardRef(function Transition(props, ref) {
   //   return <Slide direction="left" ref={ref} {...props} />;
   // });
-
   return (
     <div style={{ backgroundColor: '#FEB29C' }}>
       {!checked ? (
@@ -71,21 +87,23 @@ const Chat = ({ state, onSendMessage, scrollToRef, chatCloseButton }) => {
         >
           <Grid container css={chatBaseStyles}>
             {/* TODO: put this copy in the cms */}
-            {chatCloseButton}
+            <div className='close-container' ref={closeRef}>
+              {chatCloseButton}
+            </div>
             <Grid item xs={12} md={6} className="email-side-container">
               <Box className="email-side-interior">
-                <Typography variant="h5">Talk to a real person.</Typography>
-                <Typography variant="body1">
+                <Typography ref={emailTitleRef} variant="h5">Talk to a real person.</Typography>
+                <Typography ref={emailDescriptionRef} variant="body1">
                   No, really. We are probably sitting at our computers right
                   now, waiting to talk to you. We’re the kind of folks that
                   understand how important time is when it comes to hiring the
                   right talent. Let’s chat!
                 </Typography>
-                {showMed && (
                   <Button
                     variant="contained"
                     color="secondary"
-                    className="email-btn"
+                    className="email-btn email-md"
+                    ref={emailButtonRef}
                     fullWidth
                     onClick={() => setChecked(true)}
                     startIcon={
@@ -97,7 +115,6 @@ const Chat = ({ state, onSendMessage, scrollToRef, chatCloseButton }) => {
                   >
                     Email us
                   </Button>
-                )}
               </Box>
             </Grid>
 
@@ -116,7 +133,7 @@ const Chat = ({ state, onSendMessage, scrollToRef, chatCloseButton }) => {
                 )}
               </div>
               <div className="message-input-container">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} ref={formRef}>
                   <TextField
                     fullWidth
                     value={message}
@@ -134,16 +151,16 @@ const Chat = ({ state, onSendMessage, scrollToRef, chatCloseButton }) => {
                       className="send-msg-btn"
                       variant="contained"
                       color="primary"
+                      ref={sendButtonRef}
                     >
                       Send
                     </Button>
                   </Grid>
                   <Grid item xs={12} className="em-send-btn-container">
-                    {showSm && (
                       <Button
                         variant="contained"
                         color="secondary"
-                        className="email-btn"
+                        className="email-btn email-sm"
                         fullWidth
                         onClick={() => setChecked(true)}
                         startIcon={
@@ -155,7 +172,6 @@ const Chat = ({ state, onSendMessage, scrollToRef, chatCloseButton }) => {
                       >
                         Email us
                       </Button>
-                    )}
                   </Grid>
                 </Grid>
               </div>

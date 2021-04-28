@@ -366,27 +366,27 @@ const styles = (theme) => css`
 
   .category-icons {
    svg:nth-of-type(1) {
-      transform: translate(-50%, -50%) rotate(400deg);
+      transform: translate(-50%, -50%) rotate(400deg) scale(1);
       path {
         fill: ${theme.palette.supply.lilac.main};
       }
     }
 
    svg:nth-of-type(2) {
-      transform: translate(-50%, -50%) rotate(-400deg);
+      transform: translate(-50%, -50%) rotate(-400deg) scale(1);
       path {
         fill: ${theme.palette.supply.seaGreen.main};
       }
     }
 
    svg:nth-of-type(3) {
-      transform: translate(-50%, -50%) rotate(400deg);
+      transform: translate(-50%, -50%) rotate(400deg) scale(1);
       path {
         fill: ${theme.palette.supply.orange.main};
       }
     }
    svg:nth-of-type(4) {
-      transform: translate(-50%, -50%) rotate(400deg);
+      transform: translate(-50%, -50%) rotate(400deg) scale(1);
       path {
         fill: ${theme.palette.supply.lilac.main};
       }
