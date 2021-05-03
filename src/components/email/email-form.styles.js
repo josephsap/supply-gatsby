@@ -111,9 +111,11 @@ const styles = (theme) => css`
   }
 
   .btn-container {
-    max-width: 45%;
     &:nth-of-type(2) {
       margin-left: auto;
+      ${theme.breakpoints.down('sm')} {
+        margin-top: 2rem;
+      }
       .MuiButton-endIcon {
         ${theme.breakpoints.down('lg')} {
           display: none;

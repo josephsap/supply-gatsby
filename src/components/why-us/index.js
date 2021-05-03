@@ -4,8 +4,6 @@ import styles from './whyUs.styles';
 import PebbleStats from './pebbleStats';
 import { pt4, pb4 } from '../layout/margin-padding-utils.styles';
 import useScrollAnimation from '../../hooks/use-scroll-animation';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { useTheme } from '@material-ui/core/styles';
 
 const WhyUsSection = ({ whyUsSection }) => {
   const wrapper = useRef(null);
@@ -16,9 +14,6 @@ const WhyUsSection = ({ whyUsSection }) => {
 
   useScrollAnimation(wrapper, [headline, description, introCopy]);
   useScrollAnimation(roldxImg, [roldxImg]);
-
-  const theme = useTheme();
-  const showSm = useMediaQuery(theme.breakpoints.up('sm'));
 
   return (
     <Container maxWidth={false} css={styles} id="section3">
@@ -63,9 +58,7 @@ const WhyUsSection = ({ whyUsSection }) => {
           </Grid>
         </Grid>
       </Container>
-      {showSm &&
-        <PebbleStats data={whyUsSection} />
-      }
+      <PebbleStats data={whyUsSection} />
     </Container>
   );
 };

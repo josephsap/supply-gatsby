@@ -1,8 +1,8 @@
 import { css } from '@emotion/react';
 
-const styles = (theme) => css`
+const styles = ({ winHeight }) => css`
   position: relative;
-  height: 800px;
+  height: ${winHeight}px;
   margin-top: 10rem;
 `;
 

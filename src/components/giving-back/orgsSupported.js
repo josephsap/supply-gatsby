@@ -55,6 +55,9 @@ const OrgsSupportDialog = ({ showOrgsModal, onClose }) => {
       <Grid
         container
         className="inner-top"
+        direction="row"
+        justify="center"
+        alignItems="center"
       >
         <Box mt={3} className="images-container">
           {contentfulGivingBackSection.orgsModalLogos.map((image) => (

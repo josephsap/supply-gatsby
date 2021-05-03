@@ -2,6 +2,9 @@ import { css } from '@emotion/react';
 import { initiallyHidden } from '../shared/shared.styles';
 
 const styles = (theme) => css`
+  ${theme.breakpoints.down('sm')} {
+    padding-left: 0;
+  }
   .title-container {
     display: flex;
     justify-content: center;
