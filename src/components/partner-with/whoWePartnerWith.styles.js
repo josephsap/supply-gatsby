@@ -181,7 +181,7 @@ const styles = (theme) => css`
       }
 
       ${theme.breakpoints.down('sm')} {
-        font-size: 48px;
+        font-size: 60px;
       }
 
       .title-char {
