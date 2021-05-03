@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import {
   Grid,
   Typography,
@@ -49,8 +49,7 @@ const Chat = ({ state, onSendMessage, scrollToRef, chatCloseButton }) => {
   const closeRef = useRef(null)
 
   const handleChangeMessage = (e) => setMessageBody(e.target.value);
-
-  useEffect(() => {
+  const animateTalkSection = useCallback(() => {
     gsap.from(formRef.current, {x: -50, opacity: 0, ease: 'power4.out', duration: 0.75, delay: 0.3 })
     gsap.from(sendButtonRef.current, {x: -50, opacity: 0, ease: 'power4.out', duration: 0.75, delay: 0.4 })
 
@@ -59,6 +58,10 @@ const Chat = ({ state, onSendMessage, scrollToRef, chatCloseButton }) => {
     gsap.from(emailButtonRef.current, {x: 100, opacity: 0, ease: 'power3.out', duration: 0.6, delay: 0.75 })
 
     gsap.from(closeRef.current, {opacity: 0, duration: 0.75, delay: 1 })
+  }, [checked])
+  
+  useEffect(() => {
+    animateTalkSection()
   }, [])
 
   const handleSendMessage = (e) => {

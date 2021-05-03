@@ -176,8 +176,12 @@ const styles = (theme) => css`
         easing: theme.transitions.easing.inOutCirc,
       })}; */
 
-      ${theme.breakpoints.down('sm')} {
+      ${theme.breakpoints.down('md')} {
         font-size: 72px;
+      }
+
+      ${theme.breakpoints.down('sm')} {
+        font-size: 48px;
       }
 
       .title-char {

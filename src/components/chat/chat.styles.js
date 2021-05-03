@@ -91,7 +91,7 @@ export const chatBaseStyles = (theme) => css`
     margin-top: auto;
     margin-bottom: 1.8rem;
     &.email-md {
-      ${theme.breakpoints.down('md')} {
+      ${theme.breakpoints.down('sm')} {
         display: none;
       }
     }
