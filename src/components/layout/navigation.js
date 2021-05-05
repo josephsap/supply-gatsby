@@ -14,7 +14,7 @@ const Navigation = ({ pageTitles }) => (
             spy={true}
             smooth={true}
             offset={-60}
-            duration={200}
+            duration={1000}
             className="nav-item"
             key={index}
           >

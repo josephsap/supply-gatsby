@@ -83,6 +83,10 @@ const styles = (theme) => css`
       transition-delay: 100ms;
       overflow: visible;
     }
+
+    &.active span {
+      font-weight: bold;
+    }
   }
 `;
 
