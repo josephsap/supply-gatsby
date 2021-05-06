@@ -63,18 +63,17 @@ export const PAGE_DATA_QUERY = graphql`
     contentfulWhyUsSection {
       title
       statisticItem {
-		image {
-            title
-		    file {
-				url
-                }
-            }
+        image {
+          title
+          file {
+            url
+          }
         }
+      }
       description {
         childMarkdownRemark {
           html
         }
-        
       }
       descriptionTwo {
         descriptionTwo
@@ -168,7 +167,6 @@ export const PAGE_DATA_QUERY = graphql`
       }
     }
 
-   
     contentfulFooter {
       logo {
         file {
@@ -202,8 +200,6 @@ const Home = ({ data }) => {
     { navTitle: contentfulWhoWeWorkWithSection.whoWeWorkWithTitle },
     { navTitle: contentfulServicesSection.title },
     { navTitle: contentfulWhyUsSection.title },
-    { navTitle: 'Giving Back' },
-    { navTitle: contentfulNetworkSection.title },
     { navTitle: contentfulMeetTheTeam.title },
     { navTitle: contentfulTools.title },
   ];

@@ -48,7 +48,7 @@ const GivingBackSection = ({ givingBackSection }) => {
   };
 
   return (
-    <Container maxWidth={false} className="section-padding" id="section4">
+    <Container maxWidth={false} className="section-padding">
       <Container maxWidth="lg" className="side-padding">
         <div css={styles}>
           <Grid container ref={drawRef} css={[baseStyles, drawStyles]}>

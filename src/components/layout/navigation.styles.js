@@ -45,11 +45,11 @@ const styles = (theme) => css`
     }
 
     &:nth-of-type(5) {
-      background-color: ${theme.palette.supply.pink.main};
+      background-color: ${theme.palette.supply.seaGreen.main};
     }
 
     &:nth-of-type(6) {
-      background-color: ${theme.palette.supply.lightPeach.main};
+      background-color: ${theme.palette.supply.cream.main};
     }
 
     &:nth-of-type(7) {

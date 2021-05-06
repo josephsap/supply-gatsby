@@ -146,7 +146,6 @@ const NetworkSection = ({ networkSection }) => {
       maxWidth={false}
       className="section-padding"
       css={styles}
-      id="section5"
     >
       <Container maxWidth="lg" className="side-padding">
         <Grid

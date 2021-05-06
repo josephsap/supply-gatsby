@@ -30,7 +30,7 @@ const MeetTheTeamSection = ({ meetTheTeamSection }) => {
       maxWidth={false}
       className="section-padding"
       css={styles}
-      id="section6"
+      id="section4"
     >
       <Container maxWidth="lg" className="side-padding">
         <Grid container ref={wrapper}>
