@@ -1,5 +1,17 @@
-import { css } from '@emotion/react';
-
+import { css, keyframes } from '@emotion/react';
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateX(20px) rotate(-90deg);
+  }
+  50% {
+    opcaity: 0.5;
+    transform: translateX(0px) rotate(-90deg);
+  }
+  100% {
+    opacity: 1;
+  }
+`
 const styles = (theme) => css`
   ${theme.breakpoints.down(theme.breakpoints.values.tablet)} {
     display: none;
@@ -71,21 +83,25 @@ const styles = (theme) => css`
       overflow: hidden;
       white-space: nowrap;
       line-height: 1;
-      font-size: 12px;
+      font-size: 16px;
       transform: rotate(-90deg);
       transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
       transition-delay: 0;
+      opacity: 0;
+      font-weight: bold;
     }
 
     &:hover span,
     &.active span {
-      opacity: 1;
       transition-delay: 100ms;
       overflow: visible;
+      animation: ${fadeIn} 0.75s cubic-bezier(0.4, 0, 0.2, 1)forwards;
+      animation-delay: 0.1s;
     }
 
     &.active span {
-      font-weight: bold;
+      animation: ${fadeIn} 0.75s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-delay: 0.1s;
     }
   }
 `;
