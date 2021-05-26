@@ -11,7 +11,7 @@ const fadeIn = keyframes`
   100% {
     opacity: 1;
   }
-`
+`;
 const styles = (theme) => css`
   ${theme.breakpoints.down(theme.breakpoints.values.tablet)} {
     display: none;
@@ -45,15 +45,15 @@ const styles = (theme) => css`
     }
 
     &:nth-of-type(2) {
-      background-color: ${theme.palette.supply.pink.main};
+      background-color: ${theme.palette.supply.cement.main};
     }
 
     &:nth-of-type(3) {
-      background-color: ${theme.palette.supply.goldLeather.main};
+      background-color: ${theme.palette.supply.eraser.main};
     }
 
     &:nth-of-type(4) {
-      background-color: ${theme.palette.supply.lightPeach.main};
+      background-color: ${theme.palette.supply.desertTan.main};
     }
 
     &:nth-of-type(5) {
@@ -95,7 +95,7 @@ const styles = (theme) => css`
     &.active span {
       transition-delay: 100ms;
       overflow: visible;
-      animation: ${fadeIn} 0.75s cubic-bezier(0.4, 0, 0.2, 1)forwards;
+      animation: ${fadeIn} 0.75s cubic-bezier(0.4, 0, 0.2, 1) forwards;
       animation-delay: 0.1s;
     }
 

@@ -72,7 +72,7 @@ const styles = (theme) => css`
       border-right-color: ${theme.palette.text.primary};
       transition: width 0.25s ease-out,
         // Width expands first
-          height 0.25s ease-out 0.25s; // And then height
+        height 0.25s ease-out 0.25s; // And then height
     }
 
     &::after {
@@ -81,9 +81,9 @@ const styles = (theme) => css`
       border-left-color: ${theme.palette.text.primary};
       transition: border-color 0s ease-out 0.5s,
         // Wait for ::before to finish before showing border
-          width 0.25s ease-out 0.5s,
+        width 0.25s ease-out 0.5s,
         // And then exanding width
-          height 0.25s ease-out 0.75s; // And finally height
+        height 0.25s ease-out 0.75s; // And finally height
     }
   }
 
@@ -159,14 +159,14 @@ const styles = (theme) => css`
 
   .modal-link {
     margin-top: 4rem;
-    color: #bb9cfe;
+    color: #d06e51;
     cursor: pointer;
     transition: 0.25s ease;
     ${theme.breakpoints.up('md')} {
       margin-top: auto;
     }
     &:hover {
-      color: #cab1ff;
+      color: #c58876;
       transition: 0.25s ease;
     }
   }

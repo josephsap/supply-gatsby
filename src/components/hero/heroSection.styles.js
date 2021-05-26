@@ -9,7 +9,7 @@ const styles = (theme) => css`
   }
 
   .mobile-dragbox {
-    background-color: ${theme.palette.supply.lightPeach.main};
+    background-color: ${theme.palette.supply.desertTan.main};
     transform: rotate(-1.5deg);
     padding: 1.6rem;
     border-radius: 8px;

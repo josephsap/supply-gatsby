@@ -102,11 +102,10 @@ export const chatBaseStyles = (theme) => css`
     }
   }
 
-.close-container {
-  right: -2rem;
-  top: 51px;
-}
-
+  .close-container {
+    right: -2rem;
+    top: 51px;
+  }
 
   .slide-styles {
     overflow-x: hidden;

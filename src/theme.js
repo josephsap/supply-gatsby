@@ -1,14 +1,19 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
-const cream = { main: '#F8F7F2' };
 const pink = { main: '#FFE0F0' };
-const lightPeach = { main: '#FFE8E1', contrastText: '#141A2E' };
 const salmon = { main: '#FEB29C' };
-const orange = { main: '#F7941D' };
 const goldLeather = { main: '#CA7F28' };
+const lightPeach = { main: '#FFE8E1', contrastText: '#141A2E' };
+
+const cream = { main: '#F8F7F2' };
+const cement = { main: '#EBE7E1' };
+const eraser = { main: '#CC6D51' };
+const desertTan = { main: '#E7C7AC', contrastText: '#141A2E' };
+
+const orange = { main: '#F7941D' };
 const lilac = { main: '#BB9CFE' };
 const cobalt = { main: '#356AD2', contrastText: pink };
-const seaGreen = { main: '#5F8B86', contrastText: pink };
+const seaGreen = { main: '#A0AEAA', contrastText: pink };
 const textBlack = '#162C29';
 const purple = { main: '#8357DF' };
 
@@ -71,7 +76,7 @@ const theme = createMuiTheme({
       fontFamily: '"Bogue-Regular", Garamond, Baskerville, sans-serif',
       fontSize: '1.8rem',
       lineHeight: '2.6rem',
-      color: lightPeach.main,
+      color: desertTan.main,
     },
     // footer link text
     subtitle2: {
@@ -100,24 +105,27 @@ const theme = createMuiTheme({
   },
   palette: {
     primary: {
-      ...lightPeach,
+      ...desertTan,
     },
     secondary: {
       ...pink,
     },
     background: {
-      default: lightPeach.main,
+      default: desertTan.main,
     },
     text: {
       primary: textBlack,
     },
     supply: {
       cream,
-      pink,
+      cement,
+      eraser,
       lightPeach,
+      desertTan,
       salmon,
       orange,
       goldLeather,
+      desertTan,
       lilac,
       cobalt,
       seaGreen,

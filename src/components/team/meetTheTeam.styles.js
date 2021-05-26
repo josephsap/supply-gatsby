@@ -37,7 +37,7 @@ const styles = (theme) => css`
 
   .teammate-name {
     margin: 3.5rem 0 2.5rem;
-    color: ${theme.palette.supply.lightPeach.main};
+    color: ${theme.palette.supply.desertTan.main};
   }
 
   .linkedin-icon {

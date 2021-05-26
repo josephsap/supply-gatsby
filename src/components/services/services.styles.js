@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import { initiallyHidden } from '../shared/shared.styles';
 
 const styles = (theme) => css`
-  background-color: ${theme.palette.supply.goldLeather.main};
+  background-color: ${theme.palette.supply.eraser.main};
 
   //pre-animated in styles
   .hww-description,
