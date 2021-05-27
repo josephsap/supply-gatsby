@@ -142,11 +142,7 @@ const NetworkSection = ({ networkSection }) => {
   }, []);
 
   return (
-    <Container
-      maxWidth={false}
-      className="section-padding"
-      css={styles}
-    >
+    <Container maxWidth={false} className="section-padding" css={styles}>
       <Container maxWidth="lg" className="side-padding">
         <Grid
           container
@@ -186,7 +182,7 @@ const NetworkSection = ({ networkSection }) => {
                     i === 0
                       ? theme.palette.supply.orange.main
                       : i === 1
-                      ? theme.palette.supply.seaGreen.main
+                      ? theme.palette.supply.eraser.main
                       : theme.palette.supply.cobalt.main;
 
                   return (
