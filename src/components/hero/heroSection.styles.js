@@ -163,7 +163,7 @@ const styles = (theme) => css`
     position: absolute;
     width: 40px;
     height: 40px;
-    background: url(/images/clover-purple.svg);
+    background: url(/images/clover.svg);
     background-size: 100%;
     right: 20%;
     opacity: 0;

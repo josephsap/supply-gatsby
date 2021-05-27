@@ -105,7 +105,7 @@ const styles = (theme) => css`
 
       path,
       circle {
-        fill: ${theme.palette.supply.seaGreen.main};
+        fill: ${theme.palette.text.primary};
       }
     }
   }

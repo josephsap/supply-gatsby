@@ -2,11 +2,7 @@ import { css } from '@emotion/react';
 
 const styles = (theme) => css`
   position: relative;
-  .MuiDialog-container {
-    height: auto;
-  }
   .MuiDialog-paper {
-    max-height: 82vh;
     border-radius: 20px;
     border: 3px solid;
     background-color: ${theme.palette.supply.cream.main};
@@ -51,6 +47,19 @@ const styles = (theme) => css`
 
   .modal-title {
     margin-bottom: 1rem;
+    ${theme.breakpoints.up('sm')} {
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .modal-desc {
+    max-width: 90%;
+    margin: 0 auto;
+    ${theme.breakpoints.up('sm')} {
+      max-width: 500px;
+    }
   }
 `;
 

@@ -59,6 +59,11 @@ const OrgsSupportDialog = ({ showOrgsModal, onClose }) => {
         justify="center"
         alignItems="center"
       >
+        <Grid item xs={6} className="orgs-copy">
+          <Typography variant="body1">
+            {contentfulGivingBackSection.orgsModalCopy.orgsModalCopy}
+          </Typography>
+        </Grid>
         <Box mt={3} className="images-container">
           {contentfulGivingBackSection.orgsModalLogos.map((image) => (
             <div key={image.file.url} className="grid-img-grid">
@@ -66,11 +71,6 @@ const OrgsSupportDialog = ({ showOrgsModal, onClose }) => {
             </div>
           ))}
         </Box>
-        <Grid item xs={12} md={6}>
-          <Typography variant="body1">
-            {contentfulGivingBackSection.orgsModalCopy.orgsModalCopy}
-          </Typography>
-        </Grid>
       </Grid>
     </Dialog>
   );

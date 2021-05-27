@@ -50,12 +50,12 @@ const ExamplesDialog = ({ showWorkModal, onClose }) => {
         {showMed && <Typography variant="body1">Close</Typography>}
       </Button>
       <Grid container className="inner-top">
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12}>
           <Typography variant="h5" component="h3" className="modal-title">
             {contentfulWorkExamplesModal.title}
           </Typography>
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} className="modal-desc">
           <Typography variant="body1">
             {contentfulWorkExamplesModal.description.description}
           </Typography>
