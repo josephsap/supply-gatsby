@@ -11,7 +11,6 @@ import {
 import { CustomerMessage, AgentMessage } from './chatUtils';
 import EmailContainer from '../email/email-container';
 import { chatBaseStyles } from './chat.styles';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import gsap from 'gsap/gsap-core';
 
@@ -41,28 +40,58 @@ const Chat = ({ state, onSendMessage, scrollToRef, chatCloseButton }) => {
   const [checked, setChecked] = useState(false);
   const { messages = [], customerId, isLoaded } = state;
   const theme = useTheme();
-  const emailTitleRef = useRef(null)
-  const emailDescriptionRef = useRef(null)
-  const emailButtonRef = useRef(null)
-  const formRef = useRef(null)
-  const sendButtonRef = useRef(null)
-  const closeRef = useRef(null)
+  const emailTitleRef = useRef(null);
+  const emailDescriptionRef = useRef(null);
+  const emailButtonRef = useRef(null);
+  const formRef = useRef(null);
+  const sendButtonRef = useRef(null);
+  const closeRef = useRef(null);
 
   const handleChangeMessage = (e) => setMessageBody(e.target.value);
   const animateTalkSection = useCallback(() => {
-    gsap.from(formRef.current, {x: -50, opacity: 0, ease: 'power4.out', duration: 0.75, delay: 0.3 })
-    gsap.from(sendButtonRef.current, {x: -50, opacity: 0, ease: 'power4.out', duration: 0.75, delay: 0.4 })
+    gsap.from(formRef.current, {
+      x: -50,
+      opacity: 0,
+      ease: 'power4.out',
+      duration: 0.75,
+      delay: 0.3,
+    });
+    gsap.from(sendButtonRef.current, {
+      x: -50,
+      opacity: 0,
+      ease: 'power4.out',
+      duration: 0.75,
+      delay: 0.4,
+    });
 
-    gsap.from(emailTitleRef.current, {x: -300, opacity: 0, ease: 'power4.out', duration: 0.75, delay: 0.5 })
-    gsap.from(emailDescriptionRef.current, {y: 100, opacity: 0, ease: 'power3.out', duration: 0.75, delay: 0.6 })
-    gsap.from(emailButtonRef.current, {x: 100, opacity: 0, ease: 'power3.out', duration: 0.6, delay: 0.75 })
+    gsap.from(emailTitleRef.current, {
+      x: -300,
+      opacity: 0,
+      ease: 'power4.out',
+      duration: 0.75,
+      delay: 0.5,
+    });
+    gsap.from(emailDescriptionRef.current, {
+      y: 100,
+      opacity: 0,
+      ease: 'power3.out',
+      duration: 0.75,
+      delay: 0.6,
+    });
+    gsap.from(emailButtonRef.current, {
+      x: 100,
+      opacity: 0,
+      ease: 'power3.out',
+      duration: 0.6,
+      delay: 0.75,
+    });
 
-    gsap.from(closeRef.current, {opacity: 0, duration: 0.75, delay: 1 })
-  }, [checked])
-  
+    gsap.from(closeRef.current, { opacity: 0, duration: 0.75, delay: 1 });
+  }, [checked]);
+
   useEffect(() => {
-    animateTalkSection()
-  }, [])
+    animateTalkSection();
+  }, []);
 
   const handleSendMessage = (e) => {
     onSendMessage({ body: message });
@@ -73,7 +102,6 @@ const Chat = ({ state, onSendMessage, scrollToRef, chatCloseButton }) => {
     e.preventDefault();
     handleSendMessage();
   };
-
 
   // const Transition = React.forwardRef(function Transition(props, ref) {
   //   return <Slide direction="left" ref={ref} {...props} />;
@@ -90,34 +118,36 @@ const Chat = ({ state, onSendMessage, scrollToRef, chatCloseButton }) => {
         >
           <Grid container css={chatBaseStyles}>
             {/* TODO: put this copy in the cms */}
-            <div className='close-container' ref={closeRef}>
+            <div className="close-container" ref={closeRef}>
               {chatCloseButton}
             </div>
             <Grid item xs={12} md={6} className="email-side-container">
               <Box className="email-side-interior">
-                <Typography ref={emailTitleRef} variant="h5">Talk to a real person.</Typography>
+                <Typography ref={emailTitleRef} variant="h5">
+                  Talk to a real person.
+                </Typography>
                 <Typography ref={emailDescriptionRef} variant="body1">
                   No, really. We are probably sitting at our computers right
                   now, waiting to talk to you. We’re the kind of folks that
                   understand how important time is when it comes to hiring the
                   right talent. Let’s chat!
                 </Typography>
-                  <Button
-                    variant="contained"
-                    color="secondary"
-                    className="email-btn email-md"
-                    ref={emailButtonRef}
-                    fullWidth
-                    onClick={() => setChecked(true)}
-                    startIcon={
-                      <img
-                        src={`/images/arrow-left-email-btn.svg`}
-                        style={{ marginRight: 'auto' }}
-                      />
-                    }
-                  >
-                    Email us
-                  </Button>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  className="email-btn email-md"
+                  ref={emailButtonRef}
+                  fullWidth
+                  onClick={() => setChecked(true)}
+                  startIcon={
+                    <img
+                      src={`/images/arrow-left-email-btn.svg`}
+                      style={{ marginRight: 'auto' }}
+                    />
+                  }
+                >
+                  Email us
+                </Button>
               </Box>
             </Grid>
 
@@ -160,21 +190,21 @@ const Chat = ({ state, onSendMessage, scrollToRef, chatCloseButton }) => {
                     </Button>
                   </Grid>
                   <Grid item xs={12} className="em-send-btn-container">
-                      <Button
-                        variant="contained"
-                        color="secondary"
-                        className="email-btn email-sm"
-                        fullWidth
-                        onClick={() => setChecked(true)}
-                        startIcon={
-                          <img
-                            src={`/images/arrow-left-email-btn.svg`}
-                            style={{ marginRight: 'auto' }}
-                          />
-                        }
-                      >
-                        Email us
-                      </Button>
+                    <Button
+                      variant="contained"
+                      color="secondary"
+                      className="email-btn email-sm"
+                      fullWidth
+                      onClick={() => setChecked(true)}
+                      startIcon={
+                        <img
+                          src={`/images/arrow-left-email-btn.svg`}
+                          style={{ marginRight: 'auto' }}
+                        />
+                      }
+                    >
+                      Email us
+                    </Button>
                   </Grid>
                 </Grid>
               </div>

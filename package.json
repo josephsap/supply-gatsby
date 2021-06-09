@@ -24,6 +24,7 @@
     "axios": "^0.21.1",
     "coinpaprika-js": "^0.1.8",
     "contentful": "^8.2.0",
+    "date-fns": "^2.22.1",
     "formik": "^2.2.6",
     "gatsby": "^3.0.4",
     "gatsby-plugin-emotion": "^5.0.0",

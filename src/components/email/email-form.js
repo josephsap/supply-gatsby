@@ -22,10 +22,7 @@ const validationSchema = Yup.object().shape({
     .email('Invalid email address.')
     .required('Email address is required')
     .label('Email'),
-  name: Yup.string()
-    .min(2)
-    .required('Please enter your name')
-    .label('Name'),
+  name: Yup.string().min(2).required('Please enter your name').label('Name'),
   resumeLink: Yup.string()
     .min(2)
     .required('Please enter a link to your site or Linkedin profile.'),
@@ -234,7 +231,7 @@ const EmailForm = ({
                   </div>
                 )}
               </div>
-              <Grid container>
+              <Grid container spacing={3}>
                 <Grid item xs={12} sm={6} className="btn-container">
                   {!serverState && (
                     <Button

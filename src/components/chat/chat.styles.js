@@ -138,17 +138,33 @@ export const customerMsgStyles = css`
   justify-content: end;
   margin: 2rem 4rem 2rem auto;
   max-width: 60%;
+  line-height: 1;
+
+  .sent-at {
+    font-size: 0.3rem;
+    line-height: 1;
+  }
+
+  p {
+    line-height: 1;
+  }
 `;
 
 export const agentMsgStyles = css`
-  ${'' /* margin: 4rem 8rem 2rem 2rem; */}
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   padding: 0 1rem;
+  align-items: flex-end;
 
-  p {
+  p,
+  span {
     padding-left: 2rem;
+  }
+
+  span {
+    font-size: 0.3rem;
+    line-height: 1;
   }
 `;
 
