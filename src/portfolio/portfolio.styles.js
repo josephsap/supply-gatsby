@@ -53,9 +53,13 @@ const styles = (theme) => css`
   .help-icon {
     color: rgb(224, 0, 0);
     font-size: 3rem;
+    position: absolute;
+    cursor: pointer;
+  }
+
+  .help-icon-name {
     top: 0;
     left: 95px;
-    position: absolute;
   }
 `;
 

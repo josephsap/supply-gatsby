@@ -5,11 +5,14 @@ import { Container, Grid, Typography, Box, Popover } from '@material-ui/core';
 
 const PortfolioComponent = () => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const handlePopoverOpen = (event) => {
+  const [popNum, setPopNum] = useState(0);
+  const handlePopoverOpen = (event, num) => {
+    setPopNum(num);
     setAnchorEl(event.currentTarget);
   };
 
   const handlePopoverClose = () => {
+    setPopNum(0);
     setAnchorEl(null);
   };
 
@@ -28,44 +31,162 @@ const PortfolioComponent = () => {
                 <Box
                   className="tooltip-container"
                   pt={3}
-                  aria-owns={open ? 'mouse-over-popover' : undefined}
+                  aria-owns={open ? 'mouse-over-popover1' : undefined}
                   aria-haspopup="true"
-                  onMouseEnter={handlePopoverOpen}
+                  onMouseEnter={(e) => handlePopoverOpen(e, 1)}
                   onMouseLeave={handlePopoverClose}
                 >
-                  <HelpIcon className="help-icon" />
+                  <HelpIcon className="help-icon help-icon-name" />
                 </Box>
-                <Popover
-                  id="mouse-over-popover"
-                  style={{ pointerEvents: 'none' }}
-                  open={open}
-                  anchorEl={anchorEl}
-                  anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'center',
-                  }}
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'center',
-                  }}
-                  onClose={handlePopoverClose}
-                  disableRestoreFocus
-                  // css={popoverStyles}
-                >
-                  <Box p={3}>
-                    <Typography variant="body1">
-                      It's oh-so-fun to have an edgy name + logo. But clarify if
-                      you are a company or an individual somehow.{' '}
-                    </Typography>
-                  </Box>
-                </Popover>
+                {popNum === 1 && (
+                  <Popover
+                    id="mouse-over-popover1"
+                    style={{ pointerEvents: 'none' }}
+                    open={open}
+                    anchorEl={anchorEl}
+                    anchorOrigin={{
+                      vertical: 'bottom',
+                      horizontal: 'center',
+                    }}
+                    transformOrigin={{
+                      vertical: 'top',
+                      horizontal: 'center',
+                    }}
+                    anchorReference="anchorPosition"
+                    anchorPosition={{ top: 80, left: 100 }}
+                    onClose={handlePopoverClose}
+                    disableRestoreFocus
+                  >
+                    <Box p={3}>
+                      <Typography variant="body1">
+                        It's oh-so-fun to have an edgy name + logo. But clarify
+                        if you are a company or an individual somehow.{' '}
+                      </Typography>
+                    </Box>
+                  </Popover>
+                )}
               </Box>
             </Grid>
-            <Grid item xs={12} sm={6} className="nav-links">
+
+            <Grid item xs={12} sm={6} className="nav-links popover-anchor">
               <Typography variant="body1">Work</Typography>
-              <Typography variant="body1">Experiments</Typography>
-              <Typography variant="body1">About</Typography>
-              <Typography variant="body1">Contact</Typography>
+              <Box>
+                <Typography variant="body1">Experiments</Typography>
+                <Box
+                  className="tooltip-container"
+                  pt={3}
+                  aria-owns={open ? 'mouse-over-popover2' : undefined}
+                  aria-haspopup="true"
+                  onMouseEnter={(e) => handlePopoverOpen(e, 2)}
+                  onMouseLeave={handlePopoverClose}
+                >
+                  <HelpIcon className="help-icon help-icon-name" />
+                </Box>
+                {popNum === 2 && (
+                  <Popover
+                    id="mouse-over-popover2"
+                    style={{ pointerEvents: 'none' }}
+                    open={open}
+                    anchorEl={anchorEl}
+                    anchorOrigin={{
+                      vertical: 'bottom',
+                      horizontal: 'center',
+                    }}
+                    transformOrigin={{
+                      vertical: 'top',
+                      horizontal: 'center',
+                    }}
+                    // anchorReference="anchorPosition"
+                    // anchorPosition={{ top: 80, left: 100 }}
+                    onClose={handlePopoverClose}
+                    disableRestoreFocus
+                  >
+                    <Box p={3}>
+                      <Typography variant="body1">5555Iw. </Typography>
+                    </Box>
+                  </Popover>
+                )}
+              </Box>
+
+              <Box>
+                <Typography variant="body1">About</Typography>
+                <Box
+                  className="tooltip-container"
+                  pt={3}
+                  aria-owns={open ? 'mouse-over-popover3' : undefined}
+                  aria-haspopup="true"
+                  onMouseEnter={(e) => handlePopoverOpen(e, 3)}
+                  onMouseLeave={handlePopoverClose}
+                >
+                  <HelpIcon className="help-icon help-icon-name" />
+                </Box>
+                {popNum === 3 && (
+                  <Popover
+                    id="mouse-over-popover3"
+                    style={{ pointerEvents: 'none' }}
+                    open={open}
+                    anchorEl={anchorEl}
+                    anchorOrigin={{
+                      vertical: 'bottom',
+                      horizontal: 'center',
+                    }}
+                    transformOrigin={{
+                      vertical: 'top',
+                      horizontal: 'center',
+                    }}
+                    // anchorReference="anchorPosition"
+                    // anchorPosition={{ top: 80, left: 100 }}
+                    onClose={handlePopoverClose}
+                    disableRestoreFocus
+                  >
+                    <Box p={3}>
+                      <Typography variant="body1">
+                        number thereeejkldjaklfdjskl{' '}
+                      </Typography>
+                    </Box>
+                  </Popover>
+                )}
+              </Box>
+
+              <Box>
+                <Typography variant="body1">Contact</Typography>
+                <Box
+                  className="tooltip-container"
+                  pt={3}
+                  aria-owns={open ? 'mouse-over-popover4' : undefined}
+                  aria-haspopup="true"
+                  onMouseEnter={(e) => handlePopoverOpen(e, 4)}
+                  onMouseLeave={handlePopoverClose}
+                >
+                  <HelpIcon className="help-icon help-icon-name" />
+                </Box>
+                {popNum === 4 && (
+                  <Popover
+                    id="mouse-over-popover4"
+                    style={{ pointerEvents: 'none' }}
+                    open={open}
+                    anchorEl={anchorEl}
+                    anchorOrigin={{
+                      vertical: 'bottom',
+                      horizontal: 'center',
+                    }}
+                    transformOrigin={{
+                      vertical: 'top',
+                      horizontal: 'center',
+                    }}
+                    // anchorReference="anchorPosition"
+                    // anchorPosition={{ top: 80, left: 100 }}
+                    onClose={handlePopoverClose}
+                    disableRestoreFocus
+                  >
+                    <Box p={4}>
+                      <Typography variant="body1">
+                        number fourll ereeejkldjaklfdjskl{' '}
+                      </Typography>
+                    </Box>
+                  </Popover>
+                )}
+              </Box>
             </Grid>
           </Grid>
         </Container>
@@ -74,18 +195,94 @@ const PortfolioComponent = () => {
         <Container maxWidth="lg" className="side-padding">
           <Grid container justify="center" alignItems="center">
             <Grid item xs={12} className="intro-copy">
-              <Typography variant="h4">
-                I’m an award winning ___________ that ___________ amazing
-                digital experiences. My main focus is on ___________ but I also
-                have great ___________ skills. Currently living in ___________
-                with my lovely cat.
-              </Typography>
+              <Box>
+                <Typography variant="h4">
+                  I’m an award winning ___________ that ___________ amazing
+                  digital experiences. My main focus is on ___________ but I
+                  also have great ___________ skills. Currently living in
+                  ___________ with my lovely cat.
+                </Typography>
+                <Box
+                  className="tooltip-container"
+                  pt={3}
+                  aria-owns={open ? 'mouse-over-popover3' : undefined}
+                  aria-haspopup="true"
+                  onMouseEnter={(e) => handlePopoverOpen(e, 5)}
+                  onMouseLeave={handlePopoverClose}
+                >
+                  <HelpIcon className="help-icon help-icon-name" />
+                </Box>
+                {popNum === 5 && (
+                  <Popover
+                    id="mouse-over-popover5"
+                    style={{ pointerEvents: 'none' }}
+                    open={open}
+                    anchorEl={anchorEl}
+                    anchorOrigin={{
+                      vertical: 'bottom',
+                      horizontal: 'center',
+                    }}
+                    transformOrigin={{
+                      vertical: 'top',
+                      horizontal: 'center',
+                    }}
+                    // anchorReference="anchorPosition"
+                    // anchorPosition={{ top: 80, left: 100 }}
+                    onClose={handlePopoverClose}
+                    disableRestoreFocus
+                  >
+                    <Box p={4}>
+                      <Typography variant="body1">
+                        fivesss number fourll ereeejkldjaklfdjskl{' '}
+                      </Typography>
+                    </Box>
+                  </Popover>
+                )}
+              </Box>
             </Grid>
             <Grid item xs={12} className="intro-two">
-              <Typography variant="body1">
-                Available for freelance / Would consider full-time if it was
-                amazing
-              </Typography>
+              <Box>
+                <Typography variant="body1">
+                  Available for freelance / Would consider full-time if it was
+                  amazing
+                </Typography>
+                <Box
+                  className="tooltip-container"
+                  pt={3}
+                  aria-owns={open ? 'mouse-over-popover6' : undefined}
+                  aria-haspopup="true"
+                  onMouseEnter={(e) => handlePopoverOpen(e, 6)}
+                  onMouseLeave={handlePopoverClose}
+                >
+                  <HelpIcon className="help-icon help-icon-name" />
+                </Box>
+                {popNum === 6 && (
+                  <Popover
+                    id="mouse-over-popover6"
+                    style={{ pointerEvents: 'none' }}
+                    open={open}
+                    anchorEl={anchorEl}
+                    anchorOrigin={{
+                      vertical: 'bottom',
+                      horizontal: 'center',
+                    }}
+                    transformOrigin={{
+                      vertical: 'top',
+                      horizontal: 'center',
+                    }}
+                    // anchorReference="anchorPosition"
+                    // anchorPosition={{ top: 80, left: 100 }}
+                    onClose={handlePopoverClose}
+                    disableRestoreFocus
+                  >
+                    <Box p={4}>
+                      <Typography variant="body1">
+                        six avail freelance one
+                      </Typography>
+                    </Box>
+                  </Popover>
+                )}
+              </Box>
             </Grid>
           </Grid>
           <Grid container spacing={10}>
