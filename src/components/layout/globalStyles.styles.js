@@ -8,6 +8,7 @@ const styles = (theme) => css`
   }
   body {
     font-size: 1.4rem;
+    background-color: white;
   }
   .border-container {
     border: 3px solid;

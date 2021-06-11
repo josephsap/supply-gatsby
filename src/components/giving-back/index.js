@@ -22,17 +22,27 @@ const GivingBackSection = ({ givingBackSection }) => {
   useScrollAnimation(leftSide, [leftSide, rightSide]);
 
   useEffect(() => {
-      function handleOnEnter() {
-        gsap.from(diversityRef.current, {y: 200, opacity: 0, duration: 1, ease: 'back'})
-        gsap.from(culturalRef.current, { scale: 0.3, rotation: 151, duration: 2, ease: 'elastic'})
-      }
+    function handleOnEnter() {
+      gsap.from(diversityRef.current, {
+        y: 200,
+        opacity: 0,
+        duration: 1,
+        ease: 'back',
+      });
+      gsap.from(culturalRef.current, {
+        scale: 0.3,
+        rotation: 151,
+        duration: 2,
+        ease: 'elastic',
+      });
+    }
     gsap.from(drawRef.current, {
       scrollTrigger: {
         trigger: drawRef.current,
         start: 'top 60%',
         end: 'bottom top',
         toggleClass: 'draw',
-        onEnter: handleOnEnter
+        onEnter: handleOnEnter,
       },
     });
   }, []);
@@ -48,7 +58,11 @@ const GivingBackSection = ({ givingBackSection }) => {
   };
 
   return (
-    <Container maxWidth={false} className="section-padding">
+    <Container
+      maxWidth={false}
+      className="section-padding"
+      style={{ backgroundColor: '#E7C7AC' }}
+    >
       <Container maxWidth="lg" className="side-padding">
         <div css={styles}>
           <Grid container ref={drawRef} css={[baseStyles, drawStyles]}>
@@ -82,7 +96,11 @@ const GivingBackSection = ({ givingBackSection }) => {
             >
               <Box className="badges-container">
                 {givingBackSection.badges.map((badge, i) => (
-                  <img ref={i ? culturalRef : diversityRef} key={badge.id} src={badge.file.url} />
+                  <img
+                    ref={i ? culturalRef : diversityRef}
+                    key={badge.id}
+                    src={badge.file.url}
+                  />
                 ))}
               </Box>
               <Box className="diversity-header-section">

@@ -8,12 +8,12 @@ const PortfolioComponent = () => {
       <Container maxWidth={false} className="top-bar">
         <Container maxWidth="lg" className="side-padding">
           <Grid container direction="row" justify="center" alignItems="center">
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} sm={6}>
               <Typography variant="h4" component="h1">
                 Sample McRegus
               </Typography>
             </Grid>
-            <Grid item xs={12} md={8}>
+            <Grid item xs={12} sm={6} className="nav-links">
               <Typography variant="body1">Work</Typography>
               <Typography variant="body1">Experiments</Typography>
               <Typography variant="body1">About</Typography>
@@ -22,10 +22,10 @@ const PortfolioComponent = () => {
           </Grid>
         </Container>
       </Container>
-      <Container maxWidth={false} className="section-padding-bottom">
+      <Container maxWidth={false} className="section-padding-bottom main">
         <Container maxWidth="lg" className="side-padding">
           <Grid container justify="center" alignItems="center">
-            <Grid item xs={12}>
+            <Grid item xs={12} className="intro-copy">
               <Typography variant="h4">
                 I’m an award winning ___________ that ___________ amazing
                 digital experiences. My main focus is on ___________ but I also
@@ -33,15 +33,15 @@ const PortfolioComponent = () => {
                 with my lovely cat.
               </Typography>
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} className="intro-two">
               <Typography variant="body1">
                 Available for freelance / Would consider full-time if it was
                 amazing
               </Typography>
             </Grid>
           </Grid>
-          <Grid container spacing={3}>
-            <Grid item xs={12} sm={6} md={3}>
+          <Grid container spacing={10}>
+            <Grid item xs={12} sm={6} md={4} className="portfolio-item">
               <img src={`/images/f0.jpeg`} />
               <Box mt={2} mb={2}>
                 <Typography variant="body1">
@@ -57,7 +57,7 @@ const PortfolioComponent = () => {
               </Typography>
             </Grid>
 
-            <Grid item xs={12} sm={6} md={3}>
+            <Grid item xs={12} sm={6} md={4} className="portfolio-item">
               <img src={`/images/f1.jpeg`} />
               <Box mt={2} mb={2}>
                 <Typography variant="body1">Company Website Launch</Typography>
@@ -72,7 +72,7 @@ const PortfolioComponent = () => {
               </Typography>
             </Grid>
 
-            <Grid item xs={12} sm={6} md={3}>
+            <Grid item xs={12} sm={6} md={4} className="portfolio-item">
               <img src={`/images/f2.jpeg`} />
               <Box mt={2} mb={2}>
                 <Typography variant="body1">
@@ -87,7 +87,7 @@ const PortfolioComponent = () => {
               </Typography>
             </Grid>
 
-            <Grid item xs={12} sm={6} md={3}>
+            <Grid item xs={12} sm={6} md={4} className="portfolio-item">
               <img src={`/images/f3.jpeg`} />
               <Box mt={2} mb={2}>
                 <Typography variant="body1">
@@ -105,7 +105,7 @@ const PortfolioComponent = () => {
               </Typography>
             </Grid>
 
-            <Grid item xs={12} sm={6} md={3}>
+            <Grid item xs={12} sm={6} md={4} className="portfolio-item">
               <img src={`/images/f4.jpeg`} />
               <Box mt={2} mb={2}>
                 <Typography variant="body1">iPad app with Company4</Typography>
@@ -118,7 +118,7 @@ const PortfolioComponent = () => {
               </Typography>
             </Grid>
 
-            <Grid item xs={12} sm={6} md={3}>
+            <Grid item xs={12} sm={6} md={4} className="portfolio-item">
               <img src={`/images/f5.jpeg`} />
               <Box mt={2} mb={2}>
                 <Typography variant="body1">
@@ -136,7 +136,7 @@ const PortfolioComponent = () => {
               </Typography>
             </Grid>
 
-            <Grid item xs={12} sm={6} md={3}>
+            <Grid item xs={12} sm={6} md={4} className="portfolio-item">
               <img src={`/images/f6.jpeg`} />
               <Box mt={2} mb={2}>
                 <Typography variant="body1">
@@ -151,7 +151,7 @@ const PortfolioComponent = () => {
               </Typography>
             </Grid>
 
-            <Grid item xs={12} sm={6} md={3}>
+            <Grid item xs={12} sm={6} md={4} className="portfolio-item">
               <img src={`/images/f7.jpeg`} />
               <Box mt={2} mb={2}>
                 <Typography variant="body1">

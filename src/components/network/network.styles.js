@@ -10,6 +10,7 @@ import {
 import { initiallyHidden } from '../shared/shared.styles';
 
 const styles = (theme) => css`
+  background-color: ${theme.palette.supply.desertTan.main};
   .network-title {
     ${theme.breakpoints.down('sm')} {
       text-align: center;

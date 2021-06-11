@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 import { initiallyHidden } from '../shared/shared.styles';
 
 const styles = (theme) => css`
+  background-color: ${theme.palette.supply.desertTan.main};
   ${theme.breakpoints.down('sm')} {
     padding-left: 0;
   }
