@@ -39,6 +39,24 @@ const styles = (theme) => css`
   .portfolio-item {
     line-height: 1;
   }
+
+  .popover-anchor {
+    position: relative;
+  }
+
+  .tooltip-container {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+  }
+
+  .help-icon {
+    color: rgb(224, 0, 0);
+    font-size: 3rem;
+    top: 0;
+    left: 95px;
+    position: absolute;
+  }
 `;
 
 export default styles;

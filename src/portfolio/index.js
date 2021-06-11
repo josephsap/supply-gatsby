@@ -1,17 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './portfolio.styles';
-import { Container, Grid, Typography, Box } from '@material-ui/core';
+import HelpIcon from '@material-ui/icons/Help';
+import { Container, Grid, Typography, Box, Popover } from '@material-ui/core';
 
 const PortfolioComponent = () => {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const handlePopoverOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handlePopoverClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+
   return (
     <div css={styles}>
       <Container maxWidth={false} className="top-bar">
         <Container maxWidth="lg" className="side-padding">
           <Grid container direction="row" justify="center" alignItems="center">
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={6} className="popover-anchor">
               <Typography variant="h4" component="h1">
                 Sample McRegus
               </Typography>
+              <Box>
+                <Box
+                  className="tooltip-container"
+                  pt={3}
+                  aria-owns={open ? 'mouse-over-popover' : undefined}
+                  aria-haspopup="true"
+                  onMouseEnter={handlePopoverOpen}
+                  onMouseLeave={handlePopoverClose}
+                >
+                  <HelpIcon className="help-icon" />
+                </Box>
+                <Popover
+                  id="mouse-over-popover"
+                  style={{ pointerEvents: 'none' }}
+                  open={open}
+                  anchorEl={anchorEl}
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'center',
+                  }}
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'center',
+                  }}
+                  onClose={handlePopoverClose}
+                  disableRestoreFocus
+                  // css={popoverStyles}
+                >
+                  <Box p={3}>
+                    <Typography variant="body1">
+                      It's oh-so-fun to have an edgy name + logo. But clarify if
+                      you are a company or an individual somehow.{' '}
+                    </Typography>
+                  </Box>
+                </Popover>
+              </Box>
             </Grid>
             <Grid item xs={12} sm={6} className="nav-links">
               <Typography variant="body1">Work</Typography>
