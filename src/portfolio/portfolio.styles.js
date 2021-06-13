@@ -34,10 +34,12 @@ const styles = (theme) => css`
   .intro-two {
     text-align: center;
     margin-bottom: 5rem;
+    position: relative;
   }
 
   .portfolio-item {
     line-height: 1;
+    position: relative;
   }
 
   .popover-anchor {
@@ -48,18 +50,75 @@ const styles = (theme) => css`
     position: absolute;
     top: 50%;
     width: 100%;
+    &:hover {
+      cursor: help;
+    }
   }
 
   .help-icon {
-    color: rgb(224, 0, 0);
-    font-size: 3rem;
+    color: #feb29c;
+    font-size: 2.7rem;
     position: absolute;
-    cursor: pointer;
+    cursor: help;
   }
 
   .help-icon-name {
     top: 0;
     left: 95px;
+  }
+
+  .help-icon-about {
+    left: 50%;
+    top: 10px;
+  }
+
+  .help-icon-maincopy {
+    position: static;
+  }
+
+  .maincopy {
+    top: 10px;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    left: 40.5%;
+  }
+
+  .container-availability {
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+  }
+
+  .help-icon-available {
+    position: static;
+    top: 0;
+    left: 0;
+    padding: 0;
+  }
+
+  .container-desc {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    top: -30px;
+    right: 0;
+  }
+
+  .container-img {
+    top: 4rem;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    right: 50px;
+  }
+
+  .container-jobrole {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    right: 4rem;
   }
 `;
 
