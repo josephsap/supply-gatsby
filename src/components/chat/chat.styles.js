@@ -136,7 +136,7 @@ export const chatBaseStyles = (theme) => css`
 
 export const customerMsgStyles = css`
   justify-content: end;
-  margin: 2rem 4rem 2rem auto;
+  margin: 1rem 2rem 1rem 1.5rem;
   max-width: 60%;
   line-height: 1;
 
@@ -144,27 +144,40 @@ export const customerMsgStyles = css`
     font-size: 0.3rem;
     line-height: 1;
   }
-
-  p {
-    line-height: 1;
-  }
 `;
 
-export const agentMsgStyles = css`
+export const agentMsgStyles = (theme) => css`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   padding: 0 1rem;
   align-items: flex-end;
+  margin-left: auto;
+  margin-bottom: 2rem;
 
-  p,
   span {
-    padding-left: 2rem;
+    padding-left: 1rem;
   }
 
   span {
     font-size: 0.3rem;
     line-height: 1;
+  }
+
+  .intro-msg {
+    max-width: 80%;
+    line-height: 1;
+    position: relative;
+    padding: 1rem;
+    &:after {
+      content: '';
+      background-color: ${theme.palette.text.primary};
+      position: absolute;
+      bottom: 0;
+      left: 1rem;
+      width: 50%;
+      height: 2px;
+    }
   }
 `;
 
@@ -173,15 +186,19 @@ export const agentPhotoStyles = (theme, { photoUrl }) => css`
   background-size: cover;
   background-image: url(${photoUrl});
   background-repeat: no-repeat;
-  height: 36px;
-  width: 36px;
+  height: 30px;
+  width: 30px;
   border-radius: 50%;
-  margin-bottom: 1.5rem;
-  ${theme.breakpoints.up('sm')} {
-    height: 56px;
-    width: 56px;
-    margin-left: 1rem;
-  }
+  display: flex;
+  align-items: center;
 `;
 
-// export default styles;
+export const agentPhotoContainer = css`
+  display: flex;
+  align-items: baseline;
+  width: 100%;
+  flex-direction: row-reverse;
+  span {
+    padding-left: 0.5rem;
+  }
+`;

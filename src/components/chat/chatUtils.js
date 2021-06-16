@@ -2,6 +2,7 @@ import {
   customerMsgStyles,
   agentMsgStyles,
   agentPhotoStyles,
+  agentPhotoContainer,
 } from './chat.styles';
 import { format } from 'date-fns';
 import { Typography } from '@material-ui/core';
@@ -28,17 +29,28 @@ export const AgentMessage = ({ message }) => {
 
   return (
     <div css={agentMsgStyles}>
-      {photoUrl ? (
-        <div css={(theme) => agentPhotoStyles(theme, { photoUrl })}></div>
-      ) : null}
-      <div style={{ maxWidth: '80%', lineHeight: 1 }}>
-        {sentAtAgent && (
-          <Typography variant="caption">{sentAtAgent}</Typography>
-        )}
-        <Typography variant="body1" style={{ maxWidth: '80%' }}>
-          {message.body}
-        </Typography>
-      </div>
+      {message.type === 'bot' ? (
+        <div className="intro-msg">
+          <Typography variant="body1">{message.body}</Typography>
+        </div>
+      ) : (
+        <div css={agentMsgStyles}>
+          <div css={agentPhotoContainer}>
+            {photoUrl ? (
+              <div css={(theme) => agentPhotoStyles(theme, { photoUrl })}></div>
+            ) : null}
+            {sentAtAgent && (
+              <Typography variant="caption">{sentAtAgent}</Typography>
+            )}
+          </div>
+
+          <div style={{ maxWidth: '80%', lineHeight: 1, marginLeft: 'auto' }}>
+            <Typography variant="body1" style={{ textAlign: 'right' }}>
+              {message.body}
+            </Typography>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
