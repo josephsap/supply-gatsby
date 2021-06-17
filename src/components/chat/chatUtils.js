@@ -6,15 +6,19 @@ import {
 } from './chat.styles';
 import { format } from 'date-fns';
 import { Typography } from '@material-ui/core';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 export const CustomerMessage = ({ message }) => {
   const sentAt = format(new Date(message.sent_at), 'Pp');
 
   return (
     <div css={customerMsgStyles}>
-      <Typography variant="caption" className="sent-at">
-        {sentAt}
-      </Typography>
+      <div>
+        <AccountCircleIcon style={{ verticalAlign: 'bottom' }} />
+        <Typography variant="caption" className="sent-at">
+          {sentAt}
+        </Typography>
+      </div>
       <Typography variant="body1">{message.body}</Typography>
     </div>
   );
@@ -31,7 +35,15 @@ export const AgentMessage = ({ message }) => {
     <div css={agentMsgStyles}>
       {message.type === 'bot' ? (
         <div className="intro-msg">
-          <Typography variant="body1">{message.body}</Typography>
+          <Typography
+            variant="body1"
+            style={{
+              fontFamily: '"Bogue-Black", Garamond, Baskerville, sans-serif',
+              fontSize: '2rem',
+            }}
+          >
+            {message.body}
+          </Typography>
         </div>
       ) : (
         <div css={agentMsgStyles}>

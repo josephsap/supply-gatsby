@@ -141,8 +141,10 @@ export const customerMsgStyles = css`
   line-height: 1;
 
   .sent-at {
-    font-size: 0.3rem;
+    font-size: 0.7rem;
     line-height: 1;
+    padding-bottom: 2px;
+    display: inline-block;
   }
 `;
 
@@ -186,19 +188,21 @@ export const agentPhotoStyles = (theme, { photoUrl }) => css`
   background-size: cover;
   background-image: url(${photoUrl});
   background-repeat: no-repeat;
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;
   border-radius: 50%;
   display: flex;
   align-items: center;
+  margin-left: 2px;
 `;
 
 export const agentPhotoContainer = css`
   display: flex;
-  align-items: baseline;
+  align-items: flex-end;
   width: 100%;
   flex-direction: row-reverse;
   span {
     padding-left: 0.5rem;
+    padding-bottom: 2px;
   }
 `;
