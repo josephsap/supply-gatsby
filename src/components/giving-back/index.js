@@ -61,7 +61,11 @@ const GivingBackSection = ({ givingBackSection }) => {
     <Container
       maxWidth={false}
       className="section-padding"
-      style={{ backgroundColor: '#E7C7AC' }}
+      style={{
+        backgroundColor: '#E7C7AC',
+        position: 'relative',
+        zIndex: '-1',
+      }}
     >
       <Container maxWidth="lg" className="side-padding">
         <div css={styles}>
