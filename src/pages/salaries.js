@@ -114,7 +114,7 @@ const SalariesPage = (props) => {
         sortJobsLowToHigh();
         setHandleSubmitLoading(false);
       })
-      .catch(function(err) {
+      .catch(function (err) {
         console.log(err);
       });
   };
@@ -172,7 +172,7 @@ const SalariesPage = (props) => {
                 }}
                 onClose={handlePopoverClose}
                 disableRestoreFocus
-                style={{marginTop: '-20px'}}
+                style={{ marginTop: '-20px' }}
               >
                 <Box className={styles.popoverBox}>
                   <Typography variant="caption">
@@ -208,8 +208,9 @@ const SalariesPage = (props) => {
                     />
                   </Grid>
                   <Grid item xs={12}>
-                    {selectedPositionValue !== 'position' &&
-                    selectedLocationValue !== 'location' ? (
+                    {console.log(selectedPositionValue, selectedLocationValue)}
+                    {selectedPositionValue !== '' &&
+                    selectedLocationValue !== '' ? (
                       <Button
                         variant="contained"
                         color="primary"

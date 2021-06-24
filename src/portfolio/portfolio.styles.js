@@ -56,10 +56,26 @@ const styles = (theme) => css`
   }
 
   .help-icon {
-    color: #feb29c;
+    color: #c27559;
     font-size: 2.7rem;
     position: absolute;
     cursor: help;
+    animation: lighten 3s linear infinite;
+  }
+
+  @keyframes lighten {
+    0% {
+      opacity: 0.8;
+    }
+    35% {
+      opacity: 0.1;
+    }
+    60% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0.8;
+    }
   }
 
   .help-icon-name {
