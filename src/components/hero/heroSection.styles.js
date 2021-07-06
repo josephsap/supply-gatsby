@@ -156,6 +156,7 @@ const styles = (theme) => css`
     }
     img {
       animation: SPIN 8s infinite ease-in-out;
+      margin-left: -30px;
     }
   }
 

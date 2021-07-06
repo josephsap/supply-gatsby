@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styles from './portfolio.styles';
-import HelpIcon from '@material-ui/icons/Help';
 import { Container, Grid, Typography, Box, Popover } from '@material-ui/core';
 
 const PortfolioComponent = () => {
@@ -36,7 +35,10 @@ const PortfolioComponent = () => {
                   onMouseEnter={(e) => handlePopoverOpen(e, 1)}
                   onMouseLeave={handlePopoverClose}
                 >
-                  <HelpIcon className="help-icon help-icon-name" />
+                  <img
+                    src={`/images/questionmark.png`}
+                    className="help-icon help-icon-name"
+                  />
                 </Box>
                 {popNum === 1 && (
                   <Popover
@@ -80,7 +82,10 @@ const PortfolioComponent = () => {
                   onMouseEnter={(e) => handlePopoverOpen(e, 2)}
                   onMouseLeave={handlePopoverClose}
                 >
-                  <HelpIcon className="help-icon help-icon-about" />
+                  <img
+                    src={`/images/questionmark.png`}
+                    className="help-icon help-icon-about"
+                  />
                 </Box>
                 {popNum === 2 && (
                   <Popover
@@ -122,7 +127,10 @@ const PortfolioComponent = () => {
                   onMouseEnter={(e) => handlePopoverOpen(e, 3)}
                   onMouseLeave={handlePopoverClose}
                 >
-                  <HelpIcon className="help-icon help-icon-about" />
+                  <img
+                    src={`/images/questionmark.png`}
+                    className="help-icon help-icon-about"
+                  />
                 </Box>
                 {popNum === 3 && (
                   <Popover
@@ -164,7 +172,10 @@ const PortfolioComponent = () => {
                   onMouseEnter={(e) => handlePopoverOpen(e, 4)}
                   onMouseLeave={handlePopoverClose}
                 >
-                  <HelpIcon className="help-icon help-icon-about" />
+                  <img
+                    src={`/images/questionmark.png`}
+                    className="help-icon help-icon-about"
+                  />
                 </Box>
                 {popNum === 4 && (
                   <Popover
@@ -217,7 +228,10 @@ const PortfolioComponent = () => {
                   onMouseEnter={(e) => handlePopoverOpen(e, 5)}
                   onMouseLeave={handlePopoverClose}
                 >
-                  <HelpIcon className="help-icon help-icon-maincopy" />
+                  <img
+                    src={`/images/questionmark.png`}
+                    className="help-icon help-icon-maincopy"
+                  />
                 </Box>
                 {popNum === 5 && (
                   <Popover
@@ -262,7 +276,10 @@ const PortfolioComponent = () => {
                   onMouseEnter={(e) => handlePopoverOpen(e, 6)}
                   onMouseLeave={handlePopoverClose}
                 >
-                  <HelpIcon className="help-icon help-icon-available" />
+                  <img
+                    src={`/images/questionmark.png`}
+                    className="help-icon help-icon-available"
+                  />
                 </Box>
                 {popNum === 6 && (
                   <Popover
@@ -318,7 +335,10 @@ const PortfolioComponent = () => {
                   onMouseEnter={(e) => handlePopoverOpen(e, 7)}
                   onMouseLeave={handlePopoverClose}
                 >
-                  <HelpIcon className="help-icon" />
+                  <img
+                    src={`/images/questionmark.png`}
+                    className="help-icon icon-titles"
+                  />
                 </Box>
                 {popNum === 7 && (
                   <Popover
@@ -352,14 +372,14 @@ const PortfolioComponent = () => {
 
             <Grid item xs={12} sm={6} md={4} className="portfolio-item">
               <Box
-                className="tooltip-container container-img"
+                className="tooltip-container container-img top-mid-item"
                 pt={3}
                 aria-owns={open ? 'mouse-over-popover8' : undefined}
                 aria-haspopup="true"
                 onMouseEnter={(e) => handlePopoverOpen(e, 8)}
                 onMouseLeave={handlePopoverClose}
               >
-                <HelpIcon className="help-icon" />
+                <img src={`/images/questionmark.png`} className="help-icon" />
               </Box>
               {popNum === 8 && (
                 <Popover
@@ -420,7 +440,7 @@ const PortfolioComponent = () => {
                   onMouseEnter={(e) => handlePopoverOpen(e, 9)}
                   onMouseLeave={handlePopoverClose}
                 >
-                  <HelpIcon className="help-icon" />
+                  <img src={`/images/questionmark.png`} className="help-icon" />
                 </Box>
                 {popNum === 9 && (
                   <Popover

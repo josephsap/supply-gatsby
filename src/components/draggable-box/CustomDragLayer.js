@@ -42,7 +42,7 @@ export const CustomDragLayer = ({ content }) => {
   }));
   function renderItem() {
     if (itemType === 'box') {
-      return <BoxDragPreview content={item.content} />;
+      return <BoxDragPreview content={item.content} className="dragstuff" />;
     }
     return null;
   }

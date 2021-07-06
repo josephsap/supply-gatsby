@@ -4,7 +4,7 @@ const styles = (theme) => css`
   html {
     font-size: 62.5%;
     overflow-x: hidden;
-    ${'' /* cursor: url('images/cursor.png'), auto; */}
+    cursor: url('images/cursor.png'), auto;
   }
   body {
     font-size: 1.4rem;

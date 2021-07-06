@@ -63,10 +63,8 @@ const styles = (theme) => css`
   }
 
   .help-icon {
-    color: #c27559;
-    font-size: 2.7rem;
+    width: 30px;
     position: absolute;
-    cursor: help;
     animation: lighten 3s linear infinite;
   }
 
@@ -86,9 +84,9 @@ const styles = (theme) => css`
   }
 
   .help-icon-name {
-    right: -9px;
+    right: 1px;
     left: auto;
-    top: -16px;
+    top: -3px;
   }
 
   .name-container {
@@ -97,7 +95,19 @@ const styles = (theme) => css`
 
   .help-icon-about {
     left: 50%;
-    top: 10px;
+    top: 1px;
+  }
+
+  .icon-titles {
+    top: 15px;
+  }
+
+  .top-mid-item {
+    left: 4rem;
+    .help-icon {
+      left: -10px;
+      top: -10px;
+    }
   }
 
   .help-icon-maincopy {

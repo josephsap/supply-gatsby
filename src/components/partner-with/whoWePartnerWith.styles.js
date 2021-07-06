@@ -50,7 +50,7 @@ const styles = (theme) => css`
       outline: none;
     }
     &.active {
-      color: #ffe0f0;
+      color: ${theme.palette.supply.cement.main};
     }
   }
 
