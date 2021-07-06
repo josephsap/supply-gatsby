@@ -24,12 +24,12 @@ const PortfolioComponent = () => {
         <Container maxWidth="lg" className="side-padding">
           <Grid container direction="row" justify="center" alignItems="center">
             <Grid item xs={12} sm={6} className="popover-anchor">
-              <Typography variant="h4" component="h1">
+              <Typography variant="h4" component="h1" className="sample-title">
                 Sample McRegus
               </Typography>
               <Box>
                 <Box
-                  className="tooltip-container"
+                  className="tooltip-container name-container"
                   pt={3}
                   aria-owns={open ? 'mouse-over-popover1' : undefined}
                   aria-haspopup="true"
@@ -50,10 +50,10 @@ const PortfolioComponent = () => {
                     }}
                     transformOrigin={{
                       vertical: 'top',
-                      horizontal: 'center',
+                      horizontal: 'left',
                     }}
                     anchorReference="anchorPosition"
-                    anchorPosition={{ top: 80, left: 100 }}
+                    anchorPosition={{ top: 60, left: 150 }}
                     onClose={handlePopoverClose}
                     disableRestoreFocus
                   >

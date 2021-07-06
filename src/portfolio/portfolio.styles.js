@@ -16,6 +16,13 @@ const styles = (theme) => css`
     }
   }
 
+  .sample-title {
+    border-bottom: 5px solid #bb9cfe;
+    width: fit-content;
+    max-width: fit-content;
+    line-height: 0.8;
+  }
+
   .main {
     background-color: ${theme.palette.supply.cream.main};
   }
@@ -79,8 +86,13 @@ const styles = (theme) => css`
   }
 
   .help-icon-name {
-    top: 0;
-    left: 95px;
+    right: -9px;
+    left: auto;
+    top: -16px;
+  }
+
+  .name-container {
+    width: 50%;
   }
 
   .help-icon-about {
