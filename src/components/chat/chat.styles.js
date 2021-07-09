@@ -162,7 +162,7 @@ export const agentMsgStyles = (theme) => css`
   }
 
   span {
-    font-size: 0.3rem;
+    font-size: 0.7rem;
     line-height: 1;
   }
 

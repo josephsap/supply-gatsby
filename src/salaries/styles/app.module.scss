@@ -130,13 +130,14 @@
 }
 
 .dropdownCopy {
+  font-weight: bold;
   @media (max-width: 769px) {
     width: 100%;
   }
 }
 
 .disabledButton {
-  background-color: gray;
+  opacity: 0;
   pointer-events: none;
 }
 

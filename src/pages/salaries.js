@@ -12,7 +12,6 @@ import withDataFetching from '../salaries/components/withDataFetching';
 import LoadingScreen from '../salaries/components/loadingScreen';
 import Footer from '../components/footer';
 import { Button, Grid, Popover, Box, Typography } from '@material-ui/core';
-import ChatComponent from '../components/chat/chatComponent';
 
 const SalariesPage = (props) => {
   const { loading, titles, locations } = props;
@@ -255,7 +254,6 @@ const SalariesPage = (props) => {
               </div>
             </div>
           </div>
-          <ChatComponent ref={wrapperRef} />
           <Footer footer={contentfulFooter} />
         </div>
       )}

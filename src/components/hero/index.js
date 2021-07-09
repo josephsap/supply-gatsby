@@ -150,7 +150,6 @@ const HeroSection = ({ heroSection }) => {
 
   return (
     <>
-      {showMdAndUp && <Ticker />}
       <div
         style={{ position: 'relative', overflow: 'hidden' }}
         ref={wrapperRef}
@@ -168,6 +167,7 @@ const HeroSection = ({ heroSection }) => {
           </div>
         )}
         <Container maxWidth={false} css={styles} id="section0">
+          {showMdAndUp && <Ticker />}
           <Container maxWidth="lg" className="side-padding">
             <Grid container css={backgroundStyles}>
               <Grid

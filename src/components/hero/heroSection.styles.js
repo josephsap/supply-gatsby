@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 
 const styles = (theme) => css`
   background-color: ${theme.palette.supply.cream.main};
-  padding: 2rem 0 8rem;
+  padding: 0 0 8rem;
   overflow: hidden;
   ${theme.breakpoints.up('md')} {
     padding-bottom: 32rem;
