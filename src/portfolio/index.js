@@ -313,7 +313,7 @@ const PortfolioComponent = () => {
           </Grid>
           <Grid container spacing={10}>
             <Grid item xs={12} sm={6} md={4} className="portfolio-item">
-              <img src={`/images/f0.jpeg`} />
+              <img className="portfolio-img" src={`/images/portfolio1.jpeg`} />
               <Box mt={2} mb={2}>
                 <Typography variant="body1">
                   Product Microsite Launch - Shoe
@@ -410,7 +410,7 @@ const PortfolioComponent = () => {
                   </Box>
                 </Popover>
               )}
-              <img src={`/images/f1.jpeg`} />
+              <img className="portfolio-img" src={`/images/portfolio2.jpeg`} />
               <Box mt={2} mb={2}>
                 <Typography variant="body1">Company Website Launch</Typography>
                 <Typography variant="body1">
@@ -425,7 +425,7 @@ const PortfolioComponent = () => {
             </Grid>
 
             <Grid item xs={12} sm={6} md={4} className="portfolio-item">
-              <img src={`/images/f2.jpeg`} />
+              <img className="portfolio-img" src={`/images/portfolio3.jpeg`} />
               <Box mt={2} mb={2}>
                 <Typography variant="body1">
                   Mobile Concepts for New Product
@@ -480,7 +480,7 @@ const PortfolioComponent = () => {
             </Grid>
 
             <Grid item xs={12} sm={6} md={4} className="portfolio-item">
-              <img src={`/images/f3.jpeg`} />
+              <img className="portfolio-img" src={`/images/portfolio4.jpeg`} />
               <Box mt={2} mb={2}>
                 <Typography variant="body1">
                   CMS Dashboard for Company5
@@ -498,7 +498,7 @@ const PortfolioComponent = () => {
             </Grid>
 
             <Grid item xs={12} sm={6} md={4} className="portfolio-item">
-              <img src={`/images/f4.jpeg`} />
+              <img className="portfolio-img" src={`/images/portfolio5.jpeg`} />
               <Box mt={2} mb={2}>
                 <Typography variant="body1">iPad app with Company4</Typography>
                 <Typography variant="body1">Agency: IdeaShop4</Typography>
@@ -511,7 +511,7 @@ const PortfolioComponent = () => {
             </Grid>
 
             <Grid item xs={12} sm={6} md={4} className="portfolio-item">
-              <img src={`/images/f5.jpeg`} />
+              <img className="portfolio-img" src={`/images/portfolio6.jpeg`} />
               <Box mt={2} mb={2}>
                 <Typography variant="body1">
                   Digital Interactive Installation for Company3
@@ -529,7 +529,7 @@ const PortfolioComponent = () => {
             </Grid>
 
             <Grid item xs={12} sm={6} md={4} className="portfolio-item">
-              <img src={`/images/f6.jpeg`} />
+              <img className="portfolio-img" src={`/images/portfolio7.jpeg`} />
               <Box mt={2} mb={2}>
                 <Typography variant="body1">
                   Agency Dashboard for Company2
@@ -544,7 +544,7 @@ const PortfolioComponent = () => {
             </Grid>
 
             <Grid item xs={12} sm={6} md={4} className="portfolio-item">
-              <img src={`/images/f7.jpeg`} />
+              <img className="portfolio-img" src={`/images/portfolio8.jpeg`} />
               <Box mt={2} mb={2}>
                 <Typography variant="body1">
                   Mobile Game for Company1

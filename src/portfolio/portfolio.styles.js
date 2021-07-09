@@ -27,6 +27,10 @@ const styles = (theme) => css`
     background-color: ${theme.palette.supply.cream.main};
   }
 
+  .portfolio-img {
+    max-width: 100%;
+  }
+
   .intro-copy {
     text-align: center;
     ${theme.breakpoints.up('md')} {
