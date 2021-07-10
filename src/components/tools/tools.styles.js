@@ -29,7 +29,7 @@ const styles = (theme) => css`
     ${initiallyHidden}
     text-align: center;
     ${theme.breakpoints.up('md')} {
-      text-align: left; 
+      text-align: left;
     }
   }
 
@@ -46,7 +46,7 @@ const styles = (theme) => css`
     width: 0px;
     display: inline-block;
     vertical-align: middle;
-    background-color: #000;
+    background-color: ${theme.palette.text.primary};
     overflow: hidden;
     opacity: 0;
     margin: 0 1rem;
@@ -56,14 +56,9 @@ const styles = (theme) => css`
 
   .line-animate {
     .line {
-      height: 5px;
       width: 200px;
       opacity: 1;
-      background-color: #000;
-      color: #000;
-      -webkit-transition: all 0.8s ease;
-      -moz-transition: all 0.8s ease;
-      transition: all 0.8s ease;
+      transition: all 0.5s ease;
     }
   }
 `;

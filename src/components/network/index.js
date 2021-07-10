@@ -8,7 +8,10 @@ import theme from '../../theme';
 
 import SvgNetworkInner from '../../assets/svg/network-inner.inline.svg';
 import SvgNetworkOuter from '../../assets/svg/network-outer.inline.svg';
-import IconStar from '../../assets/svg/icon-star.inline.svg';
+import IconStar1 from '../../assets/svg/starblue.inline.svg';
+import IconStar2 from '../../assets/svg/starbrown.inline.svg';
+import IconStar3 from '../../assets/svg/stargreen.inline.svg';
+import IconStar4 from '../../assets/svg/stareraser.inline.svg';
 
 gsap.registerPlugin(ScrollTrigger);
 const SCROLL_TRIGGER_ID = `networkAnimation`;
@@ -207,7 +210,7 @@ const NetworkSection = ({ networkSection }) => {
                           </Typography>
                         </div>
                         <div className="svg-container">
-                          <IconStar />
+                          <IconStar1 />
                         </div>
                       </div>
                     </div>
@@ -215,15 +218,51 @@ const NetworkSection = ({ networkSection }) => {
                 })}
                 <div className="background-svg-container">
                   {stars.map((star, i) => {
-                    return (
-                      <div
-                        className="svg-container"
-                        key={`star-${i}`}
-                        ref={backgroundStars.current[i]}
-                      >
-                        <IconStar />
-                      </div>
-                    );
+                    if (i === 0) {
+                      return (
+                        <div
+                          className="svg-container"
+                          key={`star-${i}`}
+                          ref={backgroundStars.current[0]}
+                        >
+                          <IconStar1 />
+                        </div>
+                      );
+                    }
+                    if (i === 1) {
+                      return (
+                        <div
+                          className="svg-container"
+                          key={`star-${i}`}
+                          ref={backgroundStars.current[1]}
+                        >
+                          <IconStar2 />
+                        </div>
+                      );
+                    }
+                    if (i === 2) {
+                      return (
+                        <div
+                          className="svg-container"
+                          key={`star-${i}`}
+                          ref={backgroundStars.current[2]}
+                        >
+                          <IconStar3 />
+                        </div>
+                      );
+                    }
+                    if (i === 3) {
+                      return (
+                        <div
+                          className="svg-container"
+                          key={`star-${i}`}
+                          ref={backgroundStars.current[3]}
+                        >
+                          <IconStar4 />
+                        </div>
+                      );
+                    }
+                    <IconStar3 />;
                   })}
                 </div>
               </div>

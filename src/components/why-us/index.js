@@ -14,7 +14,7 @@ const WhyUsSection = ({ whyUsSection }) => {
 
   useScrollAnimation(wrapper, [headline, description, introCopy]);
   useScrollAnimation(roldxImg, [roldxImg]);
-  console.log(whyUsSection.gifUrl, '*****');
+
   return (
     <Container maxWidth={false} css={styles} id="section3">
       <Container maxWidth="lg" className="side-padding">

@@ -125,9 +125,8 @@ const styles = (theme) => css`
         display: block;
         width: 100%;
         height: 100%;
-      }
-      path {
-        fill: ${theme.palette.supply.salmon.main};
+        position: relative;
+        z-index: 2;
       }
     }
 
