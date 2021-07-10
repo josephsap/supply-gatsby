@@ -64,7 +64,7 @@ const GivingBackSection = ({ givingBackSection }) => {
       style={{
         backgroundColor: '#E7C7AC',
         position: 'relative',
-        zIndex: '-1',
+        zIndex: '0',
       }}
     >
       <Container maxWidth="lg" className="side-padding">

@@ -26,6 +26,7 @@ const styles = (theme) => css`
   .member-wrapper {
     ${initiallyHidden}
     display: flex;
+    justify-content: center;
   }
 
   .teammate-container {

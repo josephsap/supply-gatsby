@@ -14,9 +14,6 @@ import styles, {
 import Ticker from './ticker';
 import ChatComponent from '../chat/chatComponent';
 
-// TODO: adjust cache values once we are
-// in production https://www.gatsbyjs.com/docs/how-to/previews-deploys-hosting/deploying-to-heroku/
-
 gsap.registerPlugin(ScrollTrigger);
 const SCROLL_TRIGGER_ID = `heroAnimation`;
 

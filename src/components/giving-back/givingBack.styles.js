@@ -19,6 +19,7 @@ export const baseStyles = (theme) => css`
 `;
 
 export const drawStyles = css`
+  z-index: 2;
   transition: all 0.5s ease-in-out;
   &::before,
   &::after {

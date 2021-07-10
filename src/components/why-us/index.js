@@ -14,7 +14,7 @@ const WhyUsSection = ({ whyUsSection }) => {
 
   useScrollAnimation(wrapper, [headline, description, introCopy]);
   useScrollAnimation(roldxImg, [roldxImg]);
-
+  console.log(whyUsSection.gifUrl, '*****');
   return (
     <Container maxWidth={false} css={styles} id="section3">
       <Container maxWidth="lg" className="side-padding">
@@ -54,7 +54,9 @@ const WhyUsSection = ({ whyUsSection }) => {
             </Typography>
           </Grid>
           <Grid item xs={12} className="second-section">
-            <img src={whyUsSection.mainImage.file.url} ref={roldxImg} />
+            <video loop autoPlay={true} muted width="100%">
+              <source src={whyUsSection.gifUrl} type="video/mp4" />
+            </video>
           </Grid>
         </Grid>
       </Container>

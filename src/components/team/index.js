@@ -5,11 +5,16 @@ import useScrollAnimation from '../../hooks/use-scroll-animation';
 import { useSpring, animated } from 'react-spring';
 
 const MeetTheTeamSection = ({ meetTheTeamSection }) => {
+  const {
+    teamMember,
+    title,
+    wereHiringText,
+    wereHiringImage,
+  } = meetTheTeamSection;
   const wrapper = useRef(null);
   const teamMemberRef = useRef(null);
   const titleRef = useRef(null);
-  const teamImg = meetTheTeamSection.wereHiringImage.file.url;
-
+  const teamImg = wereHiringImage.file.url;
   useScrollAnimation(wrapper, [teamMemberRef, titleRef]);
 
   const calc = (x, y) => [
@@ -36,7 +41,7 @@ const MeetTheTeamSection = ({ meetTheTeamSection }) => {
         <Grid container ref={wrapper}>
           <Grid item xs={12} className="team-section-title" ref={titleRef}>
             <Typography variant="h5" component="h2">
-              {meetTheTeamSection.title}
+              {title}
             </Typography>
             <animated.div
               onMouseMove={({ clientX: x, clientY: y }) =>
@@ -50,11 +55,12 @@ const MeetTheTeamSection = ({ meetTheTeamSection }) => {
             </animated.div>
           </Grid>
           <Grid container className="member-wrapper" ref={teamMemberRef}>
-            {meetTheTeamSection.teamMember.map((teamMember) => (
+            {teamMember.map((teamMember) => (
               <Grid
                 item
                 xs={12}
-                md={4}
+                sm={teamMember.length > 2 ? 4 : 6}
+                md={teamMember.length > 2 ? 4 : 5}
                 key={teamMember.id}
                 className="teammate-container"
               >
@@ -78,9 +84,7 @@ const MeetTheTeamSection = ({ meetTheTeamSection }) => {
           </Grid>
         </Grid>
         <Grid item xs={12}>
-          <Typography variant="body1">
-            {meetTheTeamSection.wereHiringText}
-          </Typography>
+          <Typography variant="body1">{wereHiringText}</Typography>
         </Grid>
       </Container>
     </Container>

@@ -78,11 +78,7 @@ export const PAGE_DATA_QUERY = graphql`
       descriptionTwo {
         descriptionTwo
       }
-      mainImage {
-        file {
-          url
-        }
-      }
+      gifUrl
     }
     contentfulGivingBackSection {
       rightSideTitle

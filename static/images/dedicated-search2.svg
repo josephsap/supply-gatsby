@@ -1,0 +1,9 @@
+<svg width="125" height="60" viewBox="0 0 125 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M88.8069 48.0342C90.9245 50.1811 92.5697 51.8231 93.9942 53.1016C95.7028 54.6351 96.9953 55.5531 98.2686 56.1441C102.651 58.1776 107.683 58.1776 112.065 56.1441C113.338 55.5531 114.631 54.6351 116.339 53.1016C117.764 51.8231 119.409 50.1811 121.526 48.0342C119.409 45.8873 117.764 44.2453 116.339 42.9668C114.631 41.4333 113.338 40.5153 112.065 39.9244C107.683 37.8909 102.651 37.8909 98.2686 39.9244C96.9953 40.5153 95.7028 41.4333 93.9942 42.9668C92.5697 44.2453 90.9245 45.8873 88.8069 48.0342Z" fill="white" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse rx="7.66667" ry="7.75665" transform="matrix(1 -8.84489e-08 -8.64086e-08 -1 101.334 48.0339)" fill="#CC6D51"/>
+<rect x="2" y="39.4343" width="18" height="18.2113" rx="9" stroke="white" stroke-width="3" stroke-linejoin="round"/>
+<rect x="39" y="39.4343" width="18" height="18.2113" rx="9" stroke="white" stroke-width="3" stroke-linejoin="round" stroke-dasharray="3 5"/>
+<rect x="2" y="2" width="18" height="18.2113" rx="9" stroke="white" stroke-width="3" stroke-linejoin="round"/>
+<rect x="39" y="2" width="18" height="18.2113" rx="9" stroke="white" stroke-width="3" stroke-linejoin="round"/>
+<line x1="48" y1="49.0635" x2="91" y2="49.0635" stroke="white" stroke-width="3"/>
+</svg>
